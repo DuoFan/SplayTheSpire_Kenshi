@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <copy file="target/Kenshi.jar" tofile="G:/Steam/steamapps/common/SlayTheSpire/mods/Kenshi.jar"/>
+</target>
+</project>

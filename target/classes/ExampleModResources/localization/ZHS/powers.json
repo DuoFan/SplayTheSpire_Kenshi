@@ -1,0 +1,50 @@
+{
+  "game.duofan.kenshi:ZhuLiuBaiJia": {
+    "NAME": "诸流百家",
+    "DESCRIPTIONS": [
+      "打出流派卡牌后，进入对应 #r流派 。"
+    ]
+  },
+  "game.duofan.kenshi:BaiJiaZhiChang": {
+    "NAME": "百家之长",
+    "DESCRIPTIONS": [
+      " NL 每次改变 #r流派 时，获得 #r%d点 格挡。"
+    ]
+  },
+  "game.duofan.kenshi:JiYiXingTai": {
+    "NAME": "极意形态",
+    "DESCRIPTIONS": [
+      " NL 每次从 #r架势 进入 #r攻势 时，每剩余一层架势获得 #r%d 点格挡， NL 从 #r攻势 进入 #r终势 时，每剩余一层攻势获得 #r%d 点临时力量。"
+    ]
+  },
+  "game.duofan.kenshi:JiaShi": {
+    "NAME": "架势",
+    "DESCRIPTIONS": [
+      " NL 攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出一张牌移除一层，回合结束时全部移除。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+    ]
+  },
+  "game.duofan.kenshi:GongShi": {
+    "NAME": "攻势",
+    "DESCRIPTIONS": [
+      " NL 攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出一张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在同一攻势阶段累积进行4次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
+    ]
+  },
+  "game.duofan.kenshi:ZhongShi": {
+    "NAME": "终势",
+    "DESCRIPTIONS": [
+      " NL 可触发尾声效果，NL NL 每打出一张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
+    ]
+  },
+  "game.duofan.kenshi:FengZhiLiu": {
+    "NAME": "枫之流",
+    "DESCRIPTIONS": [
+      " NL 可触发枫之流效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:FengZhiXin": {
+    "NAME": "枫之心",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r枫之流 时，抽取 #r%d 张卡牌。"
+    ]
+  }
+}

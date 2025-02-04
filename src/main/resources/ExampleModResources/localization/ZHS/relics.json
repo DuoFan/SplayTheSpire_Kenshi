@@ -1,0 +1,9 @@
+{
+  "game.duofan.kenshi:ChiYouXiang": {
+    "NAME": "赤幽香",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      "游戏开始时，获得 #rduofan_kenshi:诸流百家 ，回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
+    ]
+  }
+}

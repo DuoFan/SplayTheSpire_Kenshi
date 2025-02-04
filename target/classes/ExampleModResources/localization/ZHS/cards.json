@@ -1,0 +1,57 @@
+{
+  "game.duofan.kenshi:Strike": {
+    "NAME": "打击",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害。"
+  },
+  "game.duofan.kenshi:Defend": {
+    "NAME": "防御",
+    "DESCRIPTION": "获得 !B! 点格挡。",
+    "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡。"
+  },
+  "game.duofan.kenshi:YueBu": {
+    "NAME": "跃步",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ，抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ，抽取1张卡牌。"
+  },
+  "game.duofan.kenshi:KongZhiJuLi": {
+    "NAME": "控制距离",
+    "DESCRIPTION": "获得 !B! 点格挡， !M! 层 duofan_kenshi:架势 。",
+    "DESCRIPTION": "获得 !B! 点格挡， !M! 层 duofan_kenshi:架势 。"
+  },
+  "game.duofan.kenshi:BaiJiaZhiChang_Card": {
+    "NAME": "百家之长",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。"
+  },
+  "game.duofan.kenshi:JiYiXingTai_Card": {
+    "NAME": "极意形态",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:极意形态 。",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:极意形态 。"
+  },
+  "game.duofan.kenshi:FZL_PiaoSiXue": {
+    "NAME": "枫之流:飘似雪",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+  },
+  "game.duofan.kenshi:FZL_KuangFengJuanYe": {
+    "NAME": "枫之流:狂风卷叶",
+    "DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。"
+  },
+  "game.duofan.kenshi:FZL_QianYeWu": {
+    "NAME": "枫之流:千叶舞",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+  },
+  "game.duofan.kenshi:FZL_ZhiQie": {
+    "NAME": "枫之流:枝切",
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :获得 !M! 层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :获得 !M! 层 duofan_kenshi:攻势 。"
+  },
+  "game.duofan.kenshi:FZL_FengZhiXin": {
+    "NAME": "枫之流:枫之心",
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 。 NL duofan_kenshi:枫之流 :获得1点能量。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 。 NL duofan_kenshi:枫之流 :获得1点能量。"
+  }
+}
