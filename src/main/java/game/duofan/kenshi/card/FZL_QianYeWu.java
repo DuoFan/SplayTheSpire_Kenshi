@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
@@ -23,13 +24,13 @@ public class FZL_QianYeWu extends CustomCard implements IFengZhiLiuCard {
     private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardColor COLOR = AbstractCard.CardColor.COLORLESS;
+    private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
     public FZL_QianYeWu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 1;
+        this.damage = this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 4;
     }
 

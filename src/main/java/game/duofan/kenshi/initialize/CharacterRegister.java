@@ -37,7 +37,7 @@ public class CharacterRegister implements EditCharactersSubscriber {
     public CharacterRegister() {
         Color characterRgbColor = Const.CHARACTER_RGB_COLOR;
         // 这里注册颜色
-        BaseMod.addColor(KenShi.CharacterEnum.COLOR_KENSHI, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENEYGY_ORB, BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, BIG_ORB, SMALL_ORB);
+        BaseMod.addColor(Const.KENSHI_CARD_COLOR, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, characterRgbColor, BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENEYGY_ORB, BG_ATTACK_1024, BG_SKILL_1024, BG_POWER_1024, BIG_ORB, SMALL_ORB);
     }
 
     @Override

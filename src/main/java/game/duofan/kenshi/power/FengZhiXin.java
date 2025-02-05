@@ -26,7 +26,8 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     boolean isRegisted;
-    public FengZhiXin(AbstractCreature owner,int _amount) {
+
+    public FengZhiXin(AbstractCreature owner, int _amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -44,14 +45,14 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount);
+        this.description = String.format(DESCRIPTIONS[0], this.amount * 2);
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if(!isRegisted){
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN,this);
+        if (!isRegisted) {
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
             isRegisted = true;
         }
     }
@@ -59,13 +60,13 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     @Override
     public void onVictory() {
         super.onVictory();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_FZL_ON_TURN,this);
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_FZL_ON_TURN, this);
     }
 
     @Override
     public void onDeath() {
         super.onDeath();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_FZL_ON_TURN,this);
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_FZL_ON_TURN, this);
     }
 
     @Override

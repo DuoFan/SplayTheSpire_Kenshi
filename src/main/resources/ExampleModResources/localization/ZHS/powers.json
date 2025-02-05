@@ -35,6 +35,12 @@
       " NL 可触发尾声效果，NL NL 每打出一张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
     ]
   },
+  "game.duofan.kenshi:AnYing": {
+    "NAME": "暗影",
+    "DESCRIPTIONS": [
+      " NL 无法从卡牌中获得格挡，下一张攻击卡造成的伤害增加 #r50% 。 NL NL 在打出一张攻击卡或回合结束时移除。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
@@ -45,6 +51,18 @@
     "NAME": "枫之心",
     "DESCRIPTIONS": [
       " NL 每回合首次进入 #r枫之流 时，抽取 #r%d 张卡牌。"
+    ]
+  },
+  "game.duofan.kenshi:YingZhiLiu": {
+    "NAME": "影之流",
+    "DESCRIPTIONS": [
+      " NL 可触发影之流效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:YingZhiXin": {
+    "NAME": "影之心",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r影之流 时，遁入暗影。"
     ]
   }
 }

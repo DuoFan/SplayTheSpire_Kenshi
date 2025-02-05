@@ -63,6 +63,6 @@ public class ChiYouXiang extends CustomRelic {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi,2);
 
 
-        this.addToTop(new GainEnergyAction(100));
+        //this.addToTop(new GainEnergyAction(100));
     }
 }

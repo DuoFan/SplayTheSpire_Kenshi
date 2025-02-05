@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -78,27 +79,23 @@ public class KenShi extends CustomPlayer {
         // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         // e.setTime(e.getEndTime() * MathUtils.random());
         // e.setTimeScale(1.2F);
-
-
     }
 
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int x = 0; x < 4; x++) {
+        for (int x = 0; x < 5; x++) {
             retVal.add(Strike.ID);
+        }
+        for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
         retVal.add(YueBu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
 
-        retVal.add(KongZhiJuLi.ID);
-        retVal.add(FZL_KuangFengJuanYe.ID);
-        retVal.add(BaiJiaZhiChang_Card.ID);
-        retVal.add(FZL_QianYeWu.ID);
-        retVal.add(FZL_ZhiQie.ID);
-        retVal.add(JiYiXingTai_Card.ID);
-        retVal.add(FZL_FengZhiXin.ID);
+        retVal.add(FZL_PianXiaoYao.ID);
+        retVal.add(FZL_PianXiaoYao.ID);
+        retVal.add(FZL_PianXiaoYao.ID);
 
         return retVal;
     }
@@ -240,9 +237,11 @@ public class KenShi extends CustomPlayer {
         // ***并且名称需要一致！***
         @SpireEnum
         public static AbstractCard.CardColor COLOR_KENSHI;
+    }
 
+    public static class LibraryEnum {
         @SpireEnum
-        public static CardLibrary.LibraryType LIBRARY_KENSHI;
+        public static CardLibrary.LibraryType COLOR_KENSHI;
 
     }
 }

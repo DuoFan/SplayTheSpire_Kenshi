@@ -72,12 +72,6 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
     }
 
     @Override
-    public void atEndOfRound() {
-        super.atEndOfRound();
-        EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
-    }
-
-    @Override
     public void OnEvent(Object sender, Object e) {
 
         if(amount > 0){

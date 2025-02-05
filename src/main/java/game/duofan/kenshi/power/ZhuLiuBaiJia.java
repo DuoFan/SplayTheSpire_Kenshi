@@ -45,8 +45,10 @@ public class ZhuLiuBaiJia extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         if (card instanceof IFengZhiLiuCard) {
-            IFengZhiLiuCard fzlCard = (IFengZhiLiuCard) card;
             Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.FengZhiLiu);
+        }
+        else if(card instanceof IYingZhiLiuCard) {
+            Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.YingZhiLiu);
         }
     }
 

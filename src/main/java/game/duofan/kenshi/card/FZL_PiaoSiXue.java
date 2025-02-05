@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.action.RepeatAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
@@ -27,13 +28,13 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
-    private static final CardColor COLOR = CardColor.COLORLESS;
+    private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public FZL_PiaoSiXue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 2;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 
@@ -56,18 +57,18 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int c = magicNumber;
-        if(!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)){
-            while (c > 0){
+        if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
+            while (c > 0) {
                 this.addToBot(new DamageAction(
-                        m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
+                        m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
                 ));
                 c--;
             }
-        }
-        else{
-            while (c > 0){
+        } else {
+            int d = this.damage + (upgraded ? 4 : 6);
+            while (c > 0) {
                 this.addToBot(new DamageAllEnemiesAction(
-                        p,this.damage, DamageInfo.DamageType.NORMAL,
+                        p, d, DamageInfo.DamageType.NORMAL,
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 c--;
             }
@@ -78,14 +79,14 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)
-        || Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
+        if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)
+                || Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void FengZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
+        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, 1);
     }
 }

@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.*;
 
@@ -23,7 +24,7 @@ public class FZL_FengZhiXin extends CustomCard implements IFengZhiLiuCard {
     private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.POWER;
-    private static final AbstractCard.CardColor COLOR = AbstractCard.CardColor.COLORLESS;
+    private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
