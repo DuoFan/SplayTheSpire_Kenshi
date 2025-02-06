@@ -15,7 +15,7 @@ public class TextRegister implements EditStringsSubscriber {
         if (Settings.language == Settings.GameLanguage.ZHS) {
             lang = "ZHS";
         } else {
-            lang = "ENG";
+            lang = "ZHS";
         }
         BaseMod.loadCustomStringsFile(CardStrings.class, "ExampleModResources/localization/" + lang + "/cards.json");
         // 这里添加注册本地化文本

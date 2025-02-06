@@ -18,7 +18,7 @@ public class KeywordRegister implements EditKeywordsSubscriber {
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String lang = "eng";
+        String lang = "zhs";
         if (language == Settings.GameLanguage.ZHS) {
             lang = "zhs";
         }

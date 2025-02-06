@@ -1,12 +1,11 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.unique.DamagePerAttackPlayedAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -18,14 +17,14 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.action.RepeatAction;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
 
-public class FZL_PianXiaoYao extends CustomCard implements IFengZhiLiuCard {
+public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(FZL_PianXiaoYao.class);
+    public static final String ID = IDManager.getInstance().getID(FZL_HeFengZhan.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -33,24 +32,26 @@ public class FZL_PianXiaoYao extends CustomCard implements IFengZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public FZL_PianXiaoYao() {
+    public FZL_HeFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 8;
+        int baseValue = 3;
         this.damage = this.baseDamage = baseValue;
         this.baseBlock = this.block = baseValue;
-        baseMagicNumber = magicNumber = 1;
-        exhaust = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+
+            int value = 3;
+            upgradeDamage(value);
+            upgradeBlock(value);
+
             this.initializeDescription();
         }
     }
@@ -71,24 +72,16 @@ public class FZL_PianXiaoYao extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)
-                || Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+        && Utils.isLastUsedCardType(CardType.ATTACK)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void FengZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-
-        if (p == null) {
-            return;
-        }
-
-        if (damage > block) {
-            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
-        } else if (block > damage) {
-            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
+        if(Utils.isLastXUsedCardType(2,CardType.ATTACK)){
+            addToTop(new GainEnergyAction(1));
         }
     }
 }

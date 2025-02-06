@@ -32,6 +32,9 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    int extraDamage = 8;
+    int extraDamage2 = 12;
+
     public FZL_PiaoSiXue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 2;
@@ -65,7 +68,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
                 c--;
             }
         } else {
-            int d = this.damage + (upgraded ? 4 : 6);
+            int d = this.damage + (upgraded ? extraDamage2 : extraDamage);
             while (c > 0) {
                 this.addToBot(new DamageAllEnemiesAction(
                         p, d, DamageInfo.DamageType.NORMAL,

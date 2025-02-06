@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -21,7 +20,6 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.FengZhiXin;
 import game.duofan.kenshi.relic.ChiYouXiang;
 
 import java.util.ArrayList;
@@ -93,10 +91,6 @@ public class KenShi extends CustomPlayer {
         retVal.add(YueBu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
 
-        retVal.add(FZL_PianXiaoYao.ID);
-        retVal.add(FZL_PianXiaoYao.ID);
-        retVal.add(FZL_PianXiaoYao.ID);
-
         return retVal;
     }
 
@@ -111,8 +105,8 @@ public class KenShi extends CustomPlayer {
         return new CharSelectInfo(
                 characterStrings.NAMES[0], // 人物名字
                 characterStrings.TEXT[0], // 人物介绍
-                60, // 当前血量
-                60, // 最大血量
+                70, // 当前血量
+                70, // 最大血量
                 0, // 初始充能球栏位
                 99, // 初始携带金币
                 5, // 每回合抽牌数量

@@ -50,8 +50,8 @@ public class ZhongShi extends AbstractPower {
     }
 
     @Override
-    public void onPlayCard(AbstractCard card, AbstractMonster m) {
-        super.onPlayCard(card, m);
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        super.onUseCard(card, action);
         if(Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.ZhongShi)){
             Shi_StateMachine.getInstance().update();
         }

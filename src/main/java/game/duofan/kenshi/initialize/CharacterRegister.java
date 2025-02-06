@@ -3,6 +3,7 @@ package game.duofan.kenshi.initialize;
 import basemod.BaseMod;
 import basemod.interfaces.EditCharactersSubscriber;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.cards.purple.FollowUp;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import game.duofan.common.Const;
 import game.duofan.kenshi.KenShi;

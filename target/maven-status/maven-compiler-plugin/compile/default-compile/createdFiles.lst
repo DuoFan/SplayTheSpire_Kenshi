@@ -20,16 +20,17 @@ game\duofan\kenshi\power\IFengZhiLiuCard.class
 game\duofan\common\Utils$2.class
 game\duofan\common\Utils.class
 game\duofan\kenshi\power\Liu_StateMachine$StateEnum.class
+game\duofan\kenshi\card\FZL_HeFengZhan.class
 game\duofan\kenshi\power\Shi_StateMachine$GongShi_State.class
 game\duofan\common\Utils$1.class
 game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\RepeatAction.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class
+game\duofan\kenshi\card\FZL_LieFengZhan.class
 game\duofan\kenshi\power\JiYiXingTai$GongShi2ZhongShiListener.class
 game\duofan\kenshi\power\Shi_StateMachine$1.class
 game\duofan\kenshi\relic\ChiYouXiang.class
 game\duofan\kenshi\card\Defend.class
-game\duofan\kenshi\card\FZL_PianXiaoYao.class
 game\duofan\kenshi\power\FengZhiXin.class
 game\duofan\kenshi\power\JiYiXingTai.class
 game\duofan\kenshi\initialize\CardRegister.class
@@ -39,6 +40,7 @@ game\duofan\kenshi\initialize\CharacterRegister.class
 game\duofan\kenshi\power\YingZhiLiu.class
 game\duofan\kenshi\power\Shi_StateMachine$JiaShi_State.class
 game\duofan\kenshi\card\JiYiXingTai_Card.class
+game\duofan\kenshi\card\YZL_SiJiDaiFa.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
 game\duofan\kenshi\power\Shi_StateMachine$StateEnum.class
@@ -55,6 +57,7 @@ game\duofan\kenshi\initialize\TextRegister.class
 game\duofan\kenshi\KenShi$LibraryEnum.class
 game\duofan\kenshi\power\Liu_StateMachine$YingZhiLiu_State.class
 game\duofan\kenshi\power\Liu_StateMachine$FengZhiLiu_State.class
+game\duofan\kenshi\card\YZL_YingFu.class
 game\duofan\kenshi\card\KongZhiJuLi.class
 game\duofan\kenshi\power\ZhongShi.class
 game\duofan\kenshi\initialize\RelicsRegister.class

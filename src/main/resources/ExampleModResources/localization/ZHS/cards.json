@@ -31,8 +31,8 @@
   },
   "game.duofan.kenshi:FZL_PiaoSiXue": {
     "NAME": "枫之流:飘似雪",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +4点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +6点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +8点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +12点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
   },
   "game.duofan.kenshi:FZL_KuangFengJuanYe": {
     "NAME": "枫之流:狂风卷叶",
@@ -49,15 +49,20 @@
     "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :获得 !M! 层 duofan_kenshi:攻势 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :获得 !M! 层 duofan_kenshi:攻势 。"
   },
-  "game.duofan.kenshi:FZL_PianXiaoYao": {
-    "NAME": "枫之流:偏逍遥",
+  "game.duofan.kenshi:FZL_HeFengZhan": {
+    "NAME": "枫之流:和风斩",
+    "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :如果使用的上一张牌是攻击牌，则获得1点能量。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :如果使用的上一张牌是攻击牌，则获得1点能量。"
+  },
+  "game.duofan.kenshi:FZL_LieFengZhan": {
+    "NAME": "枫之流:烈风斩",
     "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 层力量，反之获得 !M! 层敏捷。 NL 消耗",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 层力量，反之获得 !M! 层敏捷。 NL 消耗"
   },
   "game.duofan.kenshi:FZL_FengZhiXin": {
     "NAME": "枫之流:枫之心",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 。 NL duofan_kenshi:枫之流 :获得1点能量。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 。 NL duofan_kenshi:枫之流 :获得1点能量。"
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 ，抽取2张卡牌。 NL duofan_kenshi:枫之流 :获得1点能量。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:枫之心 ，抽取2张卡牌。 NL duofan_kenshi:枫之流 :获得1点能量。"
   },
   "game.duofan.kenshi:YZL_YingShi": {
     "NAME": "影之流:影弑",
@@ -74,9 +79,19 @@
     "DESCRIPTION": "遁入 duofan_kenshi:暗影 ，抽取 !M! 张卡牌。 NL duofan_kenshi:影之流 :额外抽取1张卡牌。 NL 消耗",
     "UPGRADE_DESCRIPTION": "遁入 duofan_kenshi:暗影 ，抽取 !M! 张卡牌。 NL duofan_kenshi:影之流 :额外抽取1张卡牌。 NL 消耗"
   },
+  "game.duofan.kenshi:YZL_SiJiDaiFa": {
+    "NAME": "影之流:伺机待发",
+    "DESCRIPTION": "保留 NL 增加1张 *影之流:影弑 到你的手牌。 NL duofan_kenshi:影之流 :获得两层攻势。 NL 消耗",
+    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *影之流:影弑 到你的手牌。 NL 遁入暗影 NL duofan_kenshi:影之流 :获得两层攻势。 NL 消耗"
+  },
+  "game.duofan.kenshi:YZL_YingFu": {
+    "NAME": "影之流:影缚",
+    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL duofan_kenshi:影之流 :给予1层 易伤 。",
+    "UPGRADE_DESCRIPTION": "给予 !M! 层 虚弱 。 NL duofan_kenshi:影之流 :给予2层 易伤 。"
+  },
   "game.duofan.kenshi:YZL_YingZhiXin": {
     "NAME": "影之流:影之心",
-    "DESCRIPTION": "获得 duofan_kenshi:影之心 。 NL duofan_kenshi:影之流 :获得1点能量。",
-    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:影之心 。 NL duofan_kenshi:影之流 :获得1点能量。"
+    "DESCRIPTION": "获得 duofan_kenshi:影之心 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :获得1点能量。",
+    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:影之心 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :获得1点能量。"
   }
 }
