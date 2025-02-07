@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.AnYing;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
@@ -26,7 +27,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -35,7 +36,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
 
     public YZL_SiJiDaiFa() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
         exhaust = true;
         selfRetain = true;
     }
@@ -61,9 +62,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
         this.addToBot(new MakeTempCardInHandAction(new YZL_YingShi(), 1));
 
         if(upgraded){
-            AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
-            );
+            Utils.playerEnterAnYin();
         }
     }
 

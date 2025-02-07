@@ -20,7 +20,9 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.relic.ChiYouXiang;
+import game.duofan.kenshi.relic.BaiHong;
+import game.duofan.kenshi.relic.ChiYou;
+import game.duofan.kenshi.relic.YingGui;
 
 import java.util.ArrayList;
 
@@ -97,7 +99,7 @@ public class KenShi extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(ChiYouXiang.ID);
+        retVal.add(ChiYou.ID);
         return retVal;
     }
 

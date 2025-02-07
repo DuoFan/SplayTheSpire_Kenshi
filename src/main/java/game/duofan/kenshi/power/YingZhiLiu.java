@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 
 public class YingZhiLiu extends AbstractPower {
     // 能力的ID
@@ -47,6 +48,11 @@ public class YingZhiLiu extends AbstractPower {
         if (card instanceof IYingZhiLiuCard) {
             IYingZhiLiuCard yzlCard = (IYingZhiLiuCard) card;
             yzlCard.YingZhiLiuEffect();
+
+            if(Utils.getQiAmount() > 0){
+                yzlCard.YingZhiLiuEffect();
+                Utils.playerReduceQi(1);
+            }
         }
     }
 }

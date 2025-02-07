@@ -1,13 +1,14 @@
 package game.duofan.common;
 
-import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.vfx.combat.MiracleEffect;
+import game.duofan.kenshi.action.DrawCardByClass;
+import game.duofan.kenshi.power.AnYing;
+import game.duofan.kenshi.power.IFengZhiLiuCard;
+import game.duofan.kenshi.power.Qi;
 
 public class Utils {
     public static String generateID(String id) {
@@ -68,5 +69,59 @@ public class Utils {
         }
 
         return AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - x);
+    }
+
+    public static void playRemovePower(String powerID) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    RemoveSpecificPowerAction(p, p, powerID));
+        }
+    }
+
+    public static void playReducePower(String powerID, int amount) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null) {
+            AbstractDungeon.actionManager.addToBottom(
+                    new ReducePowerAction(p, p, powerID, amount));
+        }
+    }
+
+    public static void playerEnterAnYin() {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
+        );
+    }
+
+    public static void playerGainEnergy(int amount) {
+        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(amount));
+    }
+
+    public static void playerGainBlock(int amount) {
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, amount));
+    }
+
+    public static void playerGainQi(int amount) {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Qi(AbstractDungeon.player, amount))
+        );
+    }
+
+    public static void playerReduceQi(int amount) {
+        playReducePower(Qi.POWER_ID, amount);
+    }
+
+    public static int getQiAmount() {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null || !p.hasPower(Qi.POWER_ID)) {
+            return 0;
+        }
+
+        return p.getPower(Qi.POWER_ID).amount;
+    }
+
+    public static void playerDrawCardByClass(int amount, Class<?> targetClass) {
+        AbstractDungeon.actionManager.addToBottom(new DrawCardByClass(amount, targetClass));
     }
 }

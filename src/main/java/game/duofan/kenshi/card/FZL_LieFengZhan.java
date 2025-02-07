@@ -34,7 +34,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_LieFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 3;
+        int baseValue = 4;
         this.damage = this.baseDamage = baseValue;
         this.baseBlock = this.block = baseValue;
         baseMagicNumber = magicNumber = 1;

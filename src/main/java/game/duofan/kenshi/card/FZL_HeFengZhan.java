@@ -37,7 +37,7 @@ public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_HeFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 3;
+        int baseValue = 4;
         this.damage = this.baseDamage = baseValue;
         this.baseBlock = this.block = baseValue;
     }
@@ -81,7 +81,7 @@ public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void FengZhiLiuEffect() {
         if(Utils.isLastXUsedCardType(2,CardType.ATTACK)){
-            addToTop(new GainEnergyAction(1));
+            Utils.playerGainEnergy(1);
         }
     }
 }

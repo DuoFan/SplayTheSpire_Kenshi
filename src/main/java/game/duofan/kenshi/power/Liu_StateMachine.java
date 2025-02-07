@@ -43,20 +43,21 @@ public class Liu_StateMachine {
         EventManager.getInstance().notifyEvent(EventKey.ON_LIU_CHANGED,
                 this, null);
 
-        if (CheckNotify_FirstLiu_OnTurn(StateEnum.FengZhiLiu,EventKey.FIRST_FZL_ON_TURN)
-        || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu,EventKey.FIRST_YZL_ON_TURN)) {
+        if (CheckNotify_FirstLiu_OnTurn(StateEnum.FengZhiLiu, EventKey.FIRST_FZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu, EventKey.FIRST_YZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu, EventKey.FIRST_XZL_ON_TURN)) {
 
         }
     }
 
-    boolean CheckNotify_FirstLiu_OnTurn(StateEnum stateEnum,String eventKey){
+    boolean CheckNotify_FirstLiu_OnTurn(StateEnum stateEnum, String eventKey) {
         int flag = firstFlag & stateEnum.value;
-        if(flag == 1){
+        if (flag == 1) {
             System.out.println("-------已进入" + stateEnum);
             return false;
         }
 
-        if(!isStateMatch(stateEnum)){
+        if (!isStateMatch(stateEnum)) {
             System.out.println("-------未进入" + stateEnum);
             return false;
         }
@@ -80,6 +81,9 @@ public class Liu_StateMachine {
             case YingZhiLiu:
                 state = new YingZhiLiu_State();
                 break;
+            case XiaZhiLiu:
+                state = new XiaZhiLiu_State();
+                break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -98,20 +102,23 @@ public class Liu_StateMachine {
                 return powerID.equals(FengZhiLiu.POWER_ID);
             case YingZhiLiu:
                 return powerID.equals(YingZhiLiu.POWER_ID);
+            case XiaZhiLiu:
+                return powerID.equals(XiaZhiLiu.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
     }
 
     public enum StateEnum {
-        FengZhiLiu(1), YingZhiLiu(2);
+        FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4);
 
         private int value = 0;
-        private  StateEnum(int value){
+
+        private StateEnum(int value) {
             this.value = value;
         }
 
-        public int getValue(){
+        public int getValue() {
             return value;
         }
     }
@@ -149,6 +156,18 @@ public class Liu_StateMachine {
         @Override
         public void enter() {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new YingZhiLiu(AbstractDungeon.player)));
+        }
+    }
+
+    class XiaZhiLiu_State extends State {
+        @Override
+        public String getPowerID() {
+            return XiaZhiLiu.POWER_ID;
+        }
+
+        @Override
+        public void enter() {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new XiaZhiLiu(AbstractDungeon.player)));
         }
     }
 }

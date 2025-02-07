@@ -1,9 +1,23 @@
 {
-  "game.duofan.kenshi:ChiYouXiang": {
-    "NAME": "赤幽香",
+  "game.duofan.kenshi:ChiYou": {
+    "NAME": "赤幽",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "游戏开始时，获得 #rduofan_kenshi:诸流百家 ，回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
+      "战斗开始时，获得 #rduofan_kenshi:诸流百家 ，回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
+    ]
+  },
+  "game.duofan.kenshi:YingGui": {
+    "NAME": "影鬼",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      " #rduofan_kenshi:暗影 额外增加 #r25% 的伤害。"
+    ]
+  },
+  "game.duofan.kenshi:BaiHong": {
+    "NAME": "白虹",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      "战斗开始时，获得3层 #rduofan_kenshi:气 。"
     ]
   }
 }

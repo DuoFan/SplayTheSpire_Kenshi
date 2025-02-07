@@ -5,6 +5,7 @@ public class EventKey {
 
     public static final String FIRST_FZL_ON_TURN = "FIRST_FZL_ON_TURN";
     public static final String FIRST_YZL_ON_TURN = "FIRST_YZL_ON_TURN";
+    public static final String FIRST_XZL_ON_TURN = "FIRST_XZL_ON_TURN";
 
     public static final String ON_JIASHI_TO_GONGSHI = "ON_JIASHI_TO_GONGSHI";
     public static final String ON_GONGSHI_TO_ZHONGSHI = "ON_GONGSHI_TO_ZHONGSHI";

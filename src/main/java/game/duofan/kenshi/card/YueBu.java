@@ -37,6 +37,7 @@ public class YueBu extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeMagicNumber(1);
+            exhaust = true;
         }
     }
 
@@ -49,8 +50,5 @@ public class YueBu extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
-        AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(p, 1)
-        );
     }
 }

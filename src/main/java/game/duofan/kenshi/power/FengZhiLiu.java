@@ -3,13 +3,13 @@ package game.duofan.kenshi.power;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 
 public class FengZhiLiu extends AbstractPower {
     // 能力的ID
@@ -38,7 +38,7 @@ public class FengZhiLiu extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount,this.amount,Shi_StateMachine.getInstance().getGongShi_Accumulate());
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
@@ -47,6 +47,11 @@ public class FengZhiLiu extends AbstractPower {
         if (card instanceof IFengZhiLiuCard) {
             IFengZhiLiuCard fzlCard = (IFengZhiLiuCard) card;
             fzlCard.FengZhiLiuEffect();
+
+            if(Utils.getQiAmount() > 0){
+                fzlCard.FengZhiLiuEffect();
+                Utils.playerReduceQi(1);
+            }
         }
     }
 }

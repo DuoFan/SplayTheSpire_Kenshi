@@ -28,6 +28,8 @@ public class AnYing extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    static float extraBuff;
+
     public AnYing(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -45,13 +47,22 @@ public class AnYing extends AbstractPower {
         this.updateDescription();
     }
 
+    public static void setExtraBuff(float v) {
+        extraBuff = v;
+    }
+
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0];
+        int value = (int) ((calculateBuff() - 1) * 100);
+        this.description = String.format(DESCRIPTIONS[0], value);
+    }
+
+    float calculateBuff() {
+        return 1.5f + extraBuff;
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
-        return type == DamageInfo.DamageType.NORMAL ? damage * 1.5f : damage;
+        return type == DamageInfo.DamageType.NORMAL ? damage * calculateBuff() : damage;
     }
 
     @Override
@@ -62,9 +73,9 @@ public class AnYing extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if(card.type == AbstractCard.CardType.ATTACK){
+        if (card.type == AbstractCard.CardType.ATTACK) {
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p,p,POWER_ID));
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
         }
     }
 
@@ -72,6 +83,6 @@ public class AnYing extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p,p,POWER_ID));
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
     }
 }

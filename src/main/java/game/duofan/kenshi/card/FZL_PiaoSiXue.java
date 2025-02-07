@@ -37,7 +37,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_PiaoSiXue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 2;
+        this.damage = this.baseDamage = 3;
         this.magicNumber = this.baseMagicNumber = 2;
     }
 

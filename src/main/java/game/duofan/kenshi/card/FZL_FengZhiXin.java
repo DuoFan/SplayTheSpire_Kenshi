@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
 import java.util.Iterator;
@@ -68,6 +69,6 @@ public class FZL_FengZhiXin extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void FengZhiLiuEffect() {
-        this.addToBot(new GainEnergyAction(1));
+        Utils.playerGainEnergy(1);
     }
 }

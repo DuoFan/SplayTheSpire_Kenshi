@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
 import java.util.Iterator;
@@ -51,22 +52,20 @@ public class YZL_YingZhiXin extends CustomCard implements IYingZhiLiuCard {
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new YingZhiXin(p))
         );
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
-        );
+        Utils.playerEnterAnYin();
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)){
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void YingZhiLiuEffect() {
-        this.addToBot(new GainEnergyAction(1));
+        Utils.playerGainEnergy(1);
     }
 }

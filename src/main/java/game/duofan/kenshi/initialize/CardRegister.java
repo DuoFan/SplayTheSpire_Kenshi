@@ -16,6 +16,7 @@ public class CardRegister implements EditCardsSubscriber {
         BaseMod.addCard(new BaiJiaZhiChang_Card());
         BaseMod.addCard(new JiYiXingTai_Card());
 
+        BaseMod.addCard(new FZL_YaZhi());
         BaseMod.addCard(new FZL_PiaoSiXue());
         BaseMod.addCard(new FZL_KuangFengJuanYe());
         BaseMod.addCard(new FZL_QianYeWu());
@@ -24,12 +25,16 @@ public class CardRegister implements EditCardsSubscriber {
         BaseMod.addCard(new FZL_LieFengZhan());
         BaseMod.addCard(new FZL_FengZhiXin());
 
+        BaseMod.addCard(new YZL_QianFu());
         BaseMod.addCard(new YZL_YingShi());
         BaseMod.addCard(new YZL_EZhao());
         BaseMod.addCard(new YZL_YeBu());
         BaseMod.addCard(new YZL_SiJiDaiFa());
         BaseMod.addCard(new YZL_YingFu());
         BaseMod.addCard(new YZL_YingZhiXin());
+
+        BaseMod.addCard(new XZL_JuQi());
+        BaseMod.addCard(new XZL_BaiXiaZhan());
     }
 }
 

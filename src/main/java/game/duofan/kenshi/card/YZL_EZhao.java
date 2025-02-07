@@ -1,9 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -12,12 +10,10 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.AnYing;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
-
-import java.util.Iterator;
 
 public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(YZL_EZhao.class);
@@ -34,6 +30,7 @@ public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     public YZL_EZhao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 2;
+        exhaust = true;
     }
 
     @Override
@@ -53,9 +50,7 @@ public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, magicNumber);
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
-        );
+        Utils.playerEnterAnYin();
     }
 
     @Override
