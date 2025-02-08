@@ -36,10 +36,18 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    AbstractMonster monster;
+
     public XZL_HeQiZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         int baseValue = 6;
         this.damage = this.baseDamage = baseValue;
+        calculateMagicNumber();
+    }
+
+    @Override
+    public void update() {
+        super.update();
         calculateMagicNumber();
     }
 
@@ -72,7 +80,9 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        monster = m;
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -86,7 +96,8 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void XiaZhiLiuEffect() {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
-        exhaust = true;
+        if(monster != null){
+            this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
+        }
     }
 }

@@ -19,5 +19,12 @@
     "DESCRIPTIONS": [
       "战斗开始时，获得3层 #rduofan_kenshi:气 。"
     ]
+  },
+  "game.duofan.kenshi:WuMing": {
+    "NAME": "无名",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      "战斗开始时，随机将一张 #r流派卡 加入手牌，且费用降为0。"
+    ]
   }
 }

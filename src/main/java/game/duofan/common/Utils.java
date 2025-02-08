@@ -1,14 +1,19 @@
 package game.duofan.common;
 
+import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.kenshi.action.DrawCardByClass;
-import game.duofan.kenshi.power.AnYing;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.Qi;
+import game.duofan.kenshi.card.*;
+import game.duofan.kenshi.power.*;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Utils {
     public static String generateID(String id) {
@@ -36,6 +41,30 @@ public class Utils {
     }
 
     public interface Lambda extends Runnable {
+    }
+
+    public static void invokeLiuCardEffect(AbstractCard card) {
+        if (card == null) {
+            return;
+        }
+
+        if (card instanceof IFengZhiLiuCard) {
+            ((IFengZhiLiuCard) card).FengZhiLiuEffect();
+        } else if (card instanceof IYingZhiLiuCard) {
+            ((IYingZhiLiuCard) card).YingZhiLiuEffect();
+        } else if (card instanceof IXiaZhiLiuCard) {
+            ((IXiaZhiLiuCard) card).XiaZhiLiuEffect();
+        } else if (card instanceof IWeiZhiLiuCard) {
+            ((IWeiZhiLiuCard) card).WeiZhiLiuEffect();
+        }
+    }
+
+    public static void makeTempCardInHand(AbstractCard card, int i) {
+        if(card == null){
+            return;
+        }
+
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card, i));
     }
 
     public static boolean isLastUsedCardType(AbstractCard.CardType cardType) {
@@ -134,5 +163,101 @@ public class Utils {
 
     public static void playerDrawCardByClass(int amount, Class<?> targetClass) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardByClass(amount, targetClass));
+    }
+
+    public static ArrayList<AbstractCard> getCardsFromHand(int baseCost) {
+
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+
+        AbstractPlayer p = AbstractDungeon.player;
+
+        Iterator var3 = p.hand.group.iterator();
+
+        while (var3.hasNext()) {
+            AbstractCard c = (AbstractCard) var3.next();
+            if (c.costForTurn >= baseCost || c.cost >= baseCost) {
+                cards.add(c);
+            }
+        }
+
+        return cards;
+    }
+
+    public static AbstractCard getRandomCardFromHand(int baseCost, AbstractCard excludeCard) {
+
+        ArrayList<AbstractCard> cards = getCardsFromHand(baseCost);
+
+        if (excludeCard != null) {
+            cards.remove(excludeCard);
+        }
+
+        return getRandomCardsFromList(cards,false);
+    }
+
+    public static ArrayList<AbstractCard> getCardsFromLiu(Liu_StateMachine.StateEnum stateEnum) {
+        Liu_StateMachine stateMachine = Liu_StateMachine.getInstance();
+
+        ArrayList<AbstractCard> cards = new ArrayList<>();
+
+        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.FengZhiLiu)) {
+            cards.add(new FZL_YaZhi());
+            cards.add(new FZL_PiaoSiXue());
+            cards.add(new FZL_KuangFengJuanYe());
+            cards.add(new FZL_QianYeWu());
+            cards.add(new FZL_ZhiQie());
+            cards.add(new FZL_HeFengZhan());
+            cards.add(new FZL_LieFengZhan());
+            cards.add(new FZL_FengZhiXin());
+        }
+
+        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.YingZhiLiu)) {
+            cards.add(new YZL_QianFu());
+            cards.add(new YZL_YingShi());
+            cards.add(new YZL_EZhao());
+            cards.add(new YZL_YeBu());
+            cards.add(new YZL_SiJiDaiFa());
+            cards.add(new YZL_YingFu());
+            cards.add(new YZL_YingZhiXin());
+        }
+
+        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
+            cards.add(new XZL_JuQi());
+            cards.add(new XZL_GuiYuan());
+            cards.add(new XZL_BaiXiaZhan());
+            cards.add(new XZL_HeQiZhan());
+            cards.add(new XZL_PoXiao());
+            cards.add(new XZL_XiaZhiXin());
+        }
+
+        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
+            cards.add(new WZL_NiTai());
+            cards.add(new WZL_DaoGuo());
+            cards.add(new WZL_TaYin());
+            cards.add(new WZL_WeiZhiXin());
+        }
+
+        return cards;
+    }
+
+    public static AbstractCard getRandomCardFromLiu(Liu_StateMachine.StateEnum stateEnum) {
+        ArrayList cards = getCardsFromLiu(stateEnum);
+        if(cards.isEmpty()){
+            return null;
+        }
+        return getRandomCardsFromList(cards,false);
+    }
+
+    public static AbstractCard getRandomCardsFromList(ArrayList<AbstractCard> cards,boolean remove) {
+
+        if(cards == null || cards.isEmpty()){
+            return null;
+        }
+
+        int index = AbstractDungeon.cardRandomRng.random(cards.size()-1);
+        AbstractCard card = cards.get(index);
+        if(remove){
+            cards.remove(index);
+        }
+        return card;
     }
 }

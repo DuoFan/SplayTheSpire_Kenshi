@@ -56,7 +56,7 @@
   "game.duofan.kenshi:FengZhiXin": {
     "NAME": "枫之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r枫之流 时，抽取 #r%d 张卡牌。"
+      " NL 每回合首次进入 #r枫之流 时，抽取 #r2 张卡牌。"
     ]
   },
   "game.duofan.kenshi:YingZhiLiu": {
@@ -75,6 +75,24 @@
     "NAME": "霞之流",
     "DESCRIPTIONS": [
       " NL 可触发霞之流效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:XiaZhiXin": {
+    "NAME": "霞之心",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r霞之流 时，使1张随机手牌费用减1。"
+    ]
+  },
+  "game.duofan.kenshi:WeiZhiLiu": {
+    "NAME": "伪之流",
+    "DESCRIPTIONS": [
+      " NL 可触发伪之流效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:WeiZhiXin": {
+    "NAME": "伪之流",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r伪之流 时，随机将1张伪之流派卡(不包括伪之心)加入手牌。"
     ]
   }
 }

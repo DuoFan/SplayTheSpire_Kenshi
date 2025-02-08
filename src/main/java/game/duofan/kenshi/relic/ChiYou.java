@@ -44,7 +44,11 @@ public class ChiYou extends CustomRelic {
 
         EventManager.getInstance().removeAllEvent();
 
+        Liu_StateMachine.getInstance().clearFlags();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
         Liu_StateMachine.getInstance().reset();
+
         Shi_StateMachine.getInstance().reset();
 
         this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,

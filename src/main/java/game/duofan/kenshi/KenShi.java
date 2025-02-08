@@ -1,5 +1,6 @@
 package game.duofan.kenshi;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -22,6 +23,7 @@ import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.relic.BaiHong;
 import game.duofan.kenshi.relic.ChiYou;
+import game.duofan.kenshi.relic.WuMing;
 import game.duofan.kenshi.relic.YingGui;
 
 import java.util.ArrayList;
@@ -92,7 +94,6 @@ public class KenShi extends CustomPlayer {
         }
         retVal.add(YueBu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
-
         return retVal;
     }
 

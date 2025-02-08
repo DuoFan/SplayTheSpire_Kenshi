@@ -43,6 +43,12 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
         calculateMagicNumber();
     }
 
+    @Override
+    public void update() {
+        super.update();
+        calculateMagicNumber();
+    }
+
     int calculateMagicNumber() {
         int value = damage + extraDamage;
         if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {

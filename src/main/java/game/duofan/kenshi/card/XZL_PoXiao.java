@@ -1,10 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -33,8 +31,10 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.Rare;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
+
+    AbstractMonster monster;
 
     public XZL_PoXiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -43,8 +43,14 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
         calculateMagicNumber();
     }
 
-    int calculateMagicNumber(){
-        int value = Math.max(damage / 2,0);
+    @Override
+    public void update() {
+        super.update();
+        calculateMagicNumber();
+    }
+
+    int calculateMagicNumber() {
+        int value = Math.max(damage / 2, 0);
 
         this.magicNumber = this.baseMagicNumber = value;
 
@@ -72,6 +78,8 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        monster = m;
         if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
             this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         } else {
@@ -79,6 +87,7 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
                     p, damage, DamageInfo.DamageType.NORMAL,
                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
+        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -93,14 +102,15 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void XiaZhiLiuEffect() {
-
-        if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
-        } else {
-            this.addToBot(new DamageAllEnemiesAction(
-                    p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
-                    AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+        if (monster != null) {
+            AbstractPlayer p = AbstractDungeon.player;
+            if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
+                this.addToBot(new DamageAction(monster, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
+            } else {
+                this.addToBot(new DamageAllEnemiesAction(
+                        p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
+                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            }
         }
-        exhaust = true;
     }
 }

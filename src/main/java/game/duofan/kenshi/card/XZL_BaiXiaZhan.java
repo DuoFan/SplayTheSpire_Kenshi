@@ -1,10 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
 import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -66,6 +64,7 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         Utils.playerGainQi(magicNumber);
+        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -80,6 +79,5 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void XiaZhiLiuEffect() {
         Utils.playerGainEnergy(1);
-        exhaust = true;
     }
 }

@@ -53,6 +53,9 @@ public class YingZhiLiu extends AbstractPower {
                 yzlCard.YingZhiLiuEffect();
                 Utils.playerReduceQi(1);
             }
+
+            Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
+            Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
         }
     }
 }

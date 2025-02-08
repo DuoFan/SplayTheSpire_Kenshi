@@ -27,14 +27,14 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
 
     boolean isRegisted;
 
-    public FengZhiXin(AbstractCreature owner, int _amount) {
+    public FengZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = _amount;
+        this.amount = -1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -45,7 +45,7 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount * 2);
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
@@ -71,6 +71,6 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
 
     @Override
     public void OnEvent(Object sender, Object e) {
-        this.addToBot(new DrawCardAction(amount * 2));
+        this.addToBot(new DrawCardAction(2));
     }
 }

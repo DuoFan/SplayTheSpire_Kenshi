@@ -50,9 +50,7 @@ public class FZL_FengZhiXin extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new FengZhiXin(p, magicNumber))
-        );
+        Utils.playerGainPower(new FengZhiXin(p));
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(2)
         );

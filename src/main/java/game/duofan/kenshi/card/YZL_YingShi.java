@@ -49,6 +49,12 @@ public class YZL_YingShi extends CustomCard implements IYingZhiLiuCard {
         }
     }
 
+    @Override
+    public void update() {
+        super.update();
+        calculateMagicNumber();
+    }
+
     int calculateMagicNumber(){
         int value = Math.max(damage / 2,0);
 
@@ -83,7 +89,6 @@ public class YZL_YingShi extends CustomCard implements IYingZhiLiuCard {
         if(target != null){
             this.addToBot(new DamageAction(target,new DamageInfo(AbstractDungeon.player,
                     calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
-            target = null;
         }
     }
 }

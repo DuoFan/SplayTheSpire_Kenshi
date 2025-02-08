@@ -53,6 +53,9 @@ public class ZhuLiuBaiJia extends AbstractPower {
         else if(card instanceof IXiaZhiLiuCard){
             Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.XiaZhiLiu);
         }
+        else if(card instanceof IWeiZhiLiuCard){
+            Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.WeiZhiLiu);
+        }
     }
 
     @Override
@@ -60,5 +63,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
         super.atEndOfTurn(isPlayer);
         Liu_StateMachine.getInstance().reset();
         Liu_StateMachine.getInstance().clearFlags();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
     }
 }
