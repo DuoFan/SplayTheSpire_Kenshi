@@ -35,10 +35,21 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     int extraDamage = 8;
     int extraDamage2 = 12;
 
+    int damageCount = 2;
+
     public FZL_PiaoSiXue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 3;
-        this.magicNumber = this.baseMagicNumber = 2;
+        calculateMagicNumber();
+    }
+
+    int calculateMagicNumber() {
+        int value = damage + extraDamage;
+        if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
+            value = damage + extraDamage2;
+        }
+        this.magicNumber = this.baseMagicNumber = value;
+        return value;
     }
 
     @Override
@@ -46,6 +57,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
+            calculateMagicNumber();
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -59,7 +71,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int c = magicNumber;
+        int c = damageCount;
         if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
             while (c > 0) {
                 this.addToBot(new DamageAction(
@@ -68,10 +80,9 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
                 c--;
             }
         } else {
-            int d = this.damage + (upgraded ? extraDamage2 : extraDamage);
             while (c > 0) {
                 this.addToBot(new DamageAllEnemiesAction(
-                        p, d, DamageInfo.DamageType.NORMAL,
+                        p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
                 c--;
             }

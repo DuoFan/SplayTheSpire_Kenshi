@@ -34,7 +34,10 @@ public class CardRegister implements EditCardsSubscriber {
         BaseMod.addCard(new YZL_YingZhiXin());
 
         BaseMod.addCard(new XZL_JuQi());
+        BaseMod.addCard(new XZL_GuiYuan());
         BaseMod.addCard(new XZL_BaiXiaZhan());
+        BaseMod.addCard(new XZL_HeQiZhan());
+        BaseMod.addCard(new XZL_PoXiao());
     }
 }
 

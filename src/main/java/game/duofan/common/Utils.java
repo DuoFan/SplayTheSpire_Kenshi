@@ -71,12 +71,10 @@ public class Utils {
         return AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - x);
     }
 
-    public static void playRemovePower(String powerID) {
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p != null) {
-            AbstractDungeon.actionManager.addToBottom(new
-                    RemoveSpecificPowerAction(p, p, powerID));
-        }
+    public static void playerGainPower(AbstractPower power) {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power)
+        );
     }
 
     public static void playReducePower(String powerID, int amount) {
@@ -87,9 +85,22 @@ public class Utils {
         }
     }
 
+    public static void playRemovePower(String powerID) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    RemoveSpecificPowerAction(p, p, powerID));
+        }
+    }
+
     public static void playerEnterAnYin() {
+        playerGainPower(new AnYing(AbstractDungeon.player));
+    }
+
+    public static void playerGainStrength(int amount) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
+                        new StrengthPower(AbstractDungeon.player, amount))
         );
     }
 

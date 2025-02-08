@@ -36,8 +36,8 @@
   },
   "game.duofan.kenshi:FZL_PiaoSiXue": {
     "NAME": "枫之流:飘似雪",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +8点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! +12点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+    "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !M! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !M! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
   },
   "game.duofan.kenshi:FZL_KuangFengJuanYe": {
     "NAME": "枫之流:狂风卷叶",
@@ -76,8 +76,8 @@
   },
   "game.duofan.kenshi:YZL_YingShi": {
     "NAME": "影之流:影弑",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:影之流 :额外造成一次50%的伤害。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:影之流 :额外造成一次50%的伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:影之流 :额外造成一次 !M! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:影之流 :额外造成一次 !M! 点伤害。"
   },
   "game.duofan.kenshi:YZL_EZhao": {
     "NAME": "影之流:噩兆",
