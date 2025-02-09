@@ -38,7 +38,7 @@ public class WZL_ZhaXiang extends CustomCard implements IWeiZhiLiuCard {
 
     public WZL_ZhaXiang() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 6;
+        magicNumber = baseMagicNumber = 3;
         selfRetain = true;
         exhaust = true;
     }
