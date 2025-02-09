@@ -65,7 +65,7 @@ public class FZL_KuangFengJuanYe extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void FengZhiLiuEffect() {
+    public void fengZhiLiuEffect() {
         addToBot(new DrawCardAction(1));
     }
 

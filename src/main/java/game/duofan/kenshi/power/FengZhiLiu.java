@@ -45,11 +45,10 @@ public class FengZhiLiu extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         if (card instanceof IFengZhiLiuCard) {
-            IFengZhiLiuCard fzlCard = (IFengZhiLiuCard) card;
-            fzlCard.FengZhiLiuEffect();
+            Utils.invokeLiuCardEffect(card);
 
             if(Utils.getQiAmount() > 0){
-                fzlCard.FengZhiLiuEffect();
+                Utils.invokeLiuCardEffect(card);
                 Utils.playerReduceQi(1);
             }
 

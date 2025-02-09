@@ -106,7 +106,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void FengZhiLiuEffect() {
+    public void fengZhiLiuEffect() {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, 1);
     }
 }

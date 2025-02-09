@@ -74,7 +74,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void FengZhiLiuEffect() {
+    public void fengZhiLiuEffect() {
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p == null) {

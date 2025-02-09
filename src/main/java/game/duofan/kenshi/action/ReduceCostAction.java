@@ -20,11 +20,10 @@ public class ReduceCostAction extends AbstractGameAction {
     @Override
     public void update() {
 
-        if(card == null){
-            return;
+        if(card != null){
+            card.modifyCostForCombat(-amount);
         }
 
-        card.modifyCostForCombat(-amount);
         this.isDone = true;
     }
 }

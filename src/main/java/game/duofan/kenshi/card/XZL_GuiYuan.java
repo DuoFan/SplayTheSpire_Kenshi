@@ -1,24 +1,14 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.unique.DamagePerAttackPlayedAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClass;
-import game.duofan.kenshi.action.RepeatAction;
 import game.duofan.kenshi.power.*;
 
 public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
@@ -64,7 +54,7 @@ public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void XiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect() {
         Utils.playerGainStrength(magicNumber);
     }
 

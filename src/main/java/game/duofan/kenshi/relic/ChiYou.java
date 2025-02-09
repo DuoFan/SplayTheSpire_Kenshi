@@ -2,11 +2,13 @@ package game.duofan.kenshi.relic;
 
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import game.duofan.common.EventManager;
 import game.duofan.common.IDManager;
+import game.duofan.kenshi.power.LinkCardManager;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
@@ -44,6 +46,8 @@ public class ChiYou extends CustomRelic {
 
         EventManager.getInstance().removeAllEvent();
 
+        LinkCardManager.getInstance().clear();
+
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
@@ -61,7 +65,6 @@ public class ChiYou extends CustomRelic {
         this.flash();
 
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi,2);
-
 
         //this.addToTop(new GainEnergyAction(100));
     }

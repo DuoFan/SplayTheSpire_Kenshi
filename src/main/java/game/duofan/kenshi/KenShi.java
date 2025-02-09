@@ -1,6 +1,5 @@
 package game.duofan.kenshi;
 
-import basemod.BaseMod;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -21,10 +20,7 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.relic.BaiHong;
 import game.duofan.kenshi.relic.ChiYou;
-import game.duofan.kenshi.relic.WuMing;
-import game.duofan.kenshi.relic.YingGui;
 
 import java.util.ArrayList;
 
@@ -86,14 +82,17 @@ public class KenShi extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int x = 0; x < 5; x++) {
+        /*for (int x = 0; x < 5; x++) {
             retVal.add(Strike.ID);
         }
         for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
         retVal.add(YueBu.ID);
-        retVal.add(FZL_PiaoSiXue.ID);
+        retVal.add(FZL_PiaoSiXue.ID);*/
+
+        retVal.add(SZL_ShanJi.ID);
+        retVal.add(SZL_ShanJi.ID);
         return retVal;
     }
 

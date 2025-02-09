@@ -1,22 +1,15 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.unique.DamagePerAttackPlayedAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClass;
 import game.duofan.kenshi.action.PickUpCardsDoAction;
-import game.duofan.kenshi.action.RepeatAction;
 import game.duofan.kenshi.power.*;
 
 public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
@@ -58,14 +51,15 @@ public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new PickUpCardsDoAction("触发流派效果", 1, c -> {
+
+        Utils.pickUpCardsDoAction("触发流派效果", 1, c -> {
             targetCard = c;
             Utils.invokeLiuCardEffect(targetCard);
-        }));
+        });
     }
 
     @Override
-    public void WeiZhiLiuEffect() {
+    public void weiZhiLiuEffect() {
         Utils.addToBotAbstract(() -> {
             for (int i = 0; i < magicNumber; i++) {
                 Utils.invokeLiuCardEffect(targetCard);

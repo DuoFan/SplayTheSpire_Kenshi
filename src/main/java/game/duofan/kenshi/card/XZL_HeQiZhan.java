@@ -95,7 +95,7 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void XiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect() {
         if(monster != null){
             this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
         }

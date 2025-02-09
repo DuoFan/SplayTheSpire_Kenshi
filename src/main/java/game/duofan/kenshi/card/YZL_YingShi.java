@@ -85,7 +85,7 @@ public class YZL_YingShi extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         if(target != null){
             this.addToBot(new DamageAction(target,new DamageInfo(AbstractDungeon.player,
                     calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));

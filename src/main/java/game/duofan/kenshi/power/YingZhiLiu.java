@@ -3,7 +3,6 @@ package game.duofan.kenshi.power;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -46,11 +45,10 @@ public class YingZhiLiu extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         if (card instanceof IYingZhiLiuCard) {
-            IYingZhiLiuCard yzlCard = (IYingZhiLiuCard) card;
-            yzlCard.YingZhiLiuEffect();
+            Utils.invokeLiuCardEffect(card);
 
             if(Utils.getQiAmount() > 0){
-                yzlCard.YingZhiLiuEffect();
+                Utils.invokeLiuCardEffect(card);
                 Utils.playerReduceQi(1);
             }
 

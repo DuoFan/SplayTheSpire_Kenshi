@@ -1,14 +1,15 @@
 package game.duofan.common;
 
-import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import game.duofan.kenshi.action.DrawCardByClass;
+import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
 
@@ -40,6 +41,10 @@ public class Utils {
         });
     }
 
+    public static void pickUpCardsDoAction(String _text, int amount, IDoCard _action) {
+        AbstractDungeon.actionManager.addToBottom(new PickUpCardsDoAction(_text, amount, _action));
+    }
+
     public interface Lambda extends Runnable {
     }
 
@@ -49,18 +54,31 @@ public class Utils {
         }
 
         if (card instanceof IFengZhiLiuCard) {
-            ((IFengZhiLiuCard) card).FengZhiLiuEffect();
+            ((IFengZhiLiuCard) card).fengZhiLiuEffect();
         } else if (card instanceof IYingZhiLiuCard) {
-            ((IYingZhiLiuCard) card).YingZhiLiuEffect();
+            ((IYingZhiLiuCard) card).yingZhiLiuEffect();
         } else if (card instanceof IXiaZhiLiuCard) {
-            ((IXiaZhiLiuCard) card).XiaZhiLiuEffect();
+            ((IXiaZhiLiuCard) card).xiaZhiLiuEffect();
         } else if (card instanceof IWeiZhiLiuCard) {
-            ((IWeiZhiLiuCard) card).WeiZhiLiuEffect();
+            ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
+        } else if (card instanceof IShanZhiLiuCard) {
+            IShanZhiLiuCard c = (IShanZhiLiuCard) card;
+            if (c.effectable()) {
+                c.shanZhiLiuEffect();
+            }
         }
     }
 
+    public static void makeTempCardInDrawPileAction(AbstractCard card, int amount, boolean randomSpot, boolean autoPosition) {
+        if (card == null) {
+            return;
+        }
+
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(card, amount, randomSpot, autoPosition));
+    }
+
     public static void makeTempCardInHand(AbstractCard card, int i) {
-        if(card == null){
+        if (card == null) {
             return;
         }
 
@@ -98,6 +116,45 @@ public class Utils {
         }
 
         return AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - x);
+    }
+
+    public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    DamageAction(t, new DamageInfo(s, amount, type)));
+        }
+    }
+
+    public static void givePower(AbstractCreature s, AbstractCreature t, AbstractPower power) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    ApplyPowerAction(t, s, power));
+        }
+    }
+
+    public static void gainPower(AbstractCreature o, AbstractPower power) {
+        givePower(o, o, power);
+    }
+
+    public static void removePower(AbstractCreature o, String powerID) {
+        if (o != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    RemoveSpecificPowerAction(o, o, powerID));
+        }
+    }
+
+    public static void gainBlock(AbstractCreature o, int amount) {
+        if (o == null) {
+            return;
+        }
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(o, amount));
+    }
+
+    public static void gainHeal(AbstractCreature o, int amount) {
+        if (o == null) {
+            return;
+        }
+        AbstractDungeon.actionManager.addToBottom(new HealAction(o, o, amount));
     }
 
     public static void playerGainPower(AbstractPower power) {
@@ -139,7 +196,7 @@ public class Utils {
 
     public static void playerGainBlock(int amount) {
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, amount));
+        gainBlock(p, amount);
     }
 
     public static void playerGainQi(int amount) {
@@ -161,8 +218,12 @@ public class Utils {
         return p.getPower(Qi.POWER_ID).amount;
     }
 
+    public static void playerDrawCardByFilterAction(int amount, ICardFilter filter) {
+        AbstractDungeon.actionManager.addToBottom(new DrawCardByFilterAction(amount, filter));
+    }
+
     public static void playerDrawCardByClass(int amount, Class<?> targetClass) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardByClass(amount, targetClass));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardByClassAction(amount, targetClass));
     }
 
     public static ArrayList<AbstractCard> getCardsFromHand(int baseCost) {
@@ -191,7 +252,7 @@ public class Utils {
             cards.remove(excludeCard);
         }
 
-        return getRandomCardsFromList(cards,false);
+        return getRandomCardsFromList(cards, false);
     }
 
     public static ArrayList<AbstractCard> getCardsFromLiu(Liu_StateMachine.StateEnum stateEnum) {
@@ -213,6 +274,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.YingZhiLiu)) {
             cards.add(new YZL_QianFu());
             cards.add(new YZL_YingShi());
+            cards.add(new YZL_MeiYing());
             cards.add(new YZL_EZhao());
             cards.add(new YZL_YeBu());
             cards.add(new YZL_SiJiDaiFa());
@@ -226,6 +288,7 @@ public class Utils {
             cards.add(new XZL_BaiXiaZhan());
             cards.add(new XZL_HeQiZhan());
             cards.add(new XZL_PoXiao());
+            cards.add(new XZL_QingKong());
             cards.add(new XZL_XiaZhiXin());
         }
 
@@ -233,7 +296,14 @@ public class Utils {
             cards.add(new WZL_NiTai());
             cards.add(new WZL_DaoGuo());
             cards.add(new WZL_TaYin());
+            cards.add(new WZL_GaiTouHuanMian());
+            cards.add(new WZL_ZhaXiang());
+            cards.add(new WZL_YangGong());
             cards.add(new WZL_WeiZhiXin());
+        }
+
+        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+            cards.add(new SZL_ShanJi());
         }
 
         return cards;
@@ -241,21 +311,21 @@ public class Utils {
 
     public static AbstractCard getRandomCardFromLiu(Liu_StateMachine.StateEnum stateEnum) {
         ArrayList cards = getCardsFromLiu(stateEnum);
-        if(cards.isEmpty()){
+        if (cards.isEmpty()) {
             return null;
         }
-        return getRandomCardsFromList(cards,false);
+        return getRandomCardsFromList(cards, false);
     }
 
-    public static AbstractCard getRandomCardsFromList(ArrayList<AbstractCard> cards,boolean remove) {
+    public static AbstractCard getRandomCardsFromList(ArrayList<AbstractCard> cards, boolean remove) {
 
-        if(cards == null || cards.isEmpty()){
+        if (cards == null || cards.isEmpty()) {
             return null;
         }
 
-        int index = AbstractDungeon.cardRandomRng.random(cards.size()-1);
+        int index = AbstractDungeon.cardRandomRng.random(cards.size() - 1);
         AbstractCard card = cards.get(index);
-        if(remove){
+        if (remove) {
             cards.remove(index);
         }
         return card;

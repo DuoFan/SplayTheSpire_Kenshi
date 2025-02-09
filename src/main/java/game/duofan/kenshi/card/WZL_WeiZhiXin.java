@@ -64,7 +64,7 @@ public class WZL_WeiZhiXin extends CustomCard implements IWeiZhiLiuCard {
     }
 
     @Override
-    public void WeiZhiLiuEffect() {
+    public void weiZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
 }

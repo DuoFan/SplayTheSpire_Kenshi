@@ -5,18 +5,19 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import java.util.Iterator;
 
-public class DrawCardByClass extends AbstractGameAction {
-    private final Class<?> targetClass;  // 改用 Class<?> 类型
+public class DrawCardByFilterAction extends AbstractGameAction {
 
-    public DrawCardByClass(int amount, Class<?> targetClass) {
+    ICardFilter filter;
+
+    public DrawCardByFilterAction(int amount, ICardFilter filter) {
         this.amount = amount;
-        this.targetClass = targetClass;
+        this.filter = filter;
     }
 
     @Override
     public void update() {
+
         AbstractPlayer p = AbstractDungeon.player;
 
         if (p.drawPile.isEmpty()) {
@@ -26,9 +27,11 @@ public class DrawCardByClass extends AbstractGameAction {
 
         CardGroup filteredCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
         for (AbstractCard card : p.drawPile.group) {
-            // 使用 isInstance() 替代 instanceof
-            if (targetClass.isInstance(card)) {
-                filteredCards.addToTop(card);
+            if (filter == null || filter.filter(card)) {
+                filteredCards.addToBottom(card);
+                if(filteredCards.size() >= amount){
+                    break;
+                }
             }
         }
 
@@ -37,6 +40,8 @@ public class DrawCardByClass extends AbstractGameAction {
             for (int i = 0; i < drawCount; i++) {
                 AbstractCard card = filteredCards.getTopCard();
                 filteredCards.removeTopCard();
+
+                System.out.println("抽取了" + card.name);
 
                 if (p.hand.size() < 10) {
                     p.drawPile.moveToHand(card, p.drawPile);

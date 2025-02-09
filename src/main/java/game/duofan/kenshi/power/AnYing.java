@@ -57,7 +57,7 @@ public class AnYing extends AbstractPower {
     }
 
     float calculateBuff() {
-        return 1.5f + extraBuff;
+        return 1.25f + extraBuff;
     }
 
     @Override

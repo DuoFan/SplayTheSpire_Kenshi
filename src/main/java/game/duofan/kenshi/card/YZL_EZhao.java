@@ -63,7 +63,7 @@ public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(AbstractDungeon.player, 1)
         );

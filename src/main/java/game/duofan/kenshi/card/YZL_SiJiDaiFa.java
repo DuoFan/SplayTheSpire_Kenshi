@@ -76,7 +76,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
     }
 }

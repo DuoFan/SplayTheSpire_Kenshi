@@ -54,9 +54,6 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AnYing(AbstractDungeon.player))
-        );
-        AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(magicNumber)
         );
     }
@@ -71,7 +68,7 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(AbstractDungeon.player, 1)
         );

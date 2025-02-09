@@ -14,25 +14,25 @@
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "极意形态",
     "DESCRIPTIONS": [
-      " NL 每次从 #r架势 进入 #r攻势 时，每剩余一层架势获得 #r%d 点格挡， NL 从 #r攻势 进入 #r终势 时，每剩余一层攻势获得 #r%d 点临时力量。"
+      " NL 每次从 #r架势 进入 #r攻势 时，每剩余1层架势获得 #r%d 点格挡， NL 从 #r攻势 进入 #r终势 时，每剩余1层攻势获得 #r%d 点临时力量。"
     ]
   },
   "game.duofan.kenshi:JiaShi": {
     "NAME": "架势",
     "DESCRIPTIONS": [
-      " NL 攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出一张牌移除一层，回合结束时全部移除。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+      " NL 攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层，回合结束时全部移除。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
     ]
   },
   "game.duofan.kenshi:GongShi": {
     "NAME": "攻势",
     "DESCRIPTIONS": [
-      " NL 攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出一张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
+      " NL 攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层，回合结束时全部移除。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
     ]
   },
   "game.duofan.kenshi:ZhongShi": {
     "NAME": "终势",
     "DESCRIPTIONS": [
-      " NL 可触发尾声效果，NL NL 每打出一张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
+      " NL 可触发尾声效果，NL NL 每打出1张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
     ]
   },
   "game.duofan.kenshi:AnYing": {
@@ -45,6 +45,18 @@
     "NAME": "气",
     "DESCRIPTIONS": [
       " NL 下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
+    ]
+  },
+  "game.duofan.kenshi:GongJiZhunBei": {
+    "NAME": "攻击准备",
+    "DESCRIPTIONS": [
+      " NL 下回合开始时，抽取 *%d 张攻击牌 。"
+    ]
+  },
+  "game.duofan.kenshi:ZhuoMoBuDing": {
+    "NAME": "琢磨不定",
+    "DESCRIPTIONS": [
+      " NL TA还没想好要做些什么。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
@@ -93,6 +105,18 @@
     "NAME": "伪之流",
     "DESCRIPTIONS": [
       " NL 每回合首次进入 #r伪之流 时，随机将1张伪之流派卡(不包括伪之心)加入手牌。"
+    ]
+  },
+  "game.duofan.kenshi:ShanZhiLiu": {
+    "NAME": "闪之流",
+    "DESCRIPTIONS": [
+      " NL 可触发闪之流效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:ShanZhiXin": {
+    "NAME": "闪之心",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r闪之流 时，随机将弃牌堆的1张 *已连锁 的闪之流派卡打出。"
     ]
   }
 }

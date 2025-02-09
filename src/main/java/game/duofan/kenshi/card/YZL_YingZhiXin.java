@@ -65,7 +65,7 @@ public class YZL_YingZhiXin extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
 }

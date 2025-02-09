@@ -101,7 +101,7 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void XiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect() {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {

@@ -75,7 +75,8 @@ public class Liu_StateMachine {
         if (CheckNotify_FirstLiu_OnTurn(StateEnum.FengZhiLiu, EventKey.FIRST_FZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu, EventKey.FIRST_YZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.XiaZhiLiu, EventKey.FIRST_XZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.WeiZhiLiu, EventKey.FIRST_WZL_ON_TURN)) {
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.WeiZhiLiu, EventKey.FIRST_WZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.ShanZhiLiu, EventKey.FIRST_SZL_ON_TURN)) {
 
         }
     }
@@ -125,6 +126,9 @@ public class Liu_StateMachine {
             case WeiZhiLiu:
                 state = new WeiZhiLiu_State();
                 break;
+            case ShanZhiLiu:
+                state = new ShanZhiLiu_State();
+                break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -147,6 +151,8 @@ public class Liu_StateMachine {
                 return powerID.equals(XiaZhiLiu.POWER_ID);
             case WeiZhiLiu:
                 return powerID.equals(WeiZhiLiu.POWER_ID);
+            case ShanZhiLiu:
+                return powerID.equals(ShanZhiLiu.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -154,7 +160,7 @@ public class Liu_StateMachine {
 
     public enum StateEnum {
         FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
-        WeiZhiLiu(8), All(-1);
+        WeiZhiLiu(8), ShanZhiLiu(16), All(-1);
 
         private int value = 0;
 
@@ -228,6 +234,18 @@ public class Liu_StateMachine {
         @Override
         public void enter() {
             Utils.playerGainPower(new WeiZhiLiu(AbstractDungeon.player));
+        }
+    }
+
+    class ShanZhiLiu_State extends State {
+        @Override
+        public String getPowerID() {
+            return ShanZhiLiu.POWER_ID;
+        }
+
+        @Override
+        public void enter() {
+            Utils.playerGainPower(new ShanZhiLiu(AbstractDungeon.player));
         }
     }
 }

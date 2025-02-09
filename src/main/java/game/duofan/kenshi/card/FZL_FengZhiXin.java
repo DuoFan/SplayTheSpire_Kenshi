@@ -66,7 +66,7 @@ public class FZL_FengZhiXin extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void FengZhiLiuEffect() {
+    public void fengZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
 }

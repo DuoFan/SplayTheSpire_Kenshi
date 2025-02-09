@@ -79,7 +79,7 @@ public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void FengZhiLiuEffect() {
+    public void fengZhiLiuEffect() {
         if(Utils.isLastXUsedCardType(2,CardType.ATTACK)){
             Utils.playerGainEnergy(1);
         }

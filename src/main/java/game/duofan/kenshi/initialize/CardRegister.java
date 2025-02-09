@@ -21,6 +21,8 @@ public class CardRegister implements EditCardsSubscriber {
         BaseMod.addCard(new BaiJiaZhiChang_Card());
         BaseMod.addCard(new JiYiXingTai_Card());
 
+        BaseMod.addCard(new ManMa());
+
         ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All);
 
         for (int i = 0; i < liuCards.size(); i++) {

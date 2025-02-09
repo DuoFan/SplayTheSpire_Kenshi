@@ -3,7 +3,6 @@ package game.duofan.kenshi.power;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -56,6 +55,23 @@ public class ZhuLiuBaiJia extends AbstractPower {
         else if(card instanceof IWeiZhiLiuCard){
             Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.WeiZhiLiu);
         }
+        else if(card instanceof IShanZhiLiuCard){
+            IShanZhiLiuCard c = (IShanZhiLiuCard) card;
+            if(c.effectable()){
+                Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.ShanZhiLiu);
+            }
+        }
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        super.onAfterUseCard(card, action);
+        LinkCardManager.instance.tryPlaySelfCard(card);
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
     }
 
     @Override

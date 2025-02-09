@@ -37,7 +37,7 @@ public class YZL_YingFu extends CustomCard implements IYingZhiLiuCard {
 
     public YZL_YingFu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
@@ -75,7 +75,7 @@ public class YZL_YingFu extends CustomCard implements IYingZhiLiuCard {
     }
 
     @Override
-    public void YingZhiLiuEffect() {
+    public void yingZhiLiuEffect() {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             AbstractDungeon.actionManager.addToBottom(
