@@ -50,7 +50,9 @@ public class XZL_QingKong extends CustomCard implements IXiaZhiLiuCard {
         Utils.playerGainEnergy(1);
         Utils.playerGainQi(magicNumber);
 
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
+        if(!upgraded){
+            exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
+        }
     }
 
     @Override

@@ -142,7 +142,7 @@
   "game.duofan.kenshi:XZL_QingKong": {
     "NAME": "霞之流:晴空",
     "DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :抽取1张卡牌,并且 消耗 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :抽取1张卡牌,并且 消耗 。"
+    "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :抽取1张卡牌 。"
   },
   "game.duofan.kenshi:XZL_XiaZhiXin": {
     "NAME": "霞之流:霞之心",
@@ -171,8 +171,8 @@
   },
   "game.duofan.kenshi:WZL_ZhaXiang": {
     "NAME": "伪之流:诈降",
-    "DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :获得1层 duofan_kenshi:攻击准备 。 NL 消耗",
-    "UPGRADE_DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :获得1层 duofan_kenshi:攻击准备 。 NL 消耗"
+    "DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则使其失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :获得1层 duofan_kenshi:攻击准备 。 NL 消耗",
+    "UPGRADE_DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则使其失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :获得1层 duofan_kenshi:攻击准备 。 NL 消耗"
   },
   "game.duofan.kenshi:WZL_YangGong": {
     "NAME": "伪之流:佯攻",
