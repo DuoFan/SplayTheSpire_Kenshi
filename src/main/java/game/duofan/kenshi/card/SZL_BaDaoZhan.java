@@ -12,31 +12,30 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.PickUpCardToLinkAction;
-import game.duofan.kenshi.action.PickUpCardsDoAction;
 import game.duofan.kenshi.power.*;
 
 import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
-public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
+public class SZL_BaDaoZhan extends CustomCard implements IShanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(SZL_ShanJi.class);
+    public static final String ID = IDManager.getInstance().getID(SZL_BaDaoZhan.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     boolean effectable;
 
     AbstractCard linkedCardHoverPreview;
 
-    public SZL_ShanJi() {
+    public SZL_BaDaoZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 3;
+        damage = baseDamage = 6;
         effectable = true;
     }
 
@@ -94,6 +93,13 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        if(m.currentHealth > 0){
+            Utils.addToBotAbstract(() ->{
+                if(m.currentHealth <= 0){
+                    Utils.playerGainEnergy(1);
+                }
+            });
+        }
 
         if (LinkCardManager.getInstance().findLinkedCard(this) == null) {
             addToBot(new PickUpCardToLinkAction(this));

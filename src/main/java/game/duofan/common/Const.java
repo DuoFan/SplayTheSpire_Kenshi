@@ -10,4 +10,7 @@ public class Const {
     public static final String CHARACTER_HEX_COLOR = "#8C573D";
 
     public static final AbstractCard.CardColor KENSHI_CARD_COLOR = KenShi.CharacterEnum.COLOR_KENSHI;
+
+    public static final float PREVIEW_SCALE = 0.75f;
+    public static final float PREVIEW_OFFSET_X = 240;
 }

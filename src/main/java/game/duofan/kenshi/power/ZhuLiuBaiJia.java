@@ -72,6 +72,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
     @Override
     public void onCardDraw(AbstractCard card) {
         super.onCardDraw(card);
+        LinkCardManager.instance.tryDrawLinkedCard(card);
     }
 
     @Override

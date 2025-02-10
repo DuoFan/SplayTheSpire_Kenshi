@@ -61,7 +61,7 @@ public class YZL_YingFu extends CustomCard implements IYingZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         monster = m;
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(p, 2, false))
+                new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(p, magicNumber, false))
         );
     }
 
@@ -79,7 +79,7 @@ public class YZL_YingFu extends CustomCard implements IYingZhiLiuCard {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             AbstractDungeon.actionManager.addToBottom(
-                    new ApplyPowerAction(monster, p, new VulnerablePower(p, magicNumber - 1, false))
+                    new ApplyPowerAction(monster, p, new VulnerablePower(p, upgraded ? 2 : 1, false))
             );
         }
     }

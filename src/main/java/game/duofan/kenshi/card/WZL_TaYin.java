@@ -53,8 +53,13 @@ public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         Utils.pickUpCardsDoAction("触发流派效果", 1, c -> {
-            targetCard = c;
-            Utils.invokeLiuCardEffect(targetCard);
+            if(Utils.isLiuCard(c)){
+                targetCard = c;
+                Utils.invokeLiuCardEffect(targetCard);
+            }
+            else{
+                Utils.showToast("这不是一张流派卡牌!");
+            }
         });
     }
 

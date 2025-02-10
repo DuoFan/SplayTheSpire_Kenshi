@@ -12,15 +12,24 @@ public class PickUpCardsDoAction extends AbstractGameAction {
 
     public String text;
     IDoCard action;
+    boolean preDone;
 
     public PickUpCardsDoAction(String _text, int amount, IDoCard _action) {
         text = _text;
         this.setValues(AbstractDungeon.player, source, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
         this.action = _action;
+        this.preDone = AbstractDungeon.player.hand.size() <= 1;
     }
 
     public void update() {
+        //排除刚刚打出的那张卡
+        if (preDone) {
+            System.out.println("没有卡牌可以选择");
+            isDone = true;
+            return;
+        }
+
         if (this.duration == 0.5F) {
             // 参数修正：允许取消选择，且不强制选择 exactlyAmount 张卡
             AbstractDungeon.handCardSelectScreen.open(text, this.amount, false, false, false, false, false);

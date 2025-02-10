@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -17,26 +18,26 @@ import game.duofan.kenshi.power.*;
 
 import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
-public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
+public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(SZL_ShanJi.class);
+    public static final String ID = IDManager.getInstance().getID(SZL_FeiXing.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardRarity RARITY = CardRarity.RARE;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
     boolean effectable;
 
     AbstractCard linkedCardHoverPreview;
 
-    public SZL_ShanJi() {
+    public SZL_FeiXing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 3;
+        magicNumber = baseMagicNumber = 1;
         effectable = true;
     }
 
@@ -79,7 +80,7 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeDamage(3);
+            upgradeBaseCost(0);
             updateDescription();
             this.initializeDescription();
         }
@@ -93,7 +94,7 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        addToBot(new DrawCardAction(1));
 
         if (LinkCardManager.getInstance().findLinkedCard(this) == null) {
             addToBot(new PickUpCardToLinkAction(this));

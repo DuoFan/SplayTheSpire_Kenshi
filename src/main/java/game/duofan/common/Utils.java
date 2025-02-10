@@ -6,9 +6,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
@@ -19,6 +22,38 @@ import java.util.Iterator;
 public class Utils {
     public static String generateID(String id) {
         return Const.PACKAGE_NAME + ":" + id;
+    }
+
+    public static void showToast(String s){
+        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F,  s, true));
+    }
+
+    public static void updateSZL_Description(IShanZhiLiuCard s){
+        AbstractCard card = (AbstractCard) s;
+        AbstractCard linked = LinkCardManager.getInstance().findLinkedCard(card);
+        boolean isExchange = LinkCardManager.getInstance().isSetToExchange(card);
+
+        CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(card.cardID);
+
+        // 1. 获取基础描述
+        String baseDesc = card.upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
+
+        // 2. 处理连锁状态
+        if (linked != null) {
+            // 替换 "连锁 1张卡牌" -> "已连锁: [卡牌名]"
+            baseDesc = baseDesc.replace("duofan_kenshi:连锁 1张卡牌",
+                    String.format(" NL 已连锁: *[%s]", linked.name));
+        }
+
+        // 3. 处理置换卡状态
+        if (isExchange) {
+            // 替换闪之流效果描述
+            baseDesc = baseDesc.replace("duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
+                    "duofan_kenshi:置换牌");
+        }
+
+        card.rawDescription = baseDesc;
+        card.initializeDescription(); // 确保描述刷新
     }
 
     public static void addToBotAbstract(Lambda func) {
@@ -48,25 +83,39 @@ public class Utils {
     public interface Lambda extends Runnable {
     }
 
+    public static boolean isLiuCard(AbstractCard card){
+        if (card == null) {
+            return false;
+        }
+
+        return (card instanceof IFengZhiLiuCard)
+                || (card instanceof IYingZhiLiuCard)
+                || (card instanceof IXiaZhiLiuCard)
+                || (card instanceof IWeiZhiLiuCard)
+                || (card instanceof IShanZhiLiuCard);
+    }
+
     public static void invokeLiuCardEffect(AbstractCard card) {
         if (card == null) {
             return;
         }
 
-        if (card instanceof IFengZhiLiuCard) {
-            ((IFengZhiLiuCard) card).fengZhiLiuEffect();
-        } else if (card instanceof IYingZhiLiuCard) {
-            ((IYingZhiLiuCard) card).yingZhiLiuEffect();
-        } else if (card instanceof IXiaZhiLiuCard) {
-            ((IXiaZhiLiuCard) card).xiaZhiLiuEffect();
-        } else if (card instanceof IWeiZhiLiuCard) {
-            ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
-        } else if (card instanceof IShanZhiLiuCard) {
-            IShanZhiLiuCard c = (IShanZhiLiuCard) card;
-            if (c.effectable()) {
-                c.shanZhiLiuEffect();
+        Utils.addToBotAbstract(() ->{
+            if (card instanceof IFengZhiLiuCard) {
+                ((IFengZhiLiuCard) card).fengZhiLiuEffect();
+            } else if (card instanceof IYingZhiLiuCard) {
+                ((IYingZhiLiuCard) card).yingZhiLiuEffect();
+            } else if (card instanceof IXiaZhiLiuCard) {
+                ((IXiaZhiLiuCard) card).xiaZhiLiuEffect();
+            } else if (card instanceof IWeiZhiLiuCard) {
+                ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
+            } else if (card instanceof IShanZhiLiuCard) {
+                IShanZhiLiuCard c = (IShanZhiLiuCard) card;
+                if (c.effectable()) {
+                    c.shanZhiLiuEffect();
+                }
             }
-        }
+        });
     }
 
     public static void makeTempCardInDrawPileAction(AbstractCard card, int amount, boolean randomSpot, boolean autoPosition) {
@@ -304,6 +353,9 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
             cards.add(new SZL_ShanJi());
+            cards.add(new SZL_KuaiFang());
+            cards.add(new SZL_BaDaoZhan());
+            cards.add(new SZL_FeiXing());
         }
 
         return cards;
