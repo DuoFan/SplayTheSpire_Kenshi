@@ -36,6 +36,35 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
     }
 
     @Override
+    public void updateDescription() {
+        AbstractCard linked = LinkCardManager.getInstance().findLinkedCard(this);
+        boolean isExchange = LinkCardManager.getInstance().isSetToExchange(this);
+
+        // 1. 获取基础描述
+        String baseDesc = this.upgraded ? CARD_STRINGS.UPGRADE_DESCRIPTION : CARD_STRINGS.DESCRIPTION;
+
+        // 2. 处理连锁状态
+        if (linked != null) {
+            // 替换 "连锁 1张卡牌" -> "已连锁: [卡牌名]"
+            baseDesc = baseDesc.replace("duofan_kenshi:连锁 1张卡牌",
+                    String.format("已连锁: [%s]", linked.name));
+        }
+
+        // 3. 处理置换卡状态
+        if (isExchange) {
+            // 替换闪之流效果描述
+            baseDesc = baseDesc.replace("duofan_kenshi:闪之流 :成为 duofan_kenshi:置换卡 并 duofan_kenshi:失去流派属性 。",
+                    "duofan_kenshi:置换卡");
+        }
+
+        // 4. 清理多余占位符
+        baseDesc = baseDesc.replace("!D!", String.valueOf(this.damage));
+
+        this.rawDescription = baseDesc;
+        this.initializeDescription(); // 确保描述刷新
+    }
+
+    @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
