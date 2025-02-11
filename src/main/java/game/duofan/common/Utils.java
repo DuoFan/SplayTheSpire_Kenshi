@@ -106,7 +106,7 @@ public class Utils {
             } else if (card instanceof IYingZhiLiuCard) {
                 ((IYingZhiLiuCard) card).yingZhiLiuEffect();
             } else if (card instanceof IXiaZhiLiuCard) {
-                ((IXiaZhiLiuCard) card).xiaZhiLiuEffect();
+                ((IXiaZhiLiuCard) card).xiaZhiLiuEffect(false);
             } else if (card instanceof IWeiZhiLiuCard) {
                 ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
             } else if (card instanceof IShanZhiLiuCard) {
@@ -115,6 +115,16 @@ public class Utils {
                     c.shanZhiLiuEffect();
                 }
             }
+        });
+    }
+
+    public static void invokeXZL_Effect(IXiaZhiLiuCard card,boolean isByQi) {
+        if(card == null){
+            return;
+        }
+
+        Utils.addToBotAbstract(() ->{
+            card.xiaZhiLiuEffect(isByQi);
         });
     }
 
@@ -343,8 +353,9 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
             cards.add(new WZL_NiTai());
-            cards.add(new WZL_DaoGuo());
             cards.add(new WZL_TaYin());
+            cards.add(new WZL_DaoGuo());
+            cards.add(new WZL_ChaoXi());
             cards.add(new WZL_GaiTouHuanMian());
             cards.add(new WZL_ZhaXiang());
             cards.add(new WZL_YangGong());
@@ -352,10 +363,12 @@ public class Utils {
         }
 
         if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+            cards.add(new SZL_HuiXuan());
             cards.add(new SZL_ShanJi());
             cards.add(new SZL_KuaiFang());
             cards.add(new SZL_BaDaoZhan());
             cards.add(new SZL_FeiXing());
+            cards.add(new SZL_ShanZhiXin());
         }
 
         return cards;

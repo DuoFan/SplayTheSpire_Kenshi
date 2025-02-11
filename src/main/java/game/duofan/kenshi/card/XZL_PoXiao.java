@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -87,7 +88,6 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
                     p, damage, DamageInfo.DamageType.NORMAL,
                     AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void xiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect(boolean isByQi) {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
@@ -111,6 +111,12 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
                         p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
                         AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
             }
+        }
+
+        if(isByQi){
+            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            g.addToTop(this);
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
         }
     }
 }

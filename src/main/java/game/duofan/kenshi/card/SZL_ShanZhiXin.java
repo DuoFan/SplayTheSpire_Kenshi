@@ -13,13 +13,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.ReduceCostAction;
 import game.duofan.kenshi.power.*;
 
 import java.util.Iterator;
 
-public class XZL_XiaZhiXin extends CustomCard implements IXiaZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(XZL_XiaZhiXin.class);
+public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(SZL_ShanZhiXin.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -30,7 +29,7 @@ public class XZL_XiaZhiXin extends CustomCard implements IXiaZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public XZL_XiaZhiXin() {
+    public SZL_ShanZhiXin() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
 
@@ -50,21 +49,38 @@ public class XZL_XiaZhiXin extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new ReduceCostAction(Utils.getRandomCardFromHand(1, this), 1));
-        Utils.playerGainPower(new XiaZhiXin(p));
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new ShanZhiXin(p))
+        );
+        ShanZhiXin.ShanZhiXinEffect();
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void xiaZhiLiuEffect(boolean isByQi) {
+    public void shanZhiLiuEffect() {
         Utils.playerGainEnergy(1);
+    }
+
+    @Override
+    public boolean effectable() {
+        return true;
+    }
+
+    @Override
+    public void setLinkedCardHoverPreview(AbstractCard c) {
+
+    }
+
+    @Override
+    public void updateDescription() {
+        Utils.updateSZL_Description(this);
     }
 }

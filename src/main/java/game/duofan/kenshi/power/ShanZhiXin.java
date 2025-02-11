@@ -8,19 +8,25 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
+import game.duofan.common.*;
+import game.duofan.kenshi.card.SZL_ShanJi;
+import game.duofan.kenshi.card.WZL_WeiZhiXin;
 
-public class XiaZhiLiu extends AbstractPower {
+import java.util.ArrayList;
+
+public class ShanZhiXin extends AbstractPower implements IEventListener {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(XiaZhiLiu.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(ShanZhiXin.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public XiaZhiLiu(AbstractCreature owner) {
+
+    boolean isRegisted;
+
+    public ShanZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -44,17 +50,31 @@ public class XiaZhiLiu extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if (card instanceof IXiaZhiLiuCard) {
-            IXiaZhiLiuCard c = (IXiaZhiLiuCard)card;
-            Utils.invokeXZL_Effect(c,false);
-
-            if(Utils.getQiAmount() > 0){
-                Utils.invokeXZL_Effect(c,true);
-                Utils.playerReduceQi(1);
-            }
-            
-            Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
-            Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
+        if (!isRegisted) {
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_SZL_ON_TURN, this);
+            isRegisted = true;
         }
+    }
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_SZL_ON_TURN, this);
+    }
+
+    @Override
+    public void onDeath() {
+        super.onDeath();
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_SZL_ON_TURN, this);
+    }
+
+    @Override
+    public void OnEvent(Object sender, Object e) {
+        ShanZhiXinEffect();
+    }
+
+    public static void ShanZhiXinEffect(){
+        AbstractCard c = new SZL_ShanJi();
+        Utils.makeTempCardInHand(c,1);
     }
 }

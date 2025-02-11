@@ -4,6 +4,7 @@ game\duofan\kenshi\power\JiaShi.class
 game\duofan\kenshi\card\FZL_ZhiQie.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
+game\duofan\kenshi\action\TaYinAction.class
 game\duofan\kenshi\power\LinkCardManager.class
 game\duofan\kenshi\power\Shi_StateMachine.class
 game\duofan\kenshi\power\FengZhiLiu.class
@@ -15,6 +16,7 @@ game\duofan\kenshi\card\SZL_KuaiFang.class
 game\duofan\kenshi\initialize\ModInitializer.class
 game\duofan\kenshi\power\ZhuoMoBuDing.class
 game\duofan\common\EventManager.class
+game\duofan\kenshi\card\SZL_HuiXuan.class
 game\duofan\common\Utils$Lambda.class
 game\duofan\kenshi\card\FZL_FengZhiXin.class
 game\duofan\kenshi\card\XZL_PoXiao.class
@@ -35,6 +37,7 @@ game\duofan\kenshi\power\Liu_StateMachine$StateEnum.class
 game\duofan\kenshi\action\DrawCardByClassAction.class
 game\duofan\kenshi\card\WZL_DaoGuo.class
 game\duofan\kenshi\action\ReduceCostAction.class
+game\duofan\kenshi\power\ShanZhiXin.class
 game\duofan\kenshi\card\FZL_HeFengZhan.class
 game\duofan\kenshi\power\Shi_StateMachine$GongShi_State.class
 game\duofan\common\Utils$1.class
@@ -43,6 +46,7 @@ game\duofan\kenshi\power\XiaZhiLiu.class
 game\duofan\kenshi\power\WeiZhiLiu.class
 game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\RepeatAction.class
+game\duofan\kenshi\card\WZL_ChaoXi.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class
 game\duofan\kenshi\relic\ChiYou.class
 game\duofan\kenshi\card\FZL_LieFengZhan.class
@@ -78,6 +82,7 @@ game\duofan\common\EventKey.class
 game\duofan\kenshi\power\LinkCardManager$LinkNode.class
 game\duofan\kenshi\power\Shi_StateMachine$StateEnum.class
 game\duofan\kenshi\card\XZL_BaiXiaZhan.class
+game\duofan\kenshi\card\SZL_ShanZhiXin.class
 game\duofan\kenshi\relic\YingGui.class
 game\duofan\kenshi\card\YZL_YingZhiXin.class
 game\duofan\kenshi\power\JiYiXingTai$JiaShi2GongShiListener.class
@@ -93,6 +98,7 @@ game\duofan\kenshi\card\Strike.class
 game\duofan\kenshi\card\XZL_QingKong.class
 game\duofan\kenshi\power\IYingZhiLiuCard.class
 game\duofan\kenshi\initialize\TextRegister.class
+game\duofan\kenshi\power\ZaiLaiYiZhang.class
 game\duofan\kenshi\card\SZL_ShanJi.class
 game\duofan\kenshi\KenShi$LibraryEnum.class
 game\duofan\kenshi\action\PickUpCardsDoAction.class

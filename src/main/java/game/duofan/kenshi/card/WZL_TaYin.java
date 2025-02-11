@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import basemod.interfaces.PostExhaustSubscriber;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.PickUpCardsDoAction;
+import game.duofan.kenshi.action.TaYinAction;
 import game.duofan.kenshi.power.*;
 
 public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
@@ -25,19 +26,23 @@ public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    AbstractCard targetCard;
+    public AbstractCard targetCard;
 
     public WZL_TaYin() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        exhaust = true;
+    }
+
+    @Override
+    public void triggerOnEndOfPlayerTurn() {
+        super.triggerOnEndOfPlayerTurn();
+        targetCard = null;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
-            exhaust = true;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -51,25 +56,14 @@ public class WZL_TaYin extends CustomCard implements IWeiZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        Utils.pickUpCardsDoAction("触发流派效果", 1, c -> {
-            if(Utils.isLiuCard(c)){
-                targetCard = c;
-                Utils.invokeLiuCardEffect(targetCard);
-            }
-            else{
-                Utils.showToast("这不是一张流派卡牌!");
-            }
-        });
+        addToBot(new TaYinAction(this, upgraded));
     }
 
     @Override
     public void weiZhiLiuEffect() {
-        Utils.addToBotAbstract(() -> {
-            for (int i = 0; i < magicNumber; i++) {
-                Utils.invokeLiuCardEffect(targetCard);
-            }
-        });
+        if (targetCard != null) {
+            Utils.playerGainPower(new ZaiLaiYiZhang(this, targetCard));
+        }
     }
 
     @Override

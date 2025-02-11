@@ -55,7 +55,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void xiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainBlock(block);
     }
 

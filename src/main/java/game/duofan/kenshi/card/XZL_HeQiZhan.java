@@ -1,12 +1,10 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -51,8 +49,8 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
         calculateMagicNumber();
     }
 
-    int calculateMagicNumber(){
-        int value = Math.max(damage / 2,0);
+    int calculateMagicNumber() {
+        int value = Math.max(damage / 2, 0);
 
         this.magicNumber = this.baseMagicNumber = value;
 
@@ -82,7 +80,6 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         monster = m;
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -95,9 +92,15 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void xiaZhiLiuEffect() {
-        if(monster != null){
+    public void xiaZhiLiuEffect(boolean isByQi) {
+        if (monster != null) {
             this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
+        }
+
+        if (isByQi) {
+            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            g.addToTop(this);
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
         }
     }
 }

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.ExhaustToHandAction;
 import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -64,7 +65,6 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
         Utils.playerGainQi(magicNumber);
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
@@ -79,6 +79,10 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainEnergy(1);
-        exhaustOnUseOnce = isByQi;
+        if (isByQi) {
+            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            g.addToTop(this);
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
+        }
     }
 }

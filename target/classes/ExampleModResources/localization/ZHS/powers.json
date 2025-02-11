@@ -59,6 +59,12 @@
       " NL TA还没想好要做些什么。"
     ]
   },
+  "game.duofan.kenshi:ZaiLaiYiZhang": {
+    "NAME": "再来一张",
+    "DESCRIPTIONS": [
+      " NL 若本回合消耗了 #r[NAME] ，则再拓印1次。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
@@ -116,7 +122,7 @@
   "game.duofan.kenshi:ShanZhiXin": {
     "NAME": "闪之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r闪之流 时，随机将弃牌堆的1张 *已连锁 的闪之流派卡打出。"
+      " NL 每回合首次进入 #r闪之流 时，将1张 #r闪击 加入手牌。"
     ]
   }
 }

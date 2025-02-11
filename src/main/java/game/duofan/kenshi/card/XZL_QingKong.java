@@ -1,9 +1,12 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -49,15 +52,18 @@ public class XZL_QingKong extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.playerGainEnergy(1);
         Utils.playerGainQi(magicNumber);
-
-        if(!upgraded){
-            exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
-        }
     }
 
     @Override
-    public void xiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect(boolean isByQi)
+    {
         Utils.playerDrawCardByFilterAction(1,null);
+
+        if(isByQi && !upgraded){
+            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            g.addToTop(this);
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
+        }
     }
 
     @Override
