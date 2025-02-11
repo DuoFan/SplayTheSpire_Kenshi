@@ -124,7 +124,7 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if ( effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

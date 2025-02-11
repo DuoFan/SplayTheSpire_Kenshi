@@ -77,7 +77,8 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
-    public void xiaZhiLiuEffect() {
+    public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainEnergy(1);
+        exhaustOnUseOnce = isByQi;
     }
 }

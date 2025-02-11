@@ -130,26 +130,55 @@ public class LinkCardManager {
      * 尝试抽取连锁卡牌，并弃置置换卡
      */
     public void tryDrawLinkedCard(AbstractCard self) {
+
         LinkNode selfNode = cardToNodeMap.get(self);
         if (selfNode == null || !selfNode.isExchange) {
             return;
         }
 
         AbstractCard linkedCard = findLinkedCard(self);
-        if (linkedCard == null) {
+        if (linkedCard == null || !AbstractDungeon.player.drawPile.contains(linkedCard)) {
             return;
         }
 
-        // 检查连锁卡牌是否在抽牌堆
-        if (AbstractDungeon.player.drawPile.contains(linkedCard)) {
-            // 抽取连锁卡牌
-            AbstractDungeon.player.drawPile.moveToHand(linkedCard, AbstractDungeon.player.drawPile);
+        AbstractCard finalCard = null;
+        ArrayList<AbstractCard> disposeCards = new ArrayList<>();
 
-            // 弃置当前置换卡
-            AbstractDungeon.player.hand.moveToDiscardPile(self);
+        while (self != null){
+            linkedCard = findLinkedCard(self);
+            if (linkedCard == null) {
+                finalCard = self;
+                break;
+            }
 
-            System.out.println("抽取连锁卡牌: " + linkedCard.name + "，弃置换卡: " + self.name);
+            // 检查连锁卡牌是否在抽牌堆
+            if (AbstractDungeon.player.drawPile.contains(linkedCard)) {
+                disposeCards.add(self);
+                self = linkedCard;
+            }
+            else {
+                finalCard = self;
+                break;
+            }
         }
+
+        if(finalCard != null){
+            // 抽取连锁卡牌
+            AbstractDungeon.player.drawPile.moveToHand(finalCard, AbstractDungeon.player.drawPile);
+
+            StringBuilder sb = new StringBuilder();
+
+            AbstractDungeon.player.hand.moveToDiscardPile(disposeCards.get(0));
+            sb.append("抽取连锁卡牌:" + finalCard.name +",置换链:" + disposeCards.get(0).name);
+            for (int i = 1; i < disposeCards.size(); i++) {
+                AbstractCard c = disposeCards.get(i);
+                AbstractDungeon.player.drawPile.moveToDiscardPile(c);
+                sb.append("->" + c.name);
+            }
+
+            System.out.println(sb);
+        }
+
     }
 
     /**
