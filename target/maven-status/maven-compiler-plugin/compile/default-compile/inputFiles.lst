@@ -21,6 +21,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_QianYeWu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\SZL_HuiXuan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\WZL_TaYin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ChenReDaTie.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\action\BaDaoZhanAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\initialize\CardRegister.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_KuangFengJuanYe.java
 D:\Kenshi\src\main\java\game\duofan\common\Utils.java
@@ -36,6 +37,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\action\TaYinAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\WZL_DaoGuo.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\LiuCardReduceCostOnTurn.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\JiYiXingTai.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\card\DZL_QianChuiBaiLian.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\SZL_ShanJi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\WeiZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\ReduceCostAction.java
@@ -96,6 +98,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_PoXiao.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_HeFengZhan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\PickUpCardsDoAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\Defend.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\card\DZL_ShiJianShi.java
 D:\Kenshi\src\main\java\game\duofan\common\EventKey.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\relic\BaiHong.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_QingKong.java

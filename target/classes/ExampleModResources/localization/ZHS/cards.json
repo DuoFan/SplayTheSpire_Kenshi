@@ -171,8 +171,8 @@
   },
   "game.duofan.kenshi:WZL_TaYin": {
     "NAME": "伪之流:拓印",
-    "DESCRIPTION": "从3张 *其他流派卡 中选择1张加入手牌。 NL duofan_kenshi:伪之流 :若当回合发现牌被消耗，则额外触发1次。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从3张 *其他流派卡 中选择1张加入手牌，这张牌在本回合费用降为0。 NL duofan_kenshi:伪之流 :若当回合发现牌被消耗，则额外触发1次。 NL 消耗 "
+    "DESCRIPTION": "从3张 *其他流派卡 中选择1张加入手牌。 NL duofan_kenshi:伪之流 :若当回合 *发现牌 被消耗，则额外触发1次。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "从3张 *其他流派卡 中选择1张加入手牌，这张牌在本回合费用降为0。 NL duofan_kenshi:伪之流 :若当回合 *发现牌 被消耗，则额外触发1次。 NL 消耗 "
   },
   "game.duofan.kenshi:WZL_GaiTouHuanMian": {
     "NAME": "伪之流:改头换面",
@@ -236,7 +236,7 @@
   },
   "game.duofan.kenshi:DZL_ShiJianShi": {
     "NAME": "锻之流:试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌斩杀目标，则获得10金币。 NL duofan_kenshi:锻之流 :给予1层 易伤 。 NL 消耗 ",
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 *斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予1层 易伤 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌斩杀目标，则获得10金币。 NL duofan_kenshi:锻之流 :给予1层 易伤 。 NL 消耗 "
   },
   "game.duofan.kenshi:DZL_QianChuiBaiLian": {
