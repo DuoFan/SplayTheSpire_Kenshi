@@ -101,11 +101,6 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
     }
 
     @Override
-    public void setLinkedCardHoverPreview(AbstractCard c) {
-
-    }
-
-    @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();

@@ -11,4 +11,6 @@ public class EventKey {
 
     public static final String ON_JIASHI_TO_GONGSHI = "ON_JIASHI_TO_GONGSHI";
     public static final String ON_GONGSHI_TO_ZHONGSHI = "ON_GONGSHI_TO_ZHONGSHI";
+
+    public static final String ON_CARD_BE_DUANZAO = "ON_CARD_BE_DUANZAO";
 }

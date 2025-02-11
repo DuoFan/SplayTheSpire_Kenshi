@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -31,6 +32,7 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
 
     public SZL_ShanZhiXin() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.cardsToPreview = new SZL_ShanJi();
     }
 
     @Override
@@ -72,11 +74,6 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
     @Override
     public boolean effectable() {
         return true;
-    }
-
-    @Override
-    public void setLinkedCardHoverPreview(AbstractCard c) {
-
     }
 
     @Override

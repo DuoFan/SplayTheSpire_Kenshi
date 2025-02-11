@@ -68,9 +68,9 @@ public class TaYinAction extends AbstractGameAction {
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList derp = new ArrayList();
 
-        Liu_StateMachine.StateEnum e = Liu_StateMachine.StateEnum.All;
-        e.xorBit(Liu_StateMachine.StateEnum.WeiZhiLiu);
-        ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(e);
+        int flag = Liu_StateMachine.StateEnum.All.getValue();
+        flag ^= Liu_StateMachine.StateEnum.WeiZhiLiu.getValue();
+        ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(flag);
 
         while(derp.size() != 3) {
             AbstractCard c = Utils.getRandomCardsFromList(liuCards,true);

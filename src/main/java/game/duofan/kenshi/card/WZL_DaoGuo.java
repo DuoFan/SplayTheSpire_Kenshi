@@ -55,10 +55,10 @@ public class WZL_DaoGuo extends CustomCard implements IWeiZhiLiuCard {
     }
 
     void addLiuCards(int amount){
-        Liu_StateMachine.StateEnum e = Liu_StateMachine.StateEnum.All;
-        e.xorBit(Liu_StateMachine.StateEnum.WeiZhiLiu);
+        int flag = Liu_StateMachine.StateEnum.All.getValue();
+        flag ^= Liu_StateMachine.StateEnum.WeiZhiLiu.getValue();
 
-        ArrayList cards = Utils.getCardsFromLiu(e);
+        ArrayList cards = Utils.getCardsFromLiu(flag);
 
         for (int i = 0; i < amount; i++) {
             AbstractCard card = Utils.getRandomCardsFromList(cards,true);

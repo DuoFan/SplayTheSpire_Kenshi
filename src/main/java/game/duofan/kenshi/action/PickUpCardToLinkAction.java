@@ -65,12 +65,12 @@ public class PickUpCardToLinkAction extends AbstractGameAction {
                         IUpdateDescription d = (IUpdateDescription) self;
                         d.updateDescription();
                     }
-                    AbstractDungeon.player.hand.addToTop(card);
                 }
                 else{
                     Utils.showToast("目标牌不可被这张" + self.name + "连锁!");
                     System.out.println("目标牌不可被这张" + self.name + "连锁!");
                 }
+                AbstractDungeon.player.hand.addToTop(card);
             }
 
             // 刷新手牌布局

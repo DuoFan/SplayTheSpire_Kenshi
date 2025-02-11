@@ -68,8 +68,7 @@ public class WZL_GaiTouHuanMian extends CustomCard implements IWeiZhiLiuCard {
     }
 
     void addLiuCards(int amount){
-        Liu_StateMachine.StateEnum e = Liu_StateMachine.StateEnum.All;
-        ArrayList cards = Utils.getCardsFromLiu(e);
+        ArrayList cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
 
         for (int i = 0; i < amount; i++) {
             AbstractCard card = Utils.getRandomCardsFromList(cards,true);

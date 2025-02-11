@@ -75,7 +75,7 @@ public class WeiZhiXin extends AbstractPower implements IEventListener {
     }
 
     public static void WeiZhiXinEffect(){
-        ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.WeiZhiLiu);
+        ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.WeiZhiLiu.getValue());
         for (int i = 0; i < cards.size();i++){
             if(cards.get(i).cardID.equals(WZL_WeiZhiXin.ID)){
                 cards.remove(i);

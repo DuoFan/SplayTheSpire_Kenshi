@@ -55,7 +55,7 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
         this.addToBot(new DamageAction(
                 m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
         ));
-        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
+        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false)));
     }
 
     @Override

@@ -215,13 +215,13 @@ public class LinkCardManager {
 
         LinkNode node = cardToNodeMap.get(card);
         if (node == null) {
-            szlCard.setLinkedCardHoverPreview(null);
             return;
         }
 
         // 当前卡是连锁发起者，显示被连锁卡
         if (node.linkedNode != null) {
-            szlCard.setLinkedCardHoverPreview(node.linkedNode.selfCard.makeCopy());
+            ((AbstractCard) szlCard).cardsToPreview = node.linkedNode.selfCard;
+            //szlCard.setLinkedCardHoverPreview(node.linkedNode.selfCard.makeCopy());
         }
     }
 

@@ -32,8 +32,6 @@ public class SZL_KuaiFang extends CustomCard implements IShanZhiLiuCard {
 
     boolean effectable;
 
-    AbstractCard linkedCardHoverPreview;
-
     public SZL_KuaiFang() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = 3;
@@ -44,34 +42,16 @@ public class SZL_KuaiFang extends CustomCard implements IShanZhiLiuCard {
         Utils.updateSZL_Description(this);
     }
 
-    public void setLinkedCardHoverPreview(AbstractCard c) {
-        linkedCardHoverPreview = c;
-    }
-
-    @Override
-    public void render(SpriteBatch sb) {
-        super.render(sb);
-        renderLinkedCardPreview(sb); // 添加关联卡牌渲染
-    }
-
-    private void renderLinkedCardPreview(SpriteBatch sb) {
-        if (linkedCardHoverPreview != null && this.hb.hovered) {
-            linkedCardHoverPreview.current_x = this.current_x + PREVIEW_OFFSET_X;
-            linkedCardHoverPreview.current_y = this.current_y;
-            linkedCardHoverPreview.render(sb);
-        }
-    }
-
     @Override
     public void update() {
         super.update();
         if (this.hb.hovered) {
-            if( linkedCardHoverPreview == null){
+            if(cardsToPreview == null){
                 LinkCardManager.getInstance().updateHoverPreview(this);
             }
         }
         else{
-            linkedCardHoverPreview = null;
+            cardsToPreview = null;
         }
     }
 

@@ -39,6 +39,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
         magicNumber = baseMagicNumber = 1;
         exhaust = true;
         selfRetain = true;
+        this.cardsToPreview = new YZL_YingShi();
     }
 
     @Override

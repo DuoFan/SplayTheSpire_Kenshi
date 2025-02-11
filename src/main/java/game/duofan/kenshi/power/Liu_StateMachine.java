@@ -129,6 +129,9 @@ public class Liu_StateMachine {
             case ShanZhiLiu:
                 state = new ShanZhiLiu_State();
                 break;
+            case DuanZhiLiu:
+                state = new DuanZhiLiu_State();
+                break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -153,6 +156,8 @@ public class Liu_StateMachine {
                 return powerID.equals(WeiZhiLiu.POWER_ID);
             case ShanZhiLiu:
                 return powerID.equals(ShanZhiLiu.POWER_ID);
+            case DuanZhiLiu:
+                return powerID.equals(DuanZhiLiu.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -160,7 +165,7 @@ public class Liu_StateMachine {
 
     public enum StateEnum {
         FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
-        WeiZhiLiu(8), ShanZhiLiu(16), All(-1);
+        WeiZhiLiu(8), ShanZhiLiu(16), DuanZhiLiu(32), All(-1);
 
         private int value = 0;
 
@@ -170,10 +175,6 @@ public class Liu_StateMachine {
 
         public int getValue() {
             return value;
-        }
-
-        public void xorBit(StateEnum e) {
-            value = value ^ e.value;
         }
     }
 
@@ -246,6 +247,17 @@ public class Liu_StateMachine {
         @Override
         public void enter() {
             Utils.playerGainPower(new ShanZhiLiu(AbstractDungeon.player));
+        }
+    }
+    class DuanZhiLiu_State extends State {
+        @Override
+        public String getPowerID() {
+            return DuanZhiLiu.POWER_ID;
+        }
+
+        @Override
+        public void enter() {
+            Utils.playerGainPower(new DuanZhiLiu(AbstractDungeon.player));
         }
     }
 }

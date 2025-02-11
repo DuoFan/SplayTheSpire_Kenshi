@@ -115,6 +115,9 @@ public class Utils {
                     c.shanZhiLiuEffect();
                 }
             }
+            else if (card instanceof IDuanZhiLiuCard) {
+                ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
+            }
         });
     }
 
@@ -314,12 +317,12 @@ public class Utils {
         return getRandomCardsFromList(cards, false);
     }
 
-    public static ArrayList<AbstractCard> getCardsFromLiu(Liu_StateMachine.StateEnum stateEnum) {
+    public static ArrayList<AbstractCard> getCardsFromLiu(int flag) {
         Liu_StateMachine stateMachine = Liu_StateMachine.getInstance();
 
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
-        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.FengZhiLiu)) {
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
             cards.add(new FZL_YaZhi());
             cards.add(new FZL_PiaoSiXue());
             cards.add(new FZL_KuangFengJuanYe());
@@ -330,7 +333,7 @@ public class Utils {
             cards.add(new FZL_FengZhiXin());
         }
 
-        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.YingZhiLiu)) {
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YingZhiLiu)) {
             cards.add(new YZL_QianFu());
             cards.add(new YZL_YingShi());
             cards.add(new YZL_MeiYing());
@@ -341,7 +344,7 @@ public class Utils {
             cards.add(new YZL_YingZhiXin());
         }
 
-        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
             cards.add(new XZL_BaiXiaZhan());
@@ -351,7 +354,7 @@ public class Utils {
             cards.add(new XZL_XiaZhiXin());
         }
 
-        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
             cards.add(new WZL_NiTai());
             cards.add(new WZL_TaYin());
             cards.add(new WZL_DaoGuo());
@@ -362,7 +365,7 @@ public class Utils {
             cards.add(new WZL_WeiZhiXin());
         }
 
-        if (stateMachine.hasLiuFlag(stateEnum, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
             cards.add(new SZL_HuiXuan());
             cards.add(new SZL_ShanJi());
             cards.add(new SZL_KuaiFang());
@@ -371,11 +374,18 @@ public class Utils {
             cards.add(new SZL_ShanZhiXin());
         }
 
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.DuanZhiLiu)) {
+            cards.add(new DZL_JiangXin());
+            cards.add(new DZL_MoDao());
+            cards.add(new DZL_ShiJianShi());
+            cards.add(new DZL_QianChuiBaiLian());
+        }
+
         return cards;
     }
 
     public static AbstractCard getRandomCardFromLiu(Liu_StateMachine.StateEnum stateEnum) {
-        ArrayList cards = getCardsFromLiu(stateEnum);
+        ArrayList cards = getCardsFromLiu(stateEnum.getValue());
         if (cards.isEmpty()) {
             return null;
         }
