@@ -30,7 +30,6 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.block = this.baseBlock = 6;
         magicNumber = baseMagicNumber = 1;
-        exhaust = true;
     }
 
     @Override
@@ -38,6 +37,7 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

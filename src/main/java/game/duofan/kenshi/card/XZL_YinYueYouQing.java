@@ -14,9 +14,9 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class XZL_QingKong extends CustomCard implements IXiaZhiLiuCard {
+public class XZL_YinYueYouQing extends CustomCard implements IXiaZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(XZL_QingKong.class);
+    public static final String ID = IDManager.getInstance().getID(XZL_YinYueYouQing.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,7 +27,7 @@ public class XZL_QingKong extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public XZL_QingKong() {
+    public XZL_YinYueYouQing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
     }

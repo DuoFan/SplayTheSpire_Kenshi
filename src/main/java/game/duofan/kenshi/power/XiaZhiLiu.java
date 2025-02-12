@@ -48,6 +48,10 @@ public class XiaZhiLiu extends AbstractPower {
             IXiaZhiLiuCard c = (IXiaZhiLiuCard)card;
             Utils.invokeXZL_Effect(c,false);
 
+            if (AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
+                Utils.invokeXZL_Effect(c,false);
+            }
+
             if(Utils.getQiAmount() > 0){
                 Utils.invokeXZL_Effect(c,true);
                 Utils.playerReduceQi(1);

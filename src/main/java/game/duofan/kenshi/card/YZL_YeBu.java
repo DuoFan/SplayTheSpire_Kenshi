@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.AnYing;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
@@ -56,6 +57,7 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(magicNumber)
         );
+        Utils.playerGainPower(new AnYing(p));
     }
 
     @Override

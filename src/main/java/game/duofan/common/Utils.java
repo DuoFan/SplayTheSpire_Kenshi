@@ -350,7 +350,7 @@ public class Utils {
             cards.add(new XZL_BaiXiaZhan());
             cards.add(new XZL_HeQiZhan());
             cards.add(new XZL_PoXiao());
-            cards.add(new XZL_QingKong());
+            cards.add(new XZL_YinYueYouQing());
             cards.add(new XZL_XiaZhiXin());
         }
 

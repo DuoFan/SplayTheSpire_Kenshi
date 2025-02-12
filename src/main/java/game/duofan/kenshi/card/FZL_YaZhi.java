@@ -32,7 +32,6 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 5;
         magicNumber = baseMagicNumber = 1;
-        exhaust = true;
     }
 
     @Override
@@ -41,6 +40,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(2);
             this.upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

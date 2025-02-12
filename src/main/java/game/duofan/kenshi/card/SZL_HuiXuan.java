@@ -41,7 +41,6 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         effectable = true;
-        exhaust = true;
     }
 
     public void updateDescription() {
@@ -53,6 +52,7 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             updateDescription();
             this.initializeDescription();
         }

@@ -47,6 +47,10 @@ public class ShanZhiLiu extends AbstractPower {
         if (card instanceof IShanZhiLiuCard) {
             IShanZhiLiuCard szlCard = (IShanZhiLiuCard) card;
 
+            if (szlCard.effectable() && AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
+                Utils.invokeLiuCardEffect(card);
+            }
+
             if(szlCard.effectable()){
                 Utils.invokeLiuCardEffect(card);
                 if(Utils.getQiAmount() > 0 && szlCard.effectable()){

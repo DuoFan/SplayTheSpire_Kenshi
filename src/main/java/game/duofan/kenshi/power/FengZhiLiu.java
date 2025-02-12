@@ -47,6 +47,10 @@ public class FengZhiLiu extends AbstractPower {
         if (card instanceof IFengZhiLiuCard) {
             Utils.invokeLiuCardEffect(card);
 
+            if (AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
+                Utils.invokeLiuCardEffect(card);
+            }
+
             if(Utils.getQiAmount() > 0){
                 Utils.invokeLiuCardEffect(card);
                 Utils.playerReduceQi(1);

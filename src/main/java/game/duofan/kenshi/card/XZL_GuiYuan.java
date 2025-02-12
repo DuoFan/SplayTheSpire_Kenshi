@@ -50,12 +50,16 @@ public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.playerGainBlock(block);
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu);
     }
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainStrength(magicNumber);
+        if (isByQi) {
+            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
+            g.addToTop(this);
+            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
+        }
     }
 
     @Override

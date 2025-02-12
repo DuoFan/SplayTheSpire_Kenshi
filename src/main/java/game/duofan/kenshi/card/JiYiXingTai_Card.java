@@ -27,7 +27,6 @@ public class JiYiXingTai_Card extends CustomCard {
 
     public JiYiXingTai_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
@@ -47,7 +46,7 @@ public class JiYiXingTai_Card extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new JiYiXingTai(p, magicNumber))
+                new ApplyPowerAction(p, p, new JiYiXingTai(p))
         );
     }
 }

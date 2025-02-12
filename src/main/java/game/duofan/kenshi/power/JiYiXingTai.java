@@ -33,14 +33,14 @@ public class JiYiXingTai extends AbstractPower {
     JiaShi2GongShiListener j2GListener;
     GongShi2ZhongShiListener g2ZListener;
 
-    public JiYiXingTai(AbstractCreature owner, int amount) {
+    public JiYiXingTai(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = -1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -48,71 +48,9 @@ public class JiYiXingTai extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        isRegisted = false;
     }
 
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], Math.max(0, amount * 3), Math.max(0, amount));
-    }
-
-    @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        if (!isRegisted) {
-            j2GListener = new JiaShi2GongShiListener();
-            g2ZListener = new GongShi2ZhongShiListener();
-
-            EventManager.getInstance().registerToEvent(EventKey.ON_JIASHI_TO_GONGSHI, j2GListener);
-            EventManager.getInstance().registerToEvent(EventKey.ON_GONGSHI_TO_ZHONGSHI, g2ZListener);
-
-            isRegisted = true;
-        }
-    }
-
-    @Override
-    public void onVictory() {
-        super.onVictory();
-        dispose();
-    }
-
-    @Override
-    public void onDeath() {
-        super.onDeath();
-        dispose();
-    }
-
-    void dispose() {
-        if (isRegisted) {
-            EventManager.getInstance().unregisterFromEvent(EventKey.ON_JIASHI_TO_GONGSHI, j2GListener);
-            EventManager.getInstance().unregisterFromEvent(EventKey.ON_GONGSHI_TO_ZHONGSHI, g2ZListener);
-            j2GListener = null;
-            g2ZListener = null;
-        }
-    }
-
-    class JiaShi2GongShiListener implements IEventListener {
-
-        @Override
-        public void OnEvent(Object sender, Object e) {
-            int _amount = (int) e;
-            if (amount > 0 && _amount > 0) {
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(
-                        AbstractDungeon.player, amount * 3 * _amount
-                ));
-            }
-        }
-    }
-
-    class GongShi2ZhongShiListener implements IEventListener {
-
-        @Override
-        public void OnEvent(Object sender, Object e) {
-            int _amount = (int) e;
-            if (amount > 0 && _amount > 0) {
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, amount * _amount)));
-                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new LoseStrengthPower(AbstractDungeon.player, amount * _amount)));
-            }
-        }
     }
 }
