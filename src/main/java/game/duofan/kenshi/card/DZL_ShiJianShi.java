@@ -24,7 +24,7 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -36,14 +36,15 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
     public DZL_ShiJianShi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }
@@ -59,7 +60,7 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
         target = m;
         addToBot(new PickUpCardToDuanZaoAction((c) -> {
             if (c != null) {
-
+                Utils.givePower(p, m, new ShiJianShi(c, m, 10));
             }
         }));
     }
@@ -67,7 +68,7 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
     @Override
     public void duanZhiLiuEffect() {
         if (target != null) {
-            Utils.givePower(AbstractDungeon.player, target, new VulnerablePower(target, 1, false));
+            Utils.givePower(AbstractDungeon.player, target, new VulnerablePower(target, magicNumber, false));
         }
     }
 

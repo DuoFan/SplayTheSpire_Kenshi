@@ -29,10 +29,6 @@ public class JiYiXingTai extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    boolean isRegisted;
-    JiaShi2GongShiListener j2GListener;
-    GongShi2ZhongShiListener g2ZListener;
-
     public JiYiXingTai(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;

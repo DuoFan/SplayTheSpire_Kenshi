@@ -111,6 +111,30 @@ public class Liu_StateMachine {
         return true;
     }
 
+    public StateEnum getLiu() {
+        if (state == null) {
+            return StateEnum.None;
+        }
+
+        if (isStateMatch(StateEnum.FengZhiLiu)) {
+            return StateEnum.FengZhiLiu;
+        } else if (isStateMatch(StateEnum.YingZhiLiu)) {
+            return StateEnum.YingZhiLiu;
+        } else if (isStateMatch(StateEnum.XiaZhiLiu)) {
+            return StateEnum.XiaZhiLiu;
+        } else if (isStateMatch(StateEnum.WeiZhiLiu)) {
+            return StateEnum.WeiZhiLiu;
+        } else if (isStateMatch(StateEnum.ShanZhiLiu)) {
+            return StateEnum.ShanZhiLiu;
+        } else if (isStateMatch(StateEnum.DuanZhiLiu)) {
+            return StateEnum.DuanZhiLiu;
+        } else if (isStateMatch(StateEnum.YuZhiLiu)) {
+            return StateEnum.YuZhiLiu;
+        }
+
+        return StateEnum.None;
+    }
+
     private void changeStateTo(StateEnum stateEnum) {
         reset();
         switch (stateEnum) {
@@ -131,6 +155,9 @@ public class Liu_StateMachine {
                 break;
             case DuanZhiLiu:
                 state = new DuanZhiLiu_State();
+                break;
+            case YuZhiLiu:
+                state = new YuZhiLiu_State();
                 break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
@@ -158,14 +185,17 @@ public class Liu_StateMachine {
                 return powerID.equals(ShanZhiLiu.POWER_ID);
             case DuanZhiLiu:
                 return powerID.equals(DuanZhiLiu.POWER_ID);
+            case YuZhiLiu:
+                return powerID.equals(YuZhiLiu.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
     }
 
     public enum StateEnum {
-        FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
-        WeiZhiLiu(8), ShanZhiLiu(16), DuanZhiLiu(32), All(-1);
+        None(0), FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
+        WeiZhiLiu(8), ShanZhiLiu(16), DuanZhiLiu(32),
+        YuZhiLiu(64), All(-1);
 
         private int value = 0;
 
@@ -249,6 +279,7 @@ public class Liu_StateMachine {
             Utils.playerGainPower(new ShanZhiLiu(AbstractDungeon.player));
         }
     }
+
     class DuanZhiLiu_State extends State {
         @Override
         public String getPowerID() {
@@ -258,6 +289,18 @@ public class Liu_StateMachine {
         @Override
         public void enter() {
             Utils.playerGainPower(new DuanZhiLiu(AbstractDungeon.player));
+        }
+    }
+
+    class YuZhiLiu_State extends State {
+        @Override
+        public String getPowerID() {
+            return YuZhiLiu.POWER_ID;
+        }
+
+        @Override
+        public void enter() {
+            Utils.playerGainPower(new YuZhiLiu(AbstractDungeon.player));
         }
     }
 }

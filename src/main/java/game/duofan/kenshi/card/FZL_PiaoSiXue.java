@@ -78,20 +78,11 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int c = damageCount;
-        if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
-            while (c > 0) {
-                this.addToBot(new DamageAction(
-                        m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
-                ));
-                c--;
-            }
-        } else {
-            while (c > 0) {
-                this.addToBot(new DamageAllEnemiesAction(
-                        p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
-                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-                c--;
-            }
+        while (c > 0) {
+            this.addToBot(new DamageAction(
+                    m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
+            ));
+            c--;
         }
     }
 
@@ -99,8 +90,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)
-                || Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

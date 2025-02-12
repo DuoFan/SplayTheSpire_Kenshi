@@ -32,7 +32,7 @@
   "game.duofan.kenshi:ZhongShi": {
     "NAME": "终势",
     "DESCRIPTIONS": [
-      " NL 可触发尾声效果，NL NL 每打出1张 #r攻击牌 移除一层，回合结束时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
+      "下一张 #r攻击牌 费用为0，打出1张 #r攻击牌 或 #r回合结束 时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
     ]
   },
   "game.duofan.kenshi:AnYing": {
@@ -71,6 +71,12 @@
       "这里还没有任何卡牌。"
     ]
   },
+  "game.duofan.kenshi:ShiJianShi": {
+    "NAME": "试剑石",
+    "DESCRIPTIONS": [
+      "试剑石还没有准备好。"
+    ]
+  },
   "game.duofan.kenshi:ChenReDaTie": {
     "NAME": "趁热打铁",
     "DESCRIPTIONS": [
@@ -80,7 +86,7 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      " NL 可触发枫之流效果，回合结束时移除。"
+      " NL 可触发 #r枫之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:FengZhiXin": {
@@ -92,7 +98,7 @@
   "game.duofan.kenshi:YingZhiLiu": {
     "NAME": "影之流",
     "DESCRIPTIONS": [
-      " NL 可触发影之流效果，回合结束时移除。"
+      " NL 可触发 #r影之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:YingZhiXin": {
@@ -104,7 +110,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      " NL 可触发霞之流效果，回合结束时移除。"
+      " NL 可触发 #r霞之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:XiaZhiXin": {
@@ -116,7 +122,7 @@
   "game.duofan.kenshi:WeiZhiLiu": {
     "NAME": "伪之流",
     "DESCRIPTIONS": [
-      " NL 可触发伪之流效果，回合结束时移除。"
+      " NL 可触发 #r伪之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:WeiZhiXin": {
@@ -128,7 +134,7 @@
   "game.duofan.kenshi:ShanZhiLiu": {
     "NAME": "闪之流",
     "DESCRIPTIONS": [
-      " NL 可触发闪之流效果，回合结束时移除。"
+      " NL 可触发 #r闪之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:ShanZhiXin": {
@@ -140,7 +146,13 @@
   "game.duofan.kenshi:DuanZhiLiu": {
     "NAME": "锻之流",
     "DESCRIPTIONS": [
-      " NL 可触发锻之流效果，回合结束时移除。"
+      " NL 可触发 #r锻之流 效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:YuZhiLiu": {
+    "NAME": "羽之流",
+    "DESCRIPTIONS": [
+      " NL 可触发 #r羽之流 效果，回合结束时移除。"
     ]
   }
 }

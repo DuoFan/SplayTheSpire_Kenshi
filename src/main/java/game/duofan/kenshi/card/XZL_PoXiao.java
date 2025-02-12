@@ -81,21 +81,14 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         monster = m;
-        if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
-            this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        } else {
-            this.addToBot(new DamageAllEnemiesAction(
-                    p, damage, DamageInfo.DamageType.NORMAL,
-                    AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-        }
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)
-                || Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
@@ -104,13 +97,7 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
     public void xiaZhiLiuEffect(boolean isByQi) {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
-            if (!Shi_StateMachine.getInstance().isStateMatch(Shi_StateMachine.StateEnum.ZhongShi)) {
-                this.addToBot(new DamageAction(monster, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
-            } else {
-                this.addToBot(new DamageAllEnemiesAction(
-                        p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL,
-                        AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
-            }
+            this.addToBot(new DamageAction(monster, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
         }
 
         if(isByQi){

@@ -12,16 +12,16 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 
-public class ShanZhiLiu extends AbstractPower {
+public class YuZhiLiu extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(ShanZhiLiu.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(YuZhiLiu.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-    public ShanZhiLiu(AbstractCreature owner) {
+    public YuZhiLiu(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -45,19 +45,16 @@ public class ShanZhiLiu extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if (card instanceof IShanZhiLiuCard) {
-            IShanZhiLiuCard szlCard = (IShanZhiLiuCard) card;
+        if (card instanceof IYuZhiLiuCard) {
+            Utils.invokeLiuCardEffect(card);
 
-            if (szlCard.effectable() && AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
+            if (AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
                 Utils.invokeLiuCardEffect(card);
             }
 
-            if(szlCard.effectable()){
+            if(Utils.getQiAmount() > 0){
                 Utils.invokeLiuCardEffect(card);
-                if(Utils.getQiAmount() > 0 && szlCard.effectable()){
-                    Utils.invokeLiuCardEffect(card);
-                    Utils.playerReduceQi(1);
-                }
+                Utils.playerReduceQi(1);
             }
 
             Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);

@@ -24,6 +24,11 @@
     "DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。"
   },
+  "game.duofan.kenshi:QianBianWanHua": {
+    "NAME": "千变万化",
+    "DESCRIPTION": "随机打出 *流派卡牌 并 消耗 ，直到切换 !M! 次 *流派 。",
+    "UPGRADE_DESCRIPTION":  "随机打出 *流派卡牌 并 消耗 ，直到切换 !M! 次 *流派 。"
+  },
   "game.duofan.kenshi:JiYiXingTai_Card": {
     "NAME": "极意形态",
     "DESCRIPTION": "获得 duofan_kenshi:极意形态 。",
@@ -46,8 +51,8 @@
   },
   "game.duofan.kenshi:FZL_PiaoSiXue": {
     "NAME": "飘似雪",
-    "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !M! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:尾声 :对所有敌人造成 !M! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+    "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
   },
   "game.duofan.kenshi:FZL_KuangFengJuanYe": {
     "NAME": "狂风卷叶",
@@ -71,8 +76,8 @@
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "烈风斩",
-    "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 点力量，反之获得 !M! 层敏捷。 NL 消耗",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 点力量，反之获得 !M! 层敏捷。 NL 消耗"
+    "DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 点 力量 ，反之获得 !M! 层 敏捷 。 NL 消耗",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !B! 点格挡 。 NL duofan_kenshi:枫之流 :若伤害值大于格挡值，获得 !M! 点 力量 ，反之获得 !M! 层 敏捷 。 NL 消耗"
   },
   "game.duofan.kenshi:FZL_FengZhiXin": {
     "NAME": "枫之心",
@@ -126,8 +131,8 @@
   },
   "game.duofan.kenshi:XZL_GuiYuan": {
     "NAME": "归元",
-    "DESCRIPTION": "获得 !B! 点格挡。 NL duofan_kenshi:霞之流 :获得 !M! 点力量。 NL duofan_kenshi:气消 ",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL duofan_kenshi:霞之流 :获得 !M! 点力量。 NL duofan_kenshi:气消 "
+    "DESCRIPTION": "获得 !B! 点格挡。 NL duofan_kenshi:霞之流 :获得 !M! 点 力量 。 NL duofan_kenshi:气消 ",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点格挡。 NL duofan_kenshi:霞之流 :获得 !M! 点 力量 。 NL duofan_kenshi:气消 "
   },
   "game.duofan.kenshi:XZL_BaiXiaZhan": {
     "NAME": "白霞斩",
@@ -141,10 +146,10 @@
   },
   "game.duofan.kenshi:XZL_PoXiao": {
     "NAME": "破晓",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! 点伤害 。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气消 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:尾声 :对所有敌人造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气消 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气消 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气消 "
   },
-  "game.duofan.kenshi:XZL_QingKong": {
+  "game.duofan.kenshi:XZL_YinYueYouQing": {
     "NAME": "阴月有晴",
     "DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :抽取1张卡牌。 NL duofan_kenshi:气消 ",
     "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :抽取1张卡牌。"
@@ -211,8 +216,8 @@
   },
   "game.duofan.kenshi:SZL_BaDaoZhan": {
     "NAME": "拔刀斩",
-    "DESCRIPTION": "造成 !D! 点伤害，若斩杀目标，则获得 [E] NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，若斩杀目标，则获得 [E] NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。"
+    "DESCRIPTION": "造成 !D! 点伤害，若 斩杀 目标，则获得 [E] NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，若 斩杀 目标，则获得 [E] NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。"
   },
   "game.duofan.kenshi:SZL_FeiXing": {
     "NAME": "飞星",
@@ -236,12 +241,17 @@
   },
   "game.duofan.kenshi:DZL_ShiJianShi": {
     "NAME": "试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 *斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予1层 易伤 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌斩杀目标，则获得10金币。 NL duofan_kenshi:锻之流 :给予1层 易伤 。 NL 消耗 "
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 "
   },
   "game.duofan.kenshi:DZL_QianChuiBaiLian": {
     "NAME": "千锤百炼",
     "DESCRIPTION": "随机 duofan_kenshi:锻造 手牌 !M! 次。 NL duofan_kenshi:锻之流 :本回合下1张 *锻卡 费用减1。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "随机 duofan_kenshi:锻造 手牌 !M! 次。 NL duofan_kenshi:锻之流 :锻造次数加1。"
+  },
+  "game.duofan.kenshi:YuZL_YuHua": {
+    "NAME": "羽化",
+    "DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 "
   }
 }

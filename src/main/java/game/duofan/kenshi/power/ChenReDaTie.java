@@ -56,6 +56,15 @@ public class ChenReDaTie extends AbstractPower {
         this.description = String.format(DESCRIPTIONS[0], amount);
     }
 
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
+        if (card instanceof IDuanZhiLiuCard && card.costForTurn > 0) {
+            cards.add(card);
+            card.setCostForTurn(card.costForTurn - 1);
+        }
+    }
+
     protected void effect() {
         cards = new ArrayList<>();
         for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {

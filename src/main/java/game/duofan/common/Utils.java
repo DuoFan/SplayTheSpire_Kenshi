@@ -118,6 +118,9 @@ public class Utils {
             else if (card instanceof IDuanZhiLiuCard) {
                 ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
             }
+            else if (card instanceof IYuZhiLiuCard) {
+                ((IYuZhiLiuCard) card).yuZhiLiuEffect();
+            }
         });
     }
 
@@ -381,6 +384,11 @@ public class Utils {
             cards.add(new DZL_QianChuiBaiLian());
         }
 
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
+
+            cards.add(new YuZL_YuHua());
+        }
+
         return cards;
     }
 
@@ -404,5 +412,36 @@ public class Utils {
             cards.remove(index);
         }
         return card;
+    }
+
+    public static Liu_StateMachine.StateEnum getLiuFromCard(AbstractCard card) {
+
+        if(card == null){
+            return Liu_StateMachine.StateEnum.None;
+        }
+
+        if(card instanceof IFengZhiLiuCard){
+            return Liu_StateMachine.StateEnum.FengZhiLiu;
+        }
+        else if(card instanceof IYingZhiLiuCard){
+            return Liu_StateMachine.StateEnum.YingZhiLiu;
+        }
+        else if(card instanceof IXiaZhiLiuCard){
+            return Liu_StateMachine.StateEnum.XiaZhiLiu;
+        }
+        else if(card instanceof IWeiZhiLiuCard){
+            return Liu_StateMachine.StateEnum.WeiZhiLiu;
+        }
+        else if(card instanceof IShanZhiLiuCard){
+            return Liu_StateMachine.StateEnum.ShanZhiLiu;
+        }
+        else if(card instanceof IDuanZhiLiuCard){
+            return Liu_StateMachine.StateEnum.DuanZhiLiu;
+        }
+        else if(card instanceof IYuZhiLiuCard){
+            return Liu_StateMachine.StateEnum.YuZhiLiu;
+        }
+
+        return Liu_StateMachine.StateEnum.None;
     }
 }

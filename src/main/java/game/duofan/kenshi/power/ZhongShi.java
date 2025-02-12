@@ -19,6 +19,11 @@ import com.megacrit.cardcrawl.powers.watcher.FreeAttackPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+
 public class ZhongShi extends AbstractPower {
     // 能力的ID
     public static final String POWER_ID = IDManager.getInstance().getID(ZhongShi.class);
@@ -28,6 +33,8 @@ public class ZhongShi extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    HashMap<AbstractCard, Integer> cards;
 
     public ZhongShi(AbstractCreature owner, int _amount) {
         this.name = NAME;
@@ -43,16 +50,53 @@ public class ZhongShi extends AbstractPower {
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
+
+        effect();
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount);
+        this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
+        if (card.type == AbstractCard.CardType.ATTACK && card.costForTurn > 0
+        && !cards.containsKey(card)) {
+            cards.put(card,card.costForTurn);
+            card.setCostForTurn(0);
+        }
+    }
+
+    protected void effect() {
+        cards = new HashMap<>();
+        for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
+            AbstractCard c = AbstractDungeon.player.hand.group.get(i);
+            if (c.type == AbstractCard.CardType.ATTACK && c.costForTurn > 0
+                    && !cards.containsKey(c)) {
+                cards.put(c,c.costForTurn);
+                c.setCostForTurn(0);
+            }
+        }
+    }
+
+    void restore() {
+
+        Iterator<Map.Entry<AbstractCard,Integer>> e = cards.entrySet().iterator();
+
+        while (e.hasNext()){
+            Map.Entry<AbstractCard,Integer> entry = e.next();
+            entry.getKey().setCostForTurn(entry.getValue());
+        }
+        cards = null;
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if(Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.ZhongShi)){
+        if (Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.ZhongShi)
+        && card.type == AbstractCard.CardType.ATTACK) {
+            restore();
             Shi_StateMachine.getInstance().update();
         }
     }
@@ -60,6 +104,7 @@ public class ZhongShi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
+        restore();
         Shi_StateMachine.getInstance().reset();
     }
 }

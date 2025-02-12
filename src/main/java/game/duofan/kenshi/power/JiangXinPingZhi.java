@@ -2,24 +2,14 @@ package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import game.duofan.common.*;
-import game.duofan.kenshi.action.TaYinAction;
-import game.duofan.kenshi.card.ChaPin;
-import game.duofan.kenshi.card.ManMa;
-import game.duofan.kenshi.card.WZL_TaYin;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
 
 public class JiangXinPingZhi extends AbstractPower {
 
@@ -37,14 +27,17 @@ public class JiangXinPingZhi extends AbstractPower {
 
     int baseDamage = 12;
 
+    int gold;
+
     DuanZaoListener listener;
 
-    public JiangXinPingZhi(AbstractCard t) {
+    public JiangXinPingZhi(AbstractCard t,int _gold) {
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
         owner = AbstractDungeon.player;
         targetCard = t;
         this.type = PowerType.BUFF;
+        gold = _gold;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = -1;
@@ -98,19 +91,25 @@ public class JiangXinPingZhi extends AbstractPower {
 
         if (!isOk) {
             System.out.println(targetCard.name + "不满足匠心品质!");
-            Utils.makeTempCardInHand(new ChaPin(), 1);
         } else {
             System.out.println(targetCard.name + "满足匠心品质!");
+            AbstractDungeon.player.gainGold(gold);
+            AbstractPlayer p = AbstractDungeon.player;
+            for(int i = 0; i < gold; ++i) {
+                AbstractDungeon.effectList.add(new GainPennyEffect(p, p.hb.cX, p.hb.cY + 300, p.hb_x, p.hb.cY, true));
+            }
         }
     }
 
     @Override
-    public void atEndOfRound() {
-        super.atEndOfRound();
-        checkIsOk();
-        EventManager.getInstance().unregisterFromEvent(EventKey.ON_CARD_BE_DUANZAO, listener);
-        listener = null;
-        Utils.removePower(owner, this.ID);
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        if(isPlayer){
+            checkIsOk();
+            EventManager.getInstance().unregisterFromEvent(EventKey.ON_CARD_BE_DUANZAO, listener);
+            listener = null;
+            Utils.removePower(owner, this.ID);
+        }
     }
 
     class DuanZaoListener implements IEventListener {
