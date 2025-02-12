@@ -35,6 +35,7 @@ public class YuZL_YuHua extends CustomCard implements IYuZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         this.exhaust = true;
+        isEthereal = true;
     }
 
     @Override

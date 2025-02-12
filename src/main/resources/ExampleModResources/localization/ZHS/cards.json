@@ -251,7 +251,7 @@
   },
   "game.duofan.kenshi:YuZL_YuHua": {
     "NAME": "羽化",
-    "DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 "
+    "DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 无实体 。 NL duofan_kenshi:羽之流 :获得1点 敏捷 。 NL 消耗 NL 虚无 "
   }
 }
