@@ -8,6 +8,7 @@ import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.IDoCard;
+import game.duofan.kenshi.power.IExtraDuanZaoEffect;
 import game.duofan.kenshi.power.IShanZhiLiuCard;
 
 import java.util.ArrayList;
@@ -40,6 +41,10 @@ public class DuanZaoAction extends AbstractGameAction {
                             card.modifyCostForCombat(-1);
                         }
                 }
+            }
+
+            if(card instanceof IExtraDuanZaoEffect){
+                ((IExtraDuanZaoEffect)card).extraDuanZaoEffect();
             }
 
             if (card instanceof IShanZhiLiuCard) {

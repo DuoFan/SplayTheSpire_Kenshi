@@ -92,7 +92,9 @@ public class Utils {
                 || (card instanceof IYingZhiLiuCard)
                 || (card instanceof IXiaZhiLiuCard)
                 || (card instanceof IWeiZhiLiuCard)
-                || (card instanceof IShanZhiLiuCard);
+                || (card instanceof IShanZhiLiuCard)
+                || (card instanceof IDuanZhiLiuCard)
+                || (card instanceof IYuZhiLiuCard)
     }
 
     public static void invokeLiuCardEffect(AbstractCard card) {
@@ -380,6 +382,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.DuanZhiLiu)) {
             cards.add(new DZL_JiangXin());
             cards.add(new DZL_MoDao());
+            cards.add(new DZL_JiuJian());
             cards.add(new DZL_ShiJianShi());
             cards.add(new DZL_QianChuiBaiLian());
         }

@@ -239,10 +239,15 @@
     "DESCRIPTION": "随机 duofan_kenshi:锻造 手牌中的 *攻击牌 !M! 次。 NL duofan_kenshi:锻之流 :额外锻造1次。",
     "UPGRADE_DESCRIPTION": "随机 duofan_kenshi:锻造 手牌中的 *攻击牌 !M! 次。 NL duofan_kenshi:锻之流 :额外锻造1次。 NL 消耗 "
   },
+  "game.duofan.kenshi:DZL_JiuJian": {
+    "NAME": "旧剑",
+    "DESCRIPTION": "造成 !D! 点伤害，这张牌的 duofan_kenshi:锻造 效果加 !M! 。 NL duofan_kenshi:锻之流 : duofan_kenshi:锻造 自身1次 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，这张牌的 duofan_kenshi:锻造 效果加 !M! 。 NL duofan_kenshi:锻之流 : duofan_kenshi:锻造 自身1次 。"
+  },
   "game.duofan.kenshi:DZL_ShiJianShi": {
     "NAME": "试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标， NL 若锻造牌 斩杀 目标，则获得10 *金币 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 "
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 "
   },
   "game.duofan.kenshi:DZL_QianChuiBaiLian": {
     "NAME": "千锤百炼",
