@@ -10,6 +10,7 @@ import game.duofan.common.Utils;
 import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.power.IExtraDuanZaoEffect;
 import game.duofan.kenshi.power.IShanZhiLiuCard;
+import game.duofan.kenshi.power.IUpdateDescription;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ public class DuanZaoAction extends AbstractGameAction {
     public void update() {
 
         if (card != null) {
+            boolean isOk = true;
             for (int i = 0; i < amount; i++) {
                 switch (card.type) {
                     case ATTACK:
@@ -40,17 +42,25 @@ public class DuanZaoAction extends AbstractGameAction {
                         if (card.cost > 0) {
                             card.modifyCostForCombat(-1);
                         }
+                        break;
+                    default:
+                        isOk = false;
+                        break;
                 }
             }
 
-            if(card instanceof IExtraDuanZaoEffect){
-                ((IExtraDuanZaoEffect)card).extraDuanZaoEffect();
+            if (card instanceof IExtraDuanZaoEffect) {
+                ((IExtraDuanZaoEffect) card).extraDuanZaoEffect();
+                isOk = true;
             }
 
-            if (card instanceof IShanZhiLiuCard) {
-                Utils.updateSZL_Description((IShanZhiLiuCard) card);
-            } else {
-                card.initializeDescription();
+            if (isOk) {
+                if (card instanceof IUpdateDescription) {
+                    ((IUpdateDescription) card).updateDescription();
+                } else {
+                    card.initializeDescription();
+                }
+                card.superFlash();
             }
 
             EventManager.getInstance().notifyEvent(EventKey.ON_CARD_BE_DUANZAO, this, card);

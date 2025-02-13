@@ -15,9 +15,10 @@ public class PickUpCardToDuanZaoAction extends AbstractGameAction {
 
     IDoCard doCard;
 
-    public PickUpCardToDuanZaoAction(IDoCard _doCard) {
+    public PickUpCardToDuanZaoAction(IDoCard _doCard, int _amount) {
         duration = 0.5f;
         doCard = _doCard;
+        amount = _amount;
         this.actionType = ActionType.CARD_MANIPULATION;
     }
 
@@ -39,10 +40,10 @@ public class PickUpCardToDuanZaoAction extends AbstractGameAction {
 
             // 处理卡牌并移回手牌
             for (AbstractCard card : selectedCards) {
-                if(doCard != null){
+                if (doCard != null) {
                     doCard.DoCard(card);
                 }
-                addToTop(new DuanZaoAction(card,1));
+                addToTop(new DuanZaoAction(card, amount));
                 AbstractDungeon.player.hand.addToTop(card);
             }
 

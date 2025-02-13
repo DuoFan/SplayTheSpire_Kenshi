@@ -58,7 +58,7 @@ public class DZL_JiangXin extends CustomCard implements IDuanZhiLiuCard {
             if (c != null) {
                 Utils.playerGainPower(new JiangXinPingZhi(c, 5));
             }
-        }));
+        }, 1));
 
         addToBot(new DrawCardByClassAction(magicNumber, IDuanZhiLiuCard.class));
     }

@@ -1,7 +1,10 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,40 +13,32 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClassAction;
-import game.duofan.kenshi.action.DuanZaoAction;
-import game.duofan.kenshi.action.DuanZaoHandAction;
-import game.duofan.kenshi.action.PickUpCardToDuanZaoAction;
 import game.duofan.kenshi.power.*;
 
-import java.util.ArrayList;
+import java.util.Iterator;
 
-public class DZL_JiuJian extends CustomCard implements IDuanZhiLiuCard, IExtraDuanZaoEffect {
-
-    public static final String ID = IDManager.getInstance().getID(DZL_JiuJian.class);
+public class DZL_DuanZhiXin extends CustomCard implements IDuanZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(DZL_DuanZhiXin.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.ATTACK;
-    private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
+    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public DZL_JiuJian() {
+    public DZL_DuanZhiXin() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        magicNumber = baseMagicNumber = 1;
+        this.cardsToPreview = new JianPei();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            upgradeBaseCost(1);
         }
     }
 
@@ -55,26 +50,21 @@ public class DZL_JiuJian extends CustomCard implements IDuanZhiLiuCard, IExtraDu
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
-    }
-
-    @Override
-    public void duanZhiLiuEffect() {
-        addToBot(new DuanZaoAction(this, 1));
+        Utils.playerGainPower(new DuanZhiXin(p));
+        Utils.makeTempCardInHand(new JianPei(),2);
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.DuanZhiLiu)) {
+        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void extraDuanZaoEffect() {
-        this.baseDamage += magicNumber;
+    public void duanZhiLiuEffect() {
+        Utils.playerGainEnergy(1);
     }
 }

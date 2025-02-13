@@ -26,5 +26,12 @@
     "DESCRIPTIONS": [
       "战斗开始时，随机将一张 #r流派卡 加入手牌，且费用降为0。"
     ]
+  },
+  "game.duofan.kenshi:JianChui": {
+    "NAME": "剑锤",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      "回合开始时，随机 #rduofan_kenshi:锻造 两张手牌。"
+    ]
   }
 }

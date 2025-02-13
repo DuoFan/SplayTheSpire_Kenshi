@@ -41,7 +41,7 @@ public class Utils {
         // 2. 处理连锁状态
         if (linked != null) {
             // 替换 "连锁 1张卡牌" -> "已连锁: [卡牌名]"
-            baseDesc = baseDesc.replace("duofan_kenshi:连锁 1张卡牌",
+            baseDesc = baseDesc.replace("duofan_kenshi:连锁 1张手牌",
                     String.format(" NL 已连锁: *[%s]", linked.name));
         }
 
@@ -94,7 +94,7 @@ public class Utils {
                 || (card instanceof IWeiZhiLiuCard)
                 || (card instanceof IShanZhiLiuCard)
                 || (card instanceof IDuanZhiLiuCard)
-                || (card instanceof IYuZhiLiuCard)
+                || (card instanceof IYuZhiLiuCard);
     }
 
     public static void invokeLiuCardEffect(AbstractCard card) {
@@ -382,9 +382,11 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.DuanZhiLiu)) {
             cards.add(new DZL_JiangXin());
             cards.add(new DZL_MoDao());
-            cards.add(new DZL_JiuJian());
+            cards.add(new DZL_JiuJianCuiHuo());
             cards.add(new DZL_ShiJianShi());
+            cards.add(new DZL_RongHui());
             cards.add(new DZL_QianChuiBaiLian());
+            cards.add(new DZL_DuanZhiXin());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {

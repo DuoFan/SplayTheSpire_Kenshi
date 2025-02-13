@@ -14,25 +14,25 @@
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "极意形态",
     "DESCRIPTIONS": [
-      " NL 每次从 #r架势 进入 #r攻势 时，每剩余1层架势获得 #r%d 点格挡， NL 从 #r攻势 进入 #r终势 时，每剩余1层攻势获得 #r%d 点临时力量。"
+      " NL 因 #r在对应流派打出流派卡 而触发的 #r流派效果 将触发 #r2 次"
     ]
   },
   "game.duofan.kenshi:JiaShi": {
     "NAME": "架势",
     "DESCRIPTIONS": [
-      " NL 攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层，回合结束时全部移除。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+      " NL 本回合攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
     ]
   },
   "game.duofan.kenshi:GongShi": {
     "NAME": "攻势",
     "DESCRIPTIONS": [
-      " NL 攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层，回合结束时全部移除。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
+      " NL 本回合攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
     ]
   },
   "game.duofan.kenshi:ZhongShi": {
     "NAME": "终势",
     "DESCRIPTIONS": [
-      "下一张 #r攻击牌 费用为0，打出1张 #r攻击牌 或 #r回合结束 时全部移除。 NL NL 在回合内当终势结束后，获得 #r2 层 #r架势 。"
+      "本回合下一张 #r攻击牌 费用为0，而后获得2层 #r架势 。"
     ]
   },
   "game.duofan.kenshi:AnYing": {
@@ -147,6 +147,12 @@
     "NAME": "锻之流",
     "DESCRIPTIONS": [
       " NL 可触发 #r锻之流 效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:DuanZhiXin": {
+    "NAME": "锻之流",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r锻之流 时， #r锻造 手牌中所有的 #r剑胚 。"
     ]
   },
   "game.duofan.kenshi:YuZhiLiu": {

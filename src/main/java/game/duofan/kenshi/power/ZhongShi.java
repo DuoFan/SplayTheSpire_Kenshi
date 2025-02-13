@@ -51,7 +51,7 @@ public class ZhongShi extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
 
-        effect();
+        Utils.addToBotAbstract(() -> effect());
     }
 
     public void updateDescription() {
@@ -96,7 +96,9 @@ public class ZhongShi extends AbstractPower {
         super.onUseCard(card, action);
         if (Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.ZhongShi)
         && card.type == AbstractCard.CardType.ATTACK) {
-            restore();
+            Utils.addToBotAbstract(() ->{
+                restore();
+            });
             Shi_StateMachine.getInstance().update();
         }
     }
@@ -104,7 +106,9 @@ public class ZhongShi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        restore();
+        Utils.addToBotAbstract(() ->{
+            restore();
+        });
         Shi_StateMachine.getInstance().reset();
     }
 }

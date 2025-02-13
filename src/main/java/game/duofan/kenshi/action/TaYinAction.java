@@ -1,22 +1,16 @@
 package game.duofan.kenshi.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.actions.watcher.ForeignInfluenceAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.card.WZL_TaYin;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class TaYinAction extends AbstractGameAction {
     boolean retrieveCard;

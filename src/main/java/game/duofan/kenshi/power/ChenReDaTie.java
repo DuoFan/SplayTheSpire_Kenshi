@@ -1,6 +1,7 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -49,7 +50,7 @@ public class ChenReDaTie extends AbstractPower {
 
         this.updateDescription();
 
-        effect();
+        Utils.addToBotAbstract(() -> effect());
     }
 
     public void updateDescription() {
@@ -59,22 +60,24 @@ public class ChenReDaTie extends AbstractPower {
     @Override
     public void onCardDraw(AbstractCard card) {
         super.onCardDraw(card);
-        if (card instanceof IDuanZhiLiuCard && card.costForTurn > 0) {
-            cards.add(card);
-            card.setCostForTurn(card.costForTurn - 1);
-        }
+        tryEffectForCard(card);
     }
 
     protected void effect() {
         cards = new ArrayList<>();
         for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
             AbstractCard c = AbstractDungeon.player.hand.group.get(i);
-            if (c instanceof IDuanZhiLiuCard && c.costForTurn > 0) {
-                cards.add(c);
-                c.setCostForTurn(c.costForTurn - 1);
-            }
+            tryEffectForCard(c);
         }
     }
+
+    void tryEffectForCard(AbstractCard c){
+        if (c instanceof IDuanZhiLiuCard && c.costForTurn > 0 && !cards.contains(c)) {
+            cards.add(c);
+            c.setCostForTurn(c.costForTurn - 1);
+        }
+    }
+
 
     void restore() {
         for (int i = 0; i < cards.size(); i++) {
@@ -89,7 +92,9 @@ public class ChenReDaTie extends AbstractPower {
             this.flash();
             --this.amount;
             if (this.amount == 0) {
-                restore();
+                Utils.addToBotAbstract(() ->{
+                    restore();
+                });
                 this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
             }
         }
@@ -99,7 +104,9 @@ public class ChenReDaTie extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         if(isPlayer){
-            restore();
+            Utils.addToBotAbstract(() ->{
+                restore();
+            });
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
     }

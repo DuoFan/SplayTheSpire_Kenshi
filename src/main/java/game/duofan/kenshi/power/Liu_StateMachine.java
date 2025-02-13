@@ -76,7 +76,9 @@ public class Liu_StateMachine {
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu, EventKey.FIRST_YZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.XiaZhiLiu, EventKey.FIRST_XZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.WeiZhiLiu, EventKey.FIRST_WZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.ShanZhiLiu, EventKey.FIRST_SZL_ON_TURN)) {
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.ShanZhiLiu, EventKey.FIRST_SZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.DuanZhiLiu, EventKey.FIRST_DZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.YuZhiLiu, EventKey.FIRST_YuZL_ON_TURN)) {
 
         }
     }
