@@ -41,9 +41,9 @@ public class BaiHong extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
-        super.atBattleStart();
+    public void atTurnStartPostDraw() {
+        super.atTurnStartPostDraw();
         this.flash();
-        Utils.playerGainQi(3);
+        Utils.playerGainQi(2);
     }
 }

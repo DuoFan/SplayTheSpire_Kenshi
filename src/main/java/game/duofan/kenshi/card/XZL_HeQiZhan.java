@@ -96,11 +96,5 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
         if (monster != null) {
             this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
         }
-
-        if (isByQi) {
-            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            g.addToTop(this);
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        }
     }
 }

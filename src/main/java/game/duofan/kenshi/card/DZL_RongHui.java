@@ -65,26 +65,26 @@ public class DZL_RongHui extends CustomCard implements IDuanZhiLiuCard {
 
     void applyToTargetCard() {
         if (targetCard != null) {
-            if (!targetCard.exhaust) {
+            if (!upgraded && !targetCard.exhaust) {
                 targetCard.exhaust = true;
                 targetCard.rawDescription += " NL 消耗 ";
             }
             if (!targetCard.isEthereal) {
                 targetCard.isEthereal = true;
-                targetCard.rawDescription += " NL 虚无 ";
-            }
-
-            System.out.println(targetCard.selfRetain + ":" + targetCard.retain);
-
-            if (targetCard.selfRetain || retain) {
+                if (targetCard.selfRetain) {
+                    targetCard.rawDescription = targetCard.rawDescription.replace(" 保留 ", " 虚无 ");
+                } else {
+                    targetCard.rawDescription += " NL 虚无 ";
+                }
                 targetCard.selfRetain = false;
                 targetCard.retain = false;
-                targetCard.rawDescription = targetCard.rawDescription.replace("保留", "");
             }
 
-            if(upgraded){
-                if(FleetingField.fleeting.get(targetCard).equals(false)){
-                    FleetingField.fleeting.set(targetCard, true);
+            if (upgraded && FleetingField.fleeting.get(targetCard).equals(false)) {
+                FleetingField.fleeting.set(targetCard, true);
+                if (targetCard.exhaust) {
+                    targetCard.rawDescription = targetCard.rawDescription.replace(" 消耗 ", " 即逝 ");
+                } else {
                     targetCard.rawDescription += " NL 即逝 ";
                 }
             }

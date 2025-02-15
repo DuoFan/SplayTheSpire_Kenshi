@@ -42,23 +42,4 @@ public class YuZhiLiu extends AbstractPower {
         this.description = DESCRIPTIONS[0];
     }
 
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (card instanceof IYuZhiLiuCard) {
-            Utils.invokeLiuCardEffect(card);
-
-            if (AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
-                Utils.invokeLiuCardEffect(card);
-            }
-
-            if(Utils.getQiAmount() > 0){
-                Utils.invokeLiuCardEffect(card);
-                Utils.playerReduceQi(1);
-            }
-
-            Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
-            Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
-        }
-    }
 }

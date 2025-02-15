@@ -197,7 +197,7 @@ public class Liu_StateMachine {
     public enum StateEnum {
         None(0), FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
         WeiZhiLiu(8), ShanZhiLiu(16), DuanZhiLiu(32),
-        YuZhiLiu(64), All(-1);
+        YuZhiLiu(64), YanZhiLiu(128), All(-1);
 
         private int value = 0;
 

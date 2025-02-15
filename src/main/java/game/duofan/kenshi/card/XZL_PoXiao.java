@@ -22,7 +22,7 @@ import game.duofan.kenshi.power.IXiaZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
 
-public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
+public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard,IQiMin {
 
     public static final String ID = IDManager.getInstance().getID(XZL_PoXiao.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -39,7 +39,7 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_PoXiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 12;
+        int baseValue = 18;
         this.damage = this.baseDamage = baseValue;
         calculateMagicNumber();
     }
@@ -98,12 +98,6 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             this.addToBot(new DamageAction(monster, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
-        }
-
-        if(isByQi){
-            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            g.addToTop(this);
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
         }
     }
 }

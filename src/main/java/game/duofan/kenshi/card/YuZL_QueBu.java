@@ -14,7 +14,7 @@ import game.duofan.kenshi.power.*;
 
 public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YZL_QianFu.class);
+    public static final String ID = IDManager.getInstance().getID(YuZL_QueBu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -31,6 +31,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         jiaShiAmount = 2;
         magicNumber = baseMagicNumber = 1;
+        block = baseBlock = 4;
     }
 
     @Override
@@ -52,13 +53,13 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GainBlockAction(p, block));
-        Utils.playerDrawCardByClass(magicNumber, IYingZhiLiuCard.class);
+        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi,2);
+        Utils.playerDrawCardByClass(magicNumber, IYuZhiLiuCard.class);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-
+        Utils.playerGainBlock(block);
     }
 
     @Override
@@ -66,7 +67,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

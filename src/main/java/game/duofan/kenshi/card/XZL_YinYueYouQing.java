@@ -1,12 +1,9 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -20,26 +17,43 @@ public class XZL_YinYueYouQing extends CustomCard implements IXiaZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
+
 
     public XZL_YinYueYouQing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        baseBlock = block = 6;
+        calculateMagicNumber();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
+            upgradeBlock(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            calculateMagicNumber();
             this.initializeDescription();
         }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        calculateMagicNumber();
+    }
+
+    int calculateMagicNumber() {
+        int value = Math.max(block / 2, 0);
+
+        this.magicNumber = this.baseMagicNumber = value;
+
+        return value;
     }
 
     /**
@@ -50,20 +64,13 @@ public class XZL_YinYueYouQing extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainEnergy(1);
-        Utils.playerGainQi(magicNumber);
+        Utils.playerGainBlock(block);
     }
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi)
     {
-        Utils.playerDrawCardByFilterAction(1,null);
-
-        if(isByQi && !upgraded){
-            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            g.addToTop(this);
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        }
+        Utils.playerGainBlock(calculateMagicNumber());
     }
 
     @Override

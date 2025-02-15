@@ -3,7 +3,7 @@
     "NAME": "赤幽",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "战斗开始时，获得 #rduofan_kenshi:诸流百家 ，回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
+      " #r战斗开始时 ，获得 #rduofan_kenshi:诸流百家 ，#r回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
     ]
   },
   "game.duofan.kenshi:YingGui": {
@@ -17,21 +17,28 @@
     "NAME": "白虹",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "战斗开始时，获得3层 #rduofan_kenshi:气 。"
+      " #r回合开始时 ，获得2层 #rduofan_kenshi:气 。"
     ]
   },
   "game.duofan.kenshi:WuMing": {
     "NAME": "无名",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "战斗开始时，随机将一张 #r流派卡 加入手牌，且费用降为0。"
+      "战斗开始时，随机将一张 #r流派卡 加入手牌，且 #r费用降为0 。"
+    ]
+  },
+  "game.duofan.kenshi:JiXing": {
+    "NAME": "疾星",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      "每次 #r成功连锁 后，将打出的 #r闪卡 从 #r弃牌堆返回 。"
     ]
   },
   "game.duofan.kenshi:JianChui": {
     "NAME": "剑锤",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "回合开始时，随机 #rduofan_kenshi:锻造 两张手牌。"
+      " #r回合开始时 ，随机 #rduofan_kenshi:锻造 #r两张手牌 。"
     ]
   }
 }

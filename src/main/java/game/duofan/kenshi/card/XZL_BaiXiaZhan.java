@@ -79,10 +79,5 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainEnergy(1);
-        if (isByQi) {
-            CardGroup g = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-            g.addToTop(this);
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        }
     }
 }

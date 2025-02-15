@@ -4,6 +4,8 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import game.duofan.common.EventKey;
+import game.duofan.common.EventManager;
 import game.duofan.kenshi.card.SZL_ShanJi;
 
 import java.util.ArrayList;
@@ -69,6 +71,13 @@ public class LinkCardManager {
 
         selfNode.linkedNode = linkedNode; // 建立链接
         System.out.println(self.name + " 连锁了 " + linked.name);
+
+
+        CardLinkedContext context = new CardLinkedContext();
+        context.self = self;
+        context.linked = linked;
+        EventManager.getInstance().notifyEvent(EventKey.ON_CARD_LINKED, this, context);
+
         return true;
     }
 
@@ -101,7 +110,7 @@ public class LinkCardManager {
      * 查找连锁当前卡牌的卡牌
      */
     public ArrayList<AbstractCard> findSelfCards(AbstractCard linked) {
-        if(selfCards == null){
+        if (selfCards == null) {
             selfCards = new ArrayList<>();
         }
         selfCards.clear();
@@ -144,7 +153,7 @@ public class LinkCardManager {
         AbstractCard finalCard = null;
         ArrayList<AbstractCard> disposeCards = new ArrayList<>();
 
-        while (self != null){
+        while (self != null) {
             linkedCard = findLinkedCard(self);
             if (linkedCard == null) {
                 finalCard = self;
@@ -155,21 +164,20 @@ public class LinkCardManager {
             if (AbstractDungeon.player.drawPile.contains(linkedCard)) {
                 disposeCards.add(self);
                 self = linkedCard;
-            }
-            else {
+            } else {
                 finalCard = self;
                 break;
             }
         }
 
-        if(finalCard != null){
+        if (finalCard != null) {
             // 抽取连锁卡牌
             AbstractDungeon.player.drawPile.moveToHand(finalCard, AbstractDungeon.player.drawPile);
 
             StringBuilder sb = new StringBuilder();
 
             AbstractDungeon.player.hand.moveToDiscardPile(disposeCards.get(0));
-            sb.append("抽取连锁卡牌:" + finalCard.name +",置换链:" + disposeCards.get(0).name);
+            sb.append("抽取连锁卡牌:" + finalCard.name + ",置换链:" + disposeCards.get(0).name);
             for (int i = 1; i < disposeCards.size(); i++) {
                 AbstractCard c = disposeCards.get(i);
                 AbstractDungeon.player.drawPile.moveToDiscardPile(c);
@@ -201,7 +209,7 @@ public class LinkCardManager {
     public void setToExchange(AbstractCard card) {
         LinkNode node = cardToNodeMap.get(card);
 
-        if(node == null){
+        if (node == null) {
             return;
         }
 
@@ -235,5 +243,10 @@ public class LinkCardManager {
             this.isExchange = false;
             this.linkedNode = null;
         }
+    }
+
+    public class CardLinkedContext {
+        public AbstractCard self;
+        public AbstractCard linked;
     }
 }

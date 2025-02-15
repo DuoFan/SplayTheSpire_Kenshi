@@ -60,7 +60,7 @@ public class WZL_YangGong extends CustomCard implements IWeiZhiLiuCard {
 
     @Override
     public void weiZhiLiuEffect() {
-        Utils.gainPower(AbstractDungeon.player, new VigorPower(AbstractDungeon.player, magicNumber));
+        Utils.gainPower(AbstractDungeon.player, new VigorPower(AbstractDungeon.player, 3));
     }
 
     @Override

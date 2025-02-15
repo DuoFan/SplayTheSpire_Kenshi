@@ -6,11 +6,13 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+import com.sun.org.apache.bcel.internal.generic.FADD;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.WZL_TaYin;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TaYinAction extends AbstractGameAction {
     boolean retrieveCard;
@@ -27,7 +29,7 @@ public class TaYinAction extends AbstractGameAction {
 
     public void update() {
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            AbstractDungeon.cardRewardScreen.customCombatOpen(this.generateCardChoices(), "选择1张加入手牌", true);
+            AbstractDungeon.cardRewardScreen.customCombatOpen(this.generateCardChoices(), "选择1张加入手牌", false);
             this.tickDuration();
         } else {
             if (!this.retrieveCard) {
@@ -62,13 +64,23 @@ public class TaYinAction extends AbstractGameAction {
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList derp = new ArrayList();
 
-        int flag = Liu_StateMachine.StateEnum.All.getValue();
-        flag ^= Liu_StateMachine.StateEnum.WeiZhiLiu.getValue();
-        ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(flag);
+        ArrayList<Liu_StateMachine.StateEnum> list = new ArrayList<>();
+        list.add(Liu_StateMachine.StateEnum.FengZhiLiu);
+        list.add(Liu_StateMachine.StateEnum.YingZhiLiu);
+        list.add(Liu_StateMachine.StateEnum.XiaZhiLiu);
+        list.add(Liu_StateMachine.StateEnum.ShanZhiLiu);
+        list.add(Liu_StateMachine.StateEnum.DuanZhiLiu);
+        list.add(Liu_StateMachine.StateEnum.YuZhiLiu);
+       // list.add(Liu_StateMachine.StateEnum.YanZhiLiu);
+
+        ArrayList<AbstractCard> liuCards;
 
         while(derp.size() != 3) {
-            AbstractCard c = Utils.getRandomCardsFromList(liuCards,true);
+            int index =  AbstractDungeon.cardRandomRng.random(0,list.size() - 1);
+            liuCards = Utils.getCardsFromLiu(list.get(index).getValue());
+            AbstractCard c = Utils.getRandomCardsFromList(liuCards, false);
             derp.add(c);
+            list.remove(index);
         }
 
         return derp;

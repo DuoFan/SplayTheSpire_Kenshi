@@ -22,6 +22,7 @@ import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.DuanZhiXin;
 import game.duofan.kenshi.relic.ChiYou;
+import game.duofan.kenshi.relic.JiXing;
 import game.duofan.kenshi.relic.JianChui;
 
 import java.util.ArrayList;
@@ -92,7 +93,6 @@ public class KenShi extends CustomPlayer {
         }
         retVal.add(YueBu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
-
         return retVal;
     }
 

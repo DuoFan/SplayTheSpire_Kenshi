@@ -41,27 +41,4 @@ public class ShanZhiLiu extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (card instanceof IShanZhiLiuCard) {
-            IShanZhiLiuCard szlCard = (IShanZhiLiuCard) card;
-
-            if (szlCard.effectable() && AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
-                Utils.invokeLiuCardEffect(card);
-            }
-
-            if(szlCard.effectable()){
-                Utils.invokeLiuCardEffect(card);
-                if(Utils.getQiAmount() > 0 && szlCard.effectable()){
-                    Utils.invokeLiuCardEffect(card);
-                    Utils.playerReduceQi(1);
-                }
-            }
-
-            Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
-            Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
-        }
-    }
 }
