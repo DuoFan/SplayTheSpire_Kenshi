@@ -83,7 +83,8 @@ public class Liu_StateMachine implements IEventListener {
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.WeiZhiLiu, EventKey.FIRST_WZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.ShanZhiLiu, EventKey.FIRST_SZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.DuanZhiLiu, EventKey.FIRST_DZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.YuZhiLiu, EventKey.FIRST_YuZL_ON_TURN)) {
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.YuZhiLiu, EventKey.FIRST_YuZL_ON_TURN)
+                || CheckNotify_FirstLiu_OnTurn(StateEnum.YanZhiLiu, EventKey.FIRST_YanZL_ON_TURN)) {
 
         }
     }
@@ -166,6 +167,9 @@ public class Liu_StateMachine implements IEventListener {
             case YuZhiLiu:
                 state = new YuZhiLiu_State();
                 break;
+            case YanZhiLiu:
+                state = new YanZhiLiu_State();
+                break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -194,6 +198,8 @@ public class Liu_StateMachine implements IEventListener {
                 return powerID.equals(DuanZhiLiu.POWER_ID);
             case YuZhiLiu:
                 return powerID.equals(YuZhiLiu.POWER_ID);
+            case YanZhiLiu:
+                return powerID.equals(YanZhiLiu.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -316,6 +322,18 @@ public class Liu_StateMachine implements IEventListener {
         @Override
         public void enter() {
             Utils.playerGainPower(new YuZhiLiu(AbstractDungeon.player));
+        }
+    }
+
+    class YanZhiLiu_State extends State {
+        @Override
+        public String getPowerID() {
+            return YanZhiLiu.POWER_ID;
+        }
+
+        @Override
+        public void enter() {
+            Utils.playerGainPower(new YanZhiLiu(AbstractDungeon.player));
         }
     }
 }

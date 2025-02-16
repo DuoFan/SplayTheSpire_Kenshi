@@ -181,8 +181,8 @@
   },
   "game.duofan.kenshi:WZL_ChaoXi": {
     "NAME": "抄袭",
-    "DESCRIPTION": "选择1张 *流派卡 ，触发1次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发 !M! 次。",
-    "UPGRADE_DESCRIPTION": "选择1张 *流派卡 ，触发1次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发 !M! 次。 NL 消耗 "
+    "DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发1次。",
+    "UPGRADE_DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发1次。"
   },
   "game.duofan.kenshi:WZL_TaYin": {
     "NAME": "拓印",
@@ -306,7 +306,47 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "不死鸟",
-    "DESCRIPTION": "当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL 虚无 NL duofan_kenshi:复苏 ",
-    "UPGRADE_DESCRIPTION":  " 保留 NL 当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL duofan_kenshi:复苏 "
+    "DESCRIPTION": "受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL 虚无 NL duofan_kenshi:复苏 ",
+    "UPGRADE_DESCRIPTION":  " 保留 NL 受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL duofan_kenshi:复苏 "
+  },
+  "game.duofan.kenshi:YuZL_YuZhiXin": {
+    "NAME": "羽之心",
+    "DESCRIPTION": "获得 duofan_kenshi:羽之心 ，且获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:羽之心 ，且获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :获得 [E] 。"
+  },
+  "game.duofan.kenshi:YanZL_LiuHuo": {
+    "NAME": "流火",
+    "DESCRIPTION": "给予 *所有敌人 1层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :。",
+    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:羽之心 ，且获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :获得 [E] 。"
+  },
+  "game.duofan.kenshi:YanZL_YanLiuJiXing": {
+    "NAME": "焰流击星",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， duofan_kenshi:溅射 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， duofan_kenshi:溅射 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。"
+  },
+  "game.duofan.kenshi:YanZL_HuiJinJianQi": {
+    "NAME": "灰烬剑气",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :对 *另一个随机敌人 造成相同效果。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :对 *另一个随机敌人 造成相同效果。"
+  },
+  "game.duofan.kenshi:YanZL_CanYangJianYi": {
+    "NAME": "残阳剑意",
+    "DESCRIPTION": "本回合 *下1张攻击牌 先给予 !M! 层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :额外生效1张。",
+    "UPGRADE_DESCRIPTION": "本回合 *下1张攻击牌 先给予 !M! 层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :额外生效1张。"
+  },
+  "game.duofan.kenshi:YanZL_BuJingYan": {
+    "NAME": "不净炎",
+    "DESCRIPTION": "指定1个目标，每当目标受到 duofan_kenshi:爆炎伤害 时，对 *所有其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "指定1个目标，每当目标受到 duofan_kenshi:爆炎伤害 时，对 *所有其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
+  },
+  "game.duofan.kenshi:YanZL_QingJueLianYu": {
+    "NAME": "倾绝炼狱",
+    "DESCRIPTION": "本场战斗每次 *突破格挡 的 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "本场战斗每次 *突破格挡 的 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 "
+  },
+  "game.duofan.kenshi:YanZL_YanZhiXin": {
+    "NAME": "炎之心",
+    "DESCRIPTION": "获得 duofan_kenshi:炎之心 ，给予 *所有敌人 1层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:炎之心 ，给予 *所有敌人 1层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :获得 [E] 。"
   }
 }

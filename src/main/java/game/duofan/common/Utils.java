@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
@@ -24,11 +26,11 @@ public class Utils {
         return Const.PACKAGE_NAME + ":" + id;
     }
 
-    public static void showToast(String s){
-        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F,  s, true));
+    public static void showToast(String s) {
+        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, s, true));
     }
 
-    public static void updateSZL_Description(IShanZhiLiuCard s){
+    public static void updateSZL_Description(IShanZhiLiuCard s) {
         AbstractCard card = (AbstractCard) s;
         AbstractCard linked = LinkCardManager.getInstance().findLinkedCard(card);
         boolean isExchange = LinkCardManager.getInstance().isSetToExchange(card);
@@ -83,7 +85,7 @@ public class Utils {
     public interface Lambda extends Runnable {
     }
 
-    public static boolean isLiuCard(AbstractCard card){
+    public static boolean isLiuCard(AbstractCard card) {
         if (card == null) {
             return false;
         }
@@ -102,7 +104,7 @@ public class Utils {
             return;
         }
 
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             if (card instanceof IFengZhiLiuCard) {
                 ((IFengZhiLiuCard) card).fengZhiLiuEffect();
             } else if (card instanceof IYingZhiLiuCard) {
@@ -116,22 +118,20 @@ public class Utils {
                 if (c.effectable()) {
                     c.shanZhiLiuEffect();
                 }
-            }
-            else if (card instanceof IDuanZhiLiuCard) {
+            } else if (card instanceof IDuanZhiLiuCard) {
                 ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
-            }
-            else if (card instanceof IYuZhiLiuCard) {
+            } else if (card instanceof IYuZhiLiuCard) {
                 ((IYuZhiLiuCard) card).yuZhiLiuEffect();
             }
         });
     }
 
-    public static void invokeXZL_Effect(IXiaZhiLiuCard card,boolean isByQi) {
-        if(card == null){
+    public static void invokeXZL_Effect(IXiaZhiLiuCard card, boolean isByQi) {
+        if (card == null) {
             return;
         }
 
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             card.xiaZhiLiuEffect(isByQi);
         });
     }
@@ -398,6 +398,17 @@ public class Utils {
             cards.add(new YuZL_GuHongZhaoYing());
             cards.add(new YuZL_XueSeDieMu());
             cards.add(new YuZL_BuSiNiao());
+            cards.add(new YuZL_YuZhiXin());
+        }
+
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
+            cards.add(new YanZL_LiuHuo());
+            cards.add(new YanZL_BuJingYan());
+            cards.add(new YanZL_YanLiuJiXing());
+            cards.add(new YanZL_HuiJinJianQi());
+            cards.add(new YanZL_CanYangJianYi());
+            cards.add(new YanZL_QingJueLianYu());
+            cards.add(new YanZL_YanZhiXin());
         }
 
         return cards;
@@ -427,32 +438,47 @@ public class Utils {
 
     public static Liu_StateMachine.StateEnum getLiuFromCard(AbstractCard card) {
 
-        if(card == null){
+        if (card == null) {
             return Liu_StateMachine.StateEnum.None;
         }
 
-        if(card instanceof IFengZhiLiuCard){
+        if (card instanceof IFengZhiLiuCard) {
             return Liu_StateMachine.StateEnum.FengZhiLiu;
-        }
-        else if(card instanceof IYingZhiLiuCard){
+        } else if (card instanceof IYingZhiLiuCard) {
             return Liu_StateMachine.StateEnum.YingZhiLiu;
-        }
-        else if(card instanceof IXiaZhiLiuCard){
+        } else if (card instanceof IXiaZhiLiuCard) {
             return Liu_StateMachine.StateEnum.XiaZhiLiu;
-        }
-        else if(card instanceof IWeiZhiLiuCard){
+        } else if (card instanceof IWeiZhiLiuCard) {
             return Liu_StateMachine.StateEnum.WeiZhiLiu;
-        }
-        else if(card instanceof IShanZhiLiuCard){
+        } else if (card instanceof IShanZhiLiuCard) {
             return Liu_StateMachine.StateEnum.ShanZhiLiu;
-        }
-        else if(card instanceof IDuanZhiLiuCard){
+        } else if (card instanceof IDuanZhiLiuCard) {
             return Liu_StateMachine.StateEnum.DuanZhiLiu;
-        }
-        else if(card instanceof IYuZhiLiuCard){
+        } else if (card instanceof IYuZhiLiuCard) {
             return Liu_StateMachine.StateEnum.YuZhiLiu;
+        } else if (card instanceof IYanZhiLiuCard) {
+            return Liu_StateMachine.StateEnum.YanZhiLiu;
         }
 
         return Liu_StateMachine.StateEnum.None;
+    }
+
+    public static ArrayList<AbstractMonster> getAllAliveMonsters() {
+        ArrayList<AbstractMonster> result = new ArrayList<>();
+        MonsterGroup g = AbstractDungeon.getMonsters();
+        if (g == null) {
+            return result;
+        }
+
+        Iterator iterator = g.monsters.iterator();
+        AbstractMonster m;
+        while (iterator.hasNext()) {
+            m = (AbstractMonster) iterator.next();
+            if (m.isDead || m.isDying || m.currentHealth <= 0 || m.halfDead) {
+                continue;
+            }
+            result.add(m);
+        }
+        return result;
     }
 }

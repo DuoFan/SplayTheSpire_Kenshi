@@ -82,6 +82,10 @@ public class ZhongShi extends AbstractPower {
 
     void restore() {
 
+        if(cards == null){
+            return;
+        }
+
         Iterator<Map.Entry<AbstractCard,Integer>> e = cards.entrySet().iterator();
 
         while (e.hasNext()){
@@ -96,9 +100,7 @@ public class ZhongShi extends AbstractPower {
         super.onUseCard(card, action);
         if (Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.ZhongShi)
         && card.type == AbstractCard.CardType.ATTACK) {
-            Utils.addToBotAbstract(() ->{
-                restore();
-            });
+            forceDispose();
             Shi_StateMachine.getInstance().update();
         }
     }
@@ -106,9 +108,15 @@ public class ZhongShi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        Utils.addToBotAbstract(() ->{
-            restore();
-        });
+        forceDispose();
         Shi_StateMachine.getInstance().reset();
+    }
+
+    public void forceDispose() {
+        if(cards != null){
+            Utils.addToBotAbstract(() ->{
+                restore();
+            });
+        }
     }
 }

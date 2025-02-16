@@ -36,7 +36,6 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeMagicNumber(1);
-            exhaust = true;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -54,7 +53,9 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
         Utils.pickUpCardsDoAction("触发流派效果", 1, c -> {
             if(Utils.isLiuCard(c)){
                 targetCard = c;
-                Utils.invokeLiuCardEffect(targetCard);
+                for (int i = 0; i < magicNumber; i++) {
+                    Utils.invokeLiuCardEffect(targetCard);
+                }
             }
             else{
                 Utils.showToast("这不是一张流派卡牌!");
@@ -65,9 +66,7 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
     @Override
     public void weiZhiLiuEffect() {
         Utils.addToBotAbstract(() -> {
-            for (int i = 0; i < magicNumber; i++) {
-                Utils.invokeLiuCardEffect(targetCard);
-            }
+            Utils.invokeLiuCardEffect(targetCard);
         });
     }
 

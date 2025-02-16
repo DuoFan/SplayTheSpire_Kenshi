@@ -164,9 +164,11 @@ public class Shi_StateMachine {
         }
 
         public void exit() {
-            if (AbstractDungeon.player.hasPower(getPowerID())) {
-                AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
-            }
+            Utils.addToBotAbstract(() ->{
+                if (AbstractDungeon.player.hasPower(getPowerID())) {
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
+                }
+            });
             amount = 0;
         }
 
@@ -250,6 +252,17 @@ public class Shi_StateMachine {
         public void addAmount(int _amount) {
             super.addAmount(_amount);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ZhongShi(AbstractDungeon.player, _amount)));
+        }
+
+        @Override
+        public void exit() {
+            Utils.addToBotAbstract(() ->{
+                if(AbstractDungeon.player.hasPower(ZhongShi.POWER_ID)){
+                    ZhongShi power = (ZhongShi) AbstractDungeon.player.getPower(ZhongShi.POWER_ID);
+                    power.forceDispose();
+                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
+                }
+            });
         }
     }
 

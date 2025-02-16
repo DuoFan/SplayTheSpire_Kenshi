@@ -24,8 +24,6 @@ public class ShanZhiXin extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    boolean isRegisted;
-
     public ShanZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -41,19 +39,14 @@ public class ShanZhiXin extends AbstractPower implements IEventListener {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
+
+        Utils.addToBotAbstract(() ->{
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_SZL_ON_TURN, this);
+        });
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (!isRegisted) {
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_SZL_ON_TURN, this);
-            isRegisted = true;
-        }
     }
 
     @Override

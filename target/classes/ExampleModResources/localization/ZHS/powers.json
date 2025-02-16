@@ -53,12 +53,6 @@
       " NL 下回合开始时，抽取 #r%d 张攻击牌 。"
     ]
   },
-  "game.duofan.kenshi:XieLiZhunBei": {
-    "NAME": "卸力准备",
-    "DESCRIPTIONS": [
-      " NL 下回合开始时，获得 #r%d 点格挡 。"
-    ]
-  },
   "game.duofan.kenshi:ZhuoMoBuDing": {
     "NAME": "琢磨不定",
     "DESCRIPTIONS": [
@@ -95,6 +89,12 @@
       "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非羽卡 结算，下回合开始时抽取 #r%d 张 #r羽卡 。"
     ]
   },
+  "game.duofan.kenshi:XieLiZhunBei": {
+    "NAME": "卸力准备",
+    "DESCRIPTIONS": [
+      " NL 下回合开始时，获得 #r%d 点格挡 。"
+    ]
+  },
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
@@ -111,6 +111,12 @@
     "NAME": "血色蝶幕",
     "DESCRIPTIONS": [
       " 本回合下次 #r打出卡牌 获得的格挡 ，转变为对 #r全体敌人 的伤害。"
+    ]
+  },
+  "game.duofan.kenshi:RongRong": {
+    "NAME": "熔融",
+    "DESCRIPTIONS": [
+      " 受到的 #r爆炎伤害 增加 #r%d 点。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
@@ -189,6 +195,18 @@
     "NAME": "羽之流",
     "DESCRIPTIONS": [
       " NL 可触发 #r羽之流 效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:YuZhiXin": {
+    "NAME": "羽之心",
+    "DESCRIPTIONS": [
+      " NL 每回合首次进入 #r羽之流 时，获得 #r%d 点格挡 。"
+    ]
+  },
+  "game.duofan.kenshi:YanZhiLiu": {
+    "NAME": "炎之流",
+    "DESCRIPTIONS": [
+      " NL 可触发 #r炎之流 效果，回合结束时移除。"
     ]
   }
 }

@@ -38,7 +38,7 @@ public class ShiJianShi extends AbstractPower {
         this.ID = ORIGIN_POWER_ID + idIndex++;
         targetCard = t;
         owner = m;
-        this.type = PowerType.BUFF;
+        this.type = PowerType.DEBUFF;
         gold = _gold;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行

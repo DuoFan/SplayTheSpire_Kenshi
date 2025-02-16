@@ -10,10 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import game.duofan.common.EventKey;
-import game.duofan.common.EventManager;
-import game.duofan.common.IDManager;
-import game.duofan.common.IEventListener;
+import game.duofan.common.*;
 
 public class FengZhiXin extends AbstractPower implements IEventListener {
     // 能力的ID
@@ -24,8 +21,6 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    boolean isRegisted;
 
     public FengZhiXin(AbstractCreature owner) {
         this.name = NAME;
@@ -42,19 +37,14 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
+
+        Utils.addToBotAbstract(() ->{
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
+        });
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
-    }
-
-    @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (!isRegisted) {
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
-            isRegisted = true;
-        }
     }
 
     @Override
