@@ -64,8 +64,8 @@
     "DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。"
   },
-  "game.duofan.kenshi:FZL_QianYeWu": {
-    "NAME": "千叶舞",
+  "game.duofan.kenshi:FZL_QianYeGuiChen": {
+    "NAME": "千叶归尘",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
   },
@@ -256,8 +256,13 @@
   },
   "game.duofan.kenshi:DZL_ShiJianShi": {
     "NAME": "试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。 NL 消耗 "
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。"
+  },
+  "game.duofan.kenshi:DZL_JuGou": {
+    "NAME": "巨构",
+    "DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。 NL duofan_kenshi:锻之流 :若 *锻造成功 次数大于 !M! ，则获得 [E] 。",
+    "UPGRADE_DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。 NL duofan_kenshi:锻之流 :若 *锻造成功 次数大于 !M! ，则获得 [E] 。"
   },
   "game.duofan.kenshi:DZL_RongHui": {
     "NAME": "熔毁",
@@ -289,6 +294,11 @@
     "DESCRIPTION": "受到的伤害 *延迟 到下回合 *结束 或 *打出非羽卡 结算，下回合开始时抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :下回合开始时获得 !B! 点格挡。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": " 受到的伤害 *延迟 到下回合 *结束 或 *打出非羽卡 结算，下回合开始时抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :下回合开始时获得 !B! 点格挡。 NL 消耗 "
   },
+  "game.duofan.kenshi:YuZL_XueSeDieMu": {
+    "NAME": "血色蝶幕",
+    "DESCRIPTION": " 获得 !M! 层 duofan_kenshi:架势 ，本回合下次 *打出卡牌 获得的格挡 ，转变为对 *全体敌人 的伤害。 NL duofan_kenshi:羽之流 :额外获得等量于 *未被格挡 的伤害相等的 *格挡 。",
+    "UPGRADE_DESCRIPTION": " 获得 !M! 层 duofan_kenshi:架势 ，本回合下次 *打出卡牌 获得的格挡 ，转变为对 *全体敌人 的伤害。 NL duofan_kenshi:羽之流 :额外获得等量于 *未被格挡 的伤害相等的 *格挡 。"
+  },
   "game.duofan.kenshi:YuZL_GuHongZhaoYing": {
     "NAME": "孤鸿照影",
     "DESCRIPTION": "获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :若生命值低于50%，额外获得 !M! 点格挡。",
@@ -296,7 +306,7 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "不死鸟",
-    "DESCRIPTION": "当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 ",
-    "UPGRADE_DESCRIPTION":  " 保留 NL 当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 "
+    "DESCRIPTION": "当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL 虚无 NL duofan_kenshi:复苏 ",
+    "UPGRADE_DESCRIPTION":  " 保留 NL 当受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL duofan_kenshi:复苏 "
   }
 }

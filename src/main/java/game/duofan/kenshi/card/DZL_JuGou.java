@@ -1,44 +1,42 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.action.JuGouAction;
+import game.duofan.kenshi.power.*;
 
-public class FZL_QianYeWu extends CustomCard implements IFengZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(FZL_QianYeWu.class);
+public class DZL_JuGou extends CustomCard implements IDuanZhiLiuCard {
+
+    public static final String ID = IDManager.getInstance().getID(DZL_JuGou.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
-    private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
+    private static final CardType TYPE = CardType.SKILL;
+    private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    public FZL_QianYeWu() {
+    public int successAmount;
+
+    public DZL_JuGou() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
-        this.magicNumber = this.baseMagicNumber = 4;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
-            this.upgradeName();
-            this.upgradeMagicNumber(1);
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -52,12 +50,14 @@ public class FZL_QianYeWu extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        int c = magicNumber;
-        while (c > 0){
-            this.addToBot(new DamageAction(
-                    m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
-            ));
-            c--;
+        successAmount = 0;
+        addToBot(new JuGouAction(this));
+    }
+
+    @Override
+    public void duanZhiLiuEffect() {
+        if(successAmount >= magicNumber){
+            Utils.playerGainEnergy(1);
         }
     }
 
@@ -65,13 +65,9 @@ public class FZL_QianYeWu extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
+
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.DuanZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
-    }
-
-    @Override
-    public void fengZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
     }
 }

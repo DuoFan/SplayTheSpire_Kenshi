@@ -107,6 +107,12 @@
       " #r下回合开始前无法受到伤害 ， #r回合开始时 回复 #r生命值 到 #r%d ，获得%d [E] ，抽取%d张卡牌。"
     ]
   },
+  "game.duofan.kenshi:XueSeDieMu": {
+    "NAME": "血色蝶幕",
+    "DESCRIPTIONS": [
+      " 本回合下次 #r打出卡牌 获得的格挡 ，转变为对 #r全体敌人 的伤害。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [

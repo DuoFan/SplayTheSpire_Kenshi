@@ -1,45 +1,42 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.*;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.power.IFengZhiLiuCard;
+import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.kenshi.power.Shi_StateMachine;
 
-public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecoverCard {
-    public static final String ID = IDManager.getInstance().getID(YuZL_BuSiNiao.class);
+public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(FZL_QianYeGuiChen.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
-    static float liuPercentage = 0.5f;
-
-    public YuZL_BuSiNiao() {
+    public FZL_QianYeGuiChen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        FleetingField.fleeting.set(this, true);
-        isEthereal = true;
+        this.damage = this.baseDamage = 3;
+        this.magicNumber = this.baseMagicNumber = 4;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
-            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            selfRetain = true;
-            isEthereal = false;
+            this.upgradeName();
+            this.upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -53,24 +50,26 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new BuSiNiao(p));
+        int c = magicNumber;
+        while (c > 0){
+            this.addToBot(new DamageAction(
+                    m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
+            ));
+            c--;
+        }
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)) {
+        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void yuZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(BuSiNiao.POWER_ID)) {
-            BuSiNiao power = (BuSiNiao) p.getPower(BuSiNiao.POWER_ID);
-            power.setRestorePercentage(liuPercentage);
-        }
+    public void fengZhiLiuEffect() {
+        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
     }
 }

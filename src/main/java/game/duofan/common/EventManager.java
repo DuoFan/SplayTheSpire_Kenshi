@@ -6,9 +6,11 @@ import java.util.HashMap;
 public class EventManager {
     private static EventManager instance;
     private HashMap<String, ArrayList<IEventListener>> eventMap;
+    private HashMap<String, ArrayList<IEventListener>> persistEventMap;
 
     private EventManager() {
         eventMap = new HashMap<>();
+        persistEventMap = new HashMap<>();
     }
 
     public static synchronized EventManager getInstance() {
@@ -31,7 +33,14 @@ public class EventManager {
         }
     }
 
-    public void removeAllEvent() {
+    public void registerToPersistEvent(String eventKey, IEventListener listener) {
+        if (!persistEventMap.containsKey(eventKey)) {
+            persistEventMap.put(eventKey, new ArrayList<>());
+        }
+        persistEventMap.get(eventKey).add(listener);
+    }
+
+    public void removeAll_NotPersist_Event() {
         if(eventMap == null){
             return;
         }
@@ -42,6 +51,12 @@ public class EventManager {
         if (eventMap.containsKey(eventKey)) {
             // 创建副本以避免并发修改问题
             ArrayList<IEventListener> listeners = new ArrayList<>(eventMap.get(eventKey));
+            for (IEventListener listener : listeners) {
+                listener.OnEvent(sender, e);
+            }
+        }
+        if(persistEventMap.containsKey(eventKey)){
+            ArrayList<IEventListener> listeners = new ArrayList<>(persistEventMap.get(eventKey));
             for (IEventListener listener : listeners) {
                 listener.OnEvent(sender, e);
             }

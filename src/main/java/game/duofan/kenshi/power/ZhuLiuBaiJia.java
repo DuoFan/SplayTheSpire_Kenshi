@@ -103,13 +103,13 @@ public class ZhuLiuBaiJia extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         super.onAfterUseCard(card, action);
-        LinkCardManager.instance.tryPlaySelfCard(card);
+        LinkCardManager.getInstance().tryPlaySelfCard(card);
     }
 
     @Override
     public void onCardDraw(AbstractCard card) {
         super.onCardDraw(card);
-        LinkCardManager.instance.tryDrawLinkedCard(card);
+        LinkCardManager.getInstance().tryDrawLinkedCard(card);
     }
 
     @Override

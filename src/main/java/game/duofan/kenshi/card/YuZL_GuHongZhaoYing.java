@@ -23,7 +23,7 @@ public class YuZL_GuHongZhaoYing extends CustomCard implements IYuZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public YuZL_GuHongZhaoYing() {
@@ -39,11 +39,9 @@ public class YuZL_GuHongZhaoYing extends CustomCard implements IYuZhiLiuCard {
     }
 
     int calculateMagicNumber() {
-        int value = Math.max(block / 2, 0);
+        this.magicNumber = this.baseMagicNumber = block;
 
-        this.magicNumber = this.baseMagicNumber = value;
-
-        return value;
+        return magicNumber;
     }
 
     @Override

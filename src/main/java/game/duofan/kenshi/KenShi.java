@@ -21,6 +21,7 @@ import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.DuanZhiXin;
+import game.duofan.kenshi.power.RecoverCardManager;
 import game.duofan.kenshi.relic.ChiYou;
 import game.duofan.kenshi.relic.JiXing;
 import game.duofan.kenshi.relic.JianChui;
@@ -74,6 +75,8 @@ public class KenShi extends CustomPlayer {
                 new EnergyManager(3) // 初始每回合的能量
         );
 
+
+        RecoverCardManager.getInstance().clearCards();
 
         // 如果你的人物没有动画，那么这些不需要写
         // this.loadAnimation("ExampleModResources/img/char/character.atlas", "ExampleModResources/img/char/character.json", 1.8F);

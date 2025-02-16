@@ -6,11 +6,12 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
+import game.duofan.common.IEventListener;
 import game.duofan.common.Utils;
 
 import java.security.InvalidParameterException;
 
-public class Liu_StateMachine {
+public class Liu_StateMachine implements IEventListener {
     static Liu_StateMachine instance;
 
     public static Liu_StateMachine getInstance() {
@@ -26,6 +27,10 @@ public class Liu_StateMachine {
 
     AbstractCard lastEffectLiuCardOnTurn;
     AbstractCard lastEffectLiuCardOnBattle;
+
+    public Liu_StateMachine() {
+        EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, this);
+    }
 
     public void clearFlags() {
         firstFlag = 0;
@@ -192,6 +197,14 @@ public class Liu_StateMachine {
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
+    }
+
+    @Override
+    public void OnEvent(Object sender, Object e) {
+        Liu_StateMachine.getInstance().clearFlags();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
+        Liu_StateMachine.getInstance().reset();
     }
 
     public enum StateEnum {

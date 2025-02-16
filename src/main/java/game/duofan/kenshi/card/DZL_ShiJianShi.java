@@ -35,7 +35,6 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
 
     public DZL_ShiJianShi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
         magicNumber = baseMagicNumber = 1;
     }
 

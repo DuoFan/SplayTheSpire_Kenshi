@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
+import game.duofan.common.IEventListener;
 import game.duofan.common.Utils;
 
 import java.security.InvalidParameterException;
@@ -23,6 +24,11 @@ public class Shi_StateMachine {
 
     State state;
 
+    public Shi_StateMachine() {
+        EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, new BattleStartListener());
+        EventManager.getInstance().registerToPersistEvent(EventKey.ON_TURN_START, new TurnStartListener());
+    }
+
     public void reset() {
         if (state != null) {
             state.exit();
@@ -35,8 +41,7 @@ public class Shi_StateMachine {
             state.update();
             if (isStateMatch(StateEnum.GongShi) && getGongShi_Accumulate() >= 3) {
                 changeStateTo(StateEnum.ZhongShi, 1);
-            }
-            else if (state.amount == 0) {
+            } else if (state.amount == 0) {
                 if (isStateMatch(StateEnum.JiaShi)) {
                     changeStateTo(StateEnum.GongShi, 3);
                 } else if (isStateMatch(StateEnum.ZhongShi)) {
@@ -70,12 +75,11 @@ public class Shi_StateMachine {
         boolean isNewGongShi = isStateMatch(StateEnum.GongShi);
         boolean isNewZhongShi = isStateMatch(StateEnum.ZhongShi);
 
-        if(isOldJiaShi && isNewGongShi){
-            EventManager.getInstance().notifyEvent(EventKey.ON_JIASHI_TO_GONGSHI,this
+        if (isOldJiaShi && isNewGongShi) {
+            EventManager.getInstance().notifyEvent(EventKey.ON_JIASHI_TO_GONGSHI, this
                     , oldStateAmount);
-        }
-        else if(isOldGongShi && isNewZhongShi){
-            EventManager.getInstance().notifyEvent(EventKey.ON_GONGSHI_TO_ZHONGSHI,this
+        } else if (isOldGongShi && isNewZhongShi) {
+            EventManager.getInstance().notifyEvent(EventKey.ON_GONGSHI_TO_ZHONGSHI, this
                     , oldStateAmount);
         }
     }
@@ -98,9 +102,9 @@ public class Shi_StateMachine {
         return gongShiState.accmulate;
     }
 
-    int getStateAmount(){
-        if(state == null){
-            return  0;
+    int getStateAmount() {
+        if (state == null) {
+            return 0;
         }
         return state.amount;
     }
@@ -246,6 +250,22 @@ public class Shi_StateMachine {
         public void addAmount(int _amount) {
             super.addAmount(_amount);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ZhongShi(AbstractDungeon.player, _amount)));
+        }
+    }
+
+    class BattleStartListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            reset();
+        }
+    }
+
+    class TurnStartListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            addPower(Shi_StateMachine.StateEnum.JiaShi, 2);
         }
     }
 }

@@ -2,16 +2,20 @@ package game.duofan.kenshi.relic;
 
 import basemod.abstracts.CustomRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.LinkCardManager;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
+import game.duofan.kenshi.power.*;
+
+import java.util.Iterator;
 
 // 继承CustomRelic
 public class ChiYou extends CustomRelic {
@@ -44,16 +48,22 @@ public class ChiYou extends CustomRelic {
     public void atBattleStart() {
         super.atBattleStart();
 
-        EventManager.getInstance().removeAllEvent();
+        EventManager.getInstance().removeAll_NotPersist_Event();
 
-        LinkCardManager.getInstance().clear();
+        EventManager.getInstance().notifyEvent(EventKey.ON_BATTLE_START, this, null);
 
-        Liu_StateMachine.getInstance().clearFlags();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
-        Liu_StateMachine.getInstance().reset();
+        Iterator iterator = AbstractDungeon.getMonsters().monsters.iterator();
 
-        Shi_StateMachine.getInstance().reset();
+        AbstractMonster m = null;
+        while (iterator.hasNext()) {
+            m = (AbstractMonster) iterator.next();
+            if (m.type == AbstractMonster.EnemyType.BOSS) {
+                break;
+            }
+        }
+        if ((m != null && m.type == AbstractMonster.EnemyType.BOSS)) {
+            EventManager.getInstance().notifyEvent(EventKey.ON_BOSS_BATTLE_START, this, null);
+        }
 
         this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
                 new ZhuLiuBaiJia(AbstractDungeon.player)));
@@ -63,9 +73,12 @@ public class ChiYou extends CustomRelic {
     public void atTurnStart() {
         super.atTurnStart();
         this.flash();
+        EventManager.getInstance().notifyEvent(EventKey.ON_TURN_START, this, null);
+    }
 
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi,2);
-
-        //this.addToTop(new GainEnergyAction(100));
+    @Override
+    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+        super.onPlayCard(c, m);
+        EventManager.getInstance().notifyEvent(EventKey.ON_CARD_PLAY, this, c);
     }
 }

@@ -6,13 +6,14 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
+import game.duofan.common.IEventListener;
 import game.duofan.kenshi.card.SZL_ShanJi;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class LinkCardManager {
-    static LinkCardManager instance;
+public class LinkCardManager implements IEventListener {
+    private static LinkCardManager instance;
     private HashMap<AbstractCard, LinkNode> cardToNodeMap; // 卡牌到节点的映射
     ArrayList<AbstractCard> selfCards;
 
@@ -26,6 +27,7 @@ public class LinkCardManager {
 
     public LinkCardManager() {
         cardToNodeMap = new HashMap<>();
+        EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, this);
     }
 
     /**
@@ -231,6 +233,11 @@ public class LinkCardManager {
             ((AbstractCard) szlCard).cardsToPreview = node.linkedNode.selfCard;
             //szlCard.setLinkedCardHoverPreview(node.linkedNode.selfCard.makeCopy());
         }
+    }
+
+    @Override
+    public void OnEvent(Object sender, Object e) {
+        clear();
     }
 
     public class LinkNode {
