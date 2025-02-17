@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -51,7 +52,7 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         Utils.pickUpCardsDoAction("触发流派效果", 1, c -> {
-            if(Utils.isLiuCard(c)){
+            if(Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None){
                 targetCard = c;
                 for (int i = 0; i < magicNumber; i++) {
                     Utils.invokeLiuCardEffect(targetCard);

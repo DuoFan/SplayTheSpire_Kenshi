@@ -22,6 +22,8 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    boolean isRegister;
+
     public FengZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -37,14 +39,21 @@ public class FengZhiXin extends AbstractPower implements IEventListener {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        Utils.addToBotAbstract(() ->{
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
-        });
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        super.onAfterUseCard(card, action);
+        if(!isRegister){
+            Utils.addToBotAbstract(() ->{
+                EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
+            });
+            isRegister = true;
+        }
     }
 
     @Override

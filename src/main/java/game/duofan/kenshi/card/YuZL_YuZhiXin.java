@@ -32,7 +32,7 @@ public class YuZL_YuZhiXin extends CustomCard implements IYuZhiLiuCard {
     public YuZL_YuZhiXin() {
 
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 8;
+        magicNumber = baseMagicNumber = 8;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class YuZL_YuZhiXin extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainBlock(block);
+        Utils.playerGainBlock(magicNumber);
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new YuZhiXin(p))
         );

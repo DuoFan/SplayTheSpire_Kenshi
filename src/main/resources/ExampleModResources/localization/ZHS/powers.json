@@ -119,6 +119,18 @@
       " 受到的 #r爆炎伤害 增加 #r%d 点。"
     ]
   },
+  "game.duofan.kenshi:ChunYangJianYi": {
+    "NAME": "纯阳剑意",
+    "DESCRIPTIONS": [
+      "本回合 #r下%d张攻击牌 先给予2层 #r熔融 ，后造成 #r爆炎伤害 。"
+    ]
+  },
+  "game.duofan.kenshi:BuJingYan": {
+    "NAME": "不净炎",
+    "DESCRIPTIONS": [
+      "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [

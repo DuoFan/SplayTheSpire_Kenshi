@@ -23,4 +23,6 @@ public class EventKey {
     public static final String ON_BATTLE_START = "ON_BATTLE_START";
     public static final String ON_BOSS_BATTLE_START = "ON_BOSS_BATTLE_START";
     public static final String ON_TURN_START = "ON_TURN_START";
+
+    public static final String ON_BAO_YAN_DAMAGE = "ON_BAO_YAN_DAMAGE";
 }

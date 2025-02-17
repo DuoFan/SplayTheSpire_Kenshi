@@ -1,6 +1,8 @@
 package game.duofan.kenshi.power;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IEventListener;
@@ -46,5 +48,21 @@ public class BaoYanCardManager implements IEventListener {
     @Override
     public void OnEvent(Object sender, Object e) {
         clear();
+        CardGroup g = AbstractDungeon.player.drawPile;
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.group.get(i);
+            if(c instanceof IBaoYanCard){
+                addCard(c);
+            }
+        }
+
+        g = AbstractDungeon.player.hand;
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.group.get(i);
+            if(c instanceof IBaoYanCard){
+                addCard(c);
+            }
+        }
+
     }
 }

@@ -4,17 +4,17 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.GiveAllEnemiesRongAction;
 import game.duofan.kenshi.power.*;
 
-public class YanZL_CanYangJianYi extends CustomCard implements IYanZhiLiuCard {
+public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YanZL_CanYangJianYi.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_ChunYangJianYi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -25,9 +25,9 @@ public class YanZL_CanYangJianYi extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public YanZL_CanYangJianYi() {
+    public YanZL_ChunYangJianYi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = ChunYangJianYi.RONG_RONG_GIVE;
     }
 
     @Override
@@ -48,12 +48,12 @@ public class YanZL_CanYangJianYi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        Utils.playerGainPower(new ChunYangJianYi(p, 1));
     }
 
     @Override
     public void yanZhiLiuEffect() {
-
+        Utils.playerGainPower(new ChunYangJianYi(AbstractDungeon.player, 1));
     }
 
     @Override

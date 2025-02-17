@@ -82,7 +82,9 @@ public class ChenReDaTie extends AbstractPower {
     void restore() {
         for (int i = 0; i < cards.size(); i++) {
             AbstractCard c = cards.get(i);
-            c.setCostForTurn(c.costForTurn + 1);
+            if(c.costForTurn < c.cost){
+                c.setCostForTurn(c.costForTurn + 1);
+            }
         }
         cards = null;
     }
@@ -109,5 +111,17 @@ public class ChenReDaTie extends AbstractPower {
             });
             this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
         }
+    }
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        cards = null;
+    }
+
+    @Override
+    public void onDeath() {
+        super.onDeath();
+        cards = null;
     }
 }

@@ -1,23 +1,26 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.unique.MadnessAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.colorless.Madness;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import game.duofan.common.*;
-import game.duofan.kenshi.action.ReduceCostAction;
+import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 
-public class YuZhiXin extends AbstractPower implements IEventListener {
+public class BuJingYan extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(YuZhiXin.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(BuJingYan.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -25,18 +28,14 @@ public class YuZhiXin extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    int blockAmount = 8;
-
-    boolean isRegister;
-
-    public YuZhiXin(AbstractCreature owner) {
+    public BuJingYan(AbstractCreature owner,int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.BUFF;
+        this.type = PowerType.DEBUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = -1;
+        this.amount = amount;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -47,34 +46,6 @@ public class YuZhiXin extends AbstractPower implements IEventListener {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], blockAmount);
-    }
-
-    @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        if(!isRegister){
-            Utils.addToBotAbstract(() ->{
-                EventManager.getInstance().registerToEvent(EventKey.FIRST_YuZL_ON_TURN, this);
-            });
-            isRegister = true;
-        }
-    }
-
-    @Override
-    public void onVictory() {
-        super.onVictory();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YuZL_ON_TURN, this);
-    }
-
-    @Override
-    public void onDeath() {
-        super.onDeath();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YuZL_ON_TURN, this);
-    }
-
-    @Override
-    public void OnEvent(Object sender, Object e) {
-        Utils.playerGainBlock(blockAmount);
+        this.description = String.format(DESCRIPTIONS[0], amount);
     }
 }

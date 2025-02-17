@@ -2,8 +2,10 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -11,6 +13,8 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.GiveAllEnemiesRongAction;
 import game.duofan.kenshi.power.*;
+
+import java.util.ArrayList;
 
 public class YanZL_BuJingYan extends CustomCard implements IYanZhiLiuCard {
 
@@ -23,7 +27,9 @@ public class YanZL_BuJingYan extends CustomCard implements IYanZhiLiuCard {
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+
+    AbstractMonster targetMonster;
 
     public YanZL_BuJingYan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -49,12 +55,23 @@ public class YanZL_BuJingYan extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        targetMonster = m;
+        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        for (int i = 0; i < monsters.size(); i++) {
+            AbstractMonster monster = monsters.get(i);
+            if (monsters.get(i).hasPower(BuJingYan.POWER_ID) && !monster.equals(m)) {
+                Utils.showToast("无法对更多目标施加不净炎！");
+                return;
+            }
+        }
+        Utils.givePower(p, m, new BuJingYan(m, magicNumber));
     }
 
     @Override
     public void yanZhiLiuEffect() {
-
+        if (targetMonster != null) {
+            Utils.giveBaoYanDamage(AbstractDungeon.player, targetMonster, Utils.modifyDamageByRongRong(magicNumber, targetMonster), DamageInfo.DamageType.NORMAL);
+        }
     }
 
     @Override

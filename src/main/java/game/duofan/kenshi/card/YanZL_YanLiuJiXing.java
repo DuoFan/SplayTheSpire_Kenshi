@@ -1,16 +1,29 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.sun.org.apache.bcel.internal.generic.NEW;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.action.JianSheAction;
+import game.duofan.kenshi.action.ReturnToDrawPileAction;
 import game.duofan.kenshi.power.*;
 
-public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
+import javax.swing.*;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+
+public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard, IBaoYanCard {
 
     public static final String ID = IDManager.getInstance().getID(YanZL_YanLiuJiXing.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -21,12 +34,15 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+
+    boolean isUsing;
 
     public YanZL_YanLiuJiXing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 3;
         magicNumber = baseMagicNumber = 3;
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     @Override
@@ -48,12 +64,23 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        shuffleBackIntoDrawPile = false;
+        isUsing = true;
+        Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.effectJianShe(p, m, magicNumber);
+        Utils.addToBotAbstract(() -> {
+            isUsing = false;
+        });
     }
 
     @Override
     public void yanZhiLiuEffect() {
-
+        if (isUsing) {
+            this.shuffleBackIntoDrawPile = true;
+            isUsing = false;
+        } else {
+            addToTop(new ReturnToDrawPileAction(this));
+        }
     }
 
     @Override

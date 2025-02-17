@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
+import game.duofan.kenshi.card.FZL_FengZhiXin;
 
 public class YingZhiXin extends AbstractPower implements IEventListener {
     // 能力的ID
@@ -24,6 +25,8 @@ public class YingZhiXin extends AbstractPower implements IEventListener {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    boolean isRegister;
 
     public YingZhiXin(AbstractCreature owner) {
         this.name = NAME;
@@ -40,14 +43,21 @@ public class YingZhiXin extends AbstractPower implements IEventListener {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        Utils.addToBotAbstract(() ->{
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_YZL_ON_TURN, this);
-        });
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        super.onAfterUseCard(card, action);
+        if(!isRegister){
+            Utils.addToBotAbstract(() ->{
+                EventManager.getInstance().registerToEvent(EventKey.FIRST_YZL_ON_TURN, this);
+            });
+            isRegister = true;
+        }
     }
 
     @Override

@@ -85,20 +85,6 @@ public class Utils {
     public interface Lambda extends Runnable {
     }
 
-    public static boolean isLiuCard(AbstractCard card) {
-        if (card == null) {
-            return false;
-        }
-
-        return (card instanceof IFengZhiLiuCard)
-                || (card instanceof IYingZhiLiuCard)
-                || (card instanceof IXiaZhiLiuCard)
-                || (card instanceof IWeiZhiLiuCard)
-                || (card instanceof IShanZhiLiuCard)
-                || (card instanceof IDuanZhiLiuCard)
-                || (card instanceof IYuZhiLiuCard);
-    }
-
     public static void invokeLiuCardEffect(AbstractCard card) {
         if (card == null) {
             return;
@@ -122,6 +108,8 @@ public class Utils {
                 ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
             } else if (card instanceof IYuZhiLiuCard) {
                 ((IYuZhiLiuCard) card).yuZhiLiuEffect();
+            } else if (card instanceof IYanZhiLiuCard) {
+                ((IYanZhiLiuCard) card).yanZhiLiuEffect();
             }
         });
     }
@@ -189,6 +177,14 @@ public class Utils {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new
                     DamageAction(t, new DamageInfo(s, amount, type)));
+        }
+    }
+
+    public static void giveBaoYanDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
+        if (s != null && t != null) {
+            DamageInfo info = new DamageInfo(s, amount, type);
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info));
+            AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(t, info));
         }
     }
 
@@ -406,7 +402,7 @@ public class Utils {
             cards.add(new YanZL_BuJingYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
-            cards.add(new YanZL_CanYangJianYi());
+            cards.add(new YanZL_ChunYangJianYi());
             cards.add(new YanZL_QingJueLianYu());
             cards.add(new YanZL_YanZhiXin());
         }
@@ -480,5 +476,30 @@ public class Utils {
             result.add(m);
         }
         return result;
+    }
+
+    public static void effectJianShe(AbstractCreature source, AbstractMonster center, int damage) {
+        ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
+        int index = monsters.indexOf(center);
+        if (index >= 0) {
+            tryJianSheToMonster(source, monsters, index - 1, damage);
+            tryJianSheToMonster(source, monsters, index + 1, damage);
+        }
+    }
+
+    static void tryJianSheToMonster(AbstractCreature source, ArrayList<AbstractMonster> monsters, int index, int damage) {
+        if (index < 0 || index >= monsters.size()) {
+            return;
+        }
+
+        AbstractMonster monster = monsters.get(index);
+        Utils.giveBaoYanDamage(source, monster, modifyDamageByRongRong(damage, monster), DamageInfo.DamageType.NORMAL);
+    }
+
+    public static int modifyDamageByRongRong(int damage, AbstractCreature target) {
+        if (target.hasPower(RongRong.POWER_ID)) {
+            damage += target.getPower(RongRong.POWER_ID).amount;
+        }
+        return damage;
     }
 }

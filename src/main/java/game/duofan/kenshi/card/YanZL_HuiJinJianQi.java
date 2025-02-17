@@ -15,7 +15,7 @@ import game.duofan.kenshi.power.*;
 
 import java.util.ArrayList;
 
-public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
+public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard, IBaoYanCard {
 
     public static final String ID = IDManager.getInstance().getID(YanZL_HuiJinJianQi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -34,7 +34,6 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 6;
         magicNumber = baseMagicNumber = 1;
-
         BaoYanCardManager.getInstance().addCard(this);
     }
 
@@ -47,6 +46,7 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
             this.initializeDescription();
         }
     }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *
@@ -62,16 +62,19 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void yanZhiLiuEffect() {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        monsters.remove(target);
+        if (target != null) {
+            monsters.remove(target);
+        }
         if (monsters.size() > 0) {
             int index = AbstractDungeon.cardRandomRng.random(monsters.size() - 1);
-            effect(monsters.get(index));
+            AbstractMonster m = monsters.get(index);
+            effect(m);
         }
     }
 
     void effect(AbstractMonster m) {
         AbstractPlayer p = AbstractDungeon.player;
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         Utils.givePower(p, m, new RongRong(m, magicNumber));
     }
 
