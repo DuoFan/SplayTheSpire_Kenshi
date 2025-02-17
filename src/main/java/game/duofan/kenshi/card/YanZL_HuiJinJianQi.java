@@ -2,13 +2,18 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
+
+import java.util.ArrayList;
 
 public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
 
@@ -21,12 +26,16 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.SELF;
+    private static final CardTarget TARGET = CardTarget.ENEMY;
+
+    AbstractMonster target;
 
     public YanZL_HuiJinJianQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 6;
         magicNumber = baseMagicNumber = 1;
+
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     @Override
@@ -38,7 +47,6 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
             this.initializeDescription();
         }
     }
-
     /**
      * 当卡牌被使用时，调用这个方法。
      *
@@ -47,12 +55,24 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        target = m;
+        effect(target);
     }
 
     @Override
     public void yanZhiLiuEffect() {
+        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        monsters.remove(target);
+        if (monsters.size() > 0) {
+            int index = AbstractDungeon.cardRandomRng.random(monsters.size() - 1);
+            effect(monsters.get(index));
+        }
+    }
 
+    void effect(AbstractMonster m) {
+        AbstractPlayer p = AbstractDungeon.player;
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.givePower(p, m, new RongRong(m, magicNumber));
     }
 
     @Override

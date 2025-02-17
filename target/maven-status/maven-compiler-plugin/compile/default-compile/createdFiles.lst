@@ -100,6 +100,7 @@ game\duofan\kenshi\power\BaiJiaZhiChang.class
 game\duofan\kenshi\card\YanZL_QingJueLianYu.class
 game\duofan\kenshi\card\XZL_HeQiZhan.class
 game\duofan\kenshi\power\AnYing.class
+game\duofan\kenshi\power\BaoYanCardManager.class
 game\duofan\kenshi\initialize\ModInitializer.class
 game\duofan\kenshi\card\SZL_HuiXuan.class
 game\duofan\kenshi\power\ShiJianShi.class

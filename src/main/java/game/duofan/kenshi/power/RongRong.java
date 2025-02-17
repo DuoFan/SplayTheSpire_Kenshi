@@ -45,6 +45,14 @@ public class RongRong extends AbstractPower {
         this.updateDescription();
     }
 
+    @Override
+    public float atDamageFinalReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (BaoYanCardManager.getInstance().isBaoYanCard(card)){
+            damage += amount;
+        }
+        return damage;
+    }
+
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], amount);
     }
