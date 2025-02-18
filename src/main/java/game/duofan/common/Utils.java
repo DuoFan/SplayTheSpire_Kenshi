@@ -399,6 +399,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
             cards.add(new YanZL_LiuHuo());
+            cards.add(new YanZL_LuanYanZhan());
             cards.add(new YanZL_BuJingYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
@@ -430,6 +431,19 @@ public class Utils {
             cards.remove(index);
         }
         return card;
+    }
+
+    public static T getRandomElementFromList(ArrayList<T> list, boolean remove) {
+        if (list == null || list.isEmpty()) {
+            return null;
+        }
+
+        int index = AbstractDungeon.cardRandomRng.random(list.size() - 1);
+        T result = list.get(index);
+        if (remove) {
+            list.remove(index);
+        }
+        return result;
     }
 
     public static Liu_StateMachine.StateEnum getLiuFromCard(AbstractCard card) {

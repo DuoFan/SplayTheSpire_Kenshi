@@ -27,7 +27,7 @@ public class BuSiNiao extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    float restorePercentage = 0.3f;
+    float restorePercentage = 0.2f;
 
     public BuSiNiao(AbstractCreature owner) {
         this.name = NAME;

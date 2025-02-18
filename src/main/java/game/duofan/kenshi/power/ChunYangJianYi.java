@@ -161,7 +161,10 @@ public class ChunYangJianYi extends AbstractPower {
                             f.setAccessible(true);
                             DamageInfo info = (DamageInfo) f.get(a);
                             info.output += RONG_RONG_GIVE;
-                            actions.add(i + 1, new NotifyBaoYanDamageAction(a.target, info));
+                            int nextActionIndex = i + 1;
+                            if(nextActionIndex >= actions.size() || !(actions.get(nextActionIndex) instanceof NotifyBaoYanDamageAction)) {
+                                actions.add(nextActionIndex, new NotifyBaoYanDamageAction(a.target, info));
+                            }
                             System.out.println("--------------纯阳剑意修改DamageAction或DamageRandomEnemyAction伤害成功");
                         } catch (NoSuchFieldException e) {
                             System.out.println("--------------纯阳剑意修改DamageAction或DamageRandomEnemyAction伤害失败，不存在待修改字段");
