@@ -346,8 +346,8 @@
   },
   "game.duofan.kenshi:YanZL_QingJueLianYu": {
     "NAME": "倾绝炼狱",
-    "DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 "
+    "DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_YanZhiXin": {
     "NAME": "炎之心",
