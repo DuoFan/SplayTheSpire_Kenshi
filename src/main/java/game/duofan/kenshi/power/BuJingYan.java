@@ -15,10 +15,9 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
+import game.duofan.common.*;
 
-public class BuJingYan extends AbstractPower {
+public class BuJingYan extends AbstractPower implements IEventListener {
     // 能力的ID
     public static final String POWER_ID = IDManager.getInstance().getID(BuJingYan.class);
     // 能力的本地化字段
@@ -28,7 +27,9 @@ public class BuJingYan extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BuJingYan(AbstractCreature owner,int amount) {
+    boolean isRegister;
+
+    public BuJingYan(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -43,9 +44,36 @@ public class BuJingYan extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
+
+        if(!isRegister){
+            EventManager.getInstance().registerToEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
+            isRegister = true;
+        }
     }
 
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], amount);
+    }
+
+    @Override
+    public void OnEvent(Object sender, Object e) {
+        System.out.println("不净炎。。。。。");
+    }
+
+
+    void dispose() {
+        EventManager.getInstance().unregisterFromEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
+    }
+
+    @Override
+    public void onVictory() {
+        super.onVictory();
+        dispose();
+    }
+
+    @Override
+    public void onDeath() {
+        super.onDeath();
+        dispose();
     }
 }
