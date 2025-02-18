@@ -131,6 +131,12 @@
       "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
     ]
   },
+  "game.duofan.kenshi:QingJueLianYu": {
+    "NAME": "倾绝炼狱",
+    "DESCRIPTIONS": [
+      " #r所有爆炎伤害 都将给予 #r%d 层 #r熔融 。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [

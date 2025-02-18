@@ -42,6 +42,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\YZL_QianFu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\IYanZhiLiuCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\WeiZhiXin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\BaiJiaZhiChang_Card.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\QingJueLianYu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\Shi_StateMachine.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\KenShi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\TaYinAction.java
@@ -51,6 +52,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_YingGe.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\LiuCardReduceCostOnTurn.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\JiYiXingTai.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_QingShenZhui.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\action\GetFreeLiuCardAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\DZL_QianChuiBaiLian.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\SZL_ShanJi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\WeiZhiLiu.java
@@ -64,6 +66,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\ChunYangJianYi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\WZL_WeiZhiXin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_BaiXiaZhan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_HeQiZhan.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\YanZhiXin.java
 D:\Kenshi\src\main\java\game\duofan\common\IDManager.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_YaZhi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\Qi.java
@@ -110,6 +113,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\initialize\ModInitializer.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ShanZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\relic\ChiYou.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\DZL_DuanZhiXin.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\card\YanZL_LuanYanZhan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\IYingZhiLiuCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\relic\WuMing.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YZL_YingZhiXin.java

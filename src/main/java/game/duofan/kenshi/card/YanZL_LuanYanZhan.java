@@ -34,13 +34,13 @@ public class YanZL_LuanYanZhan extends CustomCard implements IYanZhiLiuCard, IBa
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.NONE;
 
     AbstractMonster targetMonster;
 
     public YanZL_LuanYanZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 5;
+        damage = baseDamage = 8;
         magicNumber = baseMagicNumber = 3;
         BaoYanCardManager.getInstance().addCard(this);
     }

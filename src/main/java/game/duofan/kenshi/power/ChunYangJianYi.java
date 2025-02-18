@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.BaDaoZhanAction;
 import game.duofan.kenshi.action.NotifyBaoYanDamageAction;
 
 import javax.swing.*;
@@ -145,7 +146,8 @@ public class ChunYangJianYi extends AbstractPower {
                         } catch (IllegalAccessException e) {
                             System.out.println("--------------纯阳剑意修改DamageAllEnemiesAction伤害失败，无法访问待修改字段");
                         }
-                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction) {
+                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaDaoZhanAction)
+                    {
 
                         if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
                             continue;

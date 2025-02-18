@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.relic.YanXue;
 
 public class RongRong extends AbstractPower {
     // 能力的ID
@@ -50,10 +51,18 @@ public class RongRong extends AbstractPower {
         if (BaoYanCardManager.getInstance().isBaoYanCard(card)){
             damage += amount;
         }
+        if(AbstractDungeon.player.hasRelic(YanXue.ID)){
+            damage += YanXue.DAMAGE_GIVE;
+        }
         return damage;
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], amount);
+        int i = amount;
+        if(AbstractDungeon.player.hasRelic(YanXue.ID)){
+            i += YanXue.DAMAGE_GIVE;
+        }
+
+        this.description = String.format(DESCRIPTIONS[0], i);
     }
 }

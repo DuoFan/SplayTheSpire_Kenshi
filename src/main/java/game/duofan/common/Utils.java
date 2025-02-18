@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.relic.YanXue;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -185,6 +186,14 @@ public class Utils {
             DamageInfo info = new DamageInfo(s, amount, type);
             AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info));
             AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(t, info));
+        }
+    }
+
+    public static void giveBaoYanDamageInTop(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
+        if (s != null && t != null) {
+            DamageInfo info = new DamageInfo(s, amount, type);
+            AbstractDungeon.actionManager.addToTop(new NotifyBaoYanDamageAction(t, info));
+            AbstractDungeon.actionManager.addToTop(new DamageAction(t, info));
         }
     }
 
@@ -433,7 +442,7 @@ public class Utils {
         return card;
     }
 
-    public static T getRandomElementFromList(ArrayList<T> list, boolean remove) {
+    public static <T> T getRandomElementFromList(ArrayList<T> list, boolean remove) {
         if (list == null || list.isEmpty()) {
             return null;
         }
@@ -514,6 +523,10 @@ public class Utils {
         if (target.hasPower(RongRong.POWER_ID)) {
             damage += target.getPower(RongRong.POWER_ID).amount;
         }
+        if(AbstractDungeon.player.hasRelic(YanXue.ID)){
+            damage += YanXue.DAMAGE_GIVE;
+        }
+
         return damage;
     }
 }

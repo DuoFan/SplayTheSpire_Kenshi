@@ -40,8 +40,8 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard, IB
 
     public YanZL_YanLiuJiXing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 3;
-        magicNumber = baseMagicNumber = 3;
+        damage = baseDamage = 7;
+        magicNumber = baseMagicNumber = 5;
         BaoYanCardManager.getInstance().addCard(this);
     }
 

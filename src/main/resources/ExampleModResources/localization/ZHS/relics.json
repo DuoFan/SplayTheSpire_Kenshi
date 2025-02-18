@@ -40,5 +40,12 @@
     "DESCRIPTIONS": [
       " #r回合开始时 ，随机 #rduofan_kenshi:锻造 #r两张手牌 。"
     ]
+  },
+  "game.duofan.kenshi:YanXue": {
+    "NAME": "炎雪",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      " #r熔融 额外增加 #r3 点 #r爆炎伤害 。"
+    ]
   }
 }

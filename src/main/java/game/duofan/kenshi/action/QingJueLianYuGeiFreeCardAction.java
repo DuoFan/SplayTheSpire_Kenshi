@@ -6,23 +6,18 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
-import com.sun.org.apache.bcel.internal.generic.FADD;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.WZL_TaYin;
+import game.duofan.kenshi.card.YanZL_QingJueLianYu;
 import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.kenshi.power.QingJueLianYu;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class TaYinAction extends AbstractGameAction {
+public class QingJueLianYuGeiFreeCardAction extends AbstractGameAction {
     boolean retrieveCard;
-    WZL_TaYin self;
-    boolean isUpgraded;
 
-    public TaYinAction(WZL_TaYin _self, boolean _isUpgraded) {
-        self = _self;
+    public QingJueLianYuGeiFreeCardAction() {
         retrieveCard = false;
-        isUpgraded = _isUpgraded;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
     }
@@ -36,13 +31,7 @@ public class TaYinAction extends AbstractGameAction {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                     AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
 
-                    if (self != null) {
-                        self.targetCard = disCard;
-                    }
-
-                    if (isUpgraded) {
-                        disCard.setCostForTurn(0);
-                    }
+                    disCard.setCostForTurn(0);
 
                     disCard.current_x = -1000.0F * Settings.xScale;
                     if (AbstractDungeon.player.hand.size() < 10) {
@@ -64,23 +53,14 @@ public class TaYinAction extends AbstractGameAction {
     private ArrayList<AbstractCard> generateCardChoices() {
         ArrayList derp = new ArrayList();
 
-        ArrayList<Liu_StateMachine.StateEnum> list = new ArrayList<>();
-        list.add(Liu_StateMachine.StateEnum.FengZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.YingZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.XiaZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.ShanZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.DuanZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.YuZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.YanZhiLiu);
-
-        ArrayList<AbstractCard> liuCards;
+        ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.YanZhiLiu.getValue());
 
         while (derp.size() != 3) {
-            int index = AbstractDungeon.cardRandomRng.random(0, list.size() - 1);
-            liuCards = Utils.getCardsFromLiu(list.get(index).getValue());
-            AbstractCard c = Utils.getRandomCardsFromList(liuCards, false);
+            AbstractCard c = Utils.getRandomCardsFromList(liuCards, true);
+            if(c.cardID.equals(YanZL_QingJueLianYu.ID)){
+                continue;
+            }
             derp.add(c);
-            list.remove(index);
         }
 
         return derp;

@@ -2,6 +2,7 @@ game\duofan\kenshi\action\YingGeAction.class
 game\duofan\kenshi\card\XZL_YinYueYouQing.class
 game\duofan\kenshi\card\DZL_JuGou.class
 game\duofan\kenshi\card\WZL_YangGong.class
+game\duofan\kenshi\relic\YanXue.class
 game\duofan\kenshi\power\JiaShi.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
@@ -98,6 +99,7 @@ game\duofan\kenshi\card\YZL_EZhao.class
 game\duofan\kenshi\power\Liu_StateMachine$ShanZhiLiu_State.class
 game\duofan\kenshi\power\Liu_StateMachine.class
 game\duofan\kenshi\card\FZL_QianYeGuiChen.class
+game\duofan\kenshi\action\GetFreeLiuCardAction.class
 game\duofan\kenshi\card\FZL_ZhiQie.class
 game\duofan\kenshi\power\BaiJiaZhiChang.class
 game\duofan\kenshi\card\YanZL_QingJueLianYu.class
@@ -108,6 +110,7 @@ game\duofan\kenshi\initialize\ModInitializer.class
 game\duofan\kenshi\card\SZL_HuiXuan.class
 game\duofan\kenshi\power\ShiJianShi.class
 game\duofan\common\Utils$Lambda.class
+game\duofan\kenshi\card\YanZL_LuanYanZhan.class
 game\duofan\kenshi\card\FZL_YaZhi.class
 game\duofan\kenshi\power\ZhuLiuBaiJia.class
 game\duofan\kenshi\card\YuZL_YuZhiXin.class
@@ -133,7 +136,9 @@ game\duofan\kenshi\action\RepeatAction.class
 game\duofan\kenshi\card\IQiMin.class
 game\duofan\kenshi\power\Shi_StateMachine$1.class
 game\duofan\kenshi\power\Shi_StateMachine$TurnStartListener.class
+game\duofan\kenshi\power\QingJueLianYu.class
 game\duofan\kenshi\card\ChaPin.class
+game\duofan\kenshi\action\QingJueLianYuGeiFreeCardAction.class
 game\duofan\kenshi\power\GongJiZhunBei.class
 game\duofan\kenshi\action\DuanZhiXinAction.class
 game\duofan\kenshi\power\XieLiZhunBei.class
@@ -191,3 +196,4 @@ game\duofan\kenshi\power\DuanZhiLiu.class
 game\duofan\kenshi\action\NotifyBaoYanDamageAction.class
 game\duofan\common\IEventListener.class
 game\duofan\kenshi\power\Liu_StateMachine$YanZhiLiu_State.class
+game\duofan\kenshi\power\YanZhiXin.class

@@ -49,7 +49,10 @@ public class YanZL_YanZhiXin extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new YanZhiXin(p))
+        );
+        YanZhiXin.YanZhiXinEffect();
     }
 
     @Override
@@ -63,6 +66,6 @@ public class YanZL_YanZhiXin extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-
+        Utils.playerGainEnergy(1);
     }
 }

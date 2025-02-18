@@ -8,6 +8,9 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.action.GetFreeLiuCardAction;
+import game.duofan.kenshi.action.QingJueLianYuGeiFreeCardAction;
 import game.duofan.kenshi.power.*;
 
 public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
@@ -47,12 +50,13 @@ public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
+        Utils.gainPower(p, new QingJueLianYu(p, magicNumber));
+        addToBot(new QingJueLianYuGeiFreeCardAction());
     }
 
     @Override
     public void yanZhiLiuEffect() {
-
+        addToBot(new QingJueLianYuGeiFreeCardAction());
     }
 
     @Override

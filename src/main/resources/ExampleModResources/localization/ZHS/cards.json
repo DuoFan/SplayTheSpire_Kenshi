@@ -316,8 +316,8 @@
   },
   "game.duofan.kenshi:YanZL_LiuHuo": {
     "NAME": "流火",
-    "DESCRIPTION": "给予 *所有敌人 1层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :。",
-    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:羽之心 ，且获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :获得 [E] 。"
+    "DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :随机给予敌人1层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :随机给予敌人1层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_LuanYanZhan": {
     "NAME": "乱焰斩",

@@ -21,8 +21,8 @@
   },
   "game.duofan.kenshi:BaiJiaZhiChang_Card": {
     "NAME": "百家之长",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:百家之长 。"
+    "DESCRIPTION": "每次 *改变流派 时，获得 !M 点格挡。",
+    "UPGRADE_DESCRIPTION": "每次 *改变流派 时，获得 !M 点格挡。"
   },
   "game.duofan.kenshi:QianBianWanHua": {
     "NAME": "千变万化",
@@ -306,8 +306,8 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "不死鸟",
-    "DESCRIPTION": "受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL 虚无 NL duofan_kenshi:复苏 ",
-    "UPGRADE_DESCRIPTION":  " 保留 NL 受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至50%。 NL 即逝 NL duofan_kenshi:复苏 "
+    "DESCRIPTION": "受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至30%。 NL 即逝 NL 虚无 NL duofan_kenshi:复苏 ",
+    "UPGRADE_DESCRIPTION":  " 保留 NL 受到 *致命伤害 时，获得 duofan_kenshi:涅槃 。 NL duofan_kenshi:羽之流 :使 duofan_kenshi:涅槃 回复至30%。 NL 即逝 NL duofan_kenshi:复苏 "
   },
   "game.duofan.kenshi:YuZL_YuZhiXin": {
     "NAME": "羽之心",
@@ -316,8 +316,13 @@
   },
   "game.duofan.kenshi:YanZL_LiuHuo": {
     "NAME": "流火",
-    "DESCRIPTION": "给予 *所有敌人 1层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :。",
-    "UPGRADE_DESCRIPTION": "获得 duofan_kenshi:羽之心 ，且获得 !B! 点格挡。 NL duofan_kenshi:羽之流 :获得 [E] 。"
+    "DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :随机给予敌人1层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，抽取 !M! 张 *炎卡 。 NL duofan_kenshi:炎之流 :随机给予敌人1层 duofan_kenshi:熔融 。"
+  },
+  "game.duofan.kenshi:YanZL_LuanYanZhan": {
+    "NAME": "乱焰斩",
+    "DESCRIPTION": "对1个 *随机敌人 造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :溅射 !M! 点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": "对1个 *随机敌人 造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :溅射 !M! 点 duofan_kenshi:爆炎伤害 。"
   },
   "game.duofan.kenshi:YanZL_YanLiuJiXing": {
     "NAME": "焰流击星",
@@ -341,8 +346,8 @@
   },
   "game.duofan.kenshi:YanZL_QingJueLianYu": {
     "NAME": "倾绝炼狱",
-    "DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL 消耗 "
+    "DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括倾绝炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_YanZhiXin": {
     "NAME": "炎之心",

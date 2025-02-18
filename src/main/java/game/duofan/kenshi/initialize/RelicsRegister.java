@@ -15,5 +15,6 @@ public class RelicsRegister implements EditRelicsSubscriber {
         BaseMod.addRelic(new WuMing(), RelicType.SHARED);
         BaseMod.addRelic(new JiXing(), RelicType.SHARED);
         BaseMod.addRelic(new JianChui(), RelicType.SHARED);
+        BaseMod.addRelic(new YanXue(), RelicType.SHARED);
     }
 }

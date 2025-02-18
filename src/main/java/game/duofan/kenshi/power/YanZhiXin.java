@@ -1,9 +1,6 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,17 +9,18 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
+import game.duofan.kenshi.card.SZL_ShanJi;
+import game.duofan.kenshi.card.WZL_WeiZhiXin;
 
 import java.util.ArrayList;
 
-public class BuJingYan extends AbstractPower implements IEventListener {
+public class YanZhiXin extends AbstractPower implements IEventListener {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(BuJingYan.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(ShanZhiXin.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -32,14 +30,14 @@ public class BuJingYan extends AbstractPower implements IEventListener {
 
     boolean isRegister;
 
-    public BuJingYan(AbstractCreature owner, int amount) {
+    public YanZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.DEBUFF;
+        this.type = PowerType.BUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = -1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -50,54 +48,50 @@ public class BuJingYan extends AbstractPower implements IEventListener {
     }
 
     public void updateDescription() {
-
-        this.description = String.format(DESCRIPTIONS[0], amount);
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         super.onAfterUseCard(card, action);
         if (!isRegister) {
-            EventManager.getInstance().registerToEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
+            Utils.addToBotAbstract(() -> {
+                EventManager.getInstance().registerToEvent(EventKey.FIRST_YanZL_ON_TURN, this);
+            });
             isRegister = true;
         }
     }
 
     @Override
-    public void OnEvent(Object sender, Object e) {
-        if(!sender.equals(owner)){
-            return;
-        }
-
-        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        DamageInfo info = (DamageInfo) e;
-        for (int i = 0; i < monsters.size(); i++) {
-            AbstractMonster m = monsters.get(i);
-            if (m.equals(sender)) {
-                continue;
-            }
-            int damage = amount;
-            if (m.hasPower(RongRong.POWER_ID)) {
-                amount += m.getPower(RongRong.POWER_ID).amount;
-            }
-            Utils.giveBaoYanDamage(info.owner, m, damage, DamageInfo.DamageType.NORMAL);
-        }
-    }
-
-
-    void dispose() {
-        EventManager.getInstance().unregisterFromEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
-    }
-
-    @Override
     public void onVictory() {
         super.onVictory();
-        dispose();
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YanZL_ON_TURN, this);
     }
 
     @Override
     public void onDeath() {
         super.onDeath();
-        dispose();
+        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YanZL_ON_TURN, this);
+    }
+
+    @Override
+    public void OnEvent(Object sender, Object e) {
+        YanZhiXinEffect();
+    }
+
+    public static void YanZhiXinEffect() {
+        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        AbstractPlayer p = AbstractDungeon.player;
+        for (int i = 0; i < monsters.size(); i++) {
+            AbstractMonster m = monsters.get(i);
+            Utils.givePower(p, m, new RongRong(m, 1));
+        }
+
+        for (int i = 0; i < monsters.size(); i++) {
+            AbstractMonster m = monsters.get(i);
+            Utils.addToBotAbstract(() ->{
+                Utils.giveBaoYanDamageInTop(p, m, Utils.modifyDamageByRongRong(1, m), DamageInfo.DamageType.NORMAL);
+            });
+        }
     }
 }
