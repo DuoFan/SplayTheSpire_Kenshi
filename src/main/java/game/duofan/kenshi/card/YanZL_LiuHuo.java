@@ -26,7 +26,7 @@ public class YanZL_LiuHuo extends CustomCard implements IYanZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public YanZL_LiuHuo() {
@@ -38,7 +38,6 @@ public class YanZL_LiuHuo extends CustomCard implements IYanZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
             upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();

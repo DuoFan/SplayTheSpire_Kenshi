@@ -23,7 +23,7 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public WZL_NiTai() {

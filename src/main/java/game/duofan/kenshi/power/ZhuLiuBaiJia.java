@@ -50,9 +50,10 @@ public class ZhuLiuBaiJia extends AbstractPower {
         super.onUseCard(card, action);
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
 
+        boolean isEffectAble = true;
+
         if (liu != Liu_StateMachine.StateEnum.None) {
             if (Liu_StateMachine.getInstance().isStateMatch(liu)) {
-                boolean isEffectAble = true;
 
                 if (card instanceof IShanZhiLiuCard) {
                     IShanZhiLiuCard c = (IShanZhiLiuCard) card;
@@ -95,6 +96,16 @@ public class ZhuLiuBaiJia extends AbstractPower {
                     Utils.invokeLiuCardEffect(card);
                 }
             } else {
+
+                if (card instanceof IShanZhiLiuCard) {
+                    IShanZhiLiuCard c = (IShanZhiLiuCard) card;
+                    isEffectAble = c.effectable();
+                }
+
+                if (!isEffectAble) {
+                    return;
+                }
+
                 Liu_StateMachine.getInstance().changeLiu(liu);
             }
         }

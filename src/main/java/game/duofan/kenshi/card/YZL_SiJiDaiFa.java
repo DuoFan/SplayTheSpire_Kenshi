@@ -37,7 +37,6 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     public YZL_SiJiDaiFa() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        exhaust = true;
         selfRetain = true;
         this.cardsToPreview = new YZL_YingShi();
     }

@@ -30,7 +30,6 @@ public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     public YZL_EZhao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 2;
-        exhaust = true;
     }
 
     @Override

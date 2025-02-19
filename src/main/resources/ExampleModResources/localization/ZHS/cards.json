@@ -106,8 +106,8 @@
   },
   "game.duofan.kenshi:YZL_EZhao": {
     "NAME": "噩兆",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。 NL 消耗",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。 NL 消耗"
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。"
   },
   "game.duofan.kenshi:YZL_YeBu": {
     "NAME": "夜步",
@@ -116,8 +116,8 @@
   },
   "game.duofan.kenshi:YZL_SiJiDaiFa": {
     "NAME": "伺机待发",
-    "DESCRIPTION": "保留 NL 增加1张 *影弑 NL 到你的手牌。 NL duofan_kenshi:影之流 :获得 !M! 层攻势。 NL 消耗",
-    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *影弑 NL 到你的手牌。 NL 遁入 duofan_kenshi:暗影 NL duofan_kenshi:影之流 :获得 !M! 层攻势。 NL 消耗"
+    "DESCRIPTION": "保留 NL 增加1张 *影弑 NL 到你的手牌。 NL duofan_kenshi:影之流 :获得 !M! 层攻势。",
+    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *影弑 NL 到你的手牌。 NL 遁入 duofan_kenshi:暗影 NL duofan_kenshi:影之流 :获得 !M! 层攻势。"
   },
   "game.duofan.kenshi:YZL_YingFu": {
     "NAME": "影缚",
