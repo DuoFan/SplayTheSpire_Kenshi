@@ -89,8 +89,18 @@ public class SZL_BaDaoZhan extends CustomCard implements IShanZhiLiuCard {
 
     @Override
     public void shanZhiLiuEffect() {
+        setToExchange();
+    }
+
+    @Override
+    public boolean isExchangeAble() {
+        return true;
+    }
+
+    @Override
+    public void setToExchange() {
         effectable = false;
-        LinkCardManager.getInstance().setToExchange(this);
+        LinkCardManager.getInstance().forceSetToExchange(this);
         updateDescription();
     }
 
@@ -115,5 +125,10 @@ public class SZL_BaDaoZhan extends CustomCard implements IShanZhiLiuCard {
         c.rawDescription = rawDescription;
         c.initializeDescription();
         return c;
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.ShanZhiLiu;
     }
 }

@@ -48,7 +48,11 @@ public class JiangXinPingZhi extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
+    }
 
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
         listener = new DuanZaoListener();
         EventManager.getInstance().registerToEvent(EventKey.ON_CARD_BE_DUANZAO, listener);
     }

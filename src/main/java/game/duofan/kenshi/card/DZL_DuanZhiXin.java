@@ -67,4 +67,9 @@ public class DZL_DuanZhiXin extends CustomCard implements IDuanZhiLiuCard {
     public void duanZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.DuanZhiLiu;
+    }
 }

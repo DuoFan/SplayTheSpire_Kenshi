@@ -20,7 +20,10 @@ import game.duofan.kenshi.power.*;
 import game.duofan.kenshi.relic.YanXue;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Utils {
     public static String generateID(String id) {
@@ -86,33 +89,51 @@ public class Utils {
     public interface Lambda extends Runnable {
     }
 
-    public static void invokeLiuCardEffect(AbstractCard card) {
+    public static void invokeLiuCardEffectOnBottom(AbstractCard card) {
         if (card == null) {
             return;
         }
 
         Utils.addToBotAbstract(() -> {
-            if (card instanceof IFengZhiLiuCard) {
+            invokeLiuCardEffect(card);
+        });
+    }
+
+    public static void invokeLiuCardEffect(AbstractCard card) {
+        Liu_StateMachine.StateEnum stateEnum = getLiuFromCard(card);
+        if (stateEnum == Liu_StateMachine.StateEnum.None) {
+            return;
+        }
+
+        switch (stateEnum) {
+            case FengZhiLiu:
                 ((IFengZhiLiuCard) card).fengZhiLiuEffect();
-            } else if (card instanceof IYingZhiLiuCard) {
+                break;
+            case YingZhiLiu:
                 ((IYingZhiLiuCard) card).yingZhiLiuEffect();
-            } else if (card instanceof IXiaZhiLiuCard) {
+                break;
+            case XiaZhiLiu:
                 ((IXiaZhiLiuCard) card).xiaZhiLiuEffect(false);
-            } else if (card instanceof IWeiZhiLiuCard) {
+                break;
+            case WeiZhiLiu:
                 ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
-            } else if (card instanceof IShanZhiLiuCard) {
+                break;
+            case ShanZhiLiu:
                 IShanZhiLiuCard c = (IShanZhiLiuCard) card;
                 if (c.effectable()) {
                     c.shanZhiLiuEffect();
                 }
-            } else if (card instanceof IDuanZhiLiuCard) {
+                break;
+            case DuanZhiLiu:
                 ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
-            } else if (card instanceof IYuZhiLiuCard) {
+                break;
+            case YuZhiLiu:
                 ((IYuZhiLiuCard) card).yuZhiLiuEffect();
-            } else if (card instanceof IYanZhiLiuCard) {
+                break;
+            case YanZhiLiu:
                 ((IYanZhiLiuCard) card).yanZhiLiuEffect();
-            }
-        });
+                break;
+        }
     }
 
     public static void invokeXZL_Effect(IXiaZhiLiuCard card, boolean isByQi) {
@@ -345,7 +366,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YingZhiLiu)) {
             cards.add(new YZL_QianFu());
-            cards.add(new YZL_YingShi());
+            cards.add(new YZL_QinXi());
             cards.add(new YZL_MeiYing());
             cards.add(new YZL_EZhao());
             cards.add(new YZL_YeBu());
@@ -381,6 +402,8 @@ public class Utils {
             cards.add(new SZL_ShanJi());
             cards.add(new SZL_KuaiFang());
             cards.add(new SZL_BaDaoZhan());
+            cards.add(new SZL_YiMingZhan());
+            cards.add(new SZL_BanXing());
             cards.add(new SZL_FeiXing());
             cards.add(new SZL_ShanZhiXin());
         }
@@ -400,6 +423,7 @@ public class Utils {
             cards.add(new YuZL_QueBu());
             cards.add(new YuZL_YingGe());
             cards.add(new YuZL_QingShenZhui());
+            cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHongZhaoYing());
             cards.add(new YuZL_XueSeDieMu());
             cards.add(new YuZL_BuSiNiao());
@@ -457,29 +481,11 @@ public class Utils {
 
     public static Liu_StateMachine.StateEnum getLiuFromCard(AbstractCard card) {
 
-        if (card == null) {
+        if (card == null || !(card instanceof ILiuCard)) {
             return Liu_StateMachine.StateEnum.None;
         }
 
-        if (card instanceof IFengZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.FengZhiLiu;
-        } else if (card instanceof IYingZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.YingZhiLiu;
-        } else if (card instanceof IXiaZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.XiaZhiLiu;
-        } else if (card instanceof IWeiZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.WeiZhiLiu;
-        } else if (card instanceof IShanZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.ShanZhiLiu;
-        } else if (card instanceof IDuanZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.DuanZhiLiu;
-        } else if (card instanceof IYuZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.YuZhiLiu;
-        } else if (card instanceof IYanZhiLiuCard) {
-            return Liu_StateMachine.StateEnum.YanZhiLiu;
-        }
-
-        return Liu_StateMachine.StateEnum.None;
+        return ((ILiuCard) card).getLiu();
     }
 
     public static ArrayList<AbstractMonster> getAllAliveMonsters() {
@@ -501,29 +507,42 @@ public class Utils {
         return result;
     }
 
+
     public static void effectJianShe(AbstractCreature source, AbstractMonster center, int damage) {
-        ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
-        int index = monsters.indexOf(center);
-        if (index >= 0) {
-            tryJianSheToMonster(source, monsters, index - 1, damage);
-            tryJianSheToMonster(source, monsters, index + 1, damage);
+        //按X坐标排序存活怪物
+        List<AbstractMonster> sortedMonsters = AbstractDungeon.getMonsters().monsters.stream()
+                .filter(m -> !m.isDeadOrEscaped())
+                .sorted(Comparator.comparing(m -> m.hb.cX))
+                .collect(Collectors.toList());
+
+
+        int centerIndex = -1;
+        for (int i = 0; i < sortedMonsters.size(); i++) {
+            if (sortedMonsters.get(i) == center) {
+                centerIndex = i;
+                break;
+            }
+        }
+
+        if (centerIndex != -1) {
+            if (centerIndex > 0) { // 左侧
+                tryJianSheToMonster(source, sortedMonsters.get(centerIndex - 1), damage);
+            }
+            if (centerIndex < sortedMonsters.size() - 1) { // 右侧
+                tryJianSheToMonster(source, sortedMonsters.get(centerIndex + 1), damage);
+            }
         }
     }
 
-    static void tryJianSheToMonster(AbstractCreature source, ArrayList<AbstractMonster> monsters, int index, int damage) {
-        if (index < 0 || index >= monsters.size()) {
-            return;
-        }
-
-        AbstractMonster monster = monsters.get(index);
-        Utils.giveBaoYanDamage(source, monster, modifyDamageByRongRong(damage, monster), DamageInfo.DamageType.NORMAL);
+    static void tryJianSheToMonster(AbstractCreature source, AbstractMonster target, int damage) {
+        Utils.giveBaoYanDamage(source, target, modifyDamageByRongRong(damage, target), DamageInfo.DamageType.NORMAL);
     }
 
     public static int modifyDamageByRongRong(int damage, AbstractCreature target) {
         if (target.hasPower(RongRong.POWER_ID)) {
             damage += target.getPower(RongRong.POWER_ID).amount;
         }
-        if(AbstractDungeon.player.hasRelic(YanXue.ID)){
+        if (AbstractDungeon.player.hasRelic(YanXue.ID)) {
             damage += YanXue.DAMAGE_GIVE;
         }
 

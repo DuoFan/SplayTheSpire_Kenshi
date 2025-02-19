@@ -14,6 +14,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
+import jdk.nashorn.internal.ir.Block;
 
 public class YZL_MeiYing extends CustomCard implements IYingZhiLiuCard {
 
@@ -31,7 +32,7 @@ public class YZL_MeiYing extends CustomCard implements IYingZhiLiuCard {
     public YZL_MeiYing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.block = this.baseBlock = 4;
-        magicNumber = baseMagicNumber = 1;
+        calculateMagicNumber();
     }
 
     @Override
@@ -47,6 +48,15 @@ public class YZL_MeiYing extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void update() {
         super.update();
+        calculateMagicNumber();
+    }
+
+    int calculateMagicNumber() {
+        int value = Math.max(block / 2, 0);
+
+        this.magicNumber = this.baseMagicNumber = value;
+
+        return value;
     }
 
     /**
@@ -58,20 +68,27 @@ public class YZL_MeiYing extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.playerGainBlock(block);
+
+        Utils.playerGainPower(new DexterityPower(AbstractDungeon.player, 1));
+        Utils.playerGainPower(new LoseDexterityPower(AbstractDungeon.player, 1));
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)){
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void yingZhiLiuEffect() {
-        Utils.playerGainPower(new DexterityPower(AbstractDungeon.player,magicNumber));
-        Utils.playerGainPower(new LoseDexterityPower(AbstractDungeon.player,magicNumber));
+        Utils.playerGainBlock(calculateMagicNumber());
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YingZhiLiu;
     }
 }

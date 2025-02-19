@@ -64,21 +64,18 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard, IB
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        shuffleBackIntoDrawPile = false;
-        isUsing = true;
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         Utils.effectJianShe(p, m, magicNumber);
-        Utils.addToBotAbstract(() -> {
+        isUsing = true;
+        Utils.addToBotAbstract(() ->{
             isUsing = false;
         });
+        shuffleBackIntoDrawPile = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
     }
 
     @Override
     public void yanZhiLiuEffect() {
-        if (isUsing) {
-            this.shuffleBackIntoDrawPile = true;
-            isUsing = false;
-        } else {
+        if (!isUsing) {
             addToTop(new ReturnToDrawPileAction(this));
         }
     }
@@ -91,5 +88,10 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard, IB
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YanZhiLiu;
     }
 }

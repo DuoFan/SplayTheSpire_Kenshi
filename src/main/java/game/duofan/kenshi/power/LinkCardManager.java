@@ -211,13 +211,21 @@ public class LinkCardManager implements IEventListener {
     public void setToExchange(AbstractCard card) {
         LinkNode node = cardToNodeMap.get(card);
 
-        if (node == null) {
+        if (node == null || node.isExchange) {
             return;
         }
 
         node.isExchange = true;
 
-        System.out.println(card.name + " 成为了置换牌");
+        System.out.println(card.name + "成为了置换牌");
+    }
+
+    public void forceSetToExchange(AbstractCard card) {
+        LinkNode node = getOrCreateNode(card);
+
+        node.isExchange = true;
+
+        System.out.println(card.name + "强制成为了置换牌");
     }
 
     public void updateHoverPreview(IShanZhiLiuCard szlCard) {

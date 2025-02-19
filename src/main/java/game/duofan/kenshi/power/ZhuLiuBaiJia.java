@@ -3,16 +3,17 @@ package game.duofan.kenshi.power;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.sun.org.apache.bcel.internal.generic.FADD;
-import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
+import game.duofan.common.*;
 import game.duofan.kenshi.card.IQiMin;
+
+import java.io.BufferedOutputStream;
 
 public class ZhuLiuBaiJia extends AbstractPower {
     // 能力的ID
@@ -23,6 +24,9 @@ public class ZhuLiuBaiJia extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
+    XinSuiYiDong xinSuiYiDong;
+    XinNianTongShen xinNianTongShen;
 
     public ZhuLiuBaiJia(AbstractCreature owner) {
         this.name = NAME;
@@ -46,6 +50,15 @@ public class ZhuLiuBaiJia extends AbstractPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        EventManager.getInstance().registerToEvent(EventKey.ON_GAIN_XIN_SUI_YI_DONG,
+                new XinSuiYiDongListener());
+        EventManager.getInstance().registerToEvent(EventKey.ON_GAIN_XIN_NIAN_TONG_SHEN,
+                new XinNianTongShenListener());
+    }
+
+    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
@@ -53,7 +66,10 @@ public class ZhuLiuBaiJia extends AbstractPower {
         boolean isEffectAble = true;
 
         if (liu != Liu_StateMachine.StateEnum.None) {
-            if (Liu_StateMachine.getInstance().isStateMatch(liu)) {
+
+            boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
+
+            if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) || xinNianTongShen != null) {
 
                 if (card instanceof IShanZhiLiuCard) {
                     IShanZhiLiuCard c = (IShanZhiLiuCard) card;
@@ -66,13 +82,22 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
                 if (card instanceof IXiaZhiLiuCard) {
                     Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
-                }
-                else{
-                    Utils.invokeLiuCardEffect(card);
+                } else {
+                    Utils.invokeLiuCardEffectOnBottom(card);
                 }
                 Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
                 Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
 
+
+                if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
+                    xinSuiYiDong.subTurnAmountToEffect();
+                }
+                if(!isLiuMatch){
+                    Liu_StateMachine.getInstance().changeLiu(liu);
+                    if(xinNianTongShen != null){
+                        xinNianTongShen.flash();
+                    }
+                }
 
                 if (card instanceof IShanZhiLiuCard) {
                     IShanZhiLiuCard c = (IShanZhiLiuCard) card;
@@ -82,18 +107,17 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 if (isEffectAble && Utils.getQiAmount() > 0) {
                     if (card instanceof IXiaZhiLiuCard) {
                         Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
-                    }
-                    else{
-                        Utils.invokeLiuCardEffect(card);
+                    } else {
+                        Utils.invokeLiuCardEffectOnBottom(card);
                     }
                     if (card instanceof IQiMin) {
-                        Utils.invokeLiuCardEffect(card);
+                        Utils.invokeLiuCardEffectOnBottom(card);
                     }
                     Utils.playerReduceQi(1);
                 }
 
                 if (isEffectAble && AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
-                    Utils.invokeLiuCardEffect(card);
+                    Utils.invokeLiuCardEffectOnBottom(card);
                 }
             } else {
 
@@ -129,5 +153,21 @@ public class ZhuLiuBaiJia extends AbstractPower {
         Liu_StateMachine.getInstance().reset();
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+    }
+
+    class XinSuiYiDongListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            xinSuiYiDong = (XinSuiYiDong) sender;
+        }
+    }
+
+    class XinNianTongShenListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            xinNianTongShen = (XinNianTongShen) sender;
+        }
     }
 }

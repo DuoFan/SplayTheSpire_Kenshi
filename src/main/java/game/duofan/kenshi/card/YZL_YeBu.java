@@ -75,4 +75,9 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
                 new DrawCardAction(AbstractDungeon.player, 1)
         );
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YingZhiLiu;
+    }
 }

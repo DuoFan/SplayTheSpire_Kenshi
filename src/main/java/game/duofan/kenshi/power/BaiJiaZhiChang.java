@@ -25,8 +25,6 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    boolean isRegisted;
-
     public BaiJiaZhiChang(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -42,8 +40,6 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        isRegisted = false;
     }
 
     public void updateDescription() {
@@ -51,12 +47,9 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        if(!isRegisted){
-            EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
-            isRegisted = true;
-        }
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
     }
 
     @Override

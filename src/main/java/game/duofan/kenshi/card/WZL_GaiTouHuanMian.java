@@ -99,4 +99,9 @@ public class WZL_GaiTouHuanMian extends CustomCard implements IWeiZhiLiuCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.WeiZhiLiu;
+    }
 }

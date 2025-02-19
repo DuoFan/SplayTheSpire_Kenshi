@@ -61,12 +61,16 @@ public class ChunYangJianYi extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        effectForHand();
     }
 
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], amount);
+    }
+
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        effectForHand();
     }
 
     void effectForHand() {

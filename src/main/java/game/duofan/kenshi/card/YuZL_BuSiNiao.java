@@ -73,4 +73,9 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
             power.setRestorePercentage(liuPercentage);
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YuZhiLiu;
+    }
 }

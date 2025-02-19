@@ -72,4 +72,9 @@ public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
     public void fengZhiLiuEffect() {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
 }

@@ -1,26 +1,18 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.AnYing;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
-
-import java.util.Iterator;
 
 public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(YZL_SiJiDaiFa.class);
@@ -38,7 +30,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         selfRetain = true;
-        this.cardsToPreview = new YZL_YingShi();
+        this.cardsToPreview = new YZL_QinXi();
     }
 
     @Override
@@ -59,7 +51,7 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        this.addToBot(new MakeTempCardInHandAction(new YZL_YingShi(), 1));
+        this.addToBot(new MakeTempCardInHandAction(new YZL_QinXi(), 1));
 
         if(upgraded){
             Utils.playerEnterAnYin();
@@ -78,5 +70,10 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     @Override
     public void yingZhiLiuEffect() {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YingZhiLiu;
     }
 }

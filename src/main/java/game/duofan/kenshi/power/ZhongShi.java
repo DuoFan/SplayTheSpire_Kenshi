@@ -50,12 +50,16 @@ public class ZhongShi extends AbstractPower {
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
         this.updateDescription();
-
-        Utils.addToBotAbstract(() -> effect());
     }
 
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        Utils.addToBotAbstract(() -> effect());
     }
 
     @Override

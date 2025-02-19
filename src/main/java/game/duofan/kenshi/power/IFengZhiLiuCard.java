@@ -1,5 +1,5 @@
 package game.duofan.kenshi.power;
 
-public interface IFengZhiLiuCard {
+public interface IFengZhiLiuCard extends ILiuCard {
     void fengZhiLiuEffect();
 }

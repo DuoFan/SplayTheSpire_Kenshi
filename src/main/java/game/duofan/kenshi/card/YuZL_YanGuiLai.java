@@ -1,66 +1,64 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.unique.DamagePerAttackPlayedAction;
+import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import game.duofan.common.Const;
-import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.IYingZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.common.*;
+import game.duofan.kenshi.action.YingGeAction;
+import game.duofan.kenshi.power.*;
 
-public class YZL_YingShi extends CustomCard implements IYingZhiLiuCard {
+public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventListener {
 
-    public static final String ID = IDManager.getInstance().getID(YZL_YingShi.class);
+    public static final String ID = IDManager.getInstance().getID(YuZL_YanGuiLai.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.SELF;
 
-    AbstractMonster target;
+    boolean isRegister;
 
-    public YZL_YingShi() {
+    public YuZL_YanGuiLai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
-        calculateMagicNumber();
+        block = baseBlock = 3;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
-            calculateMagicNumber();
+            upgradeBlock(2);
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
-    public void update() {
-        super.update();
-        calculateMagicNumber();
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        if(!isRegister){
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_YuZL_ON_TURN, this);
+            isRegister = true;
+        }
     }
 
-    int calculateMagicNumber(){
-        int value = Math.max(damage / 2,0);
-
-        this.magicNumber = this.baseMagicNumber = value;
-
-        return value;
+    @Override
+    public void triggerOnExhaust() {
+        if (isRegister) {
+            EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YuZL_ON_TURN, this);
+        }
     }
 
     /**
@@ -71,24 +69,38 @@ public class YZL_YingShi extends CustomCard implements IYingZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        target = m;
-        this.addToBot(new DamageAction(m,new DamageInfo(p,damage, DamageInfo.DamageType.NORMAL)));
+        Utils.playerGainBlock(block);
+    }
+
+    @Override
+    public void yuZhiLiuEffect() {
+        Utils.playerGainBlock(magicNumber);
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)){
+
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void yingZhiLiuEffect() {
-        if(target != null){
-            this.addToBot(new DamageAction(target,new DamageInfo(AbstractDungeon.player,
-                    calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
+    public void OnEvent(Object sender, Object e) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if(p == null){
+            return;
         }
+        if(!p.discardPile.contains(this)){
+            return;
+        }
+        addToBot(new DiscardToHandAction(this));
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YuZhiLiu;
     }
 }

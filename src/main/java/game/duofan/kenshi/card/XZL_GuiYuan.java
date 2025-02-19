@@ -73,4 +73,9 @@ public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
 }

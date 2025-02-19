@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
 import java.util.Iterator;
@@ -74,6 +75,12 @@ public class ChiYou extends CustomRelic {
         super.atTurnStart();
         this.flash();
         EventManager.getInstance().notifyEvent(EventKey.ON_TURN_START, this, null);
+    }
+
+    @Override
+    public void atTurnStartPostDraw() {
+        super.atTurnStartPostDraw();
+        EventManager.getInstance().notifyEvent(EventKey.ON_TURN_START_POST_DRAW, this, null);
     }
 
     @Override

@@ -27,8 +27,6 @@ public class YuZhiXin extends AbstractPower implements IEventListener {
 
     int blockAmount = 8;
 
-    boolean isRegister;
-
     public YuZhiXin(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -51,14 +49,11 @@ public class YuZhiXin extends AbstractPower implements IEventListener {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        if(!isRegister){
-            Utils.addToBotAbstract(() ->{
-                EventManager.getInstance().registerToEvent(EventKey.FIRST_YuZL_ON_TURN, this);
-            });
-            isRegister = true;
-        }
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        Utils.addToBotAbstract(() ->{
+            EventManager.getInstance().registerToEvent(EventKey.FIRST_YuZL_ON_TURN, this);
+        });
     }
 
     @Override

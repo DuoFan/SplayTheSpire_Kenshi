@@ -70,4 +70,9 @@ public class YuZL_YuZhiXin extends CustomCard implements IYuZhiLiuCard {
     public void yuZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YuZhiLiu;
+    }
 }

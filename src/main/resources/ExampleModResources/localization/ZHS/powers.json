@@ -2,31 +2,43 @@
   "game.duofan.kenshi:ZhuLiuBaiJia": {
     "NAME": "诸流百家",
     "DESCRIPTIONS": [
-      "打出流派卡牌后，进入对应 #r流派 。"
+      "打出流派卡后，进入对应 #r流派 。"
     ]
   },
   "game.duofan.kenshi:BaiJiaZhiChang": {
     "NAME": "百家之长",
     "DESCRIPTIONS": [
-      " NL 每次改变 #r流派 时，获得 #r%d点 格挡。"
+      "每次改变 #r流派 时，获得 #r%d点 格挡。"
+    ]
+  },
+  "game.duofan.kenshi:XinSuiYiDong": {
+    "NAME": "心随意动",
+    "DESCRIPTIONS": [
+      " #r本回合 剩余 #r%d 张 #r流派卡 可无条件触发 #r流派效果 。"
+    ]
+  },
+  "game.duofan.kenshi:XinNianTongShen": {
+    "NAME": "心念通神",
+    "DESCRIPTIONS": [
+      " #r本场战斗所有流派效果不再受到流派限制。 "
     ]
   },
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "极意形态",
     "DESCRIPTIONS": [
-      " NL 因 #r在对应流派打出流派卡 而触发的 #r流派效果 将触发 #r2 次"
+      "因 #r在对应流派打出流派卡 而触发的 #r流派效果 将触发 #r2 次"
     ]
   },
   "game.duofan.kenshi:JiaShi": {
     "NAME": "架势",
     "DESCRIPTIONS": [
-      " NL 本回合攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+      "本回合攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
     ]
   },
   "game.duofan.kenshi:GongShi": {
     "NAME": "攻势",
     "DESCRIPTIONS": [
-      " NL 本回合攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
+      "本回合攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
     ]
   },
   "game.duofan.kenshi:ZhongShi": {
@@ -38,31 +50,31 @@
   "game.duofan.kenshi:AnYing": {
     "NAME": "暗影",
     "DESCRIPTIONS": [
-      " NL 无法从卡牌中获得格挡，下一张攻击卡造成的伤害增加 #r%d%%。 NL NL 在打出一张攻击卡或回合结束时移除。"
+      "无法从卡牌中获得格挡，本回合下一张攻击牌造成的伤害增加 #r%d%%。 NL NL 在打出一张攻击牌后移除。"
     ]
   },
   "game.duofan.kenshi:Qi": {
     "NAME": "气",
     "DESCRIPTIONS": [
-      " NL 下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
+      " #r本回合 下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
     ]
   },
   "game.duofan.kenshi:GongJiZhunBei": {
     "NAME": "攻击准备",
     "DESCRIPTIONS": [
-      " NL 下回合开始时，抽取 #r%d 张攻击牌 。"
+      "下回合开始时，抽取 #r%d 张攻击牌 。"
     ]
   },
   "game.duofan.kenshi:ZhuoMoBuDing": {
     "NAME": "琢磨不定",
     "DESCRIPTIONS": [
-      " NL TA还没想好要做些什么。"
+      "TA还没想好要做些什么。"
     ]
   },
   "game.duofan.kenshi:ZaiLaiYiZhang": {
     "NAME": "再来一张",
     "DESCRIPTIONS": [
-      " NL 若本回合消耗了 #r[NAME] ，则再拓印1次。"
+      "若本回合消耗了 #r[NAME] ，则再拓印1次。"
     ]
   },
   "game.duofan.kenshi:JiangXinPingZhi": {
@@ -92,7 +104,7 @@
   "game.duofan.kenshi:XieLiZhunBei": {
     "NAME": "卸力准备",
     "DESCRIPTIONS": [
-      " NL 下回合开始时，获得 #r%d 点格挡 。"
+      "下回合开始时，获得 #r%d 点格挡 。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
@@ -140,91 +152,91 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r枫之流 效果，回合结束时移除。"
+      "可触发 #r枫之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:FengZhiXin": {
     "NAME": "枫之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r枫之流 时，抽取 #r2 张卡牌。"
+      "每回合首次进入 #r枫之流 时，抽取 #r2 张卡牌。"
     ]
   },
   "game.duofan.kenshi:YingZhiLiu": {
     "NAME": "影之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r影之流 效果，回合结束时移除。"
+      "可触发 #r影之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:YingZhiXin": {
     "NAME": "影之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r影之流 时，遁入暗影。"
+      "每回合首次进入 #r影之流 时，遁入暗影。"
     ]
   },
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r霞之流 效果，回合结束时移除。"
+      "可触发 #r霞之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:XiaZhiXin": {
     "NAME": "霞之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r霞之流 时，使1张随机手牌费用减1。"
+      "每回合首次进入 #r霞之流 时，使1张随机手牌费用减1。"
     ]
   },
   "game.duofan.kenshi:WeiZhiLiu": {
     "NAME": "伪之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r伪之流 效果，回合结束时移除。"
+      "可触发 #r伪之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:WeiZhiXin": {
     "NAME": "伪之流",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r伪之流 时，随机将1张伪卡(不包括伪之心)加入手牌。"
+      "每回合首次进入 #r伪之流 时，随机将1张伪卡(不包括伪之心)加入手牌。"
     ]
   },
   "game.duofan.kenshi:ShanZhiLiu": {
     "NAME": "闪之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r闪之流 效果，回合结束时移除。"
+      "可触发 #r闪之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:ShanZhiXin": {
     "NAME": "闪之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r闪之流 时，将1张 #r闪击 加入手牌。"
+      "每回合首次进入 #r闪之流 时，将1张 #r闪击 加入手牌。"
     ]
   },
   "game.duofan.kenshi:DuanZhiLiu": {
     "NAME": "锻之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r锻之流 效果，回合结束时移除。"
+      "可触发 #r锻之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:DuanZhiXin": {
     "NAME": "锻之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r锻之流 时， #r锻造 手牌中所有的 #r剑胚 。"
+      "每回合首次进入 #r锻之流 时， #r锻造 手牌中所有的 #r剑胚 。"
     ]
   },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r羽之流 效果，回合结束时移除。"
+      "可触发 #r羽之流 效果，回合结束时移除。"
     ]
   },
   "game.duofan.kenshi:YuZhiXin": {
     "NAME": "羽之心",
     "DESCRIPTIONS": [
-      " NL 每回合首次进入 #r羽之流 时，获得 #r%d 点格挡 。"
+      "每回合首次进入 #r羽之流 时，获得 #r%d 点格挡 。"
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      " NL 可触发 #r炎之流 效果，回合结束时移除。"
+      "可触发 #r炎之流 效果，回合结束时移除。"
     ]
   }
 }

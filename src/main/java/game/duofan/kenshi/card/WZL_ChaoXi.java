@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -55,7 +54,7 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
             if(Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None){
                 targetCard = c;
                 for (int i = 0; i < magicNumber; i++) {
-                    Utils.invokeLiuCardEffect(targetCard);
+                    Utils.invokeLiuCardEffectOnBottom(targetCard);
                 }
             }
             else{
@@ -67,7 +66,7 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
     @Override
     public void weiZhiLiuEffect() {
         Utils.addToBotAbstract(() -> {
-            Utils.invokeLiuCardEffect(targetCard);
+            Utils.invokeLiuCardEffectOnBottom(targetCard);
         });
     }
 
@@ -79,5 +78,10 @@ public class WZL_ChaoXi extends CustomCard implements IWeiZhiLiuCard {
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.WeiZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.WeiZhiLiu;
     }
 }

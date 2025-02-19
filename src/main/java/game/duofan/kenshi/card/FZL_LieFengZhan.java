@@ -87,4 +87,9 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
             this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
 }

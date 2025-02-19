@@ -18,7 +18,7 @@ public class YuZL_YingGe extends CustomCard implements IYuZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -55,18 +55,19 @@ public class YuZL_YingGe extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         isSuccess = false;
         addToBot(new YingGeAction(this, magicNumber, block));
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        if (isSuccess) {
-            Utils.playerGainBlock(block);
-        } else {
-            addToBot(new YingGeAction(this, magicNumber, block));
-        }
+        Utils.addToBotAbstract(() ->{
+            if (isSuccess) {
+                Utils.playerGainBlock(block);
+            } else {
+                addToBot(new YingGeAction(this, magicNumber, block));
+            }
+        });
     }
 
     @Override
@@ -77,5 +78,10 @@ public class YuZL_YingGe extends CustomCard implements IYuZhiLiuCard {
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YuZhiLiu;
     }
 }

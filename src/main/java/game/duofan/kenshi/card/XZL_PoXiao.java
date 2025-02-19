@@ -100,4 +100,9 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard,IQiMin {
             this.addToBot(new DamageAction(monster, new DamageInfo(p, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
 }

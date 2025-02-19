@@ -31,7 +31,6 @@ public class ChenReDaTie extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-
     ArrayList<AbstractCard> cards;
 
     public ChenReDaTie(AbstractCreature owner,int amount) {
@@ -49,12 +48,16 @@ public class ChenReDaTie extends AbstractPower {
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 
         this.updateDescription();
-
-        Utils.addToBotAbstract(() -> effect());
     }
 
     public void updateDescription() {
         this.description = String.format(DESCRIPTIONS[0], amount);
+    }
+
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        Utils.addToBotAbstract(() -> effect());
     }
 
     @Override

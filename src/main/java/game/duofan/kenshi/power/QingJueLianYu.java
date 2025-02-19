@@ -29,8 +29,6 @@ public class QingJueLianYu extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    boolean isRegister;
-
     public QingJueLianYu(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -53,12 +51,9 @@ public class QingJueLianYu extends AbstractPower implements IEventListener {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        if (!isRegister) {
-            EventManager.getInstance().registerToEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
-            isRegister = true;
-        }
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        EventManager.getInstance().registerToEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
     }
 
     @Override

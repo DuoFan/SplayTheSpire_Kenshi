@@ -97,4 +97,9 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
             this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
 }

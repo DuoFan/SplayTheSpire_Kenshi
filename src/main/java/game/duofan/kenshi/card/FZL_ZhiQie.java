@@ -71,4 +71,9 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
     public void fengZhiLiuEffect() {
         Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
 }

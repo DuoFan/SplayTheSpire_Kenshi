@@ -67,4 +67,9 @@ public class XZL_XiaZhiXin extends CustomCard implements IXiaZhiLiuCard {
     public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainEnergy(1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
 }

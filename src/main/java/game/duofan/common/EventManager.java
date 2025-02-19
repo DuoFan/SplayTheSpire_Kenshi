@@ -21,42 +21,56 @@ public class EventManager {
     }
 
     public void registerToEvent(String eventKey, IEventListener listener) {
-        if (!eventMap.containsKey(eventKey)) {
-            eventMap.put(eventKey, new ArrayList<>());
+        ArrayList<IEventListener> list = eventMap.getOrDefault(eventKey, null);
+        if (list == null) {
+            list = new ArrayList<>();
+            eventMap.put(eventKey, list);
         }
-        eventMap.get(eventKey).add(listener);
+        list.add(listener);
     }
 
     public void unregisterFromEvent(String eventKey, IEventListener listener) {
-        if (eventMap.containsKey(eventKey)) {
-            eventMap.get(eventKey).remove(listener);
+        ArrayList<IEventListener> list = eventMap.getOrDefault(eventKey, null);
+        if (list != null) {
+            list.remove(listener);
         }
     }
 
     public void registerToPersistEvent(String eventKey, IEventListener listener) {
-        if (!persistEventMap.containsKey(eventKey)) {
-            persistEventMap.put(eventKey, new ArrayList<>());
+        ArrayList<IEventListener> list = persistEventMap.getOrDefault(eventKey, null);
+        if (list == null) {
+            list = new ArrayList<>();
+            persistEventMap.put(eventKey, list);
         }
-        persistEventMap.get(eventKey).add(listener);
+        list.add(listener);
     }
 
     public void removeAll_NotPersist_Event() {
-        if(eventMap == null){
+        if (eventMap == null) {
             return;
         }
         eventMap.clear();
     }
 
     public void notifyEvent(String eventKey, Object sender, Object e) {
-        if (eventMap.containsKey(eventKey)) {
+        ArrayList<IEventListener> list = eventMap.getOrDefault(eventKey, null);
+        ArrayList<IEventListener> listeners = null;
+        if (list != null) {
             // 创建副本以避免并发修改问题
-            ArrayList<IEventListener> listeners = new ArrayList<>(eventMap.get(eventKey));
+            listeners = new ArrayList<>(list);
             for (IEventListener listener : listeners) {
                 listener.OnEvent(sender, e);
             }
         }
-        if(persistEventMap.containsKey(eventKey)){
-            ArrayList<IEventListener> listeners = new ArrayList<>(persistEventMap.get(eventKey));
+
+        list = persistEventMap.getOrDefault(eventKey, null);
+        if (list != null) {
+            if (listeners == null) {
+                listeners = new ArrayList<>(list);
+            } else {
+                listeners.clear();
+                listeners.addAll(list);
+            }
             for (IEventListener listener : listeners) {
                 listener.OnEvent(sender, e);
             }

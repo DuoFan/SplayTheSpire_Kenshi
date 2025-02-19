@@ -100,16 +100,12 @@ public class Liu_StateMachine implements IEventListener {
 
     boolean CheckNotify_FirstLiu_OnTurn(StateEnum stateEnum, String eventKey) {
         if (!isStateMatch(stateEnum)) {
-            System.out.println("-------未进入" + stateEnum);
             return false;
         }
 
         if (hasLiuFlag(firstFlag, stateEnum)) {
-            System.out.println("-------已进入" + stateEnum);
             return false;
         }
-
-        System.out.println("-------本回合首次进入" + stateEnum);
 
         firstFlag |= stateEnum.value;
 

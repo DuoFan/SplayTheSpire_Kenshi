@@ -84,4 +84,9 @@ public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
             Utils.playerGainEnergy(1);
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
 }

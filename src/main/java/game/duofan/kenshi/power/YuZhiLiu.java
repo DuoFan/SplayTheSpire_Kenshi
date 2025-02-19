@@ -1,6 +1,7 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.ReturnYanGuiLaiAction;
 
 public class YuZhiLiu extends AbstractPower {
     // 能力的ID
@@ -21,6 +23,7 @@ public class YuZhiLiu extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
     public YuZhiLiu(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -41,5 +44,4 @@ public class YuZhiLiu extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
-
 }

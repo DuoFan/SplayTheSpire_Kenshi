@@ -23,7 +23,7 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public WZL_NiTai() {
@@ -52,7 +52,7 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractCard card = Liu_StateMachine.getInstance().getLastEffectLiuCardOnBattle();
-        Utils.invokeLiuCardEffect(card);
+        Utils.invokeLiuCardEffectOnBottom(card);
         Utils.playerDrawCardByClass(magicNumber, IWeiZhiLiuCard.class);
     }
 
@@ -70,5 +70,10 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
         || Liu_StateMachine.getInstance().getLastEffectLiuCardOnBattle() != null) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.WeiZhiLiu;
     }
 }

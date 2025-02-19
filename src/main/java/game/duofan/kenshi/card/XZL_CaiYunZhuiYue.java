@@ -55,7 +55,7 @@ public class XZL_CaiYunZhuiYue extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void xiaZhiLiuEffect(boolean isByQi)
     {
-        Utils.playerDrawCardByFilterAction(magicNumber,null);
+        Utils.playerDrawCardByFilterAction(1,null);
     }
 
     @Override
@@ -66,5 +66,10 @@ public class XZL_CaiYunZhuiYue extends CustomCard implements IXiaZhiLiuCard {
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
     }
 }

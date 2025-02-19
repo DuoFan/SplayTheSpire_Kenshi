@@ -32,7 +32,7 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     boolean effectable;
@@ -96,6 +96,16 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
     }
 
     @Override
+    public boolean isExchangeAble() {
+        return false;
+    }
+
+    @Override
+    public void setToExchange() {
+        
+    }
+
+    @Override
     public boolean effectable() {
         return effectable;
     }
@@ -116,5 +126,10 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
         c.rawDescription = rawDescription;
         c.initializeDescription();
         return c;
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.ShanZhiLiu;
     }
 }

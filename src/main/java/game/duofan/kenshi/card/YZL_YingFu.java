@@ -83,4 +83,9 @@ public class YZL_YingFu extends CustomCard implements IYingZhiLiuCard {
             );
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YingZhiLiu;
+    }
 }

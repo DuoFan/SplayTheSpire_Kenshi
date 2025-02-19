@@ -68,4 +68,9 @@ public class YanZL_YanZhiXin extends CustomCard implements IYanZhiLiuCard {
     public void yanZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YanZhiLiu;
+    }
 }

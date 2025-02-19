@@ -80,4 +80,9 @@ public class DZL_ShiJianShi extends CustomCard implements IDuanZhiLiuCard {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.DuanZhiLiu;
+    }
 }

@@ -67,4 +67,9 @@ public class WZL_WeiZhiXin extends CustomCard implements IWeiZhiLiuCard {
     public void weiZhiLiuEffect() {
         Utils.playerGainEnergy(1);
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.WeiZhiLiu;
+    }
 }

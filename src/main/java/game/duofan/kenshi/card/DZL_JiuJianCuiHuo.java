@@ -72,4 +72,9 @@ public class DZL_JiuJianCuiHuo extends CustomCard implements IDuanZhiLiuCard, IE
     public void extraDuanZaoEffect() {
         this.baseDamage += magicNumber;
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.DuanZhiLiu;
+    }
 }

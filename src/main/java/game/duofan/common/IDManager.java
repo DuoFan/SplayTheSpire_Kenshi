@@ -20,14 +20,13 @@ public class IDManager {
         if (ids == null) {
             ids = new HashMap<>();
         }
-        if (!ids.containsKey(c)) {
-            String id = Utils.generateID(c.getSimpleName());
+        String id = ids.getOrDefault(c, null);
+
+        if (id == null) {
+            id = Utils.generateID(c.getSimpleName());
             ids.put(c, id);
             System.out.println(c.getSimpleName() + "->" + id);
-            return id;
         }
-        else{
-            return ids.get(c);
-        }
+        return id;
     }
 }

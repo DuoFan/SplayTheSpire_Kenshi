@@ -87,4 +87,9 @@ public class YanZL_LuanYanZhan extends CustomCard implements IYanZhiLiuCard, IBa
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YanZhiLiu;
+    }
 }

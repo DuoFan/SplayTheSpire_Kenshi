@@ -32,7 +32,9 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
 
     public SZL_ShanZhiXin() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.cardsToPreview = new SZL_ShanJi();
+        SZL_ShanJi shanJi = new SZL_ShanJi();
+        shanJi.setToExchange();
+        this.cardsToPreview = shanJi;
     }
 
     @Override
@@ -72,6 +74,16 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
     }
 
     @Override
+    public boolean isExchangeAble() {
+        return false;
+    }
+
+    @Override
+    public void setToExchange() {
+
+    }
+
+    @Override
     public boolean effectable() {
         return true;
     }
@@ -79,5 +91,10 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
     @Override
     public void updateDescription() {
         Utils.updateSZL_Description(this);
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.ShanZhiLiu;
     }
 }
