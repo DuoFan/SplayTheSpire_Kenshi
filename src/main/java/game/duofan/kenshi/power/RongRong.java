@@ -48,7 +48,7 @@ public class RongRong extends AbstractPower {
 
     @Override
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        if (BaoYanCardManager.getInstance().isBaoYanCard(card)){
+        if (BaoYanCardManager.getInstance().isTagCard(card)){
             damage += amount;
         }
         if(AbstractDungeon.player.hasRelic(YanXue.ID)){

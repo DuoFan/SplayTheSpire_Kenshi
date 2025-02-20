@@ -150,8 +150,7 @@ public class ChunYangJianYi extends AbstractPower {
                         } catch (IllegalAccessException e) {
                             System.out.println("--------------纯阳剑意修改DamageAllEnemiesAction伤害失败，无法访问待修改字段");
                         }
-                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaDaoZhanAction)
-                    {
+                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaDaoZhanAction) {
 
                         if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
                             continue;
@@ -168,7 +167,7 @@ public class ChunYangJianYi extends AbstractPower {
                             DamageInfo info = (DamageInfo) f.get(a);
                             info.output += RONG_RONG_GIVE;
                             int nextActionIndex = i + 1;
-                            if(nextActionIndex >= actions.size() || !(actions.get(nextActionIndex) instanceof NotifyBaoYanDamageAction)) {
+                            if (nextActionIndex >= actions.size() || !(actions.get(nextActionIndex) instanceof NotifyBaoYanDamageAction)) {
                                 actions.add(nextActionIndex, new NotifyBaoYanDamageAction(a.target, info));
                             }
                             System.out.println("--------------纯阳剑意修改DamageAction或DamageRandomEnemyAction伤害成功");
@@ -223,7 +222,7 @@ public class ChunYangJianYi extends AbstractPower {
 
         for (int i = 0; i < g.size(); i++) {
             AbstractCard c = g.group.get(i);
-            if (c.type == AbstractCard.CardType.ATTACK && !(c instanceof IBaoYanCard)) {
+            if (c.type == AbstractCard.CardType.ATTACK && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.YanZhiLiu) {
                 baoYanCardManager.removeCard(c);
             }
         }

@@ -23,7 +23,7 @@ import javax.swing.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 
-public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard, IBaoYanCard {
+public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(YanZL_YanLiuJiXing.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源

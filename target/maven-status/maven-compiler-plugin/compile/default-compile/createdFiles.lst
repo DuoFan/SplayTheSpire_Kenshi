@@ -70,7 +70,6 @@ game\duofan\kenshi\power\IShanZhiLiuCard.class
 game\duofan\kenshi\card\YZL_SiJiDaiFa.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
-game\duofan\kenshi\power\IYongMingCard.class
 game\duofan\kenshi\card\YZL_YingZhiXin.class
 game\duofan\kenshi\card\YZL_YeBu.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
@@ -170,7 +169,6 @@ game\duofan\kenshi\power\IDuanZhiLiuCard.class
 game\duofan\kenshi\power\YanZhiLiu.class
 game\duofan\kenshi\relic\WuMing.class
 game\duofan\kenshi\power\DuanZhiXin.class
-game\duofan\kenshi\power\IBaoYanCard.class
 game\duofan\kenshi\card\YuZL_GuHongZhaoYing.class
 game\duofan\kenshi\action\PickUpCardToDuanZaoAction.class
 game\duofan\kenshi\card\YuZL_YanGuiLai.class

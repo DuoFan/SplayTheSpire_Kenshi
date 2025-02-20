@@ -12,7 +12,6 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\XinNianTongShen.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ShanZhiXin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\WZL_ChaoXi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YZL_SiJiDaiFa.java
-D:\Kenshi\src\main\java\game\duofan\kenshi\power\IBaoYanCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\IXiaZhiLiuCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\DrawCardByClassAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\XiaZhiLiu.java
@@ -83,6 +82,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\JiaShi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\BaoYanCardManager.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\NiePan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ZhuLiuBaiJia.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\YongMingCardManager.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\PickUpCardToLinkAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YZL_YeBu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\IUpdateDescription.java
@@ -131,6 +131,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\action\IDoCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ZaiLaiYiZhang.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_QueBu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YZL_EZhao.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\TagCardManager.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\Liu_StateMachine.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\YuZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\DuanZhiXinAction.java

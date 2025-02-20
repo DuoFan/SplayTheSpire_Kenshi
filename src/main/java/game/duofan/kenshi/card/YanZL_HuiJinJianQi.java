@@ -15,7 +15,7 @@ import game.duofan.kenshi.power.*;
 
 import java.util.ArrayList;
 
-public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard, IBaoYanCard {
+public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(YanZL_HuiJinJianQi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
