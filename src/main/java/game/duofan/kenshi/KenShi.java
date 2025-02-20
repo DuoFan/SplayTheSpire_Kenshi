@@ -97,6 +97,8 @@ public class KenShi extends CustomPlayer {
         }
         retVal.add(YueBu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
+
+        retVal.add(SZL_FeiXing.ID);
         return retVal;
     }
 

@@ -18,7 +18,7 @@ import game.duofan.kenshi.power.*;
 
 import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
-public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard, IYongMingCard {
+public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(SZL_FeiXing.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -37,7 +37,6 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard, IYongMin
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         effectable = true;
-
         if (upgraded) {
             YongMingCardManager.getInstance().addCard(this);
         }

@@ -39,6 +39,7 @@ game\duofan\kenshi\card\WZL_ChaoXi.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class
 game\duofan\kenshi\relic\ChiYou.class
 game\duofan\kenshi\card\FZL_LieFengZhan.class
+game\duofan\kenshi\power\TagCardManager.class
 game\duofan\kenshi\card\WZL_ZhaXiang.class
 game\duofan\kenshi\card\Defend.class
 game\duofan\kenshi\action\JianSheAction.class
@@ -47,7 +48,6 @@ game\duofan\kenshi\power\XueSeDieMu.class
 game\duofan\kenshi\card\SZL_FeiXing.class
 game\duofan\kenshi\card\YanZL_YanLiuJiXing.class
 game\duofan\kenshi\action\ICardFilter.class
-game\duofan\kenshi\power\YongMingCardManager$BattleStartListener.class
 game\duofan\kenshi\power\JiYiXingTai.class
 game\duofan\kenshi\card\XinSuiYiDong_Card.class
 game\duofan\kenshi\card\YuZL_XueSeDieMu.class
