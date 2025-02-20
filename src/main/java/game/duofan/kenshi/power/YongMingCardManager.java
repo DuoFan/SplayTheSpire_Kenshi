@@ -42,31 +42,28 @@ public class YongMingCardManager extends TagCardManager {
 
         @Override
         public void OnEvent(Object sender, Object e) {
-            final CardGroup g = AbstractDungeon.player.drawPile;
-            for (int i = g.size() - 1; i >= 0; i--) {
-                AbstractCard c = g.group.get(i);
-                if (isTagCard(c)) {
-                    Utils.addToBotAbstract(() -> {
+            Utils.addToBotAbstract(() -> {
+                CardGroup g = AbstractDungeon.player.drawPile;
+                for (int i = g.size() - 1; i >= 0; i--) {
+                    AbstractCard c = g.group.get(i);
+                    if (isTagCard(c)) {
                         g.moveToHand(c);
-                    });
-                    Utils.addToBotAbstract(() -> {
-                        LinkCardManager.getInstance().tryDrawLinkedCard(c);
-                    });
+                        Utils.addToBotAbstract(() -> {
+                            LinkCardManager.getInstance().tryDrawLinkedCard(c);
+                        });
+                    }
                 }
-            }
-
-            final CardGroup g2 = AbstractDungeon.player.discardPile;
-            for (int i = g2.size() - 1; i >= 0; i--) {
-                AbstractCard c = g2.group.get(i);
-                if (isTagCard(c)) {
-                    Utils.addToBotAbstract(() -> {
+                CardGroup g2 = AbstractDungeon.player.discardPile;
+                for (int i = g2.size() - 1; i >= 0; i--) {
+                    AbstractCard c = g2.group.get(i);
+                    if (isTagCard(c)) {
                         g2.moveToHand(c);
-                    });
-                    Utils.addToBotAbstract(() -> {
-                        LinkCardManager.getInstance().tryDrawLinkedCard(c);
-                    });
+                        Utils.addToBotAbstract(() -> {
+                            LinkCardManager.getInstance().tryDrawLinkedCard(c);
+                        });
+                    }
                 }
-            }
+            });
         }
     }
 }

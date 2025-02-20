@@ -20,7 +20,7 @@ import java.util.ArrayList;
 
 public class YanZhiXin extends AbstractPower implements IEventListener {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(ShanZhiXin.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(YanZhiXin.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称

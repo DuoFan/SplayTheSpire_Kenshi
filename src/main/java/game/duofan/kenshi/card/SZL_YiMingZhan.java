@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -30,7 +31,7 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ALLENEMY;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
     boolean effectable;
 
@@ -61,6 +62,13 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
             }
         } else {
             cardsToPreview = null;
+        }
+
+        if(!isOnHand){
+            AbstractPlayer p = AbstractDungeon.player;
+            if(p != null){
+                isOnHand = p.hand.contains(this);
+            }
         }
     }
 

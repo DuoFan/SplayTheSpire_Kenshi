@@ -21,9 +21,9 @@ import game.duofan.common.Utils;
 
 import java.util.ArrayList;
 
-public class ChenReDaTie extends AbstractPower {
+public class XingJianLi extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(ChenReDaTie.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(XingJianLi.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -33,7 +33,7 @@ public class ChenReDaTie extends AbstractPower {
 
     ArrayList<AbstractCard> cards;
 
-    public ChenReDaTie(AbstractCreature owner, int amount) {
+    public XingJianLi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -75,8 +75,7 @@ public class ChenReDaTie extends AbstractPower {
     }
 
     void tryEffectForCard(AbstractCard c) {
-        if (Utils.getLiuFromCard(c) == Liu_StateMachine.StateEnum.DuanZhiLiu
-                && c.costForTurn > 0 && !cards.contains(c)) {
+        if (Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None && c.costForTurn > 0 && !cards.contains(c)) {
             cards.add(c);
             c.setCostForTurn(c.costForTurn - 1);
         }
@@ -97,8 +96,7 @@ public class ChenReDaTie extends AbstractPower {
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        if (Utils.getLiuFromCard(card) == Liu_StateMachine.StateEnum.DuanZhiLiu
-                && !card.purgeOnUse && this.amount > 0) {
+        if (Utils.getLiuFromCard(card) != Liu_StateMachine.StateEnum.None && !card.purgeOnUse && this.amount > 0) {
             this.flash();
             --this.amount;
             if (this.amount == 0) {

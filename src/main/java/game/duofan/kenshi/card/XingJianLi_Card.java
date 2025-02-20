@@ -1,22 +1,22 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.action.DrawCardByClassAction;
+import game.duofan.kenshi.power.ILiuCard;
+import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.kenshi.power.XingJianLi;
 
-import java.util.Iterator;
-
-public class XingJianLi extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(XingJianLi.class);
+public class XingJianLi_Card extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(XingJianLi_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,7 +27,7 @@ public class XingJianLi extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = AbstractCard.CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public XingJianLi() {
+    public XingJianLi_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
     }
@@ -50,5 +50,17 @@ public class XingJianLi extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
+        if (this.upgraded) {
+            this.addToBot(new ExhaustAction(1, false));
+        } else {
+            this.addToBot(new ExhaustAction(1, true, false, false));
+        }
+
+        Liu_StateMachine.StateEnum curliu = Liu_StateMachine.getInstance().getLiu();
+        if (curliu == Liu_StateMachine.StateEnum.None) {
+            addToBot(new DrawCardByClassAction(1, ILiuCard.class));
+        } else {
+            Utils.playerGainPower(new XingJianLi(p, 1));
+        }
     }
 }

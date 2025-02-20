@@ -94,7 +94,11 @@ public class ZhongShi extends AbstractPower {
 
         while (e.hasNext()){
             Map.Entry<AbstractCard,Integer> entry = e.next();
-            entry.getKey().setCostForTurn(entry.getValue());
+            AbstractCard c = entry.getKey();
+            c.setCostForTurn(entry.getValue());
+            if(c.costForTurn == c.cost){
+                c.isCostModifiedForTurn = false;
+            }
         }
         cards = null;
     }

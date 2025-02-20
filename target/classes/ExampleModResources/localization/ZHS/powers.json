@@ -11,6 +11,18 @@
       "每次改变 #r流派 时，获得 #r%d点 格挡。"
     ]
   },
+  "game.duofan.kenshi:XingJianLi": {
+    "NAME": "行剑礼",
+    "DESCRIPTIONS": [
+      "本回合下 #r%d 张 #r流派卡牌 费用减1。"
+    ]
+  },
+  "game.duofan.kenshi:YiJianHuiYou": {
+    "NAME": "以剑会友",
+    "DESCRIPTIONS": [
+      "本回合下 #r%d 张 #r攻击牌  会打出 #r2 次。"
+    ]
+  },
   "game.duofan.kenshi:XinSuiYiDong": {
     "NAME": "心随意动",
     "DESCRIPTIONS": [
@@ -237,6 +249,12 @@
     "NAME": "炎之流",
     "DESCRIPTIONS": [
       "可触发 #r炎之流 效果，回合结束时移除。"
+    ]
+  },
+  "game.duofan.kenshi:YanZhiXin": {
+    "NAME": "炎之心",
+    "DESCRIPTIONS": [
+      "每回合首次进入 #r炎之流 时，给予 #r所有敌人1层 #r熔融 ，并造成1点 #r爆炎伤害 。"
     ]
   }
 }
