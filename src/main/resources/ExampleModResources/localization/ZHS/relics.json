@@ -41,6 +41,13 @@
       " #r回合开始时 ，随机 #rduofan_kenshi:锻造 #r两张手牌 。"
     ]
   },
+  "game.duofan.kenshi:YuHua": {
+    "NAME": "羽花",
+    "FLAVOR": "这个人很懒，什么都没写",
+    "DESCRIPTIONS": [
+      " 每次打出 #r羽卡 ，下个回合开始时获得 #r2 点 #r格挡 。"
+    ]
+  },
   "game.duofan.kenshi:YanXue": {
     "NAME": "炎雪",
     "FLAVOR": "这个人很懒，什么都没写",
