@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
@@ -15,6 +16,7 @@ import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(FZL_ZhiQie.class);
@@ -28,9 +30,11 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
+    AbstractMonster targetMonster;
+
     public FZL_ZhiQie() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 4;
+        this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -52,8 +56,9 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        targetMonster = m;
         this.addToBot(new DamageAction(
-                m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
+                m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
         ));
         this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false)));
     }
@@ -62,14 +67,17 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void fengZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
+        if (targetMonster != null) {
+            this.addToBot(new ApplyPowerAction(targetMonster, AbstractDungeon.player, new VulnerablePower(targetMonster, this.magicNumber, false)));
+        }
     }
 
     @Override

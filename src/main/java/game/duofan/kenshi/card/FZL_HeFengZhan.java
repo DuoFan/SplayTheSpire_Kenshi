@@ -21,6 +21,7 @@ import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
 
@@ -72,8 +73,8 @@ public class FZL_HeFengZhan extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-        && Utils.isLastUsedCardType(CardType.ATTACK)) {
+        if ((Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) && Utils.isLastUsedCardType(CardType.ATTACK)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

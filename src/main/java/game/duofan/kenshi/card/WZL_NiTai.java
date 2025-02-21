@@ -67,7 +67,7 @@ public class WZL_NiTai extends CustomCard implements IWeiZhiLiuCard {
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.WeiZhiLiu)
-        || Liu_StateMachine.getInstance().getLastEffectLiuCardOnBattle() != null) {
+                || ZhuLiuBaiJia.canForceInvokeLiu() || Liu_StateMachine.getInstance().getLastEffectLiuCardOnBattle() != null) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

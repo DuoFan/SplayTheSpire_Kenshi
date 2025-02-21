@@ -95,7 +95,8 @@ public class WZL_GaiTouHuanMian extends CustomCard implements IWeiZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.WeiZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.WeiZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

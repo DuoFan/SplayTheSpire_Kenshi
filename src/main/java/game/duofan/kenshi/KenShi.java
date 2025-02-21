@@ -22,6 +22,7 @@ import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.RecoverCardManager;
 import game.duofan.kenshi.relic.ChiYou;
+import game.duofan.kenshi.relic.YuHua;
 
 import java.util.ArrayList;
 

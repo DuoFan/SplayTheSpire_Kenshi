@@ -18,6 +18,7 @@ import game.duofan.kenshi.action.RepeatAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
 
@@ -39,7 +40,7 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_PiaoSiXue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.damage = this.baseDamage = 4;
         calculateMagicNumber();
     }
 
@@ -90,7 +91,8 @@ public class FZL_PiaoSiXue extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

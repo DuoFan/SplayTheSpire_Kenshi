@@ -34,7 +34,7 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
 
     public SZL_ShanJi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 3;
+        damage = baseDamage = 6;
         effectable = true;
     }
 
@@ -46,11 +46,10 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
     public void update() {
         super.update();
         if (this.hb.hovered) {
-            if(cardsToPreview == null){
+            if (cardsToPreview == null) {
                 LinkCardManager.getInstance().updateHoverPreview(this);
             }
-        }
-        else{
+        } else {
             cardsToPreview = null;
         }
     }
@@ -113,7 +112,8 @@ public class SZL_ShanJi extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (effectable && (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu())) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

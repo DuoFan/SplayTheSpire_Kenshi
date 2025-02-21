@@ -17,10 +17,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.IXiaZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.*;
 
 public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard,IQiMin {
 
@@ -88,7 +85,8 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard,IQiMin {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

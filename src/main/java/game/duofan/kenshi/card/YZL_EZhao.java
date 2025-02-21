@@ -14,6 +14,7 @@ import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IYingZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(YZL_EZhao.class);
@@ -56,7 +57,8 @@ public class YZL_EZhao extends CustomCard implements IYingZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

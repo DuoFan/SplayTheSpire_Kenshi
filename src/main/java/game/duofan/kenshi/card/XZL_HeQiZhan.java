@@ -16,10 +16,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.IXiaZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.*;
 
 public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
 
@@ -40,21 +37,7 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         int baseValue = 6;
         this.damage = this.baseDamage = baseValue;
-        calculateMagicNumber();
-    }
-
-    @Override
-    public void update() {
-        super.update();
-        calculateMagicNumber();
-    }
-
-    int calculateMagicNumber() {
-        int value = Math.max(damage / 2, 0);
-
-        this.magicNumber = this.baseMagicNumber = value;
-
-        return value;
+        magicNumber = baseMagicNumber = 4;
     }
 
     @Override
@@ -64,7 +47,6 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
 
             upgradeDamage(2);
-            calculateMagicNumber();
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -86,15 +68,22 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+            int qiAmount = Utils.getQiAmount();
+            if(qiAmount > 0){
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            }
         }
     }
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         if (monster != null) {
-            this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, calculateMagicNumber(), DamageInfo.DamageType.NORMAL)));
+            int qiAmount = Utils.getQiAmount();
+            if (qiAmount > 0) {
+                this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, qiAmount * magicNumber, DamageInfo.DamageType.NORMAL)));
+            }
         }
     }
 

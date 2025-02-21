@@ -35,7 +35,7 @@ public class SZL_BaDaoZhan extends CustomCard implements IShanZhiLiuCard {
 
     public SZL_BaDaoZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 6;
+        damage = baseDamage = 9;
         effectable = true;
     }
 
@@ -114,7 +114,8 @@ public class SZL_BaDaoZhan extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (effectable && (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu())) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

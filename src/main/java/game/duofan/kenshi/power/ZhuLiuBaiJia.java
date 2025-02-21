@@ -28,6 +28,24 @@ public class ZhuLiuBaiJia extends AbstractPower {
     XinSuiYiDong xinSuiYiDong;
     XinNianTongShen xinNianTongShen;
 
+    static ZhuLiuBaiJia instance;
+
+    public static boolean canForceInvokeLiu() {
+        if (AbstractDungeon.player == null) {
+            return false;
+        }
+        if (instance == null) {
+            return false;
+        }
+        if (instance.xinNianTongShen == null && instance.xinSuiYiDong == null) {
+            return false;
+        }
+        if (instance.xinSuiYiDong != null && instance.xinSuiYiDong.getTurnAmount() > 0) {
+            return true;
+        }
+        return instance.xinNianTongShen != null;
+    }
+
     public ZhuLiuBaiJia(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -56,6 +74,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 new XinSuiYiDongListener());
         EventManager.getInstance().registerToEvent(EventKey.ON_GAIN_XIN_NIAN_TONG_SHEN,
                 new XinNianTongShenListener());
+        instance = this;
     }
 
     @Override
@@ -92,9 +111,9 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
                     xinSuiYiDong.subTurnAmountToEffect();
                 }
-                if(!isLiuMatch){
+                if (!isLiuMatch) {
                     Liu_StateMachine.getInstance().changeLiu(liu);
-                    if(xinNianTongShen != null){
+                    if (xinNianTongShen != null) {
                         xinNianTongShen.flash();
                     }
                 }
@@ -131,6 +150,11 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 }
 
                 Liu_StateMachine.getInstance().changeLiu(liu);
+            }
+
+            if (liu == Liu_StateMachine.StateEnum.YuZhiLiu) {
+                EventManager.getInstance().notifyEvent(EventKey.ON_YU_CARD_PLAY,
+                        this, card);
             }
         }
     }

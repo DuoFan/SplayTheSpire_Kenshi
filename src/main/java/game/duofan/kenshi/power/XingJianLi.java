@@ -67,7 +67,6 @@ public class XingJianLi extends AbstractPower {
     }
 
     protected void effect() {
-        cards = new ArrayList<>();
         for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
             AbstractCard c = AbstractDungeon.player.hand.group.get(i);
             tryEffectForCard(c);
@@ -75,6 +74,10 @@ public class XingJianLi extends AbstractPower {
     }
 
     void tryEffectForCard(AbstractCard c) {
+        if(cards == null){
+            cards = new ArrayList<>();
+        }
+
         if (Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None && c.costForTurn > 0 && !cards.contains(c)) {
             cards.add(c);
             c.setCostForTurn(c.costForTurn - 1);

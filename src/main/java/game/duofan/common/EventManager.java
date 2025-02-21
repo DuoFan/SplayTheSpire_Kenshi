@@ -57,21 +57,21 @@ public class EventManager {
         ArrayList<IEventListener> listeners = null;
         if (list != null) {
             // 创建副本以避免并发修改问题
-            listeners = new ArrayList<>(list);
-            for (IEventListener listener : listeners) {
+            //listeners = new ArrayList<>(list);
+            for (IEventListener listener : list) {
                 listener.OnEvent(sender, e);
             }
         }
 
         list = persistEventMap.getOrDefault(eventKey, null);
         if (list != null) {
-            if (listeners == null) {
+            /*if (listeners == null) {
                 listeners = new ArrayList<>(list);
             } else {
                 listeners.clear();
                 listeners.addAll(list);
-            }
-            for (IEventListener listener : listeners) {
+            }*/
+            for (IEventListener listener : list) {
                 listener.OnEvent(sender, e);
             }
         }

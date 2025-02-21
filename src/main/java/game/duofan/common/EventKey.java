@@ -20,6 +20,8 @@ public class EventKey {
     public static final String ON_CARD_LINKED = "ON_CARD_LINKED";
     public static final String ON_CARD_PLAY = "ON_CARD_PLAY";
 
+    public static final String ON_YU_CARD_PLAY = "ON_YU_CARD_PLAY";
+
     public static final String ON_BATTLE_START = "ON_BATTLE_START";
     public static final String ON_BOSS_BATTLE_START = "ON_BOSS_BATTLE_START";
     public static final String ON_TURN_START = "ON_TURN_START";

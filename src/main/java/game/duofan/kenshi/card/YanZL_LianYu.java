@@ -9,13 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.GetFreeLiuCardAction;
 import game.duofan.kenshi.action.QingJueLianYuGeiFreeCardAction;
 import game.duofan.kenshi.power.*;
 
-public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
+public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YanZL_QingJueLianYu.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_LianYu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -26,7 +25,7 @@ public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public YanZL_QingJueLianYu() {
+    public YanZL_LianYu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         exhaust = true;
@@ -50,7 +49,7 @@ public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.gainPower(p, new QingJueLianYu(p, magicNumber));
+        Utils.gainPower(p, new LianYu(p, magicNumber));
         addToBot(new QingJueLianYuGeiFreeCardAction());
     }
 
@@ -64,7 +63,8 @@ public class YanZL_QingJueLianYu extends CustomCard implements IYanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

@@ -7,9 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.YanZL_QingJueLianYu;
+import game.duofan.kenshi.card.YanZL_LianYu;
 import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.QingJueLianYu;
 
 import java.util.ArrayList;
 
@@ -57,7 +56,7 @@ public class QingJueLianYuGeiFreeCardAction extends AbstractGameAction {
 
         while (derp.size() != 3) {
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, true);
-            if(c.cardID.equals(YanZL_QingJueLianYu.ID)){
+            if(c.cardID.equals(YanZL_LianYu.ID)){
                 continue;
             }
             derp.add(c);

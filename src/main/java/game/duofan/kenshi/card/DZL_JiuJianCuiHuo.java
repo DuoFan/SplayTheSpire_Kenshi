@@ -28,7 +28,7 @@ public class DZL_JiuJianCuiHuo extends CustomCard implements IDuanZhiLiuCard, IE
 
     public DZL_JiuJianCuiHuo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 8;
         magicNumber = baseMagicNumber = 1;
     }
 
@@ -63,7 +63,8 @@ public class DZL_JiuJianCuiHuo extends CustomCard implements IDuanZhiLiuCard, IE
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.DuanZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.DuanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

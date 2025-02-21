@@ -13,6 +13,7 @@ import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(FZL_QianYeGuiChen.class);
@@ -28,7 +29,7 @@ public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_QianYeGuiChen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 3;
+        this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 4;
     }
 
@@ -63,7 +64,8 @@ public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)){
+        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()){
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

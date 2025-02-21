@@ -1,22 +1,15 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.*;
 import game.duofan.kenshi.action.PickUpCardToLinkAction;
-import game.duofan.kenshi.action.PickUpCardsDoAction;
 import game.duofan.kenshi.power.*;
-
-import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
 public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
 
@@ -38,7 +31,7 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
         magicNumber = baseMagicNumber = 1;
         effectable = true;
         if (upgraded) {
-            YongMingCardManager.getInstance().addCard(this);
+            ShanShuoCardManager.getInstance().addCard(this);
         }
     }
 
@@ -63,7 +56,7 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             updateDescription();
-            YongMingCardManager.getInstance().addCard(this);
+            ShanShuoCardManager.getInstance().addCard(this);
             this.initializeDescription();
         }
     }
@@ -88,7 +81,7 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnExhaust();
         LinkCardManager.getInstance().breakLink(this);
         if (upgraded) {
-            YongMingCardManager.getInstance().removeCard(this);
+            ShanShuoCardManager.getInstance().removeCard(this);
         }
     }
 
@@ -119,7 +112,8 @@ public class SZL_FeiXing extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (effectable && (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu())) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

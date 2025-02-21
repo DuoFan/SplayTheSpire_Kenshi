@@ -39,7 +39,7 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
 
     public SZL_YiMingZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 4;
+        damage = baseDamage = 6;
         effectable = true;
     }
 
@@ -64,9 +64,9 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
             cardsToPreview = null;
         }
 
-        if(!isOnHand){
+        if (!isOnHand) {
             AbstractPlayer p = AbstractDungeon.player;
-            if(p != null){
+            if (p != null) {
                 isOnHand = p.hand.contains(this);
             }
         }
@@ -140,7 +140,8 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (effectable && (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu())) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

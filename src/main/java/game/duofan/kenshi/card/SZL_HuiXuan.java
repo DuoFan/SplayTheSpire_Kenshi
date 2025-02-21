@@ -35,12 +35,9 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    boolean effectable;
-
     public SZL_HuiXuan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        effectable = true;
     }
 
     public void updateDescription() {
@@ -58,19 +55,19 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
         }
     }
 
-    void playSzlCardEffect(){
+    void playSzlCardEffect() {
         AbstractPlayer player = AbstractDungeon.player;
         ArrayList<AbstractCard> szlCards = new ArrayList<>();
         for (int i = 0; i < player.discardPile.size(); i++) {
             AbstractCard c = player.discardPile.group.get(i);
-            if(c instanceof IShanZhiLiuCard){
+            if (c instanceof IShanZhiLiuCard) {
                 szlCards.add(c);
             }
         }
 
-        AbstractCard c = Utils.getRandomCardsFromList(szlCards,false);
-        if(c != null){
-            addToBot(new NewQueueCardAction(c,true));
+        AbstractCard c = Utils.getRandomCardsFromList(szlCards, false);
+        if (c != null) {
+            addToBot(new NewQueueCardAction(c, true));
         }
     }
 
@@ -82,7 +79,7 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             playSzlCardEffect();
         });
         Utils.playerDrawCardByClass(magicNumber, IShanZhiLiuCard.class);
@@ -90,7 +87,7 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
 
     @Override
     public void shanZhiLiuEffect() {
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             playSzlCardEffect();
         });
     }
@@ -102,12 +99,12 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
 
     @Override
     public void setToExchange() {
-        
+
     }
 
     @Override
     public boolean effectable() {
-        return effectable;
+        return true;
     }
 
     @Override
@@ -115,7 +112,8 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if ( effectable && Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.ShanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

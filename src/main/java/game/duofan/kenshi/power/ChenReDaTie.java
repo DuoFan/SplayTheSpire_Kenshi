@@ -67,7 +67,6 @@ public class ChenReDaTie extends AbstractPower {
     }
 
     protected void effect() {
-        cards = new ArrayList<>();
         for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
             AbstractCard c = AbstractDungeon.player.hand.group.get(i);
             tryEffectForCard(c);
@@ -75,6 +74,10 @@ public class ChenReDaTie extends AbstractPower {
     }
 
     void tryEffectForCard(AbstractCard c) {
+        if(cards == null){
+            cards = new ArrayList<>();
+        }
+
         if (Utils.getLiuFromCard(c) == Liu_StateMachine.StateEnum.DuanZhiLiu
                 && c.costForTurn > 0 && !cards.contains(c)) {
             cards.add(c);

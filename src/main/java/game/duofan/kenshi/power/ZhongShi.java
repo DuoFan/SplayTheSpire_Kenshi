@@ -65,6 +65,14 @@ public class ZhongShi extends AbstractPower {
     @Override
     public void onCardDraw(AbstractCard card) {
         super.onCardDraw(card);
+        if(card == null){
+            return;
+        }
+
+        if(cards == null){
+            cards = new HashMap<>();
+        }
+
         if (card.type == AbstractCard.CardType.ATTACK && card.costForTurn > 0
         && !cards.containsKey(card)) {
             cards.put(card,card.costForTurn);
@@ -73,7 +81,9 @@ public class ZhongShi extends AbstractPower {
     }
 
     protected void effect() {
-        cards = new HashMap<>();
+        if(cards == null){
+            cards = new HashMap<>();
+        }
         for (int i = 0; i < AbstractDungeon.player.hand.size(); i++) {
             AbstractCard c = AbstractDungeon.player.hand.group.get(i);
             if (c.type == AbstractCard.CardType.ATTACK && c.costForTurn > 0

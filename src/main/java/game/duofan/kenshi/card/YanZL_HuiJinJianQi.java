@@ -72,6 +72,18 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
         }
     }
 
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        target = null;
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        target = null;
+    }
+
     void effect(AbstractMonster m) {
         AbstractPlayer p = AbstractDungeon.player;
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
@@ -83,7 +95,8 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)) {
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
