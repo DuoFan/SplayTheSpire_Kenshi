@@ -51,7 +51,7 @@ public class ShanShuoCardManager extends TagCardManager {
         public void OnEvent(Object sender, Object e) {
             turn++;
 
-            if (turn == 2) {
+            if (turn <= 2) {
                 Utils.addToBotAbstract(() -> {
                     CardGroup g = AbstractDungeon.player.drawPile;
                     for (int i = g.size() - 1; i >= 0; i--) {

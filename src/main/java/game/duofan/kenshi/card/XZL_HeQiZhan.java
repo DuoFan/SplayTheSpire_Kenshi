@@ -31,13 +31,13 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    AbstractMonster monster;
+    boolean isUsing;
 
     public XZL_HeQiZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         int baseValue = 6;
         this.damage = this.baseDamage = baseValue;
-        magicNumber = baseMagicNumber = 4;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
 
-            upgradeDamage(2);
+            upgradeDamage(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -60,8 +60,15 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        monster = m;
+        isUsing = true;
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+            updateDamage();
+        }
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        Utils.addToBotAbstract(() ->{
+            isUsing = false;
+        });
     }
 
     @Override
@@ -79,12 +86,15 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (monster != null) {
-            int qiAmount = Utils.getQiAmount();
-            if (qiAmount > 0) {
-                this.addToBot(new DamageAction(monster, new DamageInfo(AbstractDungeon.player, qiAmount * magicNumber, DamageInfo.DamageType.NORMAL)));
-            }
+        if(!isUsing){
+            updateDamage();
         }
+    }
+
+    void updateDamage(){
+        int qiAmount = Utils.getQiAmount();
+        damage += qiAmount * magicNumber;
+        this.initializeDescription();
     }
 
     @Override

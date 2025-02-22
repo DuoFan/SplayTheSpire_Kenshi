@@ -171,8 +171,8 @@
   },
   "game.duofan.kenshi:XZL_HeQiZhan": {
     "NAME": "合气斩",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成 !M! 点伤害。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成 !M! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 造成伤害增加 !M! 点。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 造成伤害增加 !M! 点。"
   },
   "game.duofan.kenshi:XZL_PoXiao": {
     "NAME": "破晓",
