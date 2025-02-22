@@ -6,21 +6,17 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
-import com.sun.org.apache.bcel.internal.generic.FADD;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.WZL_TaYin;
+import game.duofan.kenshi.card.TaYin;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TaYinAction extends AbstractGameAction {
     boolean retrieveCard;
-    WZL_TaYin self;
     boolean isUpgraded;
 
-    public TaYinAction(WZL_TaYin _self, boolean _isUpgraded) {
-        self = _self;
+    public TaYinAction(boolean _isUpgraded) {
         retrieveCard = false;
         isUpgraded = _isUpgraded;
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -35,10 +31,6 @@ public class TaYinAction extends AbstractGameAction {
             if (!this.retrieveCard) {
                 if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                     AbstractCard disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy();
-
-                    if (self != null) {
-                        self.targetCard = disCard;
-                    }
 
                     if (isUpgraded) {
                         disCard.setCostForTurn(0);

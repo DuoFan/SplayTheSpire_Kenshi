@@ -1,9 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -15,10 +13,8 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-import java.util.Iterator;
-
-public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(YZL_YeBu.class);
+public class YeBu extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(YeBu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -29,7 +25,7 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public YZL_YeBu() {
+    public YeBu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 3;
         exhaust = true;
@@ -55,27 +51,5 @@ public class YZL_YeBu extends CustomCard implements IYingZhiLiuCard {
                 new DrawCardAction(magicNumber)
         );
         Utils.playerGainPower(new AnYing(p));
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public void yingZhiLiuEffect() {
-        AbstractDungeon.actionManager.addToBottom(
-                new DrawCardAction(AbstractDungeon.player, 1)
-        );
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.YingZhiLiu;
     }
 }

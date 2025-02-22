@@ -44,13 +44,13 @@
   "game.duofan.kenshi:JiaShi": {
     "NAME": "架势",
     "DESCRIPTIONS": [
-      "本回合攻击牌造成的 #y伤害 减少 #r%d 点，从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+      "从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
     ]
   },
   "game.duofan.kenshi:GongShi": {
     "NAME": "攻势",
     "DESCRIPTIONS": [
-      "本回合攻击牌造成的 #y伤害 增加 #r%d 点，从卡牌得到 #y格挡 减少 #r%d 点, NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
+      "本回合攻击牌造成的 #y伤害 增加 #r%d 点， NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
     ]
   },
   "game.duofan.kenshi:ZhongShi": {
@@ -62,7 +62,7 @@
   "game.duofan.kenshi:AnYing": {
     "NAME": "暗影",
     "DESCRIPTIONS": [
-      "无法从卡牌中获得格挡，本回合下一张攻击牌造成的伤害增加 #r%d%%。 NL NL 在打出一张攻击牌后移除。"
+      "本回合下一张攻击牌造成的伤害增加 #r%d%%。"
     ]
   },
   "game.duofan.kenshi:Qi": {

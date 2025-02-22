@@ -114,10 +114,10 @@
     "DESCRIPTION": "获得 !B! 点格挡， 抽取 !M! 张 *影卡 。 duofan_kenshi:影之流 :遁入 duofan_kenshi:暗影 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点格挡， 抽取 !M! 张 *影卡 。 duofan_kenshi:影之流 :遁入 duofan_kenshi:暗影 。"
   },
-  "game.duofan.kenshi:YZL_QinXi": {
+  "game.duofan.kenshi:QinXi": {
     "NAME": "侵袭",
-    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL duofan_kenshi:影之流 :额外造成一次 !M! 点伤害。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL duofan_kenshi:影之流 :额外造成一次 !M! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。"
   },
   "game.duofan.kenshi:YZL_MeiYing": {
     "NAME": "魅影",
@@ -129,15 +129,15 @@
     "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 ， 遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :抽取1张卡牌。"
   },
-  "game.duofan.kenshi:YZL_YeBu": {
+  "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",
-    "DESCRIPTION": "抽取 !M! 张卡牌，遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :额外抽取1张卡牌。 NL 消耗",
-    "UPGRADE_DESCRIPTION": "抽取 !M! 张卡牌，遁入 duofan_kenshi:暗影 。 NL duofan_kenshi:影之流 :额外抽取1张卡牌。 NL 消耗"
+    "DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 "
   },
-  "game.duofan.kenshi:YZL_SiJiDaiFa": {
+  "game.duofan.kenshi:SiJiDaiFa": {
     "NAME": "伺机待发",
-    "DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。 NL duofan_kenshi:影之流 :获得 !M! 层攻势。",
-    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。 NL 遁入 duofan_kenshi:暗影 NL duofan_kenshi:影之流 :获得 !M! 层攻势。"
+    "DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。",
+    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。"
   },
   "game.duofan.kenshi:YZL_YingFu": {
     "NAME": "影缚",
@@ -171,8 +171,8 @@
   },
   "game.duofan.kenshi:XZL_HeQiZhan": {
     "NAME": "合气斩",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 造成伤害增加 !M! 点。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 造成伤害增加 !M! 点。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。"
   },
   "game.duofan.kenshi:XZL_PoXiao": {
     "NAME": "破晓",
@@ -204,25 +204,25 @@
     "DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发1次。",
     "UPGRADE_DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。 NL duofan_kenshi:伪之流 :额外触发1次。"
   },
-  "game.duofan.kenshi:WZL_TaYin": {
+  "game.duofan.kenshi:TaYin": {
     "NAME": "拓印",
-    "DESCRIPTION": "从3张 *其他互异流派卡 中选择1张加入手牌。 NL duofan_kenshi:伪之流 :若当回合 *发现牌 被消耗，则额外触发1次。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从3张 *其他互异流派卡 中选择1张加入手牌，这张牌在本回合费用降为0。 NL duofan_kenshi:伪之流 :若当回合 *发现牌 被消耗，则额外触发1次。 NL 消耗 "
+    "DESCRIPTION": "从3张 *互异流派卡 中选择1张加入手牌。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "从3张 *互异流派卡 中选择1张加入手牌，这张牌在本回合费用降为0。 NL 消耗 "
   },
-  "game.duofan.kenshi:WZL_GaiTouHuanMian": {
+  "game.duofan.kenshi:GaiTouHuanMian": {
     "NAME": "改头换面",
-    "DESCRIPTION": "消耗所有手牌，将等量 *流派卡 加入手牌。 NL duofan_kenshi:伪之流 :额外添加1张。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "消耗所有手牌，将等量 *流派卡(已升级) 加入手牌。 NL duofan_kenshi:伪之流 :额外添加1张。 NL 消耗 "
+    "DESCRIPTION": "消耗所有手牌，将等量 *流派卡 加入手牌。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " 固有 NL 消耗所有手牌，将等量 *流派卡 加入手牌。"
   },
   "game.duofan.kenshi:WZL_ZhaXiang": {
     "NAME": "诈降",
     "DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则使其失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :下回合开始时，抽取1张 *攻击牌 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": " 保留 NL 若目标的意图为 *攻击 ，则使其失去 !M! *力量 1回合。 NL duofan_kenshi:伪之流 :下回合开始时，抽取1张 *攻击牌 。 NL 消耗 "
   },
-  "game.duofan.kenshi:WZL_YangGong": {
+  "game.duofan.kenshi:YangGong": {
     "NAME": "佯攻",
-    "DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。 NL duofan_kenshi:伪之流 :额外获得3点 活力 。",
-    "UPGRADE_DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。 NL duofan_kenshi:伪之流 :额外获得3点 活力 。"
+    "DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。",
+    "UPGRADE_DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。"
   },
   "game.duofan.kenshi:WZL_WeiZhiXin": {
     "NAME": "伪之心",
@@ -244,10 +244,10 @@
     "DESCRIPTION": "获得 !B! 点格挡， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点格挡， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。"
   },
-  "game.duofan.kenshi:SZL_BaDaoZhan": {
+  "game.duofan.kenshi:BaDaoZhan": {
     "NAME": "拔刀斩",
-    "DESCRIPTION": "造成 !D! 点伤害，若 斩杀 目标，则获得 [E] 。 NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，若 斩杀 目标，则获得 [E] 。 NL duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。"
+    "DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。"
   },
   "game.duofan.kenshi:SZL_YiMingZhan": {
     "NAME": "一明斩",
@@ -259,10 +259,10 @@
     "DESCRIPTION": "选择 *抽牌堆 中的1张 *闪卡 并抽取。 NL duofan_kenshi:闪之流 :若 *抽取牌 可成为 duofan_kenshi:置换牌 ， 使其成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "选择 *抽牌堆 中的1张 *闪卡 并抽取。 NL duofan_kenshi:闪之流 :若 *抽取牌 可成为 duofan_kenshi:置换牌 ， 使其成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。"
   },
-  "game.duofan.kenshi:SZL_FeiXing": {
+  "game.duofan.kenshi:FeiXing": {
     "NAME": "飞星",
-    "DESCRIPTION": "抽取1张卡牌， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
-    "UPGRADE_DESCRIPTION": "抽取1张卡牌， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。 NL duofan_kenshi:闪烁 "
+    "DESCRIPTION": "抽取1张卡牌， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:置换牌 ",
+    "UPGRADE_DESCRIPTION": "抽取1张卡牌， duofan_kenshi:连锁 1张手牌。 NL duofan_kenshi:置换牌 ， duofan_kenshi:闪烁 "
   },
   "game.duofan.kenshi:SZL_ShanZhiXin": {
     "NAME": "闪之心",
@@ -284,15 +284,15 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 这张牌的 duofan_kenshi:锻造 效果加 !M! 。 NL duofan_kenshi:锻之流 : duofan_kenshi:锻造 自身1次 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 这张牌的 duofan_kenshi:锻造 效果加 !M! 。 NL duofan_kenshi:锻之流 : duofan_kenshi:锻造 自身1次 。"
   },
-  "game.duofan.kenshi:DZL_ShiJianShi": {
+  "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标成为 duofan_kenshi:试剑石 。 NL duofan_kenshi:锻之流 :给予 !M! 层 易伤 。"
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。"
   },
-  "game.duofan.kenshi:DZL_JuGou": {
+  "game.duofan.kenshi:JuGou": {
     "NAME": "巨构",
-    "DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。 NL duofan_kenshi:锻之流 :若 *锻造成功 次数大于 !M! ，则获得 [E] 。",
-    "UPGRADE_DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。 NL duofan_kenshi:锻之流 :若 *锻造成功 次数大于 !M! ，则获得 [E] 。"
+    "DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。",
+    "UPGRADE_DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。"
   },
   "game.duofan.kenshi:DZL_RongHui": {
     "NAME": "熔毁",
@@ -381,8 +381,8 @@
   },
   "game.duofan.kenshi:YanZL_LianYu": {
     "NAME": "炼狱",
-    "DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "本场战斗的所有 duofan_kenshi:爆炎伤害 都将给予 !M! 层 duofan_kenshi:熔融 。 NL 从3张 *炎卡(不包括炼狱) 中选择1张加入手牌， NL 这张牌在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 "
+    "DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL 发现1张 *炎卡(不包括炼狱) ，且在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL 发现1张 *炎卡(不包括炼狱) ，且在本回合费用降为0。 NL duofan_kenshi:炎之流 :额外发现1张。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_YanZhiXin": {
     "NAME": "炎之心",

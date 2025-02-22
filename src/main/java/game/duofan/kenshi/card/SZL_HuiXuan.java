@@ -1,11 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,13 +11,9 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.PickUpCardToLinkAction;
-import game.duofan.kenshi.action.PickUpCardsDoAction;
 import game.duofan.kenshi.power.*;
 
 import java.util.ArrayList;
-
-import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
 public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
 
@@ -41,7 +34,7 @@ public class SZL_HuiXuan extends CustomCard implements IShanZhiLiuCard {
     }
 
     public void updateDescription() {
-        Utils.updateSZL_Description(this);
+        Utils.updateLinkCard_Description(this);
     }
 
     @Override

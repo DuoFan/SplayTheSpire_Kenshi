@@ -228,9 +228,7 @@ public class LinkCardManager implements IEventListener {
         System.out.println(card.name + "强制成为了置换牌");
     }
 
-    public void updateHoverPreview(IShanZhiLiuCard szlCard) {
-        AbstractCard card = (AbstractCard) szlCard;
-
+    public void updateHoverPreview(AbstractCard card) {
         LinkNode node = cardToNodeMap.get(card);
         if (node == null) {
             return;
@@ -238,7 +236,7 @@ public class LinkCardManager implements IEventListener {
 
         // 当前卡是连锁发起者，显示被连锁卡
         if (node.linkedNode != null) {
-            ((AbstractCard) szlCard).cardsToPreview = node.linkedNode.selfCard;
+            card.cardsToPreview = node.linkedNode.selfCard;
             //szlCard.setLinkedCardHoverPreview(node.linkedNode.selfCard.makeCopy());
         }
     }

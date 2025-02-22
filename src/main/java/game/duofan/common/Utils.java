@@ -34,8 +34,7 @@ public class Utils {
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, s, true));
     }
 
-    public static void updateSZL_Description(IShanZhiLiuCard s) {
-        AbstractCard card = (AbstractCard) s;
+    public static void updateLinkCard_Description(AbstractCard card) {
         AbstractCard linked = LinkCardManager.getInstance().findLinkedCard(card);
         boolean isExchange = LinkCardManager.getInstance().isSetToExchange(card);
 
@@ -366,11 +365,8 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YingZhiLiu)) {
             cards.add(new YZL_QianFu());
-            cards.add(new YZL_QinXi());
             cards.add(new YZL_MeiYing());
             cards.add(new YZL_EZhao());
-            cards.add(new YZL_YeBu());
-            cards.add(new YZL_SiJiDaiFa());
             cards.add(new YZL_YingFu());
             cards.add(new YZL_YingZhiXin());
         }
@@ -388,12 +384,9 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
             cards.add(new WZL_NiTai());
-            cards.add(new WZL_TaYin());
             cards.add(new WZL_DaoGuo());
             cards.add(new WZL_ChaoXi());
-            cards.add(new WZL_GaiTouHuanMian());
             cards.add(new WZL_ZhaXiang());
-            cards.add(new WZL_YangGong());
             cards.add(new WZL_WeiZhiXin());
         }
 
@@ -401,10 +394,8 @@ public class Utils {
             cards.add(new SZL_HuiXuan());
             cards.add(new SZL_ShanJi());
             cards.add(new SZL_KuaiFang());
-            cards.add(new SZL_BaDaoZhan());
             cards.add(new SZL_YiMingZhan());
             cards.add(new SZL_BanXing());
-            cards.add(new SZL_FeiXing());
             cards.add(new SZL_ShanZhiXin());
         }
 
@@ -412,8 +403,6 @@ public class Utils {
             cards.add(new DZL_JiangXin());
             cards.add(new DZL_MoDao());
             cards.add(new DZL_JiuJianCuiHuo());
-            cards.add(new DZL_ShiJianShi());
-            cards.add(new DZL_JuGou());
             cards.add(new DZL_RongHui());
             cards.add(new DZL_QianChuiBaiLian());
             cards.add(new DZL_DuanZhiXin());

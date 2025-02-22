@@ -64,12 +64,7 @@ public class AnYing extends AbstractPower {
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         return type == DamageInfo.DamageType.NORMAL ? damage * calculateBuff() : damage;
     }
-
-    @Override
-    public float modifyBlock(float blockAmount) {
-        return 0;
-    }
-
+    
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);

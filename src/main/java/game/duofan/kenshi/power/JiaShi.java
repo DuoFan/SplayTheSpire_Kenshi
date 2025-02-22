@@ -49,16 +49,6 @@ public class JiaShi extends AbstractPower {
     }
 
     @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-
-        if(!Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.JiaShi)){
-            return damage;
-        }
-
-        return type == DamageInfo.DamageType.NORMAL ? damage - this.amount : damage;
-    }
-
-    @Override
     public float modifyBlock(float blockAmount) {
 
         if(!Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.JiaShi)){

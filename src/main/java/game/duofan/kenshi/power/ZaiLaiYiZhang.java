@@ -2,24 +2,15 @@ package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.EnemyMoveInfo;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.TaYinAction;
-import game.duofan.kenshi.card.ManMa;
-import game.duofan.kenshi.card.WZL_TaYin;
-
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
+import game.duofan.kenshi.card.TaYin;
 
 public class ZaiLaiYiZhang extends AbstractPower {
 
@@ -33,11 +24,11 @@ public class ZaiLaiYiZhang extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    WZL_TaYin self;
+    TaYin self;
 
     AbstractCard targetCard;
 
-    public ZaiLaiYiZhang(WZL_TaYin _self, AbstractCard t) {
+    public ZaiLaiYiZhang(TaYin _self, AbstractCard t) {
         self = _self;
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
@@ -65,7 +56,7 @@ public class ZaiLaiYiZhang extends AbstractPower {
     public void onExhaust(AbstractCard card) {
         super.onExhaust(card);
         if (card == targetCard) {
-            addToBot(new TaYinAction(null, self.upgraded));
+            addToBot(new TaYinAction(self.upgraded));
             Utils.removePower(owner, this.ID);
         }
     }

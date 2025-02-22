@@ -3,25 +3,20 @@ package game.duofan.kenshi.action;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.PlayTopCardAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.DZL_JuGou;
+import game.duofan.kenshi.card.JuGou;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class JuGouAction extends AbstractGameAction {
 
-    DZL_JuGou self;
 
-    public JuGouAction(DZL_JuGou _self) {
-        self = _self;
+    public JuGouAction() {
         this.duration = Settings.ACTION_DUR_FAST;
     }
 
@@ -34,7 +29,7 @@ public class JuGouAction extends AbstractGameAction {
             }
 
             if (AbstractDungeon.player.drawPile.isEmpty()) {
-                this.addToTop(new JuGouAction(self));
+                this.addToTop(new JuGouAction());
                 this.addToTop(new EmptyDeckShuffleAction());
                 this.isDone = true;
                 return;
@@ -68,8 +63,6 @@ public class JuGouAction extends AbstractGameAction {
                 AbstractCard c = cards.get(i);
                 addToBot(new DuanZaoAction(c, 1));
             }
-
-            self.successAmount = cards.size();
 
             isDone = true;
         }

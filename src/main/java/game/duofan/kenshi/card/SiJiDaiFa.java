@@ -15,8 +15,8 @@ import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
-public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(YZL_SiJiDaiFa.class);
+public class SiJiDaiFa extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(SiJiDaiFa.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,11 +27,11 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public YZL_SiJiDaiFa() {
+    public SiJiDaiFa() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         selfRetain = true;
-        this.cardsToPreview = new YZL_QinXi();
+        this.cardsToPreview = new QinXi();
     }
 
     @Override
@@ -51,31 +51,6 @@ public class YZL_SiJiDaiFa extends CustomCard implements IYingZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        this.addToBot(new MakeTempCardInHandAction(new YZL_QinXi(), 1));
-
-        if(upgraded){
-            Utils.playerEnterAnYin();
-        }
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YingZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public void yingZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.YingZhiLiu;
+        this.addToBot(new MakeTempCardInHandAction(new QinXi(), 1));
     }
 }

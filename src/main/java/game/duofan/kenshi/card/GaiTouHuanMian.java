@@ -2,7 +2,6 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.ExhaustAllEtherealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,22 +16,24 @@ import game.duofan.kenshi.power.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class WZL_GaiTouHuanMian extends CustomCard implements IWeiZhiLiuCard {
+public class GaiTouHuanMian extends CustomCard {
 
-    public static final String ID = IDManager.getInstance().getID(WZL_GaiTouHuanMian.class);
+    public static final String ID = IDManager.getInstance().getID(GaiTouHuanMian.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public WZL_GaiTouHuanMian() {
+    public GaiTouHuanMian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
+        this.isInnate = true;
+        upgrade();
     }
 
     @Override
@@ -83,26 +84,5 @@ public class WZL_GaiTouHuanMian extends CustomCard implements IWeiZhiLiuCard {
 
             Utils.makeTempCardInHand(card,1);
         }
-    }
-
-    @Override
-    public void weiZhiLiuEffect() {
-        addLiuCards(1);
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.WeiZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.WeiZhiLiu;
     }
 }

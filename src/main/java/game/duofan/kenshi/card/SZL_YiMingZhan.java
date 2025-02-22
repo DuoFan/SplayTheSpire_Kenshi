@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,11 +13,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.BaDaoZhanAction;
 import game.duofan.kenshi.action.PickUpCardToLinkAction;
 import game.duofan.kenshi.power.*;
-
-import static game.duofan.common.Const.PREVIEW_OFFSET_X;
 
 public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
 
@@ -44,7 +40,7 @@ public class SZL_YiMingZhan extends CustomCard implements IShanZhiLiuCard {
     }
 
     public void updateDescription() {
-        Utils.updateSZL_Description(this);
+        Utils.updateLinkCard_Description(this);
     }
 
     @Override

@@ -1,11 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.cards.tempCards.Shiv;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,8 +12,6 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
-
-import java.util.Iterator;
 
 public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(SZL_ShanZhiXin.class);
@@ -91,7 +86,7 @@ public class SZL_ShanZhiXin extends CustomCard implements IShanZhiLiuCard {
 
     @Override
     public void updateDescription() {
-        Utils.updateSZL_Description(this);
+        Utils.updateLinkCard_Description(this);
     }
 
     @Override
