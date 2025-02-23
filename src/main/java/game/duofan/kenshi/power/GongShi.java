@@ -24,6 +24,7 @@ public class GongShi extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
     public GongShi(AbstractCreature owner, int _amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -42,13 +43,14 @@ public class GongShi extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount,this.amount,Shi_StateMachine.getInstance().getGongShi_Accumulate());
+        int x = Shi_StateMachine.getInstance().getGongShi_Accumulate();
+        this.description = String.format(DESCRIPTIONS[0], this.amount, x);
     }
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
 
-        if(!Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)){
+        if (!Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)) {
             return damage;
         }
 
@@ -58,7 +60,7 @@ public class GongShi extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if(card.type == AbstractCard.CardType.ATTACK && Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)){
+        if (card.type == AbstractCard.CardType.ATTACK && Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)) {
             Shi_StateMachine.getInstance().update();
         }
     }

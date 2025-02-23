@@ -1,19 +1,23 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
 import game.duofan.kenshi.card.IQiMin;
 
 import java.io.BufferedOutputStream;
+import java.util.ArrayList;
 
 public class ZhuLiuBaiJia extends AbstractPower {
     // 能力的ID
@@ -78,26 +82,46 @@ public class ZhuLiuBaiJia extends AbstractPower {
     }
 
     @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        super.onPlayCard(card, m);
+
+        Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.instance.getLiu();
+
+        if (curLiu == Liu_StateMachine.StateEnum.None) {
+            return;
+        }
+
+        Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
+
+        if (liu != Liu_StateMachine.StateEnum.None && liu != curLiu) {
+
+            switch (curLiu) {
+                case FengZhiLiu:
+                    addToBot(new DrawCardAction(1));
+                    break;
+                case XiaZhiLiu:
+                    Utils.playerGainQi(1);
+                    break;
+                case YuZhiLiu:
+                    Utils.playerGainBlock(3);
+                    break;
+                case YanZhiLiu:
+                    Utils.giveAllMonsterBaoYanDamage(1);
+                    break;
+            }
+        }
+    }
+
+    @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
-
-        boolean isEffectAble = true;
 
         if (liu != Liu_StateMachine.StateEnum.None) {
 
             boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
 
             if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) || xinNianTongShen != null) {
-
-                if (card instanceof IShanZhiLiuCard) {
-                    IShanZhiLiuCard c = (IShanZhiLiuCard) card;
-                    isEffectAble = c.effectable();
-                }
-
-                if (!isEffectAble) {
-                    return;
-                }
 
                 if (card instanceof IXiaZhiLiuCard) {
                     Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
@@ -118,12 +142,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
                     }
                 }
 
-                if (card instanceof IShanZhiLiuCard) {
-                    IShanZhiLiuCard c = (IShanZhiLiuCard) card;
-                    isEffectAble = c.effectable();
-                }
-
-                if (isEffectAble && Utils.getQiAmount() > 0) {
+                if (Utils.getQiAmount() > 0) {
                     if (card instanceof IXiaZhiLiuCard) {
                         Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
                     } else {
@@ -134,21 +153,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
                     }
                     Utils.playerReduceQi(1);
                 }
-
-                if (isEffectAble && AbstractDungeon.player.hasPower(JiYiXingTai.POWER_ID)) {
-                    Utils.invokeLiuCardEffectOnBottom(card);
-                }
             } else {
-
-                if (card instanceof IShanZhiLiuCard) {
-                    IShanZhiLiuCard c = (IShanZhiLiuCard) card;
-                    isEffectAble = c.effectable();
-                }
-
-                if (!isEffectAble) {
-                    return;
-                }
-
                 Liu_StateMachine.getInstance().changeLiu(liu);
             }
 

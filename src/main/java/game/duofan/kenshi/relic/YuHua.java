@@ -20,7 +20,7 @@ public class YuHua extends CustomRelic implements IEventListener {
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 
-    static final int BLOCK = 2;
+    static final int BLOCK = 3;
 
     public YuHua() {
         super(ID, ImageMaster.loadImage(IMG_PATH), RELIC_TIER, LANDING_SOUND);

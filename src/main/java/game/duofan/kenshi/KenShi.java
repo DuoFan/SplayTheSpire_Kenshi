@@ -22,7 +22,6 @@ import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.RecoverCardManager;
 import game.duofan.kenshi.relic.ChiYou;
-import game.duofan.kenshi.relic.YuHua;
 
 import java.util.ArrayList;
 
@@ -92,11 +91,13 @@ public class KenShi extends CustomPlayer {
         for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(YueBu.ID);
+        retVal.add(QingJiu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
 
-        retVal.add(YeBu.ID);
-        retVal.add(YeBu.ID);
+        retVal.add(QingLaiYouJia_Card.ID);
+        retVal.add(QingLaiYouJia_Card.ID);
+        retVal.add(QingLaiYouJia_Card.ID);
+        retVal.add(QingLaiYouJia_Card.ID);
         return retVal;
     }
 

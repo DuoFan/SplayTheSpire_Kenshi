@@ -75,14 +75,10 @@ public class Liu_StateMachine implements IEventListener {
         changeStateTo(stateEnum);
 
         EventManager.getInstance().notifyEvent(EventKey.ON_LIU_CHANGED,
-                this, null);
+                this, stateEnum);
 
         if (CheckNotify_FirstLiu_OnTurn(StateEnum.FengZhiLiu, EventKey.FIRST_FZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.YingZhiLiu, EventKey.FIRST_YZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.XiaZhiLiu, EventKey.FIRST_XZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.WeiZhiLiu, EventKey.FIRST_WZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.ShanZhiLiu, EventKey.FIRST_SZL_ON_TURN)
-                || CheckNotify_FirstLiu_OnTurn(StateEnum.DuanZhiLiu, EventKey.FIRST_DZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YuZhiLiu, EventKey.FIRST_YuZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YanZhiLiu, EventKey.FIRST_YanZL_ON_TURN)) {
 
@@ -122,18 +118,12 @@ public class Liu_StateMachine implements IEventListener {
 
         if (isStateMatch(StateEnum.FengZhiLiu)) {
             return StateEnum.FengZhiLiu;
-        } else if (isStateMatch(StateEnum.YingZhiLiu)) {
-            return StateEnum.YingZhiLiu;
         } else if (isStateMatch(StateEnum.XiaZhiLiu)) {
             return StateEnum.XiaZhiLiu;
-        } else if (isStateMatch(StateEnum.WeiZhiLiu)) {
-            return StateEnum.WeiZhiLiu;
-        } else if (isStateMatch(StateEnum.ShanZhiLiu)) {
-            return StateEnum.ShanZhiLiu;
-        } else if (isStateMatch(StateEnum.DuanZhiLiu)) {
-            return StateEnum.DuanZhiLiu;
         } else if (isStateMatch(StateEnum.YuZhiLiu)) {
             return StateEnum.YuZhiLiu;
+        } else if (isStateMatch(StateEnum.YanZhiLiu)) {
+            return StateEnum.YanZhiLiu;
         }
 
         return StateEnum.None;
@@ -145,20 +135,8 @@ public class Liu_StateMachine implements IEventListener {
             case FengZhiLiu:
                 state = new FengZhiLiu_State();
                 break;
-            case YingZhiLiu:
-                state = new YingZhiLiu_State();
-                break;
             case XiaZhiLiu:
                 state = new XiaZhiLiu_State();
-                break;
-            case WeiZhiLiu:
-                state = new WeiZhiLiu_State();
-                break;
-            case ShanZhiLiu:
-                state = new ShanZhiLiu_State();
-                break;
-            case DuanZhiLiu:
-                state = new DuanZhiLiu_State();
                 break;
             case YuZhiLiu:
                 state = new YuZhiLiu_State();
@@ -182,16 +160,8 @@ public class Liu_StateMachine implements IEventListener {
         switch (stateEnum) {
             case FengZhiLiu:
                 return powerID.equals(FengZhiLiu.POWER_ID);
-            case YingZhiLiu:
-                return powerID.equals(YingZhiLiu.POWER_ID);
             case XiaZhiLiu:
                 return powerID.equals(XiaZhiLiu.POWER_ID);
-            case WeiZhiLiu:
-                return powerID.equals(WeiZhiLiu.POWER_ID);
-            case ShanZhiLiu:
-                return powerID.equals(ShanZhiLiu.POWER_ID);
-            case DuanZhiLiu:
-                return powerID.equals(DuanZhiLiu.POWER_ID);
             case YuZhiLiu:
                 return powerID.equals(YuZhiLiu.POWER_ID);
             case YanZhiLiu:
@@ -210,9 +180,8 @@ public class Liu_StateMachine implements IEventListener {
     }
 
     public enum StateEnum {
-        None(0), FengZhiLiu(1), YingZhiLiu(2), XiaZhiLiu(4),
-        WeiZhiLiu(8), ShanZhiLiu(16), DuanZhiLiu(32),
-        YuZhiLiu(64), YanZhiLiu(128), All(-1);
+        None(0), FengZhiLiu(1), XiaZhiLiu(2),
+        YuZhiLiu(4), YanZhiLiu(8), All(-1);
 
         private int value = 0;
 
@@ -249,18 +218,6 @@ public class Liu_StateMachine implements IEventListener {
         }
     }
 
-    class YingZhiLiu_State extends State {
-        @Override
-        public String getPowerID() {
-            return YingZhiLiu.POWER_ID;
-        }
-
-        @Override
-        public void enter() {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new YingZhiLiu(AbstractDungeon.player)));
-        }
-    }
-
     class XiaZhiLiu_State extends State {
         @Override
         public String getPowerID() {
@@ -270,42 +227,6 @@ public class Liu_StateMachine implements IEventListener {
         @Override
         public void enter() {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new XiaZhiLiu(AbstractDungeon.player)));
-        }
-    }
-
-    class WeiZhiLiu_State extends State {
-        @Override
-        public String getPowerID() {
-            return WeiZhiLiu.POWER_ID;
-        }
-
-        @Override
-        public void enter() {
-            Utils.playerGainPower(new WeiZhiLiu(AbstractDungeon.player));
-        }
-    }
-
-    class ShanZhiLiu_State extends State {
-        @Override
-        public String getPowerID() {
-            return ShanZhiLiu.POWER_ID;
-        }
-
-        @Override
-        public void enter() {
-            Utils.playerGainPower(new ShanZhiLiu(AbstractDungeon.player));
-        }
-    }
-
-    class DuanZhiLiu_State extends State {
-        @Override
-        public String getPowerID() {
-            return DuanZhiLiu.POWER_ID;
-        }
-
-        @Override
-        public void enter() {
-            Utils.playerGainPower(new DuanZhiLiu(AbstractDungeon.player));
         }
     }
 

@@ -1,10 +1,8 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.cards.interfaces.OnObtainCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.defect.DamageAllButOneEnemyAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -14,17 +12,14 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaDaoZhanAction;
 import game.duofan.kenshi.action.NotifyBaoYanDamageAction;
 
-import javax.swing.*;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -46,6 +41,8 @@ public class ChunYangJianYi extends AbstractPower {
     AbstractCard targetCard;
     AbstractMonster targetMonster;
 
+    int _amount;
+
     public ChunYangJianYi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -59,25 +56,33 @@ public class ChunYangJianYi extends AbstractPower {
         String path48 = "ExampleModResources/img/powers/Example32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
-
-        this.updateDescription();
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], amount);
+
+        this.description = String.format(DESCRIPTIONS[0], _amount);
     }
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        effectForHand();
+        _amount = amount;
+        this.updateDescription();
     }
 
-    void effectForHand() {
-        CardGroup hand = AbstractDungeon.player.hand;
-        for (int i = 0; i < hand.size(); i++) {
-            tryEffectForCard(hand.group.get(i));
-        }
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        _amount += stackAmount;
+        _amount = Math.max(_amount, amount);
+        this.updateDescription();
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        _amount = amount;
+        this.updateDescription();
     }
 
     void tryEffectForCard(AbstractCard c) {
@@ -87,15 +92,17 @@ public class ChunYangJianYi extends AbstractPower {
     }
 
     @Override
-    public void onCardDraw(AbstractCard card) {
-        super.onCardDraw(card);
-        tryEffectForCard(card);
+    public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
+        if (_amount > 0 && card.type == AbstractCard.CardType.ATTACK) {
+            tryEffectForCard(card);
+        }
+        return super.atDamageGive(damage, type, card);
     }
 
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         super.onPlayCard(card, m);
-        if (card.type == AbstractCard.CardType.ATTACK) {
+        if (_amount > 0 && card.type == AbstractCard.CardType.ATTACK) {
             ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
             if (actions.size() > 0) {
                 upper = actions.get(actions.size() - 1);
@@ -109,7 +116,9 @@ public class ChunYangJianYi extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
 
-        if (card.equals(targetCard)) {
+        if (_amount > 0 && card.equals(targetCard)) {
+            _amount--;
+            updateDescription();
             ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
             AbstractPlayer p = AbstractDungeon.player;
             HashSet<AbstractMonster> waitForRongRongMonsters = null;
@@ -192,9 +201,8 @@ public class ChunYangJianYi extends AbstractPower {
             upper = null;
             targetCard = null;
             targetMonster = null;
-            amount--;
-            if (amount <= 0) {
-                dispose();
+            if (_amount <= 0) {
+                restore();
             }
         }
     }
@@ -202,15 +210,14 @@ public class ChunYangJianYi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        dispose();
+        restore();
     }
 
-    void dispose() {
+    void restore() {
         AbstractPlayer p = AbstractDungeon.player;
         removeCardsWithCardGroup(p.hand);
         removeCardsWithCardGroup(p.drawPile);
         removeCardsWithCardGroup(p.discardPile);
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
     }
 
     void removeCardsWithCardGroup(CardGroup g) {

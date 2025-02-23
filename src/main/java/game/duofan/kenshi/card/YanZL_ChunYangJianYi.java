@@ -20,21 +20,21 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
     public YanZL_ChunYangJianYi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = ChunYangJianYi.RONG_RONG_GIVE;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -48,12 +48,12 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new ChunYangJianYi(p, 1));
+        Utils.playerGainPower(new ChunYangJianYi(p, magicNumber));
     }
 
     @Override
     public void yanZhiLiuEffect() {
-        Utils.playerGainPower(new ChunYangJianYi(AbstractDungeon.player, 1));
+        Utils.playerDrawCardByFilterAction(1, c -> c.type == AbstractCard.CardType.ATTACK);
     }
 
     @Override

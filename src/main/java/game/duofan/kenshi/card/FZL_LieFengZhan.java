@@ -82,11 +82,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
             return;
         }
 
-        if (damage > block) {
-            this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
-        } else if (block > damage) {
-            this.addToBot(new ApplyPowerAction(p, p, new DexterityPower(p, magicNumber)));
-        }
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
     }
 
     @Override

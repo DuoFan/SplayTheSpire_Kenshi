@@ -28,7 +28,7 @@ public class YuZL_GuHongZhaoYing extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_GuHongZhaoYing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 6;
+        block = baseBlock = 8;
         calculateMagicNumber();
     }
 

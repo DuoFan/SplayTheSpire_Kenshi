@@ -20,20 +20,6 @@
       " #r回合开始时 ，获得2层 #rduofan_kenshi:气 。"
     ]
   },
-  "game.duofan.kenshi:WuMing": {
-    "NAME": "无名",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      "战斗开始时，随机将一张 #r流派卡 加入手牌，且 #r费用降为0 。"
-    ]
-  },
-  "game.duofan.kenshi:JiXing": {
-    "NAME": "疾星",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      "每次 #r成功连锁 后，将打出的 #r闪卡 从 #r弃牌堆返回 。"
-    ]
-  },
   "game.duofan.kenshi:JianChui": {
     "NAME": "剑锤",
     "FLAVOR": "这个人很懒，什么都没写",
@@ -45,7 +31,7 @@
     "NAME": "羽花",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      " 每次打出 #r羽卡 ，下个回合开始时获得 #r2 点 #r格挡 。"
+      " 每次打出 #r羽卡 ，下个回合开始时获得 #r3 点 #r格挡 。"
     ]
   },
   "game.duofan.kenshi:YanXue": {

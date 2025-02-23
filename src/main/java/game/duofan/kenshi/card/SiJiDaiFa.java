@@ -9,11 +9,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IYingZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class SiJiDaiFa extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(SiJiDaiFa.class);

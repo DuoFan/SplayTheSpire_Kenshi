@@ -46,7 +46,7 @@ public class JiYiXingTai_Card extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new JiYiXingTai(p))
+                new ApplyPowerAction(p, p, new JiYiXingTai(p, 1))
         );
     }
 }

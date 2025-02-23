@@ -33,7 +33,6 @@ public class GaiTouHuanMian extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
         this.isInnate = true;
-        upgrade();
     }
 
     @Override

@@ -8,6 +8,8 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.TaYin;
+import game.duofan.kenshi.card.YuZL_BuSiNiao;
+import game.duofan.kenshi.power.BuSiNiao;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.ArrayList;
@@ -58,10 +60,7 @@ public class TaYinAction extends AbstractGameAction {
 
         ArrayList<Liu_StateMachine.StateEnum> list = new ArrayList<>();
         list.add(Liu_StateMachine.StateEnum.FengZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.YingZhiLiu);
         list.add(Liu_StateMachine.StateEnum.XiaZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.ShanZhiLiu);
-        list.add(Liu_StateMachine.StateEnum.DuanZhiLiu);
         list.add(Liu_StateMachine.StateEnum.YuZhiLiu);
         list.add(Liu_StateMachine.StateEnum.YanZhiLiu);
 
@@ -71,6 +70,10 @@ public class TaYinAction extends AbstractGameAction {
             int index = AbstractDungeon.cardRandomRng.random(0, list.size() - 1);
             liuCards = Utils.getCardsFromLiu(list.get(index).getValue());
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, false);
+            if (c.cardID.equals(YuZL_BuSiNiao.ID)) {
+                liuCards.remove(c);
+                c = Utils.getRandomCardsFromList(liuCards, false);
+            }
             derp.add(c);
             list.remove(index);
         }

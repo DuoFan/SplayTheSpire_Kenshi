@@ -30,7 +30,7 @@ public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
     public XZL_GuiYuan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
-        block = baseBlock = 6;
+        block = baseBlock = 8;
         magicNumber = baseMagicNumber = 1;
     }
 

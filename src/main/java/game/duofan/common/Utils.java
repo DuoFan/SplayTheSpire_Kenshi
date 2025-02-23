@@ -85,6 +85,13 @@ public class Utils {
         AbstractDungeon.actionManager.addToBottom(new PickUpCardsDoAction(_text, amount, _action));
     }
 
+    public static boolean isIntentAttack(AbstractMonster m) {
+        return m.intent == AbstractMonster.Intent.ATTACK ||
+                m.intent == AbstractMonster.Intent.ATTACK_BUFF ||
+                m.intent == AbstractMonster.Intent.ATTACK_DEBUFF ||
+                m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
+    }
+
     public interface Lambda extends Runnable {
     }
 
@@ -108,23 +115,8 @@ public class Utils {
             case FengZhiLiu:
                 ((IFengZhiLiuCard) card).fengZhiLiuEffect();
                 break;
-            case YingZhiLiu:
-                ((IYingZhiLiuCard) card).yingZhiLiuEffect();
-                break;
             case XiaZhiLiu:
                 ((IXiaZhiLiuCard) card).xiaZhiLiuEffect(false);
-                break;
-            case WeiZhiLiu:
-                ((IWeiZhiLiuCard) card).weiZhiLiuEffect();
-                break;
-            case ShanZhiLiu:
-                IShanZhiLiuCard c = (IShanZhiLiuCard) card;
-                if (c.effectable()) {
-                    c.shanZhiLiuEffect();
-                }
-                break;
-            case DuanZhiLiu:
-                ((IDuanZhiLiuCard) card).duanZhiLiuEffect();
                 break;
             case YuZhiLiu:
                 ((IYuZhiLiuCard) card).yuZhiLiuEffect();
@@ -201,11 +193,14 @@ public class Utils {
         }
     }
 
-    public static void giveBaoYanDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
+    public static DamageInfo giveBaoYanDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
         if (s != null && t != null) {
             DamageInfo info = new DamageInfo(s, amount, type);
             AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info));
             AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(t, info));
+            return info;
+        } else {
+            return null;
         }
     }
 
@@ -220,6 +215,13 @@ public class Utils {
     public static void givePower(AbstractCreature s, AbstractCreature t, AbstractPower power) {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new
+                    ApplyPowerAction(t, s, power));
+        }
+    }
+
+    public static void givePowerTop(AbstractCreature s, AbstractCreature t, AbstractPower power) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToTop(new
                     ApplyPowerAction(t, s, power));
         }
     }
@@ -363,14 +365,6 @@ public class Utils {
             cards.add(new FZL_FengZhiXin());
         }
 
-        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YingZhiLiu)) {
-            cards.add(new YZL_QianFu());
-            cards.add(new YZL_MeiYing());
-            cards.add(new YZL_EZhao());
-            cards.add(new YZL_YingFu());
-            cards.add(new YZL_YingZhiXin());
-        }
-
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
@@ -378,34 +372,7 @@ public class Utils {
             cards.add(new XZL_BaiXiaZhan());
             cards.add(new XZL_HeQiZhan());
             cards.add(new XZL_PoXiao());
-            cards.add(new XZL_YinYueYouQing());
             cards.add(new XZL_XiaZhiXin());
-        }
-
-        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.WeiZhiLiu)) {
-            cards.add(new WZL_NiTai());
-            cards.add(new WZL_DaoGuo());
-            cards.add(new WZL_ChaoXi());
-            cards.add(new WZL_ZhaXiang());
-            cards.add(new WZL_WeiZhiXin());
-        }
-
-        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.ShanZhiLiu)) {
-            cards.add(new SZL_HuiXuan());
-            cards.add(new SZL_ShanJi());
-            cards.add(new SZL_KuaiFang());
-            cards.add(new SZL_YiMingZhan());
-            cards.add(new SZL_BanXing());
-            cards.add(new SZL_ShanZhiXin());
-        }
-
-        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.DuanZhiLiu)) {
-            cards.add(new DZL_JiangXin());
-            cards.add(new DZL_MoDao());
-            cards.add(new DZL_JiuJianCuiHuo());
-            cards.add(new DZL_RongHui());
-            cards.add(new DZL_QianChuiBaiLian());
-            cards.add(new DZL_DuanZhiXin());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
@@ -421,13 +388,15 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
             cards.add(new YanZL_LiuHuo());
-            cards.add(new YanZL_LuanYanZhan());
             cards.add(new YanZL_BuJingYan());
+            cards.add(new YanZL_LuoXuanYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
             cards.add(new YanZL_ChunYangJianYi());
+            cards.add(new YanZL_HuoYuJingShi());
+            cards.add(new YanZL_ZhuoXinLiu());
             cards.add(new YanZL_LianYu());
-            cards.add(new YanZL_YanZhiXin());
+            cards.add(new YanZL_LieHuoChang());
         }
 
         return cards;
@@ -497,13 +466,18 @@ public class Utils {
     }
 
 
-    public static void effectJianShe(AbstractCreature source, AbstractMonster center, int damage) {
-        //按X坐标排序存活怪物
-        List<AbstractMonster> sortedMonsters = AbstractDungeon.getMonsters().monsters.stream()
+    public static List<AbstractMonster> sortMonsterByXPos(List<AbstractMonster> monsters) {
+        List<AbstractMonster> sortedMonsters = monsters.stream()
                 .filter(m -> !m.isDeadOrEscaped())
                 .sorted(Comparator.comparing(m -> m.hb.cX))
                 .collect(Collectors.toList());
+        return sortedMonsters;
+    }
 
+
+    public static void effectJianShe(AbstractCreature source, AbstractMonster center, int damage) {
+        //按X坐标排序存活怪物
+        List<AbstractMonster> sortedMonsters = sortMonsterByXPos(AbstractDungeon.getMonsters().monsters);
 
         int centerIndex = -1;
         for (int i = 0; i < sortedMonsters.size(); i++) {
@@ -525,6 +499,17 @@ public class Utils {
 
     static void tryJianSheToMonster(AbstractCreature source, AbstractMonster target, int damage) {
         Utils.giveBaoYanDamage(source, target, modifyDamageByRongRong(damage, target), DamageInfo.DamageType.NORMAL);
+    }
+
+    public static void giveAllMonsterBaoYanDamage(int baseDamage) {
+        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        AbstractPlayer p = AbstractDungeon.player;
+
+        for (int i = 0; i < monsters.size(); i++) {
+            AbstractMonster _m = monsters.get(i);
+            Utils.giveBaoYanDamage(p, _m, Utils.modifyDamageByRongRong(baseDamage, _m), DamageInfo.DamageType.NORMAL);
+        }
+
     }
 
     public static int modifyDamageByRongRong(int damage, AbstractCreature target) {

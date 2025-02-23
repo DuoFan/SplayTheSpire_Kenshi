@@ -32,6 +32,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         jiaShiAmount = 2;
         magicNumber = baseMagicNumber = 1;
         block = baseBlock = 4;
+        isInnate = true;
     }
 
     @Override
@@ -39,7 +40,6 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(1);
-            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

@@ -1,18 +1,10 @@
 package game.duofan.kenshi.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.action.IDoCard;
-import game.duofan.kenshi.power.IExtraDuanZaoEffect;
-import game.duofan.kenshi.power.IShanZhiLiuCard;
 import game.duofan.kenshi.power.IUpdateDescription;
-
-import java.util.ArrayList;
 
 public class DuanZaoAction extends AbstractGameAction {
 
@@ -49,10 +41,10 @@ public class DuanZaoAction extends AbstractGameAction {
                 }
             }
 
-            if (card instanceof IExtraDuanZaoEffect) {
+            /*if (card instanceof IExtraDuanZaoEffect) {
                 ((IExtraDuanZaoEffect) card).extraDuanZaoEffect();
                 isOk = true;
-            }
+            }*/
 
             if (isOk) {
                 if (card instanceof IUpdateDescription) {

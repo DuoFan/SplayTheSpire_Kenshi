@@ -38,7 +38,7 @@
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "极意形态",
     "DESCRIPTIONS": [
-      "因 #r在对应流派打出流派卡 而触发的 #r流派效果 将触发 #r2 次"
+      "每回合首次进入流派时，随机获得 %d 张 #r对应流派卡牌 ，且本回合费用降为0。"
     ]
   },
   "game.duofan.kenshi:JiaShi": {
@@ -77,34 +77,16 @@
       "下回合开始时，抽取 #r%d 张攻击牌 。"
     ]
   },
-  "game.duofan.kenshi:ZhuoMoBuDing": {
-    "NAME": "琢磨不定",
+  "game.duofan.kenshi:BeiShouGuanZhao": {
+    "NAME": "备受关照",
     "DESCRIPTIONS": [
-      "TA还没想好要做些什么。"
-    ]
-  },
-  "game.duofan.kenshi:ZaiLaiYiZhang": {
-    "NAME": "再来一张",
-    "DESCRIPTIONS": [
-      "若本回合消耗了 #r[NAME] ，则再拓印1次。"
-    ]
-  },
-  "game.duofan.kenshi:JiangXinPingZhi": {
-    "NAME": "匠心品质",
-    "DESCRIPTIONS": [
-      "这里还没有任何卡牌。"
+      " #r%d 个回合内，在 #r[NAME] 死亡前，每当手牌中没有 #r攻击牌 时，抽取1张 #r攻击牌 。"
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [
       "试剑石还没有准备好。"
-    ]
-  },
-  "game.duofan.kenshi:ChenReDaTie": {
-    "NAME": "趁热打铁",
-    "DESCRIPTIONS": [
-      "本回合下 #r%d 张 #r锻卡 费用减1。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -155,6 +137,12 @@
       "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
     ]
   },
+  "game.duofan.kenshi:HuoYuJingShi": {
+    "NAME": "火域警示",
+    "DESCRIPTIONS": [
+      "本回合每次受到攻击，给予攻击者 #r%d 层 #r熔融 。"
+    ]
+  },
   "game.duofan.kenshi:LianYu": {
     "NAME": "炼狱",
     "DESCRIPTIONS": [
@@ -164,7 +152,7 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      "可触发 #r枫之流 效果，回合结束时移除。"
+      "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，抽取1张卡牌。"
     ]
   },
   "game.duofan.kenshi:FengZhiXin": {
@@ -188,7 +176,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      "可触发 #r霞之流 效果，回合结束时移除。"
+      "触发 #r霞之流 效果，打出 #r其他流派卡牌 时，获得1层 #r气 。"
     ]
   },
   "game.duofan.kenshi:XiaZhiXin": {
@@ -197,46 +185,10 @@
       "每回合首次进入 #r霞之流 时，使1张随机手牌费用减1。"
     ]
   },
-  "game.duofan.kenshi:WeiZhiLiu": {
-    "NAME": "伪之流",
-    "DESCRIPTIONS": [
-      "可触发 #r伪之流 效果，回合结束时移除。"
-    ]
-  },
-  "game.duofan.kenshi:WeiZhiXin": {
-    "NAME": "伪之流",
-    "DESCRIPTIONS": [
-      "每回合首次进入 #r伪之流 时，随机将1张伪卡(不包括伪之心)加入手牌。"
-    ]
-  },
-  "game.duofan.kenshi:ShanZhiLiu": {
-    "NAME": "闪之流",
-    "DESCRIPTIONS": [
-      "可触发 #r闪之流 效果，回合结束时移除。"
-    ]
-  },
-  "game.duofan.kenshi:ShanZhiXin": {
-    "NAME": "闪之心",
-    "DESCRIPTIONS": [
-      "每回合首次进入 #r闪之流 时，将1张 #r闪击 加入手牌。"
-    ]
-  },
-  "game.duofan.kenshi:DuanZhiLiu": {
-    "NAME": "锻之流",
-    "DESCRIPTIONS": [
-      "可触发 #r锻之流 效果，回合结束时移除。"
-    ]
-  },
-  "game.duofan.kenshi:DuanZhiXin": {
-    "NAME": "锻之心",
-    "DESCRIPTIONS": [
-      "每回合首次进入 #r锻之流 时， #r锻造 手牌中所有的 #r剑胚 。"
-    ]
-  },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
-      "可触发 #r羽之流 效果，回合结束时移除。"
+      "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
     ]
   },
   "game.duofan.kenshi:YuZhiXin": {
@@ -248,13 +200,13 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      "可触发 #r炎之流 效果，回合结束时移除。"
+      "触发 #r炎之流 效果，打出 #r其他流派卡牌 时，对 #r所有敌人 造成1点 #r爆炎伤害 。"
     ]
   },
-  "game.duofan.kenshi:YanZhiXin": {
-    "NAME": "炎之心",
+  "game.duofan.kenshi:LieHuoChang": {
+    "NAME": "猎火场",
     "DESCRIPTIONS": [
-      "每回合首次进入 #r炎之流 时，给予 #r所有敌人1层 #r熔融 ，并造成1点 #r爆炎伤害 。"
+      "每回合首次进入 #r炎之流 时，给予 #r所有敌人 #r%d 层 #r熔融 ，并造成1点 #r爆炎伤害 。"
     ]
   }
 }

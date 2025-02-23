@@ -1,13 +1,11 @@
 package game.duofan.kenshi.power;
 
-import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IEventListener;
-import game.duofan.kenshi.card.SZL_ShanJi;
 
 import java.util.ArrayList;
 import java.util.HashMap;

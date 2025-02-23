@@ -46,6 +46,11 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
     }
 
     @Override
+    public void update() {
+        super.update();
+    }
+
+    @Override
     public void onMoveToDiscard() {
         super.onMoveToDiscard();
         if(!isRegister){
