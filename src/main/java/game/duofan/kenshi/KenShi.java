@@ -96,13 +96,6 @@ public class KenShi extends CustomPlayer {
         }
         retVal.add(QingJiu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
-
-        retVal.add(FZL_FuFeng.ID);
-        retVal.add(FZL_FuFeng.ID);
-        retVal.add(FZL_FuFeng.ID);
-        retVal.add(FZL_FuFeng.ID);
-
-        GameActionManager.tur
         return retVal;
     }
 

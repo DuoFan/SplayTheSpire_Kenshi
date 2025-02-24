@@ -17,8 +17,34 @@ import javassist.convert.Transformer;
 public class DrawCardActionPatch {
     @SpireInsertPatch(rloc = 89 - 68, localvars = {"deckSize", "discardSize"})
     public static void InstertPatch(int deckSize, int discardSize) {
+        DrawCardAction
         System.out.println("---------------deckSize,-------------discardSize");
         System.out.println(deckSize);
         System.out.println(discardSize);
+    }
+
+    @SpireInsertPatch(rloc = 80 - 68)
+    public static void InstertPatch2() {
+        System.out.println("---------------InstertPatch2");
+    }
+
+    @SpireInsertPatch(rloc = 75 - 68)
+    public static void InstertPatch3() {
+        System.out.println("---------------InstertPatch3");
+    }
+
+    @SpireInsertPatch(rloc = 78 - 68)
+    public static void InstertPatch4() {
+        System.out.println("---------------InstertPatch4");
+    }
+
+    @SpireInsertPatch(rloc = 73 - 68)
+    public static void InstertPatch73() {
+        System.out.println("---------------InstertPatch73");
+    }
+
+    @SpireInsertPatch(rloc = 69 - 68)
+    public static void InstertPatch69() {
+        System.out.println("---------------InstertPatch69");
     }
 }
