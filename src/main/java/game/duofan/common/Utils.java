@@ -265,6 +265,14 @@ public class Utils {
         }
     }
 
+    public static void playReducePowerTop(String powerID, int amount) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null) {
+            AbstractDungeon.actionManager.addToTop(
+                    new ReducePowerAction(p, p, powerID, amount));
+        }
+    }
+
     public static void playRemovePower(String powerID) {
         AbstractPlayer p = AbstractDungeon.player;
         if (p != null) {
@@ -301,6 +309,10 @@ public class Utils {
 
     public static void playerReduceQi(int amount) {
         playReducePower(Qi.POWER_ID, amount);
+    }
+
+    public static void playerReduceQiTop(int amount) {
+        playReducePowerTop(Qi.POWER_ID, amount);
     }
 
     public static int getQiAmount() {
@@ -362,7 +374,10 @@ public class Utils {
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_HeFengZhan());
             cards.add(new FZL_LieFengZhan());
-            cards.add(new FZL_FengZhiXin());
+            cards.add(new FZL_ShuangFaQiYi_KuXinFa());
+            cards.add(new FZL_FuFeng());
+            cards.add(new FZL_WuBianLuoMu());
+            cards.add(new FZL_Ji_FanShi_Card());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
@@ -371,6 +386,7 @@ public class Utils {
             cards.add(new XZL_CaiYunZhuiYue());
             cards.add(new XZL_BaiXiaZhan());
             cards.add(new XZL_HeQiZhan());
+            cards.add(new XZL_ShuangHuiQiYi_MingXinHui());
             cards.add(new XZL_PoXiao());
             cards.add(new XZL_XiaZhiXin());
         }
@@ -382,6 +398,7 @@ public class Utils {
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHongZhaoYing());
             cards.add(new YuZL_XueSeDieMu());
+            cards.add(new YuZL_ShuangHuiQiEr_HuXinHui());
             cards.add(new YuZL_BuSiNiao());
             cards.add(new YuZL_YuZhiXin());
         }
@@ -396,6 +413,7 @@ public class Utils {
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_ZhuoXinLiu());
             cards.add(new YanZL_LianYu());
+            cards.add(new YanZL_ShuangFaQiEr_ZhuoXinFa());
             cards.add(new YanZL_LieHuoChang());
         }
 

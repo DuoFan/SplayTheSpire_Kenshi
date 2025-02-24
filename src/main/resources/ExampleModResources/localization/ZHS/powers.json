@@ -101,6 +101,12 @@
       "下回合开始时，获得 #r%d 点格挡 。"
     ]
   },
+  "game.duofan.kenshi:PoBai": {
+    "NAME": "破败",
+    "DESCRIPTIONS": [
+      " 生命值低于 #r%d 点时，死亡。"
+    ]
+  },
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
@@ -119,46 +125,34 @@
       " 本回合下次 #r打出卡牌 获得的格挡 ，转变为对 #r全体敌人 的伤害。"
     ]
   },
-  "game.duofan.kenshi:RongRong": {
-    "NAME": "熔融",
-    "DESCRIPTIONS": [
-      " 受到的 #r爆炎伤害 增加 #r%d 点。"
-    ]
-  },
-  "game.duofan.kenshi:ChunYangJianYi": {
-    "NAME": "纯阳剑意",
-    "DESCRIPTIONS": [
-      "本回合 #r下%d张攻击牌 先给予2层 #r熔融 ，后造成 #r爆炎伤害 。"
-    ]
-  },
-  "game.duofan.kenshi:BuJingYan": {
-    "NAME": "不净炎",
-    "DESCRIPTIONS": [
-      "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
-    ]
-  },
-  "game.duofan.kenshi:HuoYuJingShi": {
-    "NAME": "火域警示",
-    "DESCRIPTIONS": [
-      "本回合每次受到攻击，给予攻击者 #r%d 层 #r熔融 。"
-    ]
-  },
-  "game.duofan.kenshi:LianYu": {
-    "NAME": "炼狱",
-    "DESCRIPTIONS": [
-      " #r所有爆炎伤害 都将给予 #r%d 层 #r熔融 。"
-    ]
-  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
       "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，抽取1张卡牌。"
     ]
   },
-  "game.duofan.kenshi:FengZhiXin": {
-    "NAME": "枫之心",
+  "game.duofan.kenshi:FuFeng": {
+    "NAME": "腐风",
     "DESCRIPTIONS": [
-      "每回合首次进入 #r枫之流 时，抽取 #r2 张卡牌。"
+      " #r回合开始时 ，给予 #r所有敌人 %d层 #r破败 。"
+    ]
+  },
+  "game.duofan.kenshi:PoBaiGongJi": {
+    "NAME": "破败攻击",
+    "DESCRIPTIONS": [
+      " #r本回合 下一张 #r攻击牌 ，给予目标 #r%d层 #r破败 。"
+    ]
+  },
+  "game.duofan.kenshi:WuBianLuoMu": {
+    "NAME": "无边落木",
+    "DESCRIPTIONS": [
+      "每回合首次进入 #r枫之流 时，抽取 #r%d 张卡牌。"
+    ]
+  },
+  "game.duofan.kenshi:Ji_FanShi": {
+    "NAME": "极·反式",
+    "DESCRIPTIONS": [
+      "你将总是从 #r弃牌堆 抽取卡牌。"
     ]
   },
   "game.duofan.kenshi:YingZhiLiu": {
@@ -201,6 +195,36 @@
     "NAME": "炎之流",
     "DESCRIPTIONS": [
       "触发 #r炎之流 效果，打出 #r其他流派卡牌 时，对 #r所有敌人 造成1点 #r爆炎伤害 。"
+    ]
+  },
+  "game.duofan.kenshi:RongRong": {
+    "NAME": "熔融",
+    "DESCRIPTIONS": [
+      " 受到的 #r爆炎伤害 增加 #r%d 点。"
+    ]
+  },
+  "game.duofan.kenshi:ChunYangJianYi": {
+    "NAME": "纯阳剑意",
+    "DESCRIPTIONS": [
+      "本回合 #r下%d张攻击牌 先给予2层 #r熔融 ，后造成 #r爆炎伤害 。"
+    ]
+  },
+  "game.duofan.kenshi:BuJingYan": {
+    "NAME": "不净炎",
+    "DESCRIPTIONS": [
+      "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
+    ]
+  },
+  "game.duofan.kenshi:HuoYuJingShi": {
+    "NAME": "火域警示",
+    "DESCRIPTIONS": [
+      "本回合每次受到攻击，给予攻击者 #r%d 层 #r熔融 。"
+    ]
+  },
+  "game.duofan.kenshi:LianYu": {
+    "NAME": "炼狱",
+    "DESCRIPTIONS": [
+      " #r所有爆炎伤害 都将给予 #r%d 层 #r熔融 。"
     ]
   },
   "game.duofan.kenshi:LieHuoChang": {

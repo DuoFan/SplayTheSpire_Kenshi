@@ -5,12 +5,15 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -94,10 +97,12 @@ public class KenShi extends CustomPlayer {
         retVal.add(QingJiu.ID);
         retVal.add(FZL_PiaoSiXue.ID);
 
-        retVal.add(QingLaiYouJia_Card.ID);
-        retVal.add(QingLaiYouJia_Card.ID);
-        retVal.add(QingLaiYouJia_Card.ID);
-        retVal.add(QingLaiYouJia_Card.ID);
+        retVal.add(FZL_FuFeng.ID);
+        retVal.add(FZL_FuFeng.ID);
+        retVal.add(FZL_FuFeng.ID);
+        retVal.add(FZL_FuFeng.ID);
+
+        GameActionManager.tur
         return retVal;
     }
 
