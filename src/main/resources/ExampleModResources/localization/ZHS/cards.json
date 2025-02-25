@@ -9,8 +9,8 @@
     "DESCRIPTION": "获得 !B! 点格挡。",
     "UPGRADE_DESCRIPTION": " 获得 !B! 点格挡。"
   },
-  "game.duofan.kenshi:QingJiu": {
-    "NAME": "清酒",
+  "game.duofan.kenshi:ZhuoJiu": {
+    "NAME": "浊酒",
     "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 。",
     "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 。"
   },
@@ -34,11 +34,6 @@
     "DESCRIPTION": "每回合打出的前 !M! 张 *流派卡 无条件触发 *流派效果 。",
     "UPGRADE_DESCRIPTION": "每回合打出的前 !M! 张 *流派卡 无条件触发 *流派效果 。"
   },
-  "game.duofan.kenshi:XinNianTongShen_Card": {
-    "NAME": "心念通神",
-    "DESCRIPTION": " *本场战斗所有流派效果 NL *不再受到流派限制。 ",
-    "UPGRADE_DESCRIPTION": " *本场战斗所有流派效果 NL *不再受到流派限制。 "
-  },
   "game.duofan.kenshi:QianBianWanHua": {
     "NAME": "千变万化",
     "DESCRIPTION": "随机打出 *流派卡 并 消耗 ，直到切换 !M! 次 *流派 。",
@@ -46,13 +41,13 @@
   },
   "game.duofan.kenshi:JiYiXingTai_Card": {
     "NAME": "极意形态",
-    "DESCRIPTION": "每回合首次进入流派时，随机获得1张 *对应流派卡牌 ，且本回合费用降为0。",
-    "UPGRADE_DESCRIPTION": "每回合首次进入流派时，随机获得一张 *对应流派卡牌 ，且本回合费用降为0。"
+    "DESCRIPTION": "每当打出 *攻击牌 使你抽取1张 *攻击牌 ，并使其获得 消耗 。",
+    "UPGRADE_DESCRIPTION": "每当打出 *攻击牌 使你抽取1张 *攻击牌 ，并使其获得 消耗 。"
   },
-  "game.duofan.kenshi:QingLaiYouJia_Card": {
-    "NAME": "青睐有加",
-    "DESCRIPTION": "指定一个目标。 NL 两个回合内，每当手牌中没有 *攻击牌 时，抽取1张 *攻击牌 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 固有 NL 指定一个目标。 NL 两个回合内，每当手牌中没有 *攻击牌 时，抽取1张 *攻击牌 。 NL 消耗 "
+  "game.duofan.kenshi:TuMoLing_Card": {
+    "NAME": "屠魔令",
+    "DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:魔心 。 NL 即逝 ",
+    "UPGRADE_DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:魔心 。 NL 即逝 "
   },
   "game.duofan.kenshi:QinXi": {
     "NAME": "侵袭",
@@ -124,10 +119,10 @@
     "DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !M! 层 duofan_kenshi:攻势 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。"
   },
-  "game.duofan.kenshi:FZL_QianYeGuiChen": {
-    "NAME": "千叶归尘",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
+  "game.duofan.kenshi:FZL_WanYeBai": {
+    "NAME": "万叶败",
+    "DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被格挡的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被格挡的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。"
   },
   "game.duofan.kenshi:FZL_ZhiQie": {
     "NAME": "枝切",
@@ -191,8 +186,8 @@
   },
   "game.duofan.kenshi:XZL_PoXiao": {
     "NAME": "破晓",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气敏 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成一次 !M! 点伤害。 NL duofan_kenshi:气敏 "
+    "DESCRIPTION": " 造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :将伤害增加 *50% ，并额外造成一次伤害。 NL duofan_kenshi:气敏 ",
+    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :将伤害增加 *50% ，并额外造成一次伤害。 NL duofan_kenshi:气敏 "
   },
   "game.duofan.kenshi:XZL_CaiYunZhuiYue": {
     "NAME": "彩云追月",
@@ -263,6 +258,11 @@
     "NAME": "灰烬剑气",
     "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :随机对 *另一个敌人 造成相同效果。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :随机对 *另一个敌人 造成相同效果。"
+  },
+  "game.duofan.kenshi:YanZL_LiaoYuanJianQi": {
+    "NAME": "燎原剑气",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :额外造成1点  duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :额外造成1点  duofan_kenshi:爆炎伤害 。"
   },
   "game.duofan.kenshi:YanZL_LuoXuanYan": {
     "NAME": "螺旋焰",

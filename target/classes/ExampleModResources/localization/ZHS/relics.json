@@ -6,39 +6,11 @@
       " #r战斗开始时 ，获得 #rduofan_kenshi:诸流百家 ， #r回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
     ]
   },
-  "game.duofan.kenshi:YingGui": {
-    "NAME": "影鬼",
+  "game.duofan.kenshi:MoXin": {
+    "NAME": "魔心",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      " #rduofan_kenshi:暗影 额外增加 #r25% 的伤害。"
-    ]
-  },
-  "game.duofan.kenshi:BaiHong": {
-    "NAME": "白虹",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      " #r回合开始时 ，获得2层 #rduofan_kenshi:气 。"
-    ]
-  },
-  "game.duofan.kenshi:JianChui": {
-    "NAME": "剑锤",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      " #r回合开始时 ，随机 #rduofan_kenshi:锻造 #r两张手牌 。"
-    ]
-  },
-  "game.duofan.kenshi:YuHua": {
-    "NAME": "羽花",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      " 每次打出 #r羽卡 ，下个回合开始时获得 #r3 点 #r格挡 。"
-    ]
-  },
-  "game.duofan.kenshi:YanXue": {
-    "NAME": "炎雪",
-    "FLAVOR": "这个人很懒，什么都没写",
-    "DESCRIPTIONS": [
-      " #r熔融 额外增加 #r3 点 #r爆炎伤害 。"
+      " #r战斗开始时 ， #r夺取 随机敌人1点 #r力量 。"
     ]
   }
 }

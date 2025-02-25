@@ -1,6 +1,7 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,11 +11,13 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
+import game.duofan.kenshi.action.DrawCardByFilterAction;
+import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.card.YuZL_BuSiNiao;
 
 import java.util.ArrayList;
 
-public class JiYiXingTai extends AbstractPower implements IEventListener {
+public class JiYiXingTai extends AbstractPower implements IDoCard {
     // 能力的ID
     public static final String POWER_ID = IDManager.getInstance().getID(JiYiXingTai.class);
     // 能力的本地化字段
@@ -23,8 +26,6 @@ public class JiYiXingTai extends AbstractPower implements IEventListener {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
-
-    boolean effectable;
 
     public JiYiXingTai(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -48,32 +49,21 @@ public class JiYiXingTai extends AbstractPower implements IEventListener {
     }
 
     @Override
-    public void onInitialApplication() {
-        super.onInitialApplication();
-        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
+    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
+        super.onAfterUseCard(card, action);
+        if (card.type == AbstractCard.CardType.ATTACK && amount > 0) {
+            DrawCardByFilterAction a = new DrawCardByFilterAction(amount, (x) -> x.type.equals(AbstractCard.CardType.ATTACK));
+            a.setDoCard(this);
+            addToBot(a);
+        }
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
-        effectable = true;
-    }
-
-    @Override
-    public void OnEvent(Object sender, Object e) {
-        if (effectable) {
-            effectable = false;
-            Liu_StateMachine.StateEnum liu = (Liu_StateMachine.StateEnum) e;
-            ArrayList<AbstractCard> liuCards = Utils.getCardsFromLiu(liu.getValue());
-            for (int i = 0; i < amount; i++) {
-                AbstractCard c = Utils.getRandomCardsFromList(liuCards, false);
-                if (c.cardID.equals(YuZL_BuSiNiao.ID)) {
-                    liuCards.remove(c);
-                    c = Utils.getRandomCardsFromList(liuCards, false);
-                }
-                c.setCostForTurn(0);
-                Utils.makeTempCardInHand(c, 1);
-            }
+    public void DoCard(AbstractCard card) {
+        if (!card.exhaust && !card.exhaustOnUseOnce) {
+            card.exhaustOnUseOnce = true;
+            card.rawDescription += " NL 消耗 ";
+            card.initializeDescription();
         }
     }
 }

@@ -1,6 +1,7 @@
 package game.duofan.kenshi.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,9 +12,15 @@ public class DrawCardByFilterAction extends AbstractGameAction {
 
     ICardFilter filter;
 
+    IDoCard doCard;
+
     public DrawCardByFilterAction(int amount, ICardFilter filter) {
         this.amount = amount;
         this.filter = filter;
+    }
+
+    public void setDoCard(IDoCard x) {
+        doCard = x;
     }
 
     @Override
@@ -23,7 +30,7 @@ public class DrawCardByFilterAction extends AbstractGameAction {
 
         CardGroup g = p.drawPile;
 
-        if(p.hasPower(Ji_FanShi.POWER_ID)){
+        if (p.hasPower(Ji_FanShi.POWER_ID)) {
             g = p.discardPile;
         }
 
@@ -36,7 +43,7 @@ public class DrawCardByFilterAction extends AbstractGameAction {
         for (AbstractCard card : g.group) {
             if (filter == null || filter.filter(card)) {
                 filteredCards.addToBottom(card);
-                if(filteredCards.size() >= amount){
+                if (filteredCards.size() >= amount) {
                     break;
                 }
             }
@@ -45,20 +52,45 @@ public class DrawCardByFilterAction extends AbstractGameAction {
         if (!filteredCards.isEmpty()) {
             int drawCount = Math.min(this.amount, filteredCards.size());
             for (int i = 0; i < drawCount; i++) {
-                AbstractCard card = filteredCards.getTopCard();
-                filteredCards.removeTopCard();
-
-                if (p.hand.size() < 10) {
-                    g.moveToHand(card, g);
-                } else {
-                    if(g.equals(p.drawPile)){
-                        p.drawPile.moveToDiscardPile(card);
-                    }
-                    p.createHandIsFullDialog();
-                }
+                AbstractCard card = filteredCards.group.get(i);
+                g.removeCard(card);
+                g.addToTop(card);
             }
+
+            AbstractGameAction follow = null;
+            if (doCard != null) {
+                follow = new DoCardAction(doCard, filteredCards, drawCount);
+            }
+
+            addToTop(new DrawCardAction(drawCount, follow));
         }
 
         this.isDone = true;
+    }
+
+    class DoCardAction extends AbstractGameAction {
+
+        IDoCard doCard;
+        CardGroup filterCardGroup;
+        int drawCount;
+
+        public DoCardAction(IDoCard doCard, CardGroup filterCardGroup, int drawCount) {
+            this.doCard = doCard;
+            this.filterCardGroup = filterCardGroup;
+            this.drawCount = drawCount;
+        }
+
+        @Override
+        public void update() {
+
+            isDone = true;
+
+            if (filterCardGroup != null && doCard != null) {
+                for (int i = 0; i < drawCount; i++) {
+                    AbstractCard c = filterCardGroup.group.get(i);
+                    doCard.DoCard(c);
+                }
+            }
+        }
     }
 }

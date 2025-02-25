@@ -6,17 +6,17 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.power.*;
 
-public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(FZL_QianYeGuiChen.class);
+public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(FZL_WanYeBai.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,7 +27,9 @@ public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
-    public FZL_QianYeGuiChen() {
+    AbstractMonster targetMonster;
+
+    public FZL_WanYeBai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 4;
         this.magicNumber = this.baseMagicNumber = 4;
@@ -51,28 +53,50 @@ public class FZL_QianYeGuiChen extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        targetMonster = m;
         int c = magicNumber;
-        while (c > 0){
+        while (c > 0) {
             this.addToBot(new DamageAction(
-                    m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
+                    m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
             ));
+            Utils.addToBotAbstract(() -> {
+                if (m.lastDamageTaken > 0) {
+                    Utils.givePowerTop(p, m, new PoBai(m, 1));
+                }
+            });
             c--;
         }
+    }
+
+    @Override
+    public void moveToDiscardPile() {
+        super.moveToDiscardPile();
+        targetMonster = null;
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if(Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()){
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
     public void fengZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
+        if (targetMonster != null) {
+            Utils.addToBotAbstract(() -> {
+                if (targetMonster != null) {
+                    if (targetMonster.hasPower(PoBai.POWER_ID)) {
+                        AbstractPlayer p = AbstractDungeon.player;
+                        int damage = targetMonster.getPower(PoBai.POWER_ID).amount;
+                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL);
+                    }
+                }
+            });
+        }
     }
 
     @Override

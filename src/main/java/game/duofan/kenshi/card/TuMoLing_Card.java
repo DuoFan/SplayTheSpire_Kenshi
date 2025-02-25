@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,31 +11,34 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.BaiJiaZhiChang;
-import game.duofan.kenshi.power.JiYiXingTai;
-import game.duofan.kenshi.power.XinNianTongShen;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.power.BeiShouGuanZhao;
+import game.duofan.kenshi.power.TuMoLing;
 
-public class XinNianTongShen_Card extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(XinNianTongShen_Card.class);
+public class TuMoLing_Card extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(TuMoLing_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 3;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
 
-    public XinNianTongShen_Card() {
+    public TuMoLing_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        FleetingField.fleeting.set(this, true);
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(2);
+            upgradeBaseCost(0);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -46,8 +50,6 @@ public class XinNianTongShen_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(p, p, new XinNianTongShen(p))
-        );
+        Utils.givePower(p, m, new TuMoLing(m));
     }
 }

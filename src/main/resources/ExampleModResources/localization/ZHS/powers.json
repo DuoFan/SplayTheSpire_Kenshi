@@ -29,16 +29,10 @@
       " #r本回合 剩余 #r%d 张 #r流派卡 可无条件触发 #r流派效果 。"
     ]
   },
-  "game.duofan.kenshi:XinNianTongShen": {
-    "NAME": "心念通神",
-    "DESCRIPTIONS": [
-      " #r本场战斗所有流派效果不再受到流派限制。 "
-    ]
-  },
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "极意形态",
     "DESCRIPTIONS": [
-      "每回合首次进入流派时，随机获得 %d 张 #r对应流派卡牌 ，且本回合费用降为0。"
+      "每当打出 #r攻击牌 使你抽取 #r%d 张 #r攻击牌 ，并使其获得 #r消耗 。"
     ]
   },
   "game.duofan.kenshi:JiaShi": {
@@ -77,16 +71,16 @@
       "下回合开始时，抽取 #r%d 张攻击牌 。"
     ]
   },
-  "game.duofan.kenshi:BeiShouGuanZhao": {
-    "NAME": "备受关照",
-    "DESCRIPTIONS": [
-      " #r%d 个回合内，在 #r[NAME] 死亡前，每当手牌中没有 #r攻击牌 时，抽取1张 #r攻击牌 。"
-    ]
-  },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [
       "试剑石还没有准备好。"
+    ]
+  },
+  "game.duofan.kenshi:TuMoLing": {
+    "NAME": "屠魔令",
+    "DESCRIPTIONS": [
+      "斩杀 #r[NAME] ，以挖取 #r魔心 。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {

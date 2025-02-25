@@ -30,7 +30,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
     XinSuiYiDong xinSuiYiDong;
-    XinNianTongShen xinNianTongShen;
 
     static ZhuLiuBaiJia instance;
 
@@ -41,13 +40,13 @@ public class ZhuLiuBaiJia extends AbstractPower {
         if (instance == null) {
             return false;
         }
-        if (instance.xinNianTongShen == null && instance.xinSuiYiDong == null) {
+        if (instance.xinSuiYiDong == null) {
             return false;
         }
         if (instance.xinSuiYiDong != null && instance.xinSuiYiDong.getTurnAmount() > 0) {
             return true;
         }
-        return instance.xinNianTongShen != null;
+        return false;
     }
 
     public ZhuLiuBaiJia(AbstractCreature owner) {
@@ -76,8 +75,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
         super.onInitialApplication();
         EventManager.getInstance().registerToEvent(EventKey.ON_GAIN_XIN_SUI_YI_DONG,
                 new XinSuiYiDongListener());
-        EventManager.getInstance().registerToEvent(EventKey.ON_GAIN_XIN_NIAN_TONG_SHEN,
-                new XinNianTongShenListener());
         instance = this;
     }
 
@@ -97,7 +94,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
             switch (curLiu) {
                 case FengZhiLiu:
-                    addToBot(new DrawCardAction(1));
+                    Shi_StateMachine.instance.addPower(Shi_StateMachine.StateEnum.GongShi, 1);
                     break;
                 case XiaZhiLiu:
                     Utils.playerGainQi(1);
@@ -121,7 +118,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
             boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
 
-            if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) || xinNianTongShen != null) {
+            if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0)) {
 
                 if (card instanceof IXiaZhiLiuCard) {
                     Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
@@ -137,9 +134,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 }
                 if (!isLiuMatch) {
                     Liu_StateMachine.getInstance().changeLiu(liu);
-                    if (xinNianTongShen != null) {
-                        xinNianTongShen.flash();
-                    }
                 }
 
                 if (Utils.getQiAmount() > 0) {
@@ -189,14 +183,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
         @Override
         public void OnEvent(Object sender, Object e) {
             xinSuiYiDong = (XinSuiYiDong) sender;
-        }
-    }
-
-    class XinNianTongShenListener implements IEventListener {
-
-        @Override
-        public void OnEvent(Object sender, Object e) {
-            xinNianTongShen = (XinNianTongShen) sender;
         }
     }
 }

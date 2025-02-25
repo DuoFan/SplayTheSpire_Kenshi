@@ -47,17 +47,13 @@ public class AnYing extends AbstractPower {
         this.updateDescription();
     }
 
-    public static void setExtraBuff(float v) {
-        extraBuff = v;
-    }
-
     public void updateDescription() {
         int value = (int) ((calculateBuff() - 1) * 100);
         this.description = String.format(DESCRIPTIONS[0], value);
     }
 
     float calculateBuff() {
-        return 1.5f + extraBuff;
+        return 1.5f;
     }
 
     @Override

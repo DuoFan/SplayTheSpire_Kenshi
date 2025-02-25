@@ -17,7 +17,6 @@ import javassist.convert.Transformer;
 public class DrawCardActionPatch {
     @SpireInsertPatch(rloc = 89 - 68, localvars = {"deckSize", "discardSize"})
     public static void InstertPatch(int deckSize, int discardSize) {
-        DrawCardAction
         System.out.println("---------------deckSize,-------------discardSize");
         System.out.println(deckSize);
         System.out.println(discardSize);

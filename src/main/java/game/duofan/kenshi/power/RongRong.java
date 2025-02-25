@@ -1,23 +1,15 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.relic.YanXue;
 
 public class RongRong extends AbstractPower {
     // 能力的ID
@@ -50,19 +42,12 @@ public class RongRong extends AbstractPower {
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
         if (BaoYanCardManager.getInstance().isTagCard(card)){
             damage += amount;
-            if(AbstractDungeon.player.hasRelic(YanXue.ID)){
-                damage += YanXue.DAMAGE_GIVE;
-            }
         }
         return damage;
     }
 
     public void updateDescription() {
         int i = amount;
-        if(AbstractDungeon.player.hasRelic(YanXue.ID)){
-            i += YanXue.DAMAGE_GIVE;
-        }
-
         this.description = String.format(DESCRIPTIONS[0], i);
     }
 }

@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
-import game.duofan.kenshi.relic.YanXue;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -189,6 +188,13 @@ public class Utils {
     public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new
+                    DamageAction(t, new DamageInfo(s, amount, type)));
+        }
+    }
+
+    public static void giveDamageTop(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToTop(new
                     DamageAction(t, new DamageInfo(s, amount, type)));
         }
     }
@@ -370,7 +376,7 @@ public class Utils {
             cards.add(new FZL_YaZhi());
             cards.add(new FZL_PiaoSiXue());
             cards.add(new FZL_KuangFengJuanYe());
-            cards.add(new FZL_QianYeGuiChen());
+            cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_HeFengZhan());
             cards.add(new FZL_LieFengZhan());
@@ -409,6 +415,7 @@ public class Utils {
             cards.add(new YanZL_LuoXuanYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
+            cards.add(new YanZL_LiaoYuanJianQi());
             cards.add(new YanZL_ChunYangJianYi());
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_ZhuoXinLiu());
@@ -534,10 +541,6 @@ public class Utils {
         if (target.hasPower(RongRong.POWER_ID)) {
             damage += target.getPower(RongRong.POWER_ID).amount;
         }
-        if (AbstractDungeon.player.hasRelic(YanXue.ID)) {
-            damage += YanXue.DAMAGE_GIVE;
-        }
-
         return damage;
     }
 }
