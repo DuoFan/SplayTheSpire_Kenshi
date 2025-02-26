@@ -20,9 +20,8 @@ import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.ChunYangJianYi;
 import game.duofan.kenshi.power.RecoverCardManager;
-import game.duofan.kenshi.relic.ChiYou;
+import game.duofan.kenshi.relic.JianShuYaoLing;
 
 import java.util.ArrayList;
 
@@ -93,19 +92,15 @@ public class KenShi extends CustomPlayer {
             retVal.add(Defend.ID);
         }
         retVal.add(ZhuoJiu.ID);
-        retVal.add(FZL_PiaoSiXue.ID);
+        retVal.add(FZL_Piao.ID);
 
-        retVal.add(XZL_JuQi.ID);
-        retVal.add(XZL_JuQi.ID);
-        retVal.add(XZL_JuQi.ID);
-        retVal.add(XZL_PoXiao.ID);
         return retVal;
     }
 
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(ChiYou.ID);
+        retVal.add(JianShuYaoLing.ID);
         return retVal;
     }
 

@@ -374,7 +374,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
             cards.add(new FZL_YaZhi());
-            cards.add(new FZL_PiaoSiXue());
+            cards.add(new FZL_Piao());
             cards.add(new FZL_KuangFengJuanYe());
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());

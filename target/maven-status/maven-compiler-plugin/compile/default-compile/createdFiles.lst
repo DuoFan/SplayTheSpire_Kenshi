@@ -38,7 +38,6 @@ game\duofan\kenshi\power\Shi_StateMachine$GongShi_State.class
 game\duofan\common\Utils$1.class
 game\duofan\kenshi\action\IDoCard.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class
-game\duofan\kenshi\relic\ChiYou.class
 game\duofan\kenshi\card\FZL_LieFengZhan.class
 game\duofan\kenshi\power\TagCardManager.class
 game\duofan\kenshi\card\Defend.class
@@ -68,6 +67,8 @@ game\duofan\kenshi\power\ILiuCard.class
 game\duofan\kenshi\card\YiJianHuiYou_Card.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
+game\duofan\kenshi\power\HuiMieZhiLu.class
+game\duofan\kenshi\relic\JianShuYaoLing.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\power\NiePan.class
 game\duofan\kenshi\power\GongShi.class
@@ -85,6 +86,7 @@ game\duofan\kenshi\action\GiveAllEnemiesRongAction.class
 game\duofan\kenshi\card\XZL_XiaZhiXin.class
 game\duofan\kenshi\initialize\RelicsRegister.class
 game\duofan\kenshi\power\Liu_StateMachine.class
+game\duofan\kenshi\card\FZL_Piao.class
 game\duofan\kenshi\card\YiJianHuiYou.class
 game\duofan\kenshi\action\GetFreeLiuCardAction.class
 game\duofan\kenshi\card\FZL_ZhiQie.class
@@ -115,6 +117,7 @@ game\duofan\kenshi\action\ReduceCostAction.class
 game\duofan\kenshi\power\RecoverCardManager$BossBattleStartListener.class
 game\duofan\kenshi\power\IYanZhiLiuCard.class
 game\duofan\kenshi\card\FZL_HeFengZhan.class
+game\duofan\kenshi\card\HuiMieZhiLu_Card.class
 game\duofan\kenshi\power\XiaZhiLiu.class
 game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\RepeatAction.class
@@ -177,7 +180,6 @@ game\duofan\kenshi\card\XZL_ShuangHuiQiYi_MingXinHui.class
 game\duofan\kenshi\power\ZhongShi.class
 game\duofan\kenshi\power\IRecoverCard.class
 game\duofan\kenshi\power\Shi_StateMachine$State.class
-game\duofan\kenshi\card\FZL_PiaoSiXue.class
 game\duofan\kenshi\power\HuoYuJingShi.class
 game\duofan\kenshi\action\NotifyBaoYanDamageAction.class
 game\duofan\kenshi\card\XingJianLi_Card.class

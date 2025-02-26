@@ -83,6 +83,12 @@
       "斩杀 #r[NAME] ，以挖取 #r魔心 。"
     ]
   },
+  "game.duofan.kenshi:HuiMieZhiLu": {
+    "NAME": "毁灭之路",
+    "DESCRIPTIONS": [
+      " #r回合开始时 ，获得 #r%d 点 #r力量 ，失去 #r%d 点 #r敏捷 。"
+    ]
+  },
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "轻身坠",
     "DESCRIPTIONS": [

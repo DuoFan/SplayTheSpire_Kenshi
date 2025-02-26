@@ -49,6 +49,11 @@
     "DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:魔心 。 NL 即逝 ",
     "UPGRADE_DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:魔心 。 NL 即逝 "
   },
+  "game.duofan.kenshi:HuiMieZhiLu_Card": {
+    "NAME": "毁灭之路",
+    "DESCRIPTION": "获得 !M! 点 力量 ， *回合开始时 ，获得1点 力量 ，失去1点 敏捷 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ， *回合开始时 ，获得1点 力量 ，失去1点 敏捷 。 NL 虚无 "
+  },
   "game.duofan.kenshi:QinXi": {
     "NAME": "侵袭",
     "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。",
@@ -109,8 +114,8 @@
     "DESCRIPTION": " 固有 NL 造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。",
     "UPGRADE_DESCRIPTION": " 固有 NL 造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。"
   },
-  "game.duofan.kenshi:FZL_PiaoSiXue": {
-    "NAME": "飘似雪",
+  "game.duofan.kenshi:FZL_Piao": {
+    "NAME": "飘",
     "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :获得1层 duofan_kenshi:攻势 。"
   },
@@ -261,8 +266,8 @@
   },
   "game.duofan.kenshi:YanZL_LiaoYuanJianQi": {
     "NAME": "燎原剑气",
-    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :额外造成1点  duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :额外造成1点  duofan_kenshi:爆炎伤害 。"
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :将目标的  duofan_kenshi:熔融 翻倍。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :将目标的  duofan_kenshi:熔融 翻倍。"
   },
   "game.duofan.kenshi:YanZL_LuoXuanYan": {
     "NAME": "螺旋焰",

@@ -62,9 +62,13 @@ public class YanZL_LiaoYuanJianQi extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void yanZhiLiuEffect() {
         if (targetMonster != null) {
-            AbstractPlayer p = AbstractDungeon.player;
-            Utils.giveBaoYanDamage(p, targetMonster, Utils.modifyDamageByRongRong(1, targetMonster),
-                    DamageInfo.DamageType.NORMAL);
+            Utils.addToBotAbstract(() -> {
+                if (targetMonster.hasPower(RongRong.POWER_ID)) {
+                    int amount = targetMonster.getPower(RongRong.POWER_ID).amount;
+                    AbstractPlayer p = AbstractDungeon.player;
+                    Utils.givePowerTop(p, targetMonster, new RongRong(targetMonster, amount));
+                }
+            });
         }
     }
 

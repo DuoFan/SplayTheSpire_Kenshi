@@ -1,9 +1,9 @@
 {
-  "game.duofan.kenshi:ChiYou": {
-    "NAME": "赤幽",
+  "game.duofan.kenshi:JianShuYaoLing": {
+    "NAME": "剑术要领",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      " #r战斗开始时 ，获得 #rduofan_kenshi:诸流百家 ， #r回合开始时，获得 #r2 层 #rduofan_kenshi:架势 "
+      " 打出的每张 #y流派卡牌 可获得20点 #y感悟 ，战斗结束时若有100点感悟，掉落1张 #y流派卡牌(不包含稀有卡) 。 NL 掉落3次后，获得的 #y感悟 减少为5点。"
     ]
   },
   "game.duofan.kenshi:MoXin": {

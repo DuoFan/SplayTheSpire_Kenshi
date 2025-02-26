@@ -9,7 +9,7 @@ public class RelicsRegister implements EditRelicsSubscriber {
     @Override
     public void receiveEditRelics() {
 
-        BaseMod.addRelic(new ChiYou(), RelicType.SHARED);
+        BaseMod.addRelic(new JianShuYaoLing(), RelicType.SHARED);
         BaseMod.addRelic(new MoXin(), RelicType.SHARED);
     }
 }
