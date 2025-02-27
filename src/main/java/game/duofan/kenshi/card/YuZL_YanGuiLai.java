@@ -30,8 +30,8 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
 
     public YuZL_YanGuiLai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 3;
-        magicNumber = baseMagicNumber = 1;
+        block = baseBlock = 4;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -108,5 +108,10 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.YuZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.power.BaiJiaZhiChang;
 import game.duofan.kenshi.power.XinSuiYiDong;
 
 public class XinSuiYiDong_Card extends CustomCard {

@@ -23,12 +23,13 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new ZhuoJiu());
         cards.add(new XingJianLi_Card());
         cards.add(new YiJianHuiYou_Card());
-        cards.add(new BaiJiaZhiChang_Card());
+        cards.add(new GongFaShanZhuan_Card());
         cards.add(new XinSuiYiDong_Card());
         cards.add(new JiYiXingTai_Card());
         cards.add(new QianBianWanHua());
         cards.add(new TuMoLing_Card());
-        cards.add(new HuiMieZhiLu_Card());
+        cards.add(new XiuLuoZhiDao_Card());
+        cards.add(new JingTingXueYe_Card());
 
         cards.add(new QinXi());
 

@@ -83,4 +83,9 @@ public class FZL_ShuangFaQiYi_KuXinFa extends CustomCard implements IFengZhiLiuC
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.FengZhiLiu;
     }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
+    }
 }

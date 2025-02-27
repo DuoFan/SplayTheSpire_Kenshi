@@ -31,9 +31,11 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    DamageInfo info;
+
     public XZL_HeQiZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 6;
+        int baseValue = 8;
         this.damage = this.baseDamage = baseValue;
         magicNumber = baseMagicNumber = 2;
     }
@@ -42,9 +44,6 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-
-            upgradeDamage(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -58,11 +57,9 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            updateDamage();
-        }
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        Utils.playerGainQi(1);
+        info = new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL);
+        this.addToBot(new DamageAction(m, info));
     }
 
     @Override
@@ -72,7 +69,7 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             int qiAmount = Utils.getQiAmount();
-            if(qiAmount > 0){
+            if (qiAmount > 0) {
                 this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
             }
         }
@@ -80,17 +77,29 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-
+        if (info != null) {
+            int d = Utils.getQiAmount() * magicNumber;
+            info.output += d;
+            damage += d;
+            System.out.println("------------------" + d);
+            System.out.println("------------------" + info.output);
+            this.initializeDescription();
+        }
     }
 
-    void updateDamage(){
-        int qiAmount = Utils.getQiAmount();
-        damage += qiAmount * magicNumber;
-        this.initializeDescription();
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        info = null;
     }
 
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return true;
     }
 }

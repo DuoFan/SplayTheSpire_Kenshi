@@ -87,7 +87,7 @@
     "NAMES": [
       "破败"
     ],
-    "DESCRIPTION": "生命值低于 #r25% 时，死亡。 NL 每 #r额外 的1层，使该数值增加 2% #r(boss) /5% #r(非boss) /20% #r(爪牙) 。 "
+    "DESCRIPTION": "生命值低于 #r25% 时，死亡。 NL 每 #r额外 的1层，使该数值增加 2% #r(boss) /5% #r(非boss) /20% #r(爪牙) 。"
   },
   {
     "NAMES": [

@@ -11,16 +11,17 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.DrawCardByClassAction;
+import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.power.ILiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.XingJianLi;
 
-public class XingJianLi_Card extends CustomCard {
+public class XingJianLi_Card extends CustomCard implements IDoCard {
     public static final String ID = IDManager.getInstance().getID(XingJianLi_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -56,11 +57,13 @@ public class XingJianLi_Card extends CustomCard {
             this.addToBot(new ExhaustAction(1, true, false, false));
         }
 
-        Liu_StateMachine.StateEnum curliu = Liu_StateMachine.getInstance().getLiu();
-        if (curliu == Liu_StateMachine.StateEnum.None) {
-            addToBot(new DrawCardByClassAction(1, ILiuCard.class));
-        } else {
-            Utils.playerGainPower(new XingJianLi(p, 1));
+        addToBot(new DrawCardByClassAction(1, ILiuCard.class, this));
+    }
+
+    @Override
+    public void DoCard(AbstractCard card) {
+        if (card.cost > 0 || card.costForTurn > 0) {
+            card.modifyCostForCombat(-1);
         }
     }
 }

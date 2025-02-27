@@ -34,7 +34,7 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_BaiXiaZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 5;
+        int baseValue = 9;
         this.damage = this.baseDamage = baseValue;
         magicNumber = baseMagicNumber = 1;
     }
@@ -82,5 +82,10 @@ public class XZL_BaiXiaZhan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

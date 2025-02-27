@@ -27,7 +27,7 @@ public class YeBu extends CustomCard {
 
     public YeBu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 5;
         exhaust = true;
     }
 

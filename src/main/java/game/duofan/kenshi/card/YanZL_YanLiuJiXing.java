@@ -95,4 +95,9 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.YanZhiLiu;
     }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
+    }
 }

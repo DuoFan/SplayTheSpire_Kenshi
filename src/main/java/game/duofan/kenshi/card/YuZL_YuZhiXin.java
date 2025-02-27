@@ -76,4 +76,9 @@ public class YuZL_YuZhiXin extends CustomCard implements IYuZhiLiuCard {
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.YuZhiLiu;
     }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
+    }
 }

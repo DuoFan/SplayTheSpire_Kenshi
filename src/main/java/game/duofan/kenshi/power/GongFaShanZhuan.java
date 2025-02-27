@@ -1,23 +1,25 @@
 package game.duofan.kenshi.power;
 
+import basemod.interfaces.OnPlayerDamagedSubscriber;
+import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import game.duofan.common.EventKey;
-import game.duofan.common.EventManager;
-import game.duofan.common.IDManager;
-import game.duofan.common.IEventListener;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import game.duofan.common.*;
 
-public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
+public class GongFaShanZhuan extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(BaiJiaZhiChang.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(GongFaShanZhuan.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -25,7 +27,7 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BaiJiaZhiChang(AbstractCreature owner, int amount) {
+    public GongFaShanZhuan(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -38,39 +40,33 @@ public class BaiJiaZhiChang extends AbstractPower implements IEventListener {
         String path48 = "ExampleModResources/img/powers/Example32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
-
-        this.updateDescription();
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], Math.max(0,amount));
+        this.description = String.format(DESCRIPTIONS[0], amount, amount);
     }
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
+        this.updateDescription();
     }
 
     @Override
-    public void onVictory() {
-        super.onVictory();
-        EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
-    }
-
-    @Override
-    public void onDeath() {
-        super.onDeath();
-        EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
-    }
-
-    @Override
-    public void OnEvent(Object sender, Object e) {
-
-        if(amount > 0){
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(
-                    AbstractDungeon.player,amount
-            ));
+    public void onUseCard(AbstractCard card, UseCardAction action) {
+        super.onUseCard(card, action);
+        if (action.target instanceof AbstractMonster) {
+            Utils.addToBotAbstract(() -> {
+                if (action.target.lastDamageTaken > 0) {
+                    Utils.playerGainPower(new VigorPower(AbstractDungeon.player, amount));
+                }
+            });
         }
+    }
+
+    @Override
+    public int onLoseHp(int damageAmount) {
+        Utils.playerGainBlockTop(amount);
+        return super.onLoseHp(damageAmount);
     }
 }

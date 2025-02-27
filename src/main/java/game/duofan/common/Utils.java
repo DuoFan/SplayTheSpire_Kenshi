@@ -94,14 +94,22 @@ public class Utils {
     public interface Lambda extends Runnable {
     }
 
-    public static void invokeLiuCardEffectOnBottom(AbstractCard card) {
+    public static void invokeLiuCardEffectWithTiming(AbstractCard card) {
         if (card == null) {
             return;
         }
 
-        Utils.addToBotAbstract(() -> {
-            invokeLiuCardEffect(card);
-        });
+        boolean isInvokeToTop = ((ILiuCard)card).isInvokeLiuEffectToTop();
+        if(isInvokeToTop){
+            Utils.addToTopAbstract(() -> {
+                invokeLiuCardEffect(card);
+            });
+        }
+        else{
+            Utils.addToBotAbstract(() -> {
+                invokeLiuCardEffect(card);
+            });
+        }
     }
 
     public static void invokeLiuCardEffect(AbstractCard card) {
@@ -131,9 +139,17 @@ public class Utils {
             return;
         }
 
-        Utils.addToBotAbstract(() -> {
-            card.xiaZhiLiuEffect(isByQi);
-        });
+        boolean isInvokeToTop = card.isInvokeLiuEffectToTop();
+        if(isInvokeToTop){
+            Utils.addToTopAbstract(() -> {
+                card.xiaZhiLiuEffect(isByQi);
+            });
+        }
+        else{
+            Utils.addToBotAbstract(() -> {
+                card.xiaZhiLiuEffect(isByQi);
+            });
+        }
     }
 
     public static void makeTempCardInDrawPileAction(AbstractCard card, int amount, boolean randomSpot, boolean autoPosition) {
@@ -250,6 +266,13 @@ public class Utils {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(o, amount));
     }
 
+    public static void gainBlockTop(AbstractCreature o, int amount) {
+        if (o == null) {
+            return;
+        }
+        AbstractDungeon.actionManager.addToTop(new GainBlockAction(o, amount));
+    }
+
     public static void gainHeal(AbstractCreature o, int amount) {
         if (o == null) {
             return;
@@ -305,6 +328,11 @@ public class Utils {
     public static void playerGainBlock(int amount) {
         AbstractPlayer p = AbstractDungeon.player;
         gainBlock(p, amount);
+    }
+
+    public static void playerGainBlockTop(int amount) {
+        AbstractPlayer p = AbstractDungeon.player;
+        gainBlockTop(p, amount);
     }
 
     public static void playerGainQi(int amount) {
@@ -402,7 +430,7 @@ public class Utils {
             cards.add(new YuZL_YingGe());
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_YanGuiLai());
-            cards.add(new YuZL_GuHongZhaoYing());
+            cards.add(new YuZL_GuHong());
             cards.add(new YuZL_XueSeDieMu());
             cards.add(new YuZL_ShuangHuiQiEr_HuXinHui());
             cards.add(new YuZL_BuSiNiao());
@@ -422,6 +450,22 @@ public class Utils {
             cards.add(new YanZL_LianYu());
             cards.add(new YanZL_ShuangFaQiEr_ZhuoXinFa());
             cards.add(new YanZL_LieHuoChang());
+        }
+
+        return cards;
+    }
+
+    public static ArrayList<AbstractCard> getCardsFromLiuExcludeImportantCard(int flag) {
+        Liu_StateMachine stateMachine = Liu_StateMachine.getInstance();
+
+        ArrayList<AbstractCard> cards = getCardsFromLiu(flag);
+
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
+            cards.removeIf((x) -> x.cardID.equals(FZL_Ji_FanShi_Card.ID));
+        }
+
+        if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
+            cards.removeIf((x) -> x.cardID.equals(YuZL_BuSiNiao.ID));
         }
 
         return cards;

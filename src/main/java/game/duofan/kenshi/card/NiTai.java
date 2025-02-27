@@ -28,14 +28,14 @@ public class NiTai extends CustomCard {
 
     public NiTai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -54,7 +54,7 @@ public class NiTai extends CustomCard {
             if(Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None){
                 targetCard = c;
                 for (int i = 0; i < magicNumber; i++) {
-                    Utils.invokeLiuCardEffectOnBottom(targetCard);
+                    Utils.invokeLiuCardEffectWithTiming(targetCard);
                 }
             }
             else{

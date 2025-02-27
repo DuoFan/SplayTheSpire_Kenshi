@@ -1,11 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.unique.DamagePerAttackPlayedAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -13,12 +10,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.kenshi.action.RepeatAction;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_KuangFengJuanYe extends CustomCard implements IFengZhiLiuCard {
@@ -45,7 +42,6 @@ public class FZL_KuangFengJuanYe extends CustomCard implements IFengZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(3);
-            this.upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -62,12 +58,12 @@ public class FZL_KuangFengJuanYe extends CustomCard implements IFengZhiLiuCard {
         this.addToBot(new DamageAction(
                 m,new DamageInfo(p,this.damage, DamageInfo.DamageType.NORMAL)
         ));
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,1);
+        addToBot(new DrawCardAction(1));
     }
-
     @Override
     public void fengZhiLiuEffect() {
-        addToBot(new DrawCardAction(1));
+        AbstractPlayer p = AbstractDungeon.player;
+        Utils.gainPower(p, new VigorPower(p, magicNumber));
     }
 
     @Override
@@ -84,5 +80,10 @@ public class FZL_KuangFengJuanYe extends CustomCard implements IFengZhiLiuCard {
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

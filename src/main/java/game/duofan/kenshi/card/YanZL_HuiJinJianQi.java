@@ -32,7 +32,7 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
 
     public YanZL_HuiJinJianQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 6;
+        damage = baseDamage = 8;
         magicNumber = baseMagicNumber = 1;
         BaoYanCardManager.getInstance().addCard(this);
     }
@@ -104,5 +104,10 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.YanZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

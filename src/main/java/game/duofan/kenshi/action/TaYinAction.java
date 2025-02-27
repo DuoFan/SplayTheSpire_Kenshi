@@ -68,7 +68,7 @@ public class TaYinAction extends AbstractGameAction {
 
         while (derp.size() != 3) {
             int index = AbstractDungeon.cardRandomRng.random(0, list.size() - 1);
-            liuCards = Utils.getCardsFromLiu(list.get(index).getValue());
+            liuCards = Utils.getCardsFromLiuExcludeImportantCard(list.get(index).getValue());
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, false);
             if (c.cardID.equals(YuZL_BuSiNiao.ID)) {
                 liuCards.remove(c);

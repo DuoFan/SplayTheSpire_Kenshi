@@ -83,4 +83,9 @@ public class XZL_PoXiao extends CustomCard implements IXiaZhiLiuCard, IQiMin {
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.XiaZhiLiu;
     }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
+    }
 }

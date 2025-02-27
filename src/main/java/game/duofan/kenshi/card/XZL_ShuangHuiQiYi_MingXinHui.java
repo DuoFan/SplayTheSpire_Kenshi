@@ -80,4 +80,9 @@ public class XZL_ShuangHuiQiYi_MingXinHui extends CustomCard implements IXiaZhiL
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.XiaZhiLiu;
     }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
+    }
 }

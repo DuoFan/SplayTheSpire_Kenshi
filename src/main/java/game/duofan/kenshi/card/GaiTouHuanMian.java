@@ -68,7 +68,7 @@ public class GaiTouHuanMian extends CustomCard {
     }
 
     void addLiuCards(int amount){
-        ArrayList cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
+        ArrayList cards = Utils.getCardsFromLiuExcludeImportantCard(Liu_StateMachine.StateEnum.All.getValue());
 
         for (int i = 0; i < amount; i++) {
             AbstractCard card = Utils.getRandomCardsFromList(cards,true);

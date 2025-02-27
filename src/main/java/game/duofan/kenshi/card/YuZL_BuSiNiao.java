@@ -19,27 +19,25 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-    static float liuPercentage = 0.3f;
-
     public YuZL_BuSiNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        FleetingField.fleeting.set(this, true);
         isEthereal = true;
+        magicNumber = baseMagicNumber = 4;
+        cardsToPreview = new BuSiNiaoZhiYu();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            selfRetain = true;
-            isEthereal = false;
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -53,6 +51,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         Utils.playerGainPower(new BuSiNiao(p));
     }
 
@@ -71,12 +70,16 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
         AbstractPlayer p = AbstractDungeon.player;
         if (p.hasPower(BuSiNiao.POWER_ID)) {
             BuSiNiao power = (BuSiNiao) p.getPower(BuSiNiao.POWER_ID);
-            power.setRestorePercentage(liuPercentage);
         }
     }
 
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.YuZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

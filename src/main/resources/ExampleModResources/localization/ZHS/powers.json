@@ -5,12 +5,6 @@
       "打出流派卡后，进入对应 #r流派 。"
     ]
   },
-  "game.duofan.kenshi:BaiJiaZhiChang": {
-    "NAME": "百家之长",
-    "DESCRIPTIONS": [
-      "每次改变 #r流派 时，获得 #r%d点 格挡。"
-    ]
-  },
   "game.duofan.kenshi:XingJianLi": {
     "NAME": "行剑礼",
     "DESCRIPTIONS": [
@@ -21,6 +15,12 @@
     "NAME": "以剑会友",
     "DESCRIPTIONS": [
       "本回合下 #r%d 张 #r攻击牌  会打出 #r2 次。"
+    ]
+  },
+  "game.duofan.kenshi:GongFaShanZhuan": {
+    "NAME": "攻伐闪转",
+    "DESCRIPTIONS": [
+      "每次造成伤害时，获得 #r%d 点 #r活力 ，受到伤害时，获得 #r%d 点 #r格挡 。"
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
@@ -83,10 +83,16 @@
       "斩杀 #r[NAME] ，以挖取 #r魔心 。"
     ]
   },
-  "game.duofan.kenshi:HuiMieZhiLu": {
-    "NAME": "毁灭之路",
+  "game.duofan.kenshi:XiuLuoZhiDao": {
+    "NAME": "修罗之道",
     "DESCRIPTIONS": [
       " #r回合开始时 ，获得 #r%d 点 #r力量 ，失去 #r%d 点 #r敏捷 。"
+    ]
+  },
+  "game.duofan.kenshi:JingTingXueYe": {
+    "NAME": "静听雪夜",
+    "DESCRIPTIONS": [
+      "本回合若打出的 #r攻击牌 少于4张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -153,18 +159,6 @@
     "NAME": "极·反式",
     "DESCRIPTIONS": [
       "你将总是从 #r弃牌堆 抽取卡牌。"
-    ]
-  },
-  "game.duofan.kenshi:YingZhiLiu": {
-    "NAME": "影之流",
-    "DESCRIPTIONS": [
-      "可触发 #r影之流 效果，回合结束时移除。"
-    ]
-  },
-  "game.duofan.kenshi:YingZhiXin": {
-    "NAME": "影之心",
-    "DESCRIPTIONS": [
-      "每回合首次进入 #r影之流 时，遁入暗影。"
     ]
   },
   "game.duofan.kenshi:XiaZhiLiu": {

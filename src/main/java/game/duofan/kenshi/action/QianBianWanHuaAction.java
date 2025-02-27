@@ -20,7 +20,7 @@ public class QianBianWanHuaAction extends AbstractGameAction {
 
     public void update() {
         if (amount > 0) {
-            ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
+            ArrayList<AbstractCard> cards = Utils.getCardsFromLiuExcludeImportantCard(Liu_StateMachine.StateEnum.All.getValue());
             Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
             while (amount > 0) {
                 AbstractCard c = Utils.getRandomCardsFromList(cards, false);

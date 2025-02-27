@@ -1,8 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,33 +11,34 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.BeiShouGuanZhao;
-import game.duofan.kenshi.power.HuiMieZhiLu;
-import game.duofan.kenshi.power.TuMoLing;
+import game.duofan.kenshi.power.JingTingXueYe;
+import game.duofan.kenshi.power.XiuLuoZhiDao;
 
-public class HuiMieZhiLu_Card extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(HuiMieZhiLu_Card.class);
+public class JingTingXueYe_Card extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(JingTingXueYe_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-    public HuiMieZhiLu_Card() {
+    public static int attackLimit = 4;
+
+    public JingTingXueYe_Card() {
+
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        isEthereal = true;
-        magicNumber = baseMagicNumber = 2;
+        exhaust = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -53,8 +52,6 @@ public class HuiMieZhiLu_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        Utils.playerGainPower(new StrengthPower(p, magicNumber));
-        Utils.playerGainPower(new HuiMieZhiLu(p, 1));
+        Utils.playerGainPower(new JingTingXueYe(p, 1));
     }
 }
