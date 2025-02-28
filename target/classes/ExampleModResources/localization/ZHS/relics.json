@@ -3,11 +3,12 @@
     "NAME": "剑术要领",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "接下来的5场战斗，额外掉落1张 #y罕见流派卡牌 。"
+      " #r待实现 NL 接下来的 #r5 场战斗，额外掉落1张 #y罕见流派卡牌 。",
+      "这个祝福已经耗尽。"
     ]
   },
-  "game.duofan.kenshi:MoXin": {
-    "NAME": "魔心",
+  "game.duofan.kenshi:YiQi": {
+    "NAME": "义旗",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
       " #r战斗开始时 ， #r夺取 随机敌人1点 #r力量 。"

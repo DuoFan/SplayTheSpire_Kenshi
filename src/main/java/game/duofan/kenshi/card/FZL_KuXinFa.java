@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -14,26 +13,28 @@ import game.duofan.common.Utils;
 import game.duofan.kenshi.action.DrawCardByClassAction;
 import game.duofan.kenshi.power.*;
 
-public class XZL_ShuangHuiQiYi_MingXinHui extends CustomCard implements IXiaZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(XZL_ShuangHuiQiYi_MingXinHui.class);
+public class FZL_KuXinFa extends CustomCard implements IFengZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(FZL_KuXinFa.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.ENEMY;
 
-    public XZL_ShuangHuiQiYi_MingXinHui() {
+    public FZL_KuXinFa() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 1;
-        this.cardsToPreview = new YuZL_ShuangHuiQiEr_HuXinHui(true);
+        this.cardsToPreview = new YanZL_ZhuoXinFa(true);
     }
 
-    public XZL_ShuangHuiQiYi_MingXinHui(boolean dontPreview) {
+    public FZL_KuXinFa(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
@@ -41,6 +42,7 @@ public class XZL_ShuangHuiQiYi_MingXinHui extends CustomCard implements IXiaZhiL
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
+            upgradeDamage(3);
             this.upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -55,9 +57,9 @@ public class XZL_ShuangHuiQiYi_MingXinHui extends CustomCard implements IXiaZhiL
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainEnergy(1);
-        Utils.playerGainQi(magicNumber);
-        AbstractCard c = new YuZL_ShuangHuiQiEr_HuXinHui();
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.givePower(p, m, new PoBai(m, magicNumber));
+        AbstractCard c = new YanZL_ZhuoXinFa();
         Utils.makeTempCardInHand(c, 1);
     }
 
@@ -65,20 +67,20 @@ public class XZL_ShuangHuiQiYi_MingXinHui extends CustomCard implements IXiaZhiL
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void xiaZhiLiuEffect(boolean isByQi) {
-        addToBot(new DrawCardByClassAction(1, IYuZhiLiuCard.class));
+    public void fengZhiLiuEffect() {
+        addToBot(new DrawCardByClassAction(1, IYanZhiLiuCard.class));
     }
 
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
     }
 
     @Override

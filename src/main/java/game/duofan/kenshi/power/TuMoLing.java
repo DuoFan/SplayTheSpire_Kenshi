@@ -1,12 +1,8 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -14,10 +10,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import game.duofan.common.*;
-import game.duofan.kenshi.action.BaDaoZhanAction;
-import game.duofan.kenshi.relic.MoXin;
+import game.duofan.kenshi.relic.YiQi;
 
 public class TuMoLing extends AbstractPower {
 
@@ -69,13 +63,13 @@ public class TuMoLing extends AbstractPower {
                 return;
             }
             if ((owner.isDying || owner.currentHealth <= 0) && !owner.halfDead) {
-                if (AbstractDungeon.player.hasRelic(MoXin.ID)) {
+                if (AbstractDungeon.player.hasRelic(YiQi.ID)) {
                     return;
                 }
                 AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
                         Settings.WIDTH / 2.0f,
                         Settings.HEIGHT / 2.0f,
-                        new MoXin() // 你的自定义遗物实例
+                        new YiQi() // 你的自定义遗物实例
                 );
                 Utils.removePower(owner, ID);
             }

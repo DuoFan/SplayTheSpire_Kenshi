@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
@@ -91,13 +92,8 @@ public class KenShi extends CustomPlayer {
         for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(ZhuoJiu.ID);
-        retVal.add(FZL_Piao.ID);
-
-        retVal.add(FZL_KuangFengJuanYe.ID);
-        retVal.add(FZL_KuangFengJuanYe.ID);
-        retVal.add(FZL_KuangFengJuanYe.ID);
-        retVal.add(FZL_KuangFengJuanYe.ID);
+        retVal.add(ZhuoJiuBei.ID);
+        retVal.add(FZL_BaiHuaSha.ID);
         return retVal;
     }
 

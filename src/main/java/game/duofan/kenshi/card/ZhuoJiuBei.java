@@ -1,44 +1,38 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.power.BeiShouGuanZhao;
-import game.duofan.kenshi.power.TuMoLing;
+import game.duofan.kenshi.power.Shi_StateMachine;
 
-public class TuMoLing_Card extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(TuMoLing_Card.class);
+public class ZhuoJiuBei extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(ZhuoJiuBei.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.ENEMY;
+    private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public TuMoLing_Card() {
+    public ZhuoJiuBei() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        FleetingField.fleeting.set(this, true);
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(0);
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            upgradeMagicNumber(1);
+            exhaust = true;
         }
     }
 
@@ -50,6 +44,6 @@ public class TuMoLing_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.givePower(p, m, new TuMoLing(m));
+        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi,magicNumber);
     }
 }

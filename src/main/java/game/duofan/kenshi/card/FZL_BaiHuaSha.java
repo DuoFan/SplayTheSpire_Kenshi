@@ -1,26 +1,26 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.watcher.FollowUpAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
+import javax.swing.*;
+import java.util.ArrayList;
 
-    public static final String ID = IDManager.getInstance().getID(XZL_HeQiZhan.class);
+public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
+
+    public static final String ID = IDManager.getInstance().getID(FZL_BaiHuaSha.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -31,19 +31,24 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    DamageInfo info;
+    AbstractMonster targetMonster;
 
-    public XZL_HeQiZhan() {
+    int d1;
+    int d2;
+
+    public FZL_BaiHuaSha() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 8;
-        this.damage = this.baseDamage = baseValue;
-        magicNumber = baseMagicNumber = 2;
+        this.damage = this.baseDamage = 4;
+        magicNumber = baseMagicNumber = 1;
     }
+
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.upgradeDamage(2); // 将该卡牌的伤害提高3点。
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -57,49 +62,71 @@ public class XZL_HeQiZhan extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainQi(1);
-        info = new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL);
-        this.addToBot(new DamageAction(m, info));
+        targetMonster = m;
+
+        AbstractGameAction a1 = new DamageAction(
+                m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
+        );
+        addToBot(a1);
+        Utils.addToBotAbstract(() ->{
+            d1 = m.lastDamageTaken;
+        });
+        AbstractGameAction a2 = new DamageAction(
+                m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
+        );
+        addToBot(a2);
+        Utils.addToBotAbstract(() ->{
+            d2 = m.lastDamageTaken;
+        });
+    }
+
+    @Override
+    public void triggerOnManualDiscard() {
+        super.triggerOnManualDiscard();
+        targetMonster = null;
+        d1 = 0;
+        d2 = 0;
+    }
+
+    @Override
+    public void triggerWhenDrawn() {
+        super.triggerWhenDrawn();
+        targetMonster = null;
+        d1 = 0;
+        d2 = 0;
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            int qiAmount = Utils.getQiAmount();
-            if (qiAmount > 0) {
-                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    @Override
+    public void fengZhiLiuEffect() {
+        if (targetMonster != null) {
+            AbstractMonster m = targetMonster;
+            if (d1 > 0) {
+                Utils.givePowerTop(AbstractDungeon.player, m, new PoBai(m, 1));
+            }
+
+            if(d2 > 0){
+                Utils.givePowerTop(AbstractDungeon.player, m, new PoBai(m, 1));
             }
         }
     }
 
     @Override
-    public void xiaZhiLiuEffect(boolean isByQi) {
-        if (info != null) {
-            int d = Utils.getQiAmount() * magicNumber;
-            info.output += d;
-            damage += d;
-            System.out.println("------------------" + d);
-            System.out.println("------------------" + info.output);
-            this.initializeDescription();
-        }
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        info = null;
-    }
-
-    @Override
     public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
     }
 
     @Override
     public boolean isInvokeLiuEffectToTop() {
-        return true;
+        return false;
     }
 }

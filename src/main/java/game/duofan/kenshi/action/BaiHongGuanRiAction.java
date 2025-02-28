@@ -1,22 +1,19 @@
 package game.duofan.kenshi.action;//
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import game.duofan.common.Utils;
 
-public class BaDaoZhanAction extends AbstractGameAction {
+public class BaiHongGuanRiAction extends AbstractGameAction {
 
     private DamageInfo info;
     private static final float DURATION = 0.1F;
 
-    public BaDaoZhanAction(AbstractCreature target, DamageInfo info) {
+    public BaiHongGuanRiAction(AbstractCreature target, DamageInfo info) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;

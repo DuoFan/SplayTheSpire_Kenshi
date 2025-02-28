@@ -60,6 +60,20 @@ public class Utils {
         card.initializeDescription(); // 确保描述刷新
     }
 
+    public static void insertAbstract(Lambda func, int index) {
+        AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
+            @Override
+            public void update() {
+                func.run();
+                isDone = true;
+            }
+        });
+        int tail = AbstractDungeon.actionManager.actions.size() - 1;
+        AbstractGameAction a = AbstractDungeon.actionManager.actions.get(tail);
+        AbstractDungeon.actionManager.actions.remove(tail);
+        AbstractDungeon.actionManager.actions.add(index, a);
+    }
+
     public static void addToBotAbstract(Lambda func) {
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
@@ -99,13 +113,12 @@ public class Utils {
             return;
         }
 
-        boolean isInvokeToTop = ((ILiuCard)card).isInvokeLiuEffectToTop();
-        if(isInvokeToTop){
+        boolean isInvokeToTop = ((ILiuCard) card).isInvokeLiuEffectToTop();
+        if (isInvokeToTop) {
             Utils.addToTopAbstract(() -> {
                 invokeLiuCardEffect(card);
             });
-        }
-        else{
+        } else {
             Utils.addToBotAbstract(() -> {
                 invokeLiuCardEffect(card);
             });
@@ -140,12 +153,11 @@ public class Utils {
         }
 
         boolean isInvokeToTop = card.isInvokeLiuEffectToTop();
-        if(isInvokeToTop){
+        if (isInvokeToTop) {
             Utils.addToTopAbstract(() -> {
                 card.xiaZhiLiuEffect(isByQi);
             });
-        }
-        else{
+        } else {
             Utils.addToBotAbstract(() -> {
                 card.xiaZhiLiuEffect(isByQi);
             });
@@ -402,13 +414,13 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
             cards.add(new FZL_YaZhi());
-            cards.add(new FZL_Piao());
-            cards.add(new FZL_KuangFengJuanYe());
+            cards.add(new FZL_BaiHuaSha());
+            cards.add(new FZL_QiuFengPo());
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_HeFengZhan());
             cards.add(new FZL_LieFengZhan());
-            cards.add(new FZL_ShuangFaQiYi_KuXinFa());
+            cards.add(new FZL_KuXinFa());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_WuBianLuoMu());
             cards.add(new FZL_Ji_FanShi_Card());
@@ -417,10 +429,11 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
+            cards.add(new BaiHongGuanRi());
             cards.add(new XZL_CaiYunZhuiYue());
             cards.add(new XZL_BaiXiaZhan());
-            cards.add(new XZL_HeQiZhan());
-            cards.add(new XZL_ShuangHuiQiYi_MingXinHui());
+            cards.add(new XZL_QiChongDouNiu());
+            cards.add(new XZL_MingXinHui());
             cards.add(new XZL_PoXiao());
             cards.add(new XZL_XiaZhiXin());
         }
@@ -432,7 +445,7 @@ public class Utils {
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
             cards.add(new YuZL_XueSeDieMu());
-            cards.add(new YuZL_ShuangHuiQiEr_HuXinHui());
+            cards.add(new YuZL_HuXinHui());
             cards.add(new YuZL_BuSiNiao());
             cards.add(new YuZL_YuZhiXin());
         }
@@ -448,7 +461,7 @@ public class Utils {
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_ZhuoXinLiu());
             cards.add(new YanZL_LianYu());
-            cards.add(new YanZL_ShuangFaQiEr_ZhuoXinFa());
+            cards.add(new YanZL_ZhuoXinFa());
             cards.add(new YanZL_LieHuoChang());
         }
 

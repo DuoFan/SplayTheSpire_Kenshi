@@ -1,7 +1,6 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -11,16 +10,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.*;
-import game.duofan.kenshi.card.JingTingXueYe_Card;
+import game.duofan.kenshi.card.JingYeSi_Card;
 
 import java.util.ArrayList;
 
-public class JingTingXueYe extends AbstractPower {
+public class JingYeSi extends AbstractPower {
 
-    static final String POWER_ID = IDManager.getInstance().getID(JingTingXueYe.class);
+    static final String POWER_ID = IDManager.getInstance().getID(JingYeSi.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -28,7 +25,7 @@ public class JingTingXueYe extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public JingTingXueYe(AbstractCreature owner, int amount) {
+    public JingYeSi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -77,7 +74,7 @@ public class JingTingXueYe extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         int attackAmount = stasticsAttackCardPlayedInTurn();
-        if (attackAmount < JingTingXueYe_Card.attackLimit) {
+        if (attackAmount < JingYeSi_Card.attackLimit) {
             flash();
             amount--;
             if(amount == 0){

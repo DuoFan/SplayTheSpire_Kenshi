@@ -4,18 +4,15 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.JingTingXueYe;
-import game.duofan.kenshi.power.XiuLuoZhiDao;
+import game.duofan.kenshi.power.JingYeSi;
 
-public class JingTingXueYe_Card extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(JingTingXueYe_Card.class);
+public class JingYeSi_Card extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(JingYeSi_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -28,7 +25,7 @@ public class JingTingXueYe_Card extends CustomCard {
 
     public static int attackLimit = 4;
 
-    public JingTingXueYe_Card() {
+    public JingYeSi_Card() {
 
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
@@ -52,6 +49,6 @@ public class JingTingXueYe_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new JingTingXueYe(p, 1));
+        Utils.playerGainPower(new JingYeSi(p, 1));
     }
 }

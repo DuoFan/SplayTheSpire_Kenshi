@@ -26,7 +26,6 @@ public class Shi_StateMachine {
 
     public Shi_StateMachine() {
         EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, new BattleStartListener());
-        EventManager.getInstance().registerToPersistEvent(EventKey.ON_TURN_START, new TurnStartListener());
     }
 
     public void reset() {
@@ -271,14 +270,6 @@ public class Shi_StateMachine {
         @Override
         public void OnEvent(Object sender, Object e) {
             reset();
-        }
-    }
-
-    class TurnStartListener implements IEventListener {
-
-        @Override
-        public void OnEvent(Object sender, Object e) {
-            addPower(Shi_StateMachine.StateEnum.JiaShi, 2);
         }
     }
 }

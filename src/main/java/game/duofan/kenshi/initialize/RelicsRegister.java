@@ -10,6 +10,6 @@ public class RelicsRegister implements EditRelicsSubscriber {
     public void receiveEditRelics() {
 
         BaseMod.addRelic(new JianShuYaoLing(), RelicType.SHARED);
-        BaseMod.addRelic(new MoXin(), RelicType.SHARED);
+        BaseMod.addRelic(new YiQi(), RelicType.SHARED);
     }
 }
