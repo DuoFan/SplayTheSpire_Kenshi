@@ -10,31 +10,33 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.YinXueDieAction;
 import game.duofan.kenshi.power.*;
 
-public class YuZL_XueSeDieMu extends CustomCard implements IYuZhiLiuCard {
+public class YuZL_YinXueDieCard extends CustomCard implements IYuZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YuZL_XueSeDieMu.class);
+    public static final String ID = IDManager.getInstance().getID(YuZL_YinXueDieCard.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public YuZL_XueSeDieMu() {
+    public AbstractCard targetCard;
+
+    public YuZL_YinXueDieCard() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(2);
+            upgradeBaseCost(0);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -48,21 +50,26 @@ public class YuZL_XueSeDieMu extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi, magicNumber);
-        Utils.playerGainPower(new XueSeDieMu(p));
+        addToBot(new YinXueDieAction(this));
+        Utils.addToBotAbstract(() -> {
+            if (targetCard != null) {
+                Utils.playerGainPowerTop(new YinXueDie(p, targetCard));
+            }
+        });
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        if(p == null){
-            return;
+        if (targetCard != null) {
+            Utils.playerGainPower(new ReturnToDrawPileAfterPlayed(AbstractDungeon.player, targetCard));
+            targetCard = null;
         }
-        if(!p.hasPower(XueSeDieMu.POWER_ID)){
-            return;
-        }
-        XueSeDieMu power = (XueSeDieMu) p.getPower(XueSeDieMu.POWER_ID);
-        power.flagGetBlock();
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        targetCard = null;
     }
 
     @Override

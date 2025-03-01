@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.TuMoLing;
+import game.duofan.kenshi.power.ZhanBaiShe;
 
 public class ZhanBaiShe_Card extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(ZhanBaiShe_Card.class);
@@ -27,6 +27,7 @@ public class ZhanBaiShe_Card extends CustomCard {
     public ZhanBaiShe_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         FleetingField.fleeting.set(this, true);
+        selfRetain = true;
     }
 
     @Override
@@ -47,6 +48,6 @@ public class ZhanBaiShe_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.givePower(p, m, new TuMoLing(m));
+        Utils.givePower(p, m, new ZhanBaiShe(m));
     }
 }

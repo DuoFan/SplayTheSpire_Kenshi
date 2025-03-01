@@ -77,10 +77,10 @@
       "试剑石还没有准备好。"
     ]
   },
-  "game.duofan.kenshi:TuMoLing": {
-    "NAME": "屠魔令",
+  "game.duofan.kenshi:ZhanBaiShe": {
+    "NAME": "斩白蛇",
     "DESCRIPTIONS": [
-      "斩杀 #r[NAME] ，以挖取 #r魔心 。"
+      "斩杀 #r[NAME] ，以获得 #r义旗 。"
     ]
   },
   "game.duofan.kenshi:XiuLuoZhiDao": {
@@ -89,10 +89,16 @@
       " #r回合开始时 ，获得 #r%d 点 #r力量 ，失去 #r%d 点 #r敏捷 。"
     ]
   },
-  "game.duofan.kenshi:JingTingXueYe": {
-    "NAME": "静听雪夜",
+  "game.duofan.kenshi:JingYeSi": {
+    "NAME": "静夜思",
     "DESCRIPTIONS": [
       "本回合若打出的 #r攻击牌 少于4张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
+    ]
+  },
+  "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
+    "NAME": "打出后返回",
+    "DESCRIPTIONS": [
+      "本回合打出 #r[NAME] 后，将其放回 #r抽牌堆 。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -125,10 +131,10 @@
       " #r下回合开始前无法受到伤害 ， #r回合开始时 回复 #r生命值 到 #r%d ，获得%d [E] ，抽取%d张卡牌。"
     ]
   },
-  "game.duofan.kenshi:XueSeDieMu": {
-    "NAME": "血色蝶幕",
+  "game.duofan.kenshi:YinXueDie": {
+    "NAME": "饮血蝶",
     "DESCRIPTIONS": [
-      " 本回合下次 #r打出卡牌 获得的格挡 ，转变为对 #r全体敌人 的伤害。"
+      "本回合 #r[NAME] 造成的未被 #r格挡 的伤害将获得等量 #r格挡 。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {

@@ -67,10 +67,12 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         Utils.effectJianShe(p, m, magicNumber);
         isUsing = true;
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             isUsing = false;
         });
-        shuffleBackIntoDrawPile = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
+        if (!shuffleBackIntoDrawPile) {
+            shuffleBackIntoDrawPile = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
+        }
     }
 
     @Override
@@ -78,6 +80,12 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
         if (!isUsing) {
             addToTop(new ReturnToDrawPileAction(this));
         }
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        shuffleBackIntoDrawPile = false;
     }
 
     @Override

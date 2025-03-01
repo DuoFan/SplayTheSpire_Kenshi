@@ -81,7 +81,7 @@
     "NAMES": [
       "义旗"
     ],
-    "DESCRIPTION": " #r遗物 ，战斗开始时， #r夺取 随机敌人1点 #r力量 。"
+    "DESCRIPTION": " #r遗物 ， #r不可重复获得 ，战斗开始时， #r夺取 随机敌人1点 #r力量 。"
   },
   {
     "NAMES": [
@@ -111,7 +111,7 @@
     "NAMES": [
       "熔融"
     ],
-    "DESCRIPTION": "使受到的 #r爆炎伤害 增加1点。 "
+    "DESCRIPTION": "受到的 #r爆炎伤害 增加1点。 "
   },
   {
     "NAMES": [

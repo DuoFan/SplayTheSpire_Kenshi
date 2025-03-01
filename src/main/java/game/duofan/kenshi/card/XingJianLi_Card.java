@@ -14,7 +14,6 @@ import game.duofan.kenshi.action.DrawCardByClassAction;
 import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.power.ILiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.XingJianLi;
 
 public class XingJianLi_Card extends CustomCard implements IDoCard {
     public static final String ID = IDManager.getInstance().getID(XingJianLi_Card.class);

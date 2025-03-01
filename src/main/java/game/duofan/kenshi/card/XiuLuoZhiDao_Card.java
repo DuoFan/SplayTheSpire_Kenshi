@@ -27,7 +27,7 @@ public class XiuLuoZhiDao_Card extends CustomCard {
     public XiuLuoZhiDao_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
@@ -49,7 +49,7 @@ public class XiuLuoZhiDao_Card extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        Utils.playerGainPower(new StrengthPower(p, magicNumber));
-        Utils.playerGainPower(new XiuLuoZhiDao(p, 1));
+        Utils.playerGainPower(new StrengthPower(p, 2));
+        Utils.playerGainPower(new XiuLuoZhiDao(p, magicNumber));
     }
 }

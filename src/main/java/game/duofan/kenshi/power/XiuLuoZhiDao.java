@@ -20,6 +20,8 @@ public class XiuLuoZhiDao extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    int loseAmount;
+
     public XiuLuoZhiDao(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -33,18 +35,29 @@ public class XiuLuoZhiDao extends AbstractPower {
         String path48 = "ExampleModResources/img/powers/Example32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+    }
 
+    @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        loseAmount = 1;
         this.updateDescription();
     }
 
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        loseAmount++;
+    }
+
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount);
+        this.description = String.format(DESCRIPTIONS[0], this.amount, loseAmount);
     }
 
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
         Utils.playerGainPower(new StrengthPower(owner, amount));
-        Utils.playerGainPower(new DexterityPower(owner, -amount));
+        Utils.playerGainPower(new DexterityPower(owner, -loseAmount));
     }
 }

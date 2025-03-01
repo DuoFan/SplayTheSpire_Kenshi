@@ -42,13 +42,11 @@ game\duofan\kenshi\power\TagCardManager.class
 game\duofan\kenshi\card\Defend.class
 game\duofan\kenshi\action\JianSheAction.class
 game\duofan\kenshi\card\YuZL_HuXinHui.class
-game\duofan\kenshi\power\XueSeDieMu.class
 game\duofan\kenshi\action\BaiHongGuanRiAction.class
 game\duofan\kenshi\card\YanZL_YanLiuJiXing.class
 game\duofan\kenshi\action\ICardFilter.class
 game\duofan\kenshi\power\JiYiXingTai.class
 game\duofan\kenshi\card\XinSuiYiDong_Card.class
-game\duofan\kenshi\card\YuZL_XueSeDieMu.class
 game\duofan\kenshi\initialize\CardRegister.class
 game\duofan\kenshi\card\NiTai.class
 game\duofan\kenshi\card\FZL_KuXinFa.class
@@ -64,11 +62,13 @@ game\duofan\kenshi\power\Ji_FanShi.class
 game\duofan\kenshi\card\JiYiXingTai_Card.class
 game\duofan\kenshi\card\YuZL_QingShenZhui.class
 game\duofan\kenshi\action\ReturnYanGuiLaiAction.class
+game\duofan\kenshi\card\YuZL_YinXueDieCard.class
 game\duofan\kenshi\power\ILiuCard.class
 game\duofan\kenshi\card\YiJianHuiYou_Card.class
 game\duofan\kenshi\card\BaiHongGuanRi.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
+game\duofan\kenshi\power\YinXueDie.class
 game\duofan\kenshi\relic\JianShuYaoLing.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\power\NiePan.class
@@ -76,6 +76,7 @@ game\duofan\kenshi\power\GongShi.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
 game\duofan\kenshi\power\RongRong.class
 game\duofan\kenshi\card\Strike.class
+game\duofan\kenshi\power\ZhanBaiShe.class
 game\duofan\kenshi\power\RecoverCardManager.class
 game\duofan\kenshi\card\TaYin.class
 game\duofan\kenshi\KenShi$LibraryEnum.class
@@ -128,6 +129,7 @@ game\duofan\kenshi\power\Shi_StateMachine$1.class
 game\duofan\kenshi\action\QingJueLianYuGeiFreeCardAction.class
 game\duofan\kenshi\power\GongJiZhunBei.class
 game\duofan\kenshi\card\YanZL_ZhuoXinLiu.class
+game\duofan\kenshi\action\YinXueDieAction.class
 game\duofan\kenshi\card\SiJiDaiFa.class
 game\duofan\kenshi\power\WuBianLuoMu.class
 game\duofan\kenshi\power\XieLiZhunBei.class
@@ -159,7 +161,6 @@ game\duofan\kenshi\power\Shi_StateMachine$ZhongShi_State.class
 game\duofan\kenshi\card\YuZL_YingGe.class
 game\duofan\kenshi\power\PoBai.class
 game\duofan\kenshi\power\IYuZhiLiuCard.class
-game\duofan\kenshi\power\TuMoLing.class
 game\duofan\kenshi\power\FuFeng.class
 game\duofan\kenshi\power\GongFaShanZhuan.class
 game\duofan\kenshi\power\LinkCardManager$CardLinkedContext.class
@@ -168,6 +169,7 @@ game\duofan\kenshi\power\LiuCardReduceCostOnTurn.class
 game\duofan\kenshi\action\ZhuoXinLiuAction.class
 game\duofan\kenshi\card\XiuLuoZhiDao_Card.class
 game\duofan\kenshi\card\FZL_WanYeBai.class
+game\duofan\kenshi\power\ReturnToDrawPileAfterPlayed.class
 game\duofan\kenshi\action\JuGouAction.class
 game\duofan\kenshi\initialize\TextRegister.class
 game\duofan\kenshi\power\JingYeSi.class

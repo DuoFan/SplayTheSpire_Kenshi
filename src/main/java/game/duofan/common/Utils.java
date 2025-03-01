@@ -298,6 +298,12 @@ public class Utils {
         );
     }
 
+    public static void playerGainPowerTop(AbstractPower power) {
+        AbstractDungeon.actionManager.addToTop(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, power)
+        );
+    }
+
     public static void playReducePower(String powerID, int amount) {
         AbstractPlayer p = AbstractDungeon.player;
         if (p != null) {
@@ -444,7 +450,7 @@ public class Utils {
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
-            cards.add(new YuZL_XueSeDieMu());
+            cards.add(new YuZL_YinXueDieCard());
             cards.add(new YuZL_HuXinHui());
             cards.add(new YuZL_BuSiNiao());
             cards.add(new YuZL_YuZhiXin());
