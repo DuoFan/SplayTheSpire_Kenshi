@@ -66,7 +66,7 @@ public class PoBai extends AbstractPower {
             return 0;
         }
 
-        float percentage = 25;
+        float percentage = 10;
 
         if (amount > 1) {
             AbstractMonster m = (AbstractMonster) owner;
@@ -79,7 +79,7 @@ public class PoBai extends AbstractPower {
                 multple = 20;
             }
 
-            percentage = 25 + (amount - 1) * multple;
+            percentage += (amount - 1) * multple;
         }
 
         int result = (int) (owner.maxHealth * percentage * 0.01);

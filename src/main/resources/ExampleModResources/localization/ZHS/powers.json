@@ -92,7 +92,8 @@
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "轻身坠",
     "DESCRIPTIONS": [
-      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非羽卡 结算，下回合开始时抽取 #r%d 张 #r羽卡 。"
+      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非技能牌 结算。",
+      "受到的 #r%d 点伤害 #r延迟 到本回合 #r结束 或 #r打出非技能牌 结算。"
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {
@@ -110,7 +111,8 @@
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
-      "受到 #r致命伤害 时， #r保留1点生命值 ，并获得 #r涅槃 。"
+      "防止受到的 #r伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。",
+      "防止受到的 #r致命伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。"
     ]
   },
   "game.duofan.kenshi:NiePan": {
@@ -188,7 +190,7 @@
   "game.duofan.kenshi:RongRong": {
     "NAME": "熔融",
     "DESCRIPTIONS": [
-      " 受到的 #r爆炎伤害 增加 #r%d 点。"
+      " 受到的 #r爆炎伤害 增加 #r%d 点，回合结束时最多保留10点。"
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {

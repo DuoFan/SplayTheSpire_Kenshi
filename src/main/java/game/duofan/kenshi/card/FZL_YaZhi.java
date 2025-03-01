@@ -31,9 +31,8 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_YaZhi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 5;
+        this.damage = this.baseDamage = 8;
         magicNumber = baseMagicNumber = 1;
-        this.isInnate = true;
     }
 
     @Override

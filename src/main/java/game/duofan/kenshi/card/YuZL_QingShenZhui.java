@@ -50,7 +50,7 @@ public class YuZL_QingShenZhui extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new QingShenZhui(p, magicNumber));
+        Utils.playerGainPower(new QingShenZhui(p));
     }
 
     @Override

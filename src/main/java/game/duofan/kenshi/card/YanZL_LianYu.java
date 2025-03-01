@@ -50,7 +50,6 @@ public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.gainPower(p, new LianYu(p, magicNumber));
-        addToBot(new QingJueLianYuGeiFreeCardAction());
     }
 
     @Override

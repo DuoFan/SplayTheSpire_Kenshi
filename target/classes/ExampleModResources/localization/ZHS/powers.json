@@ -5,12 +5,6 @@
       "打出流派卡后，进入对应 #r流派 。"
     ]
   },
-  "game.duofan.kenshi:XingJianLi": {
-    "NAME": "行剑礼",
-    "DESCRIPTIONS": [
-      "本回合下 #r%d 张 #r流派卡牌 费用减1。"
-    ]
-  },
   "game.duofan.kenshi:YiJianHuiYou": {
     "NAME": "以剑会友",
     "DESCRIPTIONS": [
@@ -38,19 +32,13 @@
   "game.duofan.kenshi:JiaShi": {
     "NAME": "架势",
     "DESCRIPTIONS": [
-      "从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张牌移除1层。 NL NL 在回合内当架势结束后，获得 #r3 层 #r攻势 。"
+      "从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张 #r技能牌 移除1层。"
     ]
   },
   "game.duofan.kenshi:GongShi": {
     "NAME": "攻势",
     "DESCRIPTIONS": [
-      "本回合攻击牌造成的 #y伤害 增加 #r%d 点， NL NL 每打出1张 #r攻击牌 移除1层。 NL NL 在同一攻势阶段累积进行3次攻势后，获得 #r1 层 #r终势 。 NL NL 当前已累计%d层攻势"
-    ]
-  },
-  "game.duofan.kenshi:ZhongShi": {
-    "NAME": "终势",
-    "DESCRIPTIONS": [
-      "本回合下一张 #r攻击牌 费用为0，而后获得2层 #r架势 。"
+      "本回合攻击牌造成的 #y伤害 增加 #r%d 点， NL NL 每打出1张 #r攻击牌 移除1层。"
     ]
   },
   "game.duofan.kenshi:AnYing": {
@@ -104,7 +92,8 @@
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "轻身坠",
     "DESCRIPTIONS": [
-      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非羽卡 结算，下回合开始时抽取 #r%d 张 #r羽卡 。"
+      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非技能牌 结算。",
+      "受到的 #r%d 点伤害 #r延迟 到本回合 #r结束 或 #r打出非技能牌 结算。"
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {
@@ -122,7 +111,8 @@
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
-      "受到 #r致命伤害 时， #r保留1点生命值 ，并获得 #r涅槃 。"
+      "防止受到的 #r伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。",
+      "防止受到的 #r致命伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。"
     ]
   },
   "game.duofan.kenshi:NiePan": {

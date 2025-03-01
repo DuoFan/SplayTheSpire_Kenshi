@@ -2,6 +2,8 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -52,7 +54,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        Utils.playerGainPower(new BuSiNiao(p));
+        Utils.playerGainPower(new BuSiNiao(p, magicNumber, upgraded));
     }
 
     @Override
@@ -67,10 +69,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecover
 
     @Override
     public void yuZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p.hasPower(BuSiNiao.POWER_ID)) {
-            BuSiNiao power = (BuSiNiao) p.getPower(BuSiNiao.POWER_ID);
-        }
+        addToTop(new MakeTempCardInDiscardAction(new BuSiNiaoZhiYu(), 2));
     }
 
     @Override

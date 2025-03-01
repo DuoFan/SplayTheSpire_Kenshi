@@ -32,7 +32,6 @@ public class YanZL_LiuHuo extends CustomCard implements IYanZhiLiuCard {
     public YanZL_LiuHuo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        this.isInnate = true;
     }
 
     @Override

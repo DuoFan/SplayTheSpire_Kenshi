@@ -50,4 +50,12 @@ public class RongRong extends AbstractPower {
         int i = amount;
         this.description = String.format(DESCRIPTIONS[0], i);
     }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        if(amount > 10){
+            amount = 10;
+        }
+    }
 }

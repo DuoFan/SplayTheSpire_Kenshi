@@ -13,10 +13,11 @@ import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
 import game.duofan.kenshi.power.IXiaZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
-public class BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
+public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(BaiHongGuanRi.class);
+    public static final String ID = IDManager.getInstance().getID(XZL_BaiHongGuanRi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,7 +28,7 @@ public class BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public BaiHongGuanRi() {
+    public XZL_BaiHongGuanRi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
         magicNumber = baseMagicNumber = 2;
@@ -65,8 +66,18 @@ public class BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     }
 
     @Override
+    public void triggerOnGlowCheck() {
+        super.triggerOnGlowCheck();
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        AbstractCard c = new BaiHongGuanRi();
+        AbstractCard c = new XZL_BaiHongGuanRi();
         c.damage += magicNumber;
         c.baseDamage += magicNumber;
         Utils.makeTempCardInHand(c, 1);

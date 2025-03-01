@@ -31,12 +31,14 @@ public class YanZL_ZhuoXinFa extends CustomCard implements IYanZhiLiuCard {
         this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 1;
         this.cardsToPreview = new FZL_KuXinFa(true);
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     public YanZL_ZhuoXinFa(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
         this.magicNumber = this.baseMagicNumber = 1;
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     @Override

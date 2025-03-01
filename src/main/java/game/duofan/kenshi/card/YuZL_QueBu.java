@@ -31,8 +31,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         jiaShiAmount = 2;
         magicNumber = baseMagicNumber = 1;
-        block = baseBlock = 4;
-        isInnate = true;
+        block = baseBlock = 6;
     }
 
     @Override

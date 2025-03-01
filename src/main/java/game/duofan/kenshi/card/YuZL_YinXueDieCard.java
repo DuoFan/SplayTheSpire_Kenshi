@@ -30,6 +30,7 @@ public class YuZL_YinXueDieCard extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_YinXueDieCard() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        exhaust = true;
     }
 
     @Override

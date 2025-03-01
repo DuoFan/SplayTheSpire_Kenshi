@@ -29,19 +29,17 @@ public class QingShenZhui extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    int drawAmount;
     int damageAmount;
     AbstractMonster source;
     boolean isNextTurn;
 
-    public QingShenZhui(AbstractCreature owner,int _drawAmount) {
+    public QingShenZhui(AbstractCreature owner) {
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         damageAmount = 0;
-        drawAmount = _drawAmount;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = -1;
@@ -64,7 +62,10 @@ public class QingShenZhui extends AbstractPower {
     }
 
     public void updateDescription() {
-        String description = String.format(DESCRIPTIONS[0], damageAmount,drawAmount);
+        String description = String.format(DESCRIPTIONS[0], damageAmount);
+        if(isNextTurn){
+            description = String.format(DESCRIPTIONS[1], damageAmount);
+        }
         this.description = description;
     }
 
@@ -72,15 +73,13 @@ public class QingShenZhui extends AbstractPower {
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         isNextTurn = true;
-        if(drawAmount > 0){
-            Utils.playerDrawCardByClass(drawAmount,IYuZhiLiuCard.class);
-        }
+        updateDescription();
     }
 
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         super.onAfterUseCard(card, action);
-        if(!(card instanceof IYuZhiLiuCard) && isNextTurn){
+        if(card.type != AbstractCard.CardType.SKILL && isNextTurn){
             dispose();
         }
     }

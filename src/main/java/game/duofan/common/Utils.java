@@ -271,6 +271,13 @@ public class Utils {
         }
     }
 
+    public static void removePowerTop(AbstractCreature o, String powerID) {
+        if (o != null) {
+            AbstractDungeon.actionManager.addToTop(new
+                    RemoveSpecificPowerAction(o, o, powerID));
+        }
+    }
+
     public static void gainBlock(AbstractCreature o, int amount) {
         if (o == null) {
             return;
@@ -327,6 +334,13 @@ public class Utils {
                     RemoveSpecificPowerAction(p, p, powerID));
         }
     }
+    public static void playRemovePowerTop(String powerID) {
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p != null) {
+            AbstractDungeon.actionManager.addToTop(new
+                    RemoveSpecificPowerAction(p, p, powerID));
+        }
+    }
 
     public static void playerEnterAnYin() {
         playerGainPower(new AnYing(AbstractDungeon.player));
@@ -355,6 +369,12 @@ public class Utils {
 
     public static void playerGainQi(int amount) {
         AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Qi(AbstractDungeon.player, amount))
+        );
+    }
+
+    public static void playerGainQiTop(int amount) {
+        AbstractDungeon.actionManager.addToTop(
                 new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Qi(AbstractDungeon.player, amount))
         );
     }
@@ -424,7 +444,6 @@ public class Utils {
             cards.add(new FZL_QiuFengPo());
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
-            cards.add(new FZL_HeFengZhan());
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_KuXinFa());
             cards.add(new FZL_FuFeng());
@@ -435,25 +454,21 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
-            cards.add(new BaiHongGuanRi());
-            cards.add(new XZL_CaiYunZhuiYue());
-            cards.add(new XZL_BaiXiaZhan());
+            cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_QiChongDouNiu());
             cards.add(new XZL_MingXinHui());
+            cards.add(new XZL_QiHuaWanQian());
             cards.add(new XZL_PoXiao());
-            cards.add(new XZL_XiaZhiXin());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
             cards.add(new YuZL_QueBu());
-            cards.add(new YuZL_YingGe());
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
             cards.add(new YuZL_YinXueDieCard());
             cards.add(new YuZL_HuXinHui());
             cards.add(new YuZL_BuSiNiao());
-            cards.add(new YuZL_YuZhiXin());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
@@ -577,10 +592,16 @@ public class Utils {
 
         if (centerIndex != -1) {
             if (centerIndex > 0) { // 左侧
-                tryJianSheToMonster(source, sortedMonsters.get(centerIndex - 1), damage);
+                AbstractMonster m = sortedMonsters.get(centerIndex - 1);
+                if(Math.abs(m.hb_x - center.hb_x) < 400){
+                    tryJianSheToMonster(source, m, damage);
+                }
             }
             if (centerIndex < sortedMonsters.size() - 1) { // 右侧
-                tryJianSheToMonster(source, sortedMonsters.get(centerIndex + 1), damage);
+                AbstractMonster m = sortedMonsters.get(centerIndex + 1);
+                if(Math.abs(m.hb_x - center.hb_x) < 200){
+                    tryJianSheToMonster(source, m, damage);
+                }
             }
         }
     }

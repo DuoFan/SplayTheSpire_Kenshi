@@ -61,8 +61,9 @@ public class JiaShi extends AbstractPower {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if(Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.JiaShi)){
+        if (card.type == AbstractCard.CardType.SKILL && Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.JiaShi)) {
             Shi_StateMachine.getInstance().update();
+            flash();
         }
     }
 

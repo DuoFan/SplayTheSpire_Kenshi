@@ -61,7 +61,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, this.amount, Shi_StateMachine.getInstance().getGongShi_Accumulate());
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
@@ -76,7 +76,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         super.onPlayCard(card, m);
 
-        Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.instance.getLiu();
+        Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
 
         if (curLiu == Liu_StateMachine.StateEnum.None) {
             return;
@@ -88,7 +88,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
             switch (curLiu) {
                 case FengZhiLiu:
-                    Shi_StateMachine.instance.addPower(Shi_StateMachine.StateEnum.GongShi, 1);
+                    Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, 1);
                     break;
                 case XiaZhiLiu:
                     Utils.playerGainQi(1);
@@ -118,8 +118,8 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 } else {
                     Utils.invokeLiuCardEffectWithTiming(card);
                 }
-                Liu_StateMachine.instance.setLastEffectLiuCardOnTurn(card);
-                Liu_StateMachine.instance.setLastEffectLiuCardOnBattle(card);
+                Liu_StateMachine.getInstance().setLastEffectLiuCardOnTurn(card);
+                Liu_StateMachine.getInstance().setLastEffectLiuCardOnBattle(card);
 
 
                 if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {

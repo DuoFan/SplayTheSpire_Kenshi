@@ -13,7 +13,7 @@ import java.security.InvalidParameterException;
 
 public class Shi_StateMachine {
 
-    static Shi_StateMachine instance;
+    private static Shi_StateMachine instance;
 
     public static Shi_StateMachine getInstance() {
         if (instance == null) {
@@ -38,14 +38,8 @@ public class Shi_StateMachine {
     public void update() {
         if (state != null) {
             state.update();
-            if (isStateMatch(StateEnum.GongShi) && getGongShi_Accumulate() >= 3) {
-                changeStateTo(StateEnum.ZhongShi, 1);
-            } else if (state.amount == 0) {
-                if (isStateMatch(StateEnum.JiaShi)) {
-                    changeStateTo(StateEnum.GongShi, 3);
-                } else if (isStateMatch(StateEnum.ZhongShi)) {
-                    changeStateTo(StateEnum.JiaShi, 2);
-                }
+            if (state.amount == 0) {
+                state.exit();
             }
         }
     }
@@ -53,7 +47,6 @@ public class Shi_StateMachine {
     void changeStateTo(StateEnum stateEnum, int amount) {
         int oldStateAmount = getStateAmount();
         boolean isOldJiaShi = isStateMatch(StateEnum.JiaShi);
-        boolean isOldGongShi = isStateMatch(StateEnum.GongShi);
 
         reset();
         switch (stateEnum) {
@@ -63,22 +56,15 @@ public class Shi_StateMachine {
             case GongShi:
                 state = new GongShi_State(amount);
                 break;
-            case ZhongShi:
-                state = new ZhongShi_State(amount);
-                break;
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
         state.enter();
 
         boolean isNewGongShi = isStateMatch(StateEnum.GongShi);
-        boolean isNewZhongShi = isStateMatch(StateEnum.ZhongShi);
 
         if (isOldJiaShi && isNewGongShi) {
             EventManager.getInstance().notifyEvent(EventKey.ON_JIASHI_TO_GONGSHI, this
-                    , oldStateAmount);
-        } else if (isOldGongShi && isNewZhongShi) {
-            EventManager.getInstance().notifyEvent(EventKey.ON_GONGSHI_TO_ZHONGSHI, this
                     , oldStateAmount);
         }
     }
@@ -89,16 +75,6 @@ public class Shi_StateMachine {
         } else {
             state.addAmount(amount);
         }
-    }
-
-    public int getGongShi_Accumulate() {
-        if (!isStateMatch(StateEnum.GongShi)) {
-            return 0;
-        }
-
-        GongShi_State gongShiState = (GongShi_State) state;
-
-        return gongShiState.accmulate;
     }
 
     int getStateAmount() {
@@ -118,8 +94,6 @@ public class Shi_StateMachine {
                 return state.getPowerID().equals(JiaShi.POWER_ID);
             case GongShi:
                 return state.getPowerID().equals(GongShi.POWER_ID);
-            case ZhongShi:
-                return state.getPowerID().equals(ZhongShi.POWER_ID);
             default:
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
@@ -135,7 +109,7 @@ public class Shi_StateMachine {
     }
 
     public enum StateEnum {
-        JiaShi, GongShi, ZhongShi
+        JiaShi, GongShi
     }
 
     abstract class State {
@@ -205,9 +179,6 @@ public class Shi_StateMachine {
     }
 
     class GongShi_State extends State {
-
-        int accmulate;
-
         public GongShi_State(int _amount) {
             super(_amount);
         }
@@ -221,47 +192,6 @@ public class Shi_StateMachine {
         public void addAmount(int _amount) {
             super.addAmount(_amount);
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new GongShi(AbstractDungeon.player, _amount)));
-        }
-
-        @Override
-        public void update() {
-            if (amount > 0) {
-                accmulate++;
-            }
-            super.update();
-        }
-
-        public int getAccmulate() {
-            return accmulate;
-        }
-    }
-
-    class ZhongShi_State extends State {
-
-        public ZhongShi_State(int _amount) {
-            super(_amount);
-        }
-
-        @Override
-        public String getPowerID() {
-            return ZhongShi.POWER_ID;
-        }
-
-        @Override
-        public void addAmount(int _amount) {
-            super.addAmount(_amount);
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ZhongShi(AbstractDungeon.player, _amount)));
-        }
-
-        @Override
-        public void exit() {
-            Utils.addToBotAbstract(() ->{
-                if(AbstractDungeon.player.hasPower(ZhongShi.POWER_ID)){
-                    ZhongShi power = (ZhongShi) AbstractDungeon.player.getPower(ZhongShi.POWER_ID);
-                    power.forceDispose();
-                    AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, power.ID));
-                }
-            });
         }
     }
 

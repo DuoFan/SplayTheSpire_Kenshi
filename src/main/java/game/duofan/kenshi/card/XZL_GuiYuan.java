@@ -58,10 +58,6 @@ public class XZL_GuiYuan extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         Utils.playerGainStrength(magicNumber);
-        if (isByQi) {
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.hand));
-            addToBot(new ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile));
-        }
     }
 
     @Override

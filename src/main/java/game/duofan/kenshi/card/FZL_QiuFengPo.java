@@ -28,13 +28,13 @@ public class FZL_QiuFengPo extends CustomCard implements IFengZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public FZL_QiuFengPo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
-        this.magicNumber = this.baseMagicNumber = 1;
+        this.damage = this.baseDamage = 9;
+        magicNumber = baseMagicNumber = 3;
     }
 
     @Override

@@ -59,7 +59,6 @@ public class ChunYangJianYi extends AbstractPower {
     }
 
     public void updateDescription() {
-
         this.description = String.format(DESCRIPTIONS[0], _amount);
     }
 

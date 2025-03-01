@@ -26,10 +26,8 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_JuQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-
-        block = baseBlock = 3;
+        block = baseBlock = 4;
         magicNumber = baseMagicNumber = 1;
-        this.isInnate = true;
     }
 
     @Override

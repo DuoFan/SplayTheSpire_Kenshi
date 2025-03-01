@@ -12,7 +12,7 @@ import game.duofan.common.Utils;
 import java.security.InvalidParameterException;
 
 public class Liu_StateMachine implements IEventListener {
-    static Liu_StateMachine instance;
+    private static Liu_StateMachine instance;
 
     public static Liu_StateMachine getInstance() {
         if (instance == null) {

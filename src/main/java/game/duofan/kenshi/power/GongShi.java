@@ -43,8 +43,7 @@ public class GongShi extends AbstractPower {
     }
 
     public void updateDescription() {
-        int x = Shi_StateMachine.getInstance().getGongShi_Accumulate();
-        this.description = String.format(DESCRIPTIONS[0], this.amount, x);
+        this.description = String.format(DESCRIPTIONS[0], this.amount);
     }
 
     @Override
@@ -62,6 +61,7 @@ public class GongShi extends AbstractPower {
         super.onUseCard(card, action);
         if (card.type == AbstractCard.CardType.ATTACK && Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)) {
             Shi_StateMachine.getInstance().update();
+            flash();
         }
     }
 

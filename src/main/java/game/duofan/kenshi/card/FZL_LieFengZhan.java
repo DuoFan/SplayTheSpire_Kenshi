@@ -15,10 +15,13 @@ import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
+
+import javax.rmi.CORBA.Util;
 
 public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
 
@@ -30,14 +33,13 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public FZL_LieFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 4;
+        int baseValue = 6;
         this.damage = this.baseDamage = baseValue;
-        this.baseBlock = this.block = baseValue;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;
     }
@@ -61,7 +63,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        this.addToBot(new GainBlockAction(p, block));
+        Utils.playerGainPower(new StrengthPower(p, magicNumber));
     }
 
     @Override
@@ -77,12 +79,10 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void fengZhiLiuEffect() {
         AbstractPlayer p = AbstractDungeon.player;
-
         if (p == null) {
             return;
         }
-
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, magicNumber)));
+        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
     }
 
     @Override
