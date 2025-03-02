@@ -121,8 +121,8 @@
       " #r下回合开始前无法受到伤害 ， #r回合开始时 回复 #r生命值 到 #r%d ，获得%d [E] ，抽取%d张卡牌。"
     ]
   },
-  "game.duofan.kenshi:YinXueDie": {
-    "NAME": "饮血蝶",
+  "game.duofan.kenshi:JiShuiSanQian": {
+    "NAME": "击水三千",
     "DESCRIPTIONS": [
       "本回合 #r[NAME] 造成的未被 #r格挡 的伤害将获得等量 #r格挡 。"
     ]

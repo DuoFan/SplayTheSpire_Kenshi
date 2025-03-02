@@ -20,7 +20,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new Strike());
         cards.add(new Defend());
 
-        cards.add(new ZhuoJiuBei());
+        cards.add(new DuiJiuDangGe());
         cards.add(new XingJianLi_Card());
         cards.add(new YiJianHuiYou_Card());
         cards.add(new GongFaShanZhuan_Card());
@@ -33,9 +33,11 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new ShiJun());
 
         cards.add(new QinXi());
+        cards.add(new BuSiNiaoZhiYu());
 
         cards.add(new FeiXing());
         cards.add(new ShiJianShi());
+        cards.add(new TianGongKaiWu());
         cards.add(new YangGong());
         cards.add(new GaiTouHuanMian());
         cards.add(new TaYin());

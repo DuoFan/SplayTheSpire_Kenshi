@@ -33,6 +33,14 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
         damage = baseDamage = 9;
         magicNumber = baseMagicNumber = 2;
         this.isInnate = true;
+        cardsToPreview = new XZL_BaiHongGuanRi(true);
+    }
+
+    public XZL_BaiHongGuanRi(boolean dontPreview) {
+        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        damage = baseDamage = 9;
+        magicNumber = baseMagicNumber = 2;
+        this.isInnate = true;
     }
 
     @Override

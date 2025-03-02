@@ -445,7 +445,7 @@ public class Utils {
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_LieFengZhan());
-            cards.add(new FZL_KuXinFa());
+            cards.add(new FZL_XingRuGaoMu());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_WuBianLuoMu());
             cards.add(new FZL_Ji_FanShi_Card());
@@ -455,19 +455,23 @@ public class Utils {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
             cards.add(new XZL_BaiHongGuanRi());
+            cards.add(new XZL_ZiDianQingShuang());
             cards.add(new XZL_QiChongDouNiu());
-            cards.add(new XZL_MingXinHui());
+            cards.add(new XZL_CaiCheQuMing());
+            cards.add(new XZL_QiChenDanTian());
             cards.add(new XZL_QiHuaWanQian());
+            cards.add(new XZL_PoXie());
             cards.add(new XZL_PoXiao());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
             cards.add(new YuZL_QueBu());
+            cards.add(new YuZL_YingMu());
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
-            cards.add(new YuZL_YinXueDieCard());
-            cards.add(new YuZL_HuXinHui());
+            cards.add(new YuZL_JiShuiSanQianCard());
+            cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_BuSiNiao());
         }
 
@@ -482,7 +486,7 @@ public class Utils {
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_ZhuoXinLiu());
             cards.add(new YanZL_LianYu());
-            cards.add(new YanZL_ZhuoXinFa());
+            cards.add(new YanZL_XinRuSiHui());
             cards.add(new YanZL_LieHuoChang());
         }
 

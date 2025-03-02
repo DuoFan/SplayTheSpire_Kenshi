@@ -60,7 +60,7 @@ public class ShiJun extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        int[] damages = new int[monsters.size()];
+        int[] damages = new int[AbstractDungeon.getMonsters().monsters.size()];
         Arrays.fill(damages, damage);
         addToBot(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL,
                 AbstractGameAction.AttackEffect.FIRE));

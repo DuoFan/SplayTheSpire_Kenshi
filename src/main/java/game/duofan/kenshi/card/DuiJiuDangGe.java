@@ -10,8 +10,8 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.Shi_StateMachine;
 
-public class ZhuoJiuBei extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(ZhuoJiuBei.class);
+public class DuiJiuDangGe extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(DuiJiuDangGe.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -22,7 +22,7 @@ public class ZhuoJiuBei extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.BASIC;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public ZhuoJiuBei() {
+    public DuiJiuDangGe() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 2;
     }

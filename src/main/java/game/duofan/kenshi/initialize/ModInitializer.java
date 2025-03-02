@@ -13,6 +13,7 @@ public class ModInitializer {
     public static void initialize() {
         BaseMod.subscribe(new TextRegister());
         BaseMod.subscribe(new KeywordRegister());
+        BaseMod.subscribe(new VariableRegister());
         BaseMod.subscribe(new CardRegister());
         BaseMod.subscribe(new CharacterRegister());
         BaseMod.subscribe(new RelicsRegister());

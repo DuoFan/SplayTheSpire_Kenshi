@@ -16,7 +16,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard, IRecoverCard {
+public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(YuZL_BuSiNiao.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字

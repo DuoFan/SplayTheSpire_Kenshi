@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -17,18 +16,13 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
-import game.duofan.kenshi.action.NotifyBaoYanDamageAction;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
 
-public class YinXueDie extends AbstractPower {
+public class JiShuiSanQian extends AbstractPower {
     static int idIndex;
 
-    static final String ORIGIN_POWER_ID = IDManager.getInstance().getID(YinXueDie.class);
+    static final String ORIGIN_POWER_ID = IDManager.getInstance().getID(JiShuiSanQian.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(ORIGIN_POWER_ID);
     // 能力的名称
@@ -40,7 +34,7 @@ public class YinXueDie extends AbstractPower {
     AbstractGameAction upper;
     AbstractCard targetCard;
 
-    public YinXueDie(AbstractCreature owner, AbstractCard targetCard) {
+    public JiShuiSanQian(AbstractCreature owner, AbstractCard targetCard) {
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
         this.owner = owner;

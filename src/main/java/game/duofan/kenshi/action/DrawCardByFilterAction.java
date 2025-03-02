@@ -2,6 +2,7 @@ package game.duofan.kenshi.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -36,6 +37,12 @@ public class DrawCardByFilterAction extends AbstractGameAction {
 
         if (g.isEmpty()) {
             this.isDone = true;
+            if (g == p.drawPile) {
+                DrawCardByFilterAction a = new DrawCardByFilterAction(amount, filter);
+                a.setDoCard(doCard);
+                addToTop(a);
+                this.addToTop(new EmptyDeckShuffleAction());
+            }
             return;
         }
 

@@ -9,9 +9,9 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.action.JuGouAction;
 
-public class JuGou extends CustomCard {
+public class TianGongKaiWu extends CustomCard {
 
-    public static final String ID = IDManager.getInstance().getID(JuGou.class);
+    public static final String ID = IDManager.getInstance().getID(TianGongKaiWu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -22,7 +22,7 @@ public class JuGou extends CustomCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public JuGou() {
+    public TianGongKaiWu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 2;
     }

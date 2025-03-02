@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.JuGou;
 
 import java.util.ArrayList;
 

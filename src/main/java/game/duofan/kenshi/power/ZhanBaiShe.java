@@ -72,6 +72,7 @@ public class ZhanBaiShe extends AbstractPower {
                         new YiQi() // 你的自定义遗物实例
                 );
                 Utils.removePower(owner, ID);
+                EventManager.getInstance().notifyEvent(EventKey.ON_GAIN_YI_QI, this, null);
             }
         });
     }

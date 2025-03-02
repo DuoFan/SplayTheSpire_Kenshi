@@ -57,5 +57,6 @@ public class RongRong extends AbstractPower {
         if(amount > 10){
             amount = 10;
         }
+        updateDescription();
     }
 }

@@ -15,6 +15,8 @@ public class PickUpCardToDuanZaoAction extends AbstractGameAction {
 
     IDoCard doCard;
 
+    boolean initialized;
+
     public PickUpCardToDuanZaoAction(IDoCard _doCard, int _amount) {
         duration = 0.5f;
         doCard = _doCard;
@@ -25,6 +27,17 @@ public class PickUpCardToDuanZaoAction extends AbstractGameAction {
     @Override
     public void update() {
 
+        if(!initialized){
+            if (AbstractDungeon.player.hand.size() <= 0) {
+                System.out.println("没有可锻造的卡牌");
+                Utils.showToast("没有可以锻造的卡牌!");
+                isDone = true;
+                return;
+            }
+
+            initialized = true;
+        }
+
         if (this.duration == 0.5F) {
             AbstractDungeon.handCardSelectScreen.open("进行锻造", 1, false, false, false, false, false);
             this.addToBot(new WaitAction(0.25F));
@@ -34,7 +47,6 @@ public class PickUpCardToDuanZaoAction extends AbstractGameAction {
                 this.tickDuration();
                 return;
             }
-
             // 获取选择的卡牌
             ArrayList<AbstractCard> selectedCards = AbstractDungeon.handCardSelectScreen.selectedCards.group;
 

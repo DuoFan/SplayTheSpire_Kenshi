@@ -133,7 +133,7 @@ public class ChunYangJianYi extends AbstractPower {
                             waitForRongRongMonsters = new HashSet<>();
                         }
 
-                        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+                        ArrayList<AbstractMonster> monsters = new ArrayList<>(AbstractDungeon.getMonsters().monsters);
                         waitForRongRongMonsters.addAll(monsters);
 
                         try {

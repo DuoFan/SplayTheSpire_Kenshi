@@ -54,12 +54,8 @@ public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
 
             if(qiAmount > 0){
                 Utils.playRemovePowerTop(Qi.POWER_ID);
-            }
-
-            while (qiAmount > 0){
-                Utils.playerGainEnergy(1);
-                addToBot(new DrawCardAction(1));
-                qiAmount--;
+                Utils.playerGainEnergy(qiAmount);
+                addToBot(new DrawCardAction(qiAmount));
             }
         });
     }

@@ -31,4 +31,6 @@ public class EventKey {
 
     public static final String ON_GAIN_XIN_SUI_YI_DONG = "ON_GAIN_XIN_SUI_YI_DONG";
     public static final String ON_GAIN_XIN_NIAN_TONG_SHEN = "ON_GAIN_XIN_NIAN_TONG_SHEN";
+
+    public static final String ON_GAIN_YI_QI = "ON_GAIN_YI_QI";
 }

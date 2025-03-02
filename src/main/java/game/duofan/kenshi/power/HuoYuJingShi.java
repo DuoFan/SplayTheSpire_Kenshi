@@ -53,22 +53,15 @@ public class HuoYuJingShi extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         int result = super.onAttacked(info, damageAmount);
 
+        System.out.println("-------------------------VV");
+        System.out.println(info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner);
+
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
             this.flash();
-            Utils.givePower(owner, info.owner, new RongRong(info.owner, amount));
+            Utils.givePowerTop(owner, info.owner, new RongRong(info.owner, amount));
         }
 
         return result;
-    }
-
-    @Override
-    public float atDamageGive(float damage, DamageInfo.DamageType type) {
-
-        if (!Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)) {
-            return damage;
-        }
-
-        return type == DamageInfo.DamageType.NORMAL ? damage + this.amount : damage;
     }
 
     @Override
@@ -80,8 +73,8 @@ public class HuoYuJingShi extends AbstractPower {
     }
 
     @Override
-    public void atEndOfTurn(boolean isPlayer) {
-        super.atEndOfTurn(isPlayer);
-        Shi_StateMachine.getInstance().reset();
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        Utils.playRemovePower(POWER_ID);
     }
 }

@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.YuZL_YinXueDieCard;
+import game.duofan.kenshi.card.YuZL_JiShuiSanQianCard;
 
 import java.util.Iterator;
 
@@ -20,9 +20,9 @@ public class YinXueDieAction extends AbstractGameAction {
     String tip = "抽牌堆中没有攻击卡！";
     String tip2 = "选择抽取1张攻击卡";
 
-    YuZL_YinXueDieCard self;
+    YuZL_JiShuiSanQianCard self;
 
-    public YinXueDieAction(YuZL_YinXueDieCard card) {
+    public YinXueDieAction(YuZL_JiShuiSanQianCard card) {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = this.startDuration = Settings.ACTION_DUR_FAST;
         self = card;
