@@ -1,52 +1,49 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClassAction;
 import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.variable.ILamageScale;
+import game.duofan.kenshi.variable.LamageScaler;
 
-public class YanZL_XinRuSiHui extends CustomCard implements IYanZhiLiuCard {
+public class XZL_ChiXiao extends CustomCard implements IXiaZhiLiuCard, IQiMin, ILamageScale {
 
-    public static final String ID = IDManager.getInstance().getID(YanZL_XinRuSiHui.class);
+    static LamageScaler lamageScaler = new LamageScaler();
+
+    public static final String ID = IDManager.getInstance().getID(XZL_ChiXiao.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public YanZL_XinRuSiHui() {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
-        this.cardsToPreview = new FZL_XingRuGaoMu(true);
-        BaoYanCardManager.getInstance().addCard(this);
-    }
+    AbstractMonster monster;
 
-    public YanZL_XinRuSiHui(boolean dontPreview) {
+    public XZL_ChiXiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
-        this.magicNumber = this.baseMagicNumber = 1;
-        BaoYanCardManager.getInstance().addCard(this);
+        int baseValue = 9;
+        this.damage = this.baseDamage = baseValue;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             upgradeDamage(3);
-            this.upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -60,35 +57,40 @@ public class YanZL_XinRuSiHui extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
-        Utils.givePower(p, m, new RongRong(m, magicNumber));
-        AbstractCard c = new FZL_XingRuGaoMu();
-        Utils.makeTempCardInHand(c, 1);
-    }
-
-    @Override
-    public void yanZhiLiuEffect() {
-        addToBot(new DrawCardByClassAction(1, IFengZhiLiuCard.class));
+        monster = m;
+        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
+    public void xiaZhiLiuEffect(boolean isByQi) {
+        if (monster != null) {
+            AbstractPlayer p = AbstractDungeon.player;
+            this.addToBot(new DamageAction(monster, new DamageInfo(p, lamageScaler.value(this), DamageInfo.DamageType.NORMAL)));
+        }
+    }
+
+    @Override
     public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.YanZhiLiu;
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
     }
 
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
+    }
+
+    @Override
+    public float getScale() {
+        return 1.5f;
     }
 }

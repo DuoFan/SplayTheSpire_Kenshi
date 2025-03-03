@@ -53,10 +53,10 @@
       " #r本回合 下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
     ]
   },
-  "game.duofan.kenshi:GongJiZhunBei": {
-    "NAME": "攻击准备",
+  "game.duofan.kenshi:PoJia": {
+    "NAME": "破甲",
     "DESCRIPTIONS": [
-      "下回合开始时，抽取 #r%d 张攻击牌 。"
+      "回合结束时， #r格挡 减半。"
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {

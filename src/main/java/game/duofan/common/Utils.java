@@ -334,6 +334,7 @@ public class Utils {
                     RemoveSpecificPowerAction(p, p, powerID));
         }
     }
+
     public static void playRemovePowerTop(String powerID) {
         AbstractPlayer p = AbstractDungeon.player;
         if (p != null) {
@@ -445,7 +446,6 @@ public class Utils {
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_LieFengZhan());
-            cards.add(new FZL_XingRuGaoMu());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_WuBianLuoMu());
             cards.add(new FZL_Ji_FanShi_Card());
@@ -454,14 +454,16 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
+            cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_ZiDianQingShuang());
             cards.add(new XZL_QiChongDouNiu());
             cards.add(new XZL_CaiCheQuMing());
             cards.add(new XZL_QiChenDanTian());
             cards.add(new XZL_QiHuaWanQian());
-            cards.add(new XZL_PoXie());
-            cards.add(new XZL_PoXiao());
+            cards.add(new XZL_JuQue());
+            cards.add(new XZL_ShengXie());
+            cards.add(new XZL_ChiXiao());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
@@ -486,7 +488,6 @@ public class Utils {
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_ZhuoXinLiu());
             cards.add(new YanZL_LianYu());
-            cards.add(new YanZL_XinRuSiHui());
             cards.add(new YanZL_LieHuoChang());
         }
 
@@ -597,13 +598,13 @@ public class Utils {
         if (centerIndex != -1) {
             if (centerIndex > 0) { // 左侧
                 AbstractMonster m = sortedMonsters.get(centerIndex - 1);
-                if(Math.abs(m.hb_x - center.hb_x) < 400){
+                if (Math.abs(m.hb_x - center.hb_x) < 400) {
                     tryJianSheToMonster(source, m, damage);
                 }
             }
             if (centerIndex < sortedMonsters.size() - 1) { // 右侧
                 AbstractMonster m = sortedMonsters.get(centerIndex + 1);
-                if(Math.abs(m.hb_x - center.hb_x) < 200){
+                if (Math.abs(m.hb_x - center.hb_x) < 200) {
                     tryJianSheToMonster(source, m, damage);
                 }
             }

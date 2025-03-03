@@ -17,13 +17,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByFilterAction;
 
-import java.util.ArrayList;
-
-public class GongJiZhunBei extends AbstractPower {
+public class PoJia extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(GongJiZhunBei.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(PoJia.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -31,11 +28,11 @@ public class GongJiZhunBei extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public GongJiZhunBei(AbstractCreature owner,int amount) {
+    public PoJia(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
-        this.type = PowerType.BUFF;
+        this.type = PowerType.DEBUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = amount;
@@ -49,13 +46,19 @@ public class GongJiZhunBei extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], amount);
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
-    public void atStartOfTurnPostDraw() {
-        super.atStartOfTurnPostDraw();
-        addToTop(new DrawCardByFilterAction(amount,c -> c.type == AbstractCard.CardType.ATTACK));
-        Utils.playRemovePower(POWER_ID);
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        if (owner != null && owner.currentBlock > 1) {
+            owner.loseBlock(owner.currentBlock / 2);
+            flash();
+        }
+        amount--;
+        if (amount <= 0) {
+            Utils.removePowerTop(owner, POWER_ID);
+        }
     }
 }

@@ -19,6 +19,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
 import game.duofan.kenshi.action.NotifyBaoYanDamageAction;
+import game.duofan.kenshi.card.YangZhiRen;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -228,7 +229,8 @@ public class ChunYangJianYi extends AbstractPower {
 
         for (int i = 0; i < g.size(); i++) {
             AbstractCard c = g.group.get(i);
-            if (c.type == AbstractCard.CardType.ATTACK && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.YanZhiLiu) {
+            if (c.type == AbstractCard.CardType.ATTACK && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.YanZhiLiu
+                    && !c.cardID.equals(YangZhiRen.ID)) {
                 baoYanCardManager.removeCard(c);
             }
         }

@@ -15,11 +15,12 @@ public class CardRegister implements EditCardsSubscriber {
     @Override
     public void receiveEditCards() {
 
-        ArrayList<AbstractCard> cards =Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
-;
+        ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
+        ;
         cards.add(new Strike());
         cards.add(new Defend());
 
+        cards.add(new SiJiDaiFa());
         cards.add(new DuiJiuDangGe());
         cards.add(new XingJianLi_Card());
         cards.add(new YiJianHuiYou_Card());
@@ -34,6 +35,8 @@ public class CardRegister implements EditCardsSubscriber {
 
         cards.add(new QinXi());
         cards.add(new BuSiNiaoZhiYu());
+        cards.add(new YangZhiRen());
+        cards.add(new YinZhiRen());
 
         cards.add(new FeiXing());
         cards.add(new ShiJianShi());
