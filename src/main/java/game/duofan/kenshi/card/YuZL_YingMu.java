@@ -57,21 +57,21 @@ public class YuZL_YingMu extends CustomCard implements IYuZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         int scryCount = 4;
-        int skillCount = 0;
+        int validCount = 0;
         CardGroup drawPile = AbstractDungeon.player.drawPile;
         for (int i = 0; i < scryCount; i++) {
             if (i >= drawPile.size()) {
                 break;
             }
             AbstractCard c = drawPile.getNCardFromTop(i);
-            if (c.type == CardType.SKILL) {
-                skillCount++;
+            if (c.type != CardType.ATTACK) {
+                validCount++;
             }
         }
 
         this.addToBot(new ScryAction(scryCount));
-        if (skillCount > 0) {
-            final int _skillCount = skillCount;
+        if (validCount > 0) {
+            final int _skillCount = validCount;
             Utils.addToBotAbstract(() -> {
                 Utils.gainBlockTop(p, _skillCount * magicNumber);
             });

@@ -224,8 +224,8 @@
   },
   "game.duofan.kenshi:YuZL_YingMu": {
     "NAME": "鹰目",
-    "DESCRIPTION": " 预见 4，看到的每一张 *技能牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。",
-    "UPGRADE_DESCRIPTION": " 预见 4，看到的每一张 *技能牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。"
+    "DESCRIPTION": " 预见 4，看到的每一张 *非攻击牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": " 预见 4，看到的每一张 *非攻击牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。"
   },
   "game.duofan.kenshi:YuZL_QingShenZhui": {
     "NAME": "轻身坠",
