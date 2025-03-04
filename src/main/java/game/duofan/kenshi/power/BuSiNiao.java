@@ -64,11 +64,11 @@ public class BuSiNiao extends AbstractPower {
         }
 
         if (!upgraded) {
-            exhaustCardsThenCheckNeedDeath();
+            exhaustCards();
             return 0;
         } else {
             if (damageAmount >= owner.currentHealth) {
-                exhaustCardsThenCheckNeedDeath();
+                exhaustCards();
                 return 0;
             } else {
                 return super.onLoseHp(damageAmount);
@@ -76,7 +76,7 @@ public class BuSiNiao extends AbstractPower {
         }
     }
 
-    void exhaustCardsThenCheckNeedDeath() {
+    void exhaustCards() {
         AbstractCard[] cards = new AbstractCard[exhaustAmount];
         CardGroup[] groups = new CardGroup[exhaustAmount];
 
@@ -87,17 +87,6 @@ public class BuSiNiao extends AbstractPower {
         exhaustIndex = tryFillCardsWithoutBuSiNiaoZhiYu(exhaustIndex, cards, groups, AbstractDungeon.player.drawPile);
         exhaustIndex = tryFillCardsWithoutBuSiNiaoZhiYu(exhaustIndex, cards, groups, AbstractDungeon.player.discardPile);
         exhaustIndex = tryFillCardsWithoutBuSiNiaoZhiYu(exhaustIndex, cards, groups, AbstractDungeon.player.hand);
-
-        Utils.addToTopAbstract(() ->{
-            AbstractPlayer p = AbstractDungeon.player;
-            if(p != null && !p.isDead){
-                int cardAmount = p.drawPile.size() + p.discardPile.size() + p.hand.size();
-                if(cardAmount <= 0){
-                    p.currentHealth = 0;
-                    this.addToTop(new LoseHPAction(this.owner, this.owner, 99999));
-                }
-            }
-        });
 
         for (int i = 0; i < cards.length; i++) {
             AbstractCard c = cards[i];
