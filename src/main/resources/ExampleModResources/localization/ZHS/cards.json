@@ -302,6 +302,11 @@
     "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。"
   },
+  "game.duofan.kenshi:YanZL_ZhuoXinYan": {
+    "NAME": "灼心焰",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，对 *所有其他敌人 造成目标 duofan_kenshi:熔融 层数的 duofan_kenshi:爆炎伤害。 NL duofan_kenshi:炎之流 :",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。"
+  },
   "game.duofan.kenshi:YanZL_HuoYuJingShi": {
     "NAME": "火域警示",
     "DESCRIPTION": "获得 !B! 点 格挡 ，本回合每次受到攻击，给予攻击者 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :给予1个目标1层 虚弱 。",
