@@ -130,6 +130,10 @@ public class ZhuLiuBaiJia extends AbstractPower {
                 }
 
                 if (Utils.getQiAmount() > 0) {
+                    AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
+                    if(qi != null){
+                        qi.flash();
+                    }
                     if (card instanceof IXiaZhiLiuCard) {
                         Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
                     } else {

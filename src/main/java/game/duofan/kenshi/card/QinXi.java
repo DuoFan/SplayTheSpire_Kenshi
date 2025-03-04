@@ -35,6 +35,7 @@ public class QinXi extends CustomCard{
     public QinXi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
+        exhaust = true;
     }
 
     @Override

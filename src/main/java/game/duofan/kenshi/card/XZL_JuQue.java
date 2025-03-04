@@ -27,7 +27,7 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -38,7 +38,7 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
 
     public XZL_JuQue() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 9;
+        int baseValue = 14;
         this.damage = this.baseDamage = baseValue;
     }
 

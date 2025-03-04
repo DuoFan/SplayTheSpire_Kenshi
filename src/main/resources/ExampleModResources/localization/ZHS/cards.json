@@ -9,11 +9,6 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。",
     "UPGRADE_DESCRIPTION": " 获得 !B! 点 格挡 。"
   },
-  "game.duofan.kenshi:DuiJiuDangGe": {
-    "NAME": "对酒当歌",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 。",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:攻势 。"
-  },
   "game.duofan.kenshi:XingJianLi_Card": {
     "NAME": "行剑礼",
     "DESCRIPTION": "随机 消耗 1张手牌。 NL 抽取1张 *流派卡牌 ，使其在 *本场战斗 费用减1。",
@@ -46,8 +41,8 @@
   },
   "game.duofan.kenshi:ZhanBaiShe_Card": {
     "NAME": "斩白蛇",
-    "DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
-    "UPGRADE_DESCRIPTION": "指定一个目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
+    "DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
+    "UPGRADE_DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "EXTENDED_DESCRIPTION": [
       "夺取敌人1点力量。 NL 保留 ， 消耗 "
     ]
@@ -69,8 +64,8 @@
   },
   "game.duofan.kenshi:QinXi": {
     "NAME": "侵袭",
-    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。"
+    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL 消耗 "
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",
@@ -109,8 +104,8 @@
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定1个目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。"
+    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。"
   },
   "game.duofan.kenshi:TianGongKaiWu": {
     "NAME": "天工开物",
@@ -150,7 +145,7 @@
   "game.duofan.kenshi:FZL_FuFeng": {
     "NAME": "腐风",
     "DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。",
-    "UPGRADE_DESCRIPTION": " 固有 NL *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。"
+    "UPGRADE_DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。"
   },
   "game.duofan.kenshi:FZL_WuBianLuoMu": {
     "NAME": "无边落木",
@@ -199,8 +194,8 @@
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "紫电清霜",
-    "DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :若造成伤害不少于9点，给予1层 易伤 。",
-    "UPGRADE_DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :若造成伤害不少于9点，给予1层 易伤 。"
+    "DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。",
+    "UPGRADE_DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。"
   },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "气冲斗牛",
@@ -252,10 +247,20 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 每回合 *首次进入羽之流 时，从弃牌堆返回手牌。 NL duofan_kenshi:羽之流 :额外获得 !M! 点 格挡 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 每回合 *首次进入羽之流 时，从弃牌堆返回手牌。 NL duofan_kenshi:羽之流 :额外获得 !M! 点 格挡 。"
   },
+  "game.duofan.kenshi:YuZL_BaiLuYou": {
+    "NAME": "白鹭游",
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 *技能牌 后，将该牌从 *抽牌堆 打出。 NL duofan_kenshi:羽之流 :获得 !M! 点 敏捷 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出 *技能牌 后，将该牌从 *抽牌堆 打出。 NL duofan_kenshi:羽之流 :获得 !M! 点 敏捷 。"
+  },
   "game.duofan.kenshi:YuZL_GuHong": {
     "NAME": "孤鸿",
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。"
+  },
+  "game.duofan.kenshi:YuZL_BenNiaoXianFei": {
+    "NAME": "笨鸟先飞",
+    "DESCRIPTION": " 固有 NL 抽取1张 *技能牌 。 NL duofan_kenshi:羽之流 :使其在 *本场战斗 费用减1。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " 固有 NL 抽取1张 *技能牌 和 *攻击牌 。 NL duofan_kenshi:羽之流 :使其在 *本场战斗 费用减1。 NL 消耗 "
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "云销雨霁",
@@ -297,15 +302,15 @@
     "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :将目标的  duofan_kenshi:熔融 翻倍。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :将目标的  duofan_kenshi:熔融 翻倍。"
   },
-  "game.duofan.kenshi:YanZL_LuoXuanYan": {
-    "NAME": "螺旋焰",
+  "game.duofan.kenshi:YanZL_ZhuoXinYan": {
+    "NAME": "灼心焰",
     "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。"
   },
-  "game.duofan.kenshi:YanZL_ZhuoXinYan": {
-    "NAME": "灼心焰",
-    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，对 *所有其他敌人 造成目标 duofan_kenshi:熔融 层数的 duofan_kenshi:爆炎伤害。 NL duofan_kenshi:炎之流 :",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :若目标意图为 *攻击 ，造成伤害增加 !M! 点。"
+  "game.duofan.kenshi:YanZL_LuoXuanYan": {
+    "NAME": "螺旋焰",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，对 *其他敌人 造成目标 duofan_kenshi:熔融 层数的 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，对 *其他敌人 造成目标 duofan_kenshi:熔融 层数的 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_HuoYuJingShi": {
     "NAME": "火域警示",
@@ -324,8 +329,8 @@
   },
   "game.duofan.kenshi:YanZL_BuJingYan": {
     "NAME": "不净炎",
-    "DESCRIPTION": "指定1个目标，每当目标受到 duofan_kenshi:爆炎伤害 时，对 *所有其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *只能同时存在一个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "指定1个目标，每当目标受到 duofan_kenshi:爆炎伤害 时，对 *所有其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *只能同时存在一个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
+    "DESCRIPTION": "指定目标，每当其受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *仅能1个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "指定目标，每当其受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *仅能1个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_LianYu": {
     "NAME": "炼狱",

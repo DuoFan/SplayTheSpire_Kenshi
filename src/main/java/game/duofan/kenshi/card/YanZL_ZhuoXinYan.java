@@ -2,24 +2,19 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IXiaZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
+import game.duofan.kenshi.power.*;
 
-public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
+public class YanZL_ZhuoXinYan extends CustomCard implements IYanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(XZL_ZiDianQingShuang.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_ZhuoXinYan.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -30,44 +25,22 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    int attackDamage;
+    DamageInfo damageInfo;
     AbstractMonster targetMonster;
 
-    public XZL_ZiDianQingShuang() {
+    public YanZL_ZhuoXinYan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        damage = baseDamage = 9;
         magicNumber = baseMagicNumber = 3;
-        updateDamage();
-    }
-
-    @Override
-    public void update() {
-        super.update();
-        updateDamage();
-    }
-
-    void updateDamage(){
-        // Should generally just be the above.
-        AbstractPlayer p = AbstractDungeon.player;
-        int d = 0;
-        if(p != null && p.hand != null){
-            CardGroup hand = p.hand;
-            int attackCount = 0;
-            for (int i = 0; i < hand.size(); i++) {
-                AbstractCard c = hand.group.get(i);
-                if(c.type == AbstractCard.CardType.ATTACK){
-                    attackCount++;
-                }
-            }
-            d = attackCount * magicNumber;
-        }
-        baseDamage = d;
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeDamage(3);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -80,53 +53,54 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        int d = damage;
         targetMonster = m;
-        attackDamage = damage;
-        if (attackDamage > 0) {
-            Utils.giveDamage(p, m, attackDamage, DamageInfo.DamageType.NORMAL);
-        }
+        damageInfo = Utils.giveBaoYanDamage(p, m, d, DamageInfo.DamageType.NORMAL);
     }
 
     @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        attackDamage = 0;
-        targetMonster = null;
+    public void yanZhiLiuEffect() {
+        if (damageInfo == null || targetMonster == null) {
+            return;
+        }
+
+        if (Utils.isIntentAttack(targetMonster)) {
+            damageInfo.output += magicNumber;
+        }
     }
 
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        attackDamage = 0;
+        damageInfo = null;
         targetMonster = null;
-        updateDamage();
     }
 
     @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.XiaZhiLiu;
-    }
-
-    @Override
-    public boolean isInvokeLiuEffectToTop() {
-        return false;
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        damageInfo = null;
+        targetMonster = null;
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 
     @Override
-    public void xiaZhiLiuEffect(boolean isByQi) {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster,
-                    new VulnerablePower(targetMonster, 1, false));
-        }
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.YanZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return true;
     }
 }

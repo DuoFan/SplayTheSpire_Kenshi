@@ -91,7 +91,6 @@ public class KenShi extends CustomPlayer {
         for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(DuiJiuDangGe.ID);
         retVal.add(FZL_BaiHuaSha.ID);
 
         return retVal;

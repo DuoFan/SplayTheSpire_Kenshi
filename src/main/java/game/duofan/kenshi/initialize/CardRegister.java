@@ -21,7 +21,6 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new Defend());
 
         cards.add(new SiJiDaiFa());
-        cards.add(new DuiJiuDangGe());
         cards.add(new XingJianLi_Card());
         cards.add(new YiJianHuiYou_Card());
         cards.add(new GongFaShanZhuan_Card());

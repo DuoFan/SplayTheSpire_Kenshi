@@ -397,8 +397,10 @@ public class Utils {
         return p.getPower(Qi.POWER_ID).amount;
     }
 
-    public static void playerDrawCardByFilterAction(int amount, ICardFilter filter) {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardByFilterAction(amount, filter));
+    public static DrawCardByFilterAction playerDrawCardByFilterAction(int amount, ICardFilter filter) {
+        DrawCardByFilterAction a = new DrawCardByFilterAction(amount, filter);
+        AbstractDungeon.actionManager.addToBottom(a);
+        return a;
     }
 
     public static void playerDrawCardByClass(int amount, Class<?> targetClass) {
@@ -470,9 +472,11 @@ public class Utils {
             cards.add(new YuZL_QueBu());
             cards.add(new YuZL_YingMu());
             cards.add(new YuZL_QingShenZhui());
+            cards.add(new YuZL_BaiLuYou());
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
             cards.add(new YuZL_JiShuiSanQianCard());
+            cards.add(new YuZL_BenNiaoXianFei());
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_BuSiNiao());
         }
@@ -481,6 +485,7 @@ public class Utils {
             cards.add(new YanZL_LiuHuo());
             cards.add(new YanZL_BuJingYan());
             cards.add(new YanZL_LuoXuanYan());
+            cards.add(new YanZL_ZhuoXinYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
             cards.add(new YanZL_LiaoYuanJianQi());
