@@ -307,8 +307,8 @@
     "DESCRIPTION": "获得 !B! 点 格挡 ，本回合每次受到攻击，给予攻击者 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :给予1个目标1层 虚弱 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，本回合每次受到攻击，给予攻击者 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :给予1个目标1层 虚弱 。"
   },
-  "game.duofan.kenshi:YanZL_ZhuoXinLiu": {
-    "NAME": "灼心流",
+  "game.duofan.kenshi:YanZL_FenCheng": {
+    "NAME": "焚城",
     "DESCRIPTION": "给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。",
     "UPGRADE_DESCRIPTION": "给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。"
   },

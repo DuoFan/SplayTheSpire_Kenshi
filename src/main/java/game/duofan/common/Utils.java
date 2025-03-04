@@ -486,7 +486,7 @@ public class Utils {
             cards.add(new YanZL_LiaoYuanJianQi());
             cards.add(new YanZL_ChunYangJianYi());
             cards.add(new YanZL_HuoYuJingShi());
-            cards.add(new YanZL_ZhuoXinLiu());
+            cards.add(new YanZL_FenCheng());
             cards.add(new YanZL_LianYu());
             cards.add(new YanZL_LieHuoChang());
         }

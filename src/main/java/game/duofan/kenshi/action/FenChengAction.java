@@ -8,20 +8,16 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.IDoCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.RongRong;
 
-import java.util.AbstractList;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class ZhuoXinLiuAction extends AbstractGameAction {
+public class FenChengAction extends AbstractGameAction {
 
     AbstractMonster targetMonster;
 
-    public ZhuoXinLiuAction(int _amount, AbstractMonster m) {
+    public FenChengAction(int _amount, AbstractMonster m) {
         amount = _amount;
         targetMonster = m;
     }

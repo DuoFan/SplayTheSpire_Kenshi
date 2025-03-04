@@ -11,15 +11,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.GiveAllEnemiesRongAction;
-import game.duofan.kenshi.action.ZhuoXinLiuAction;
+import game.duofan.kenshi.action.FenChengAction;
 import game.duofan.kenshi.power.*;
 
-import java.util.ArrayList;
+public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
 
-public class YanZL_ZhuoXinLiu extends CustomCard implements IYanZhiLiuCard {
-
-    public static final String ID = IDManager.getInstance().getID(YanZL_ZhuoXinLiu.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_FenCheng.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -30,7 +27,7 @@ public class YanZL_ZhuoXinLiu extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public YanZL_ZhuoXinLiu() {
+    public YanZL_FenCheng() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 4;
     }
@@ -53,7 +50,7 @@ public class YanZL_ZhuoXinLiu extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new ZhuoXinLiuAction(magicNumber, m));
+        addToBot(new FenChengAction(magicNumber, m));
     }
 
     @Override
