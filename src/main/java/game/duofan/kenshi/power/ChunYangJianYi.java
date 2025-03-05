@@ -229,8 +229,7 @@ public class ChunYangJianYi extends AbstractPower {
 
         for (int i = 0; i < g.size(); i++) {
             AbstractCard c = g.group.get(i);
-            if (c.type == AbstractCard.CardType.ATTACK && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.YanZhiLiu
-                    && !c.cardID.equals(YangZhiRen.ID)) {
+            if (c.type == AbstractCard.CardType.ATTACK && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.YanZhiLiu) {
                 baoYanCardManager.removeCard(c);
             }
         }

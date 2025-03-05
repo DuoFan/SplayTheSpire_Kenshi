@@ -16,7 +16,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class YinZhiRen extends CustomCard {
+public class YinZhiRen extends CustomCard implements IFengZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(YinZhiRen.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -64,5 +64,20 @@ public class YinZhiRen extends CustomCard {
         Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         Utils.givePower(p, m, new PoBai(m, magicNumber));
         Utils.playerDrawCardByClass(1, YangZhiRen.class);
+    }
+
+    @Override
+    public void fengZhiLiuEffect() {
+
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.FengZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

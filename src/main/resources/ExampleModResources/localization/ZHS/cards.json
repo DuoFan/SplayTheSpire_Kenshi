@@ -64,8 +64,8 @@
   },
   "game.duofan.kenshi:QinXi": {
     "NAME": "侵袭",
-    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 *力量 。 NL 消耗 "
+    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 力量 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 力量 。 NL 消耗 "
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",
@@ -117,15 +117,20 @@
     "DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。"
   },
+  "game.duofan.kenshi:FZL_QiuFengPo": {
+    "NAME": "秋风破",
+    "DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
+  },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "百花杀",
     "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。"
   },
-  "game.duofan.kenshi:FZL_QiuFengPo": {
-    "NAME": "秋风破",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
+  "game.duofan.kenshi:FZL_QianZhiZhe": {
+    "NAME": "千枝折",
+    "DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。"
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
     "NAME": "万叶败",
@@ -169,13 +174,13 @@
   },
   "game.duofan.kenshi:YangZhiRen": {
     "NAME": "阳之刃",
-    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。"
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ，给予 !M! 层 duofan_kenshi:熔融 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 "
   },
   "game.duofan.kenshi:YinZhiRen": {
     "NAME": "阴之刃",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。"
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 "
   },
   "game.duofan.kenshi:XZL_QiChenDanTian": {
     "NAME": "气沉丹田",
@@ -192,20 +197,25 @@
     "DESCRIPTION": " 固有 NL 造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌，使其伤害增加 !M! 点。",
     "UPGRADE_DESCRIPTION": " 固有 NL 造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌，使其伤害增加 !M! 点。"
   },
+  "game.duofan.kenshi:XZL_CaiCheQuMing": {
+    "NAME": "彩彻区明",
+    "DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 ，将 *云销雨霁 加入手牌 。 NL duofan_kenshi:霞之流 :抽取1张 *羽卡 。",
+    "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 ，将 *云销雨霁 加入手牌 。 NL duofan_kenshi:霞之流 :抽取1张 *羽卡 。"
+  },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "紫电清霜",
     "DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。",
     "UPGRADE_DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。"
   },
+  "game.duofan.kenshi:YanZL_ZhenWuDangMo": {
+    "NAME": "真武荡魔",
+    "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你在 *本回合 获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你在 *本回合 获得1点 力量 。"
+  },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "气冲斗牛",
     "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得1层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。"
-  },
-  "game.duofan.kenshi:XZL_CaiCheQuMing": {
-    "NAME": "彩彻区明",
-    "DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 ，将 *云销雨霁 加入手牌 。 NL duofan_kenshi:霞之流 :抽取1张 *羽卡 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 ，将 *云销雨霁 加入手牌 。 NL duofan_kenshi:霞之流 :抽取1张 *羽卡 。"
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
     "NAME": "气化万千",

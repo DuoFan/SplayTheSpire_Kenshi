@@ -54,9 +54,11 @@ public class RongRong extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        if(amount > 10){
-            amount = 10;
+        if(isPlayer){
+            if(amount > 10){
+                amount = 10;
+            }
+            updateDescription();
         }
-        updateDescription();
     }
 }
