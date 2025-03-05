@@ -127,11 +127,6 @@
     "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。"
   },
-  "game.duofan.kenshi:FZL_QianZhiZhe": {
-    "NAME": "千枝折",
-    "DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。"
-  },
   "game.duofan.kenshi:FZL_WanYeBai": {
     "NAME": "万叶败",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。",
@@ -141,6 +136,11 @@
     "NAME": "枝切",
     "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。"
+  },
+  "game.duofan.kenshi:FZL_CuiKuLaXiu": {
+    "NAME": "摧枯拉朽",
+    "DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。"
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "烈风斩",
@@ -154,8 +154,8 @@
   },
   "game.duofan.kenshi:FZL_WuBianLuoMu": {
     "NAME": "无边落木",
-    "DESCRIPTION": "每回合首次进入 duofan_kenshi:枫之流 时，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。",
-    "UPGRADE_DESCRIPTION": " 固有 NL 每回合首次进入 duofan_kenshi:枫之流 时，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
+    "DESCRIPTION": " *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。",
+    "UPGRADE_DESCRIPTION": " *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
   },
   "game.duofan.kenshi:FZL_Ji_FanShi_Card": {
     "NAME": "极·反式",
@@ -181,11 +181,6 @@
     "NAME": "阴之刃",
     "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 duofan_kenshi:破败 。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 "
-  },
-  "game.duofan.kenshi:XZL_QiChenDanTian": {
-    "NAME": "气沉丹田",
-    "DESCRIPTION": "每有1层 duofan_kenshi:气 ，获得 !M! 点 格挡 。 NL duofan_kenshi:霞之流 :额外获得 duofan_kenshi:气 层数点 格挡 。",
-    "UPGRADE_DESCRIPTION": "每有1层 duofan_kenshi:气 ，获得 !M! 点 格挡 。 NL duofan_kenshi:霞之流 :额外获得 duofan_kenshi:气 层数点 格挡 。"
   },
   "game.duofan.kenshi:XZL_GuiYuan": {
     "NAME": "归元",
@@ -349,7 +344,7 @@
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "猎火场",
-    "DESCRIPTION": "每回合首次进入 duofan_kenshi:炎之流 时，给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": "每回合首次进入 duofan_kenshi:炎之流 时，给予 *所有敌人 1层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 1层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。"
+    "DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。"
   }
 }

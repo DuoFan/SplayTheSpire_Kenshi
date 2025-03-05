@@ -459,9 +459,8 @@ public class Utils {
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_ZiDianQingShuang());
-            cards.add(new XZL_QiChongDouNiu());
             cards.add(new XZL_CaiCheQuMing());
-            cards.add(new XZL_QiChenDanTian());
+            cards.add(new XZL_QiChongDouNiu());
             cards.add(new XZL_QiHuaWanQian());
             cards.add(new XZL_JuQue());
             cards.add(new XZL_ShengXie());
