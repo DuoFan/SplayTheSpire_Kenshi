@@ -204,8 +204,13 @@
   },
   "game.duofan.kenshi:YanZL_ZhenWuDangMo": {
     "NAME": "真武荡魔",
-    "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你在 *本回合 获得1点 力量 。",
-    "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你在 *本回合 获得1点 力量 。"
+    "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。"
+  },
+  "game.duofan.kenshi:YanZL_ZiXiaZhenQi": {
+    "NAME": "紫霞真气",
+    "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。"
   },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "气冲斗牛",
