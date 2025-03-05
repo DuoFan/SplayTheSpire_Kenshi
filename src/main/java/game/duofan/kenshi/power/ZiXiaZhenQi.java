@@ -1,17 +1,22 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
 
-public class WuBianLuoMu extends AbstractPower {
+import java.util.ArrayList;
+
+public class ZiXiaZhenQi extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(WuBianLuoMu.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(ZiXiaZhenQi.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -19,7 +24,7 @@ public class WuBianLuoMu extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public WuBianLuoMu(AbstractCreature owner, int amount) {
+    public ZiXiaZhenQi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -32,23 +37,23 @@ public class WuBianLuoMu extends AbstractPower {
         String path48 = "ExampleModResources/img/powers/Example32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
-
-        this.updateDescription();
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], amount);
+        this.description = String.format(DESCRIPTIONS[0], this.amount);
     }
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
+        this.updateDescription();
     }
+
 
     @Override
     public void atStartOfTurnPostDraw() {
         super.atStartOfTurnPostDraw();
         flash();
-        this.addToBot(new DrawCardAction(amount));
+        Utils.playerGainQi(amount);
     }
 }

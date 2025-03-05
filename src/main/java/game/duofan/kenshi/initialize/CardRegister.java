@@ -20,7 +20,6 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new Strike());
         cards.add(new Defend());
 
-        cards.add(new SiJiDaiFa());
         cards.add(new XingJianLi_Card());
         cards.add(new YiJianHuiYou_Card());
         cards.add(new GongFaShanZhuan_Card());
@@ -32,7 +31,6 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new JingYeSi_Card());
         cards.add(new ShiJun());
 
-        cards.add(new QinXi());
         cards.add(new BuSiNiaoZhiYu());
         cards.add(new YangZhiRen());
         cards.add(new YinZhiRen());
@@ -45,6 +43,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new TaYin());
         cards.add(new NiTai());
         cards.add(new YeBu());
+        cards.add(new DaoWuYa());
 
         for (int i = 0; i < cards.size(); i++) {
             BaseMod.addCard(cards.get(i));

@@ -1,40 +1,40 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
+import game.duofan.kenshi.power.*;
 
-public class SiJiDaiFa extends CustomCard {
-    public static final String ID = IDManager.getInstance().getID(SiJiDaiFa.class);
+public class XZL_ZiXiaZhenQi extends CustomCard implements IXiaZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(XZL_ZiXiaZhenQi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = AbstractCard.CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final AbstractCard.CardRarity RARITY = CardRarity.COMMON;
+    private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    public SiJiDaiFa() {
+    public XZL_ZiXiaZhenQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        selfRetain = true;
-        this.cardsToPreview = new QinXi();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            this.initializeDescription();
+            upgradeMagicNumber(1);
         }
     }
 
@@ -46,6 +46,33 @@ public class SiJiDaiFa extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new MakeTempCardInHandAction(new QinXi(), 1));
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(p, p, new ZiXiaZhenQi(p, magicNumber))
+        );
+    }
+
+    @Override
+    public void triggerOnGlowCheck() {
+        super.triggerOnGlowCheck();
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
+        }
+    }
+
+    @Override
+    public void xiaZhiLiuEffect(boolean isByQi) {
+        Utils.playerGainQi(magicNumber);
+    }
+
+    @Override
+    public Liu_StateMachine.StateEnum getLiu() {
+        return Liu_StateMachine.StateEnum.XiaZhiLiu;
+    }
+
+    @Override
+    public boolean isInvokeLiuEffectToTop() {
+        return false;
     }
 }

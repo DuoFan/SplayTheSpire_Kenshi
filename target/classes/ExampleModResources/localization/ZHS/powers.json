@@ -20,7 +20,7 @@
   "game.duofan.kenshi:XinSuiYiDong": {
     "NAME": "心随意动",
     "DESCRIPTIONS": [
-      " #r本回合 剩余 #r%d 张 #r流派卡 可无条件触发 #r流派效果 。"
+      "本回合剩余 #r%d 张 #r流派卡 可无条件触发 #r流派效果 。"
     ]
   },
   "game.duofan.kenshi:JiYiXingTai": {
@@ -50,7 +50,7 @@
   "game.duofan.kenshi:Qi": {
     "NAME": "气",
     "DESCRIPTIONS": [
-      " #r本回合 下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
+      "本回合下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
     ]
   },
   "game.duofan.kenshi:PoJia": {
@@ -105,7 +105,7 @@
   "game.duofan.kenshi:PoBai": {
     "NAME": "破败",
     "DESCRIPTIONS": [
-      " 生命值低于 #r%d 点时，死亡。"
+      "生命值低于 #r%d 点时，死亡。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
@@ -136,19 +136,19 @@
   "game.duofan.kenshi:FuFeng": {
     "NAME": "腐风",
     "DESCRIPTIONS": [
-      " #r回合开始时 ，给予 #r所有敌人 %d层 #r破败 。"
+      "回合开始时，给予 #r所有敌人 %d层 #r破败 。"
     ]
   },
   "game.duofan.kenshi:PoBaiGongJi": {
     "NAME": "破败攻击",
     "DESCRIPTIONS": [
-      " #r本回合 下一张 #r攻击牌 ，给予目标 #r%d层 #r破败 。"
+      "本回合下一张 #r攻击牌 ，给予目标 #r%d层 #r破败 。"
     ]
   },
   "game.duofan.kenshi:WuBianLuoMu": {
     "NAME": "无边落木",
     "DESCRIPTIONS": [
-      "每回合首次进入 #r枫之流 时，抽取 #r%d 张卡牌。"
+      "回合开始时，抽取 #r%d 张卡牌。"
     ]
   },
   "game.duofan.kenshi:Ji_FanShi": {
@@ -163,22 +163,16 @@
       "触发 #r霞之流 效果，打出 #r其他流派卡牌 时，获得1层 #r气 。"
     ]
   },
-  "game.duofan.kenshi:XiaZhiXin": {
-    "NAME": "霞之心",
+  "game.duofan.kenshi:ZiXiaZhenQi": {
+    "NAME": "紫霞真气",
     "DESCRIPTIONS": [
-      "每回合首次进入 #r霞之流 时，使1张随机手牌费用减1。"
+      "回合开始时，获得 #r%d 层 #r气。"
     ]
   },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
       "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
-    ]
-  },
-  "game.duofan.kenshi:YuZhiXin": {
-    "NAME": "羽之心",
-    "DESCRIPTIONS": [
-      "每回合首次进入 #r羽之流 时，获得 #r%d 点格挡 。"
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
@@ -190,7 +184,7 @@
   "game.duofan.kenshi:RongRong": {
     "NAME": "熔融",
     "DESCRIPTIONS": [
-      " 受到的 #r爆炎伤害 增加 #r%d 点，回合结束时最多保留10点。"
+      " 受到的 #r爆炎伤害 增加 #r%d 点，在回合结束时最多保留10点。"
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {
@@ -220,7 +214,7 @@
   "game.duofan.kenshi:LieHuoChang": {
     "NAME": "猎火场",
     "DESCRIPTIONS": [
-      "每回合首次进入 #r炎之流 时，给予 #r所有敌人 #r%d 层 #r熔融 ，并造成1点 #r爆炎伤害 。"
+      "回合开始时，给予 #r所有敌人 #r%d 层 #r熔融 ，并造成1点 #r爆炎伤害 。"
     ]
   }
 }

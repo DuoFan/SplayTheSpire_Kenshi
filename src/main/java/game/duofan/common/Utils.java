@@ -390,11 +390,17 @@ public class Utils {
 
     public static int getQiAmount() {
         AbstractPlayer p = AbstractDungeon.player;
-        if (p == null || !p.hasPower(Qi.POWER_ID)) {
+        if (p == null) {
             return 0;
         }
 
-        return p.getPower(Qi.POWER_ID).amount;
+        AbstractPower power = p.getPower(Qi.POWER_ID);
+
+        if (power == null) {
+            return 0;
+        }
+
+        return power.amount;
     }
 
     public static DrawCardByFilterAction playerDrawCardByFilterAction(int amount, ICardFilter filter) {
@@ -450,6 +456,7 @@ public class Utils {
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_WuBianLuoMu());
+            cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_Ji_FanShi_Card());
         }
 
@@ -459,7 +466,9 @@ public class Utils {
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_ZiDianQingShuang());
+            cards.add(new XZL_ZhenWuDangMo());
             cards.add(new XZL_CaiCheQuMing());
+            cards.add(new XZL_ZiXiaZhenQi());
             cards.add(new XZL_QiChongDouNiu());
             cards.add(new XZL_QiHuaWanQian());
             cards.add(new XZL_JuQue());

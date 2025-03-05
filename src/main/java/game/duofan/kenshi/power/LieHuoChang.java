@@ -14,7 +14,7 @@ import game.duofan.common.*;
 
 import java.util.ArrayList;
 
-public class LieHuoChang extends AbstractPower implements IEventListener {
+public class LieHuoChang extends AbstractPower {
     // 能力的ID
     public static final String POWER_ID = IDManager.getInstance().getID(LieHuoChang.class);
     // 能力的本地化字段
@@ -46,26 +46,14 @@ public class LieHuoChang extends AbstractPower implements IEventListener {
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        Utils.addToBotAbstract(() -> {
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_YanZL_ON_TURN, this);
-        });
         this.updateDescription();
     }
 
-    @Override
-    public void onVictory() {
-        super.onVictory();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YanZL_ON_TURN, this);
-    }
 
     @Override
-    public void onDeath() {
-        super.onDeath();
-        EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YanZL_ON_TURN, this);
-    }
-
-    @Override
-    public void OnEvent(Object sender, Object e) {
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
+        flash();
         LieHuoChangEffect(amount);
     }
 

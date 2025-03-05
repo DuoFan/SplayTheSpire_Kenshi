@@ -81,14 +81,6 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     }
 
     @Override
-    public void triggerOnManualDiscard() {
-        super.triggerOnManualDiscard();
-        targetMonster = null;
-        d1 = 0;
-        d2 = 0;
-    }
-
-    @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
         targetMonster = null;

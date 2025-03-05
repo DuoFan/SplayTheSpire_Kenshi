@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -63,19 +64,13 @@ public class YanZL_LiaoYuanJianQi extends CustomCard implements IYanZhiLiuCard {
     public void yanZhiLiuEffect() {
         if (targetMonster != null) {
             Utils.addToBotAbstract(() -> {
-                if (targetMonster.hasPower(RongRong.POWER_ID)) {
-                    int amount = targetMonster.getPower(RongRong.POWER_ID).amount;
+                AbstractPower rongrong = targetMonster.getPower(RongRong.POWER_ID);
+                if(rongrong != null){
                     AbstractPlayer p = AbstractDungeon.player;
-                    Utils.givePowerTop(p, targetMonster, new RongRong(targetMonster, amount));
+                    Utils.givePowerTop(p, targetMonster, new RongRong(targetMonster, rongrong.amount));
                 }
             });
         }
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        targetMonster = null;
     }
 
     @Override

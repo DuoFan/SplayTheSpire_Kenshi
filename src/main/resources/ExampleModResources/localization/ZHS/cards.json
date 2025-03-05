@@ -62,20 +62,10 @@
     "DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于4张，额外获得一回合并移除一层该效果。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于4张，额外获得一回合并移除一层该效果。 NL 消耗 "
   },
-  "game.duofan.kenshi:QinXi": {
-    "NAME": "侵袭",
-    "DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 力量 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， *本回合 获得1点 力量 。 NL 消耗 "
-  },
   "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",
     "DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 "
-  },
-  "game.duofan.kenshi:SiJiDaiFa": {
-    "NAME": "伺机待发",
-    "DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。",
-    "UPGRADE_DESCRIPTION": "保留 NL 增加1张 *侵袭 NL 到你的手牌。"
   },
   "game.duofan.kenshi:NiTai": {
     "NAME": "拟态",
@@ -111,6 +101,11 @@
     "NAME": "天工开物",
     "DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。",
     "UPGRADE_DESCRIPTION": " 消耗 抽牌堆顶部的牌， duofan_kenshi:锻造 所有手牌。"
+  },
+  "game.duofan.kenshi:DaoWuYa": {
+    "NAME": "道无涯",
+    "DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] 。 NL 消耗 "
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "压制",
@@ -155,7 +150,7 @@
   "game.duofan.kenshi:FZL_WuBianLuoMu": {
     "NAME": "无边落木",
     "DESCRIPTION": " *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。",
-    "UPGRADE_DESCRIPTION": " *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
+    "UPGRADE_DESCRIPTION": " 固有 NL *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
   },
   "game.duofan.kenshi:FZL_Ji_FanShi_Card": {
     "NAME": "极·反式",
@@ -202,15 +197,15 @@
     "DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。",
     "UPGRADE_DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。"
   },
-  "game.duofan.kenshi:YanZL_ZhenWuDangMo": {
+  "game.duofan.kenshi:XZL_ZhenWuDangMo": {
     "NAME": "真武荡魔",
     "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。",
     "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。"
   },
-  "game.duofan.kenshi:YanZL_ZiXiaZhenQi": {
+  "game.duofan.kenshi:XZL_ZiXiaZhenQi": {
     "NAME": "紫霞真气",
-    "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。",
-    "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。"
+    "DESCRIPTION": " *回合开始时 ，获得 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :获得 !M! 层 duofan_kenshi:气 。",
+    "UPGRADE_DESCRIPTION": " *回合开始时 ，获得 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :获得 !M! 层 duofan_kenshi:气 。"
   },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "气冲斗牛",

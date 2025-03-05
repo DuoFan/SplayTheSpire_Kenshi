@@ -10,6 +10,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -28,6 +30,7 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    boolean targetIsDie;
 
     public FZL_CuiKuLaXiu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -57,11 +60,14 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         int c = 3;
         while (c > 0) {
+            Utils.addToBotAbstract(() ->{
+                targetIsDie = m.isDead || m.currentHealth <= 0 || m.isDying;
+            });
             this.addToBot(new DamageAction(
                     m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
             ));
             Utils.addToBotAbstract(() -> {
-                if (m.lastDamageTaken > 0) {
+                if (!targetIsDie && m.lastDamageTaken > 0) {
                     Utils.playerGainPower(new StrengthPower(p, 1));
                 }
             });

@@ -27,7 +27,7 @@ public class FZL_WuBianLuoMu extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_WuBianLuoMu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
