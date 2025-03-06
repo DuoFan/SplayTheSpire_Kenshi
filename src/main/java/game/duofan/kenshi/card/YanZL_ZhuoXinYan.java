@@ -31,7 +31,7 @@ public class YanZL_ZhuoXinYan extends CustomCard implements IYanZhiLiuCard {
     public YanZL_ZhuoXinYan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 6;
         BaoYanCardManager.getInstance().addCard(this);
     }
 

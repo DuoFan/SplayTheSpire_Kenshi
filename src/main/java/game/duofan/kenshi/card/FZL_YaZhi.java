@@ -6,8 +6,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -60,7 +62,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, 1);
+        Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
     }
 
     @Override

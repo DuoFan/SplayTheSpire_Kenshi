@@ -109,8 +109,8 @@
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "压制",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1层攻势。"
+    "DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取 !M! 张 *枫卡 ， duofan_kenshi:枫之流 :获得1点 力量 。"
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "秋风破",
@@ -146,11 +146,6 @@
     "NAME": "腐风",
     "DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。",
     "UPGRADE_DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。"
-  },
-  "game.duofan.kenshi:FZL_WuBianLuoMu": {
-    "NAME": "无边落木",
-    "DESCRIPTION": " *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。",
-    "UPGRADE_DESCRIPTION": " 固有 NL *回合开始时 ，抽取 !M! 张卡牌。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
   },
   "game.duofan.kenshi:FZL_Ji_FanShi_Card": {
     "NAME": "极·反式",

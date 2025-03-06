@@ -455,7 +455,6 @@ public class Utils {
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_FuFeng());
-            cards.add(new FZL_WuBianLuoMu());
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_Ji_FanShi_Card());
         }
