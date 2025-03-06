@@ -28,7 +28,7 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
 
     DrawCardByFilterAction drawAction;
     DrawCardByFilterAction drawAction2;
-    int minusCost = 1;
+    int minusCost = 0;
 
     public YuZL_BenNiaoXianFei() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -86,7 +86,7 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
         super.onMoveToDiscard();
         drawAction = null;
         drawAction2 = null;
-        minusCost = 1;
+        minusCost = 0;
     }
 
     @Override
@@ -94,7 +94,7 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
         super.triggerWhenDrawn();
         drawAction = null;
         drawAction2 = null;
-        minusCost = 1;
+        minusCost = 0;
     }
 
     @Override

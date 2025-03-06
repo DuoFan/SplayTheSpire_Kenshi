@@ -33,7 +33,7 @@ public class YuZL_BaiLuYou extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_BaiLuYou() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 12;
+        block = baseBlock = 8;
         magicNumber = baseMagicNumber = 1;
     }
 

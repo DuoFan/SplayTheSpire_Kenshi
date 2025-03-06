@@ -59,8 +59,8 @@
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "静夜思",
-    "DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于4张，额外获得一回合并移除一层该效果。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于4张，额外获得一回合并移除一层该效果。 NL 消耗 "
+    "DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于3张，额外获得一回合并移除一层该效果。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于3张，额外获得一回合并移除一层该效果。 NL 消耗 "
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",
@@ -74,8 +74,8 @@
   },
   "game.duofan.kenshi:TaYin": {
     "NAME": "拓印",
-    "DESCRIPTION": "从3张 *互异流派卡 中选择1张加入手牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从3张 *互异流派卡 中选择1张加入手牌，这张牌在本回合费用降为0。 NL 消耗 "
+    "DESCRIPTION": "从3张 *流派卡牌 中选择1张加入手牌，不包含 *稀有卡牌 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "从3张 *流派卡牌 中选择1张加入手牌，不包含 *稀有卡牌 ，这张牌在本回合费用降为0。 NL 消耗 "
   },
   "game.duofan.kenshi:GaiTouHuanMian": {
     "NAME": "改头换面",
@@ -234,8 +234,8 @@
   },
   "game.duofan.kenshi:YuZL_QueBu": {
     "NAME": "雀步",
-    "DESCRIPTION": "获得2层 duofan_kenshi:架势 ，抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "获得2层 duofan_kenshi:架势 ，抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
+    "DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 张 *羽卡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
   },
   "game.duofan.kenshi:YuZL_YingMu": {
     "NAME": "鹰目",
@@ -334,8 +334,8 @@
   },
   "game.duofan.kenshi:YanZL_BuJingYan": {
     "NAME": "不净炎",
-    "DESCRIPTION": "指定目标，每当其受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *仅能1个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "指定目标，每当其受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 ， *仅能1个目标拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
+    "DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能1个敌人拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能1个敌人拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_LianYu": {
     "NAME": "炼狱",

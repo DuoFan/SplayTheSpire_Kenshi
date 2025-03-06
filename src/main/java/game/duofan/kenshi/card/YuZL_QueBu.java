@@ -25,11 +25,8 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    int jiaShiAmount;
-
     public YuZL_QueBu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        jiaShiAmount = 2;
         magicNumber = baseMagicNumber = 1;
         block = baseBlock = 6;
     }
@@ -39,6 +36,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeMagicNumber(1);
+            upgradeBlock(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -52,7 +50,7 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.JiaShi,2);
+        Utils.playerGainBlock(block);
         Utils.playerDrawCardByClass(magicNumber, IYuZhiLiuCard.class);
     }
 

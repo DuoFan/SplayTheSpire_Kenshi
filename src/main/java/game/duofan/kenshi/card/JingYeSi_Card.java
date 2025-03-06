@@ -23,7 +23,7 @@ public class JingYeSi_Card extends CustomCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-    public static int attackLimit = 4;
+    public static int attackLimit = 3;
 
     public JingYeSi_Card() {
 
