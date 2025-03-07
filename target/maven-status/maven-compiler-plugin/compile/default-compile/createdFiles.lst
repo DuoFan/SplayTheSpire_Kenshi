@@ -1,5 +1,6 @@
 game\duofan\kenshi\action\RepeatAction$1.class
 game\duofan\kenshi\card\FZL_Ji_FanShi_Card.class
+game\duofan\kenshi\card\FZL_JuanTuChongLai.class
 game\duofan\kenshi\card\XZL_BaiHongGuanRi.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
@@ -112,9 +113,11 @@ game\duofan\kenshi\power\JiShuiSanQian.class
 game\duofan\kenshi\card\FZL_YaZhi.class
 game\duofan\kenshi\initialize\VariableRegister.class
 game\duofan\kenshi\power\ZhuLiuBaiJia.class
+game\duofan\kenshi\action\HuoZhiYuAction.class
 game\duofan\kenshi\power\IFengZhiLiuCard.class
 game\duofan\common\Utils$2.class
 game\duofan\kenshi\card\YuZL_BaiLuYou.class
+game\duofan\kenshi\card\YanZL_HuoZhiYu.class
 game\duofan\kenshi\card\TianGongKaiWu.class
 game\duofan\kenshi\card\QianBianWanHua.class
 game\duofan\kenshi\card\YanZL_LiaoYuanJianQi.class

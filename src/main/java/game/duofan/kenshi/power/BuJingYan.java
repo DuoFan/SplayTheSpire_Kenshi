@@ -48,7 +48,6 @@ public class BuJingYan extends AbstractPower implements IEventListener {
     }
 
     public void updateDescription() {
-
         this.description = String.format(DESCRIPTIONS[0], amount);
     }
 
@@ -73,7 +72,7 @@ public class BuJingYan extends AbstractPower implements IEventListener {
             }
             int damage = amount;
             if (m.hasPower(RongRong.POWER_ID)) {
-                amount += m.getPower(RongRong.POWER_ID).amount;
+                damage += m.getPower(RongRong.POWER_ID).amount;
             }
             Utils.giveBaoYanDamage(info.owner, m, damage, DamageInfo.DamageType.NORMAL);
         }

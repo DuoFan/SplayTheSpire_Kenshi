@@ -1,65 +1,61 @@
-package game.duofan.kenshi.action;
+package game.duofan.kenshi.action;//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.RongRong;
 
-import java.util.List;
-import java.util.Stack;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class FenChengAction extends AbstractGameAction {
 
-    AbstractMonster targetMonster;
-
-    public FenChengAction(int _amount, AbstractMonster m) {
-        amount = _amount;
-        targetMonster = m;
+    public FenChengAction() {
+        this.actionType = ActionType.DAMAGE;
+        this.duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        isDone = true;
+        this.tickDuration();
+        if (this.isDone) {
+            Utils.giveAllMonsterBaoYanDamage(1);
 
-        if (amount > 0) {
-            List<AbstractMonster> monsters = Utils.sortMonsterByXPos(Utils.getAllAliveMonsters());
-            int index = monsters.indexOf(targetMonster);
-            if (index >= 0) {
-                Stack<Integer> rongrongGive = new Stack<Integer>();
-                Stack<AbstractMonster> monsterStack = new Stack<>();
-                int _amount = amount;
-                rongrongGive.push(_amount);
-                monsterStack.push(targetMonster);
-                int count = 1;
-                int size = monsters.size();
-                while (_amount > 1) {
-                    int left = index - count;
-                    int right = index + count;
-                    if (left >= 0) {
-                        rongrongGive.push(_amount / 2);
-                        monsterStack.push(monsters.get(left));
+            ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+            boolean stop = true;
+            for (int i = 0; i < monsters.size(); i++) {
+                AbstractMonster m = monsters.get(i);
+                AbstractPower rongRong = m.getPower(RongRong.POWER_ID);
+                if (rongRong != null && rongRong.amount > 0) {
+                    if (rongRong.amount <= 1) {
+                        Utils.removePower(m, RongRong.POWER_ID);
+                    } else {
+                        Utils.gainPower(m, new RongRong(m, -1));
+                        stop = false;
                     }
-                    if (right < size) {
-                        rongrongGive.push(_amount / 2);
-                        monsterStack.push(monsters.get(right));
-                    }
-                    _amount /= 2;
-                    count++;
                 }
+            }
 
-                AbstractPlayer p = AbstractDungeon.player;
-                while (!monsterStack.empty()) {
-                    AbstractMonster m = monsterStack.pop();
-                    Utils.givePowerTop(p, m, new RongRong(m, rongrongGive.pop()));
-                }
+            if (!stop) {
+                this.addToBot(new FenChengAction());
+            }
 
-            } else {
-                Utils.givePowerTop(AbstractDungeon.player, targetMonster, new RongRong(targetMonster, amount));
+            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+                AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
+
     }
 }

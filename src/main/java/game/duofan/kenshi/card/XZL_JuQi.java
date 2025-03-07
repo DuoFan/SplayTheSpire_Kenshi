@@ -1,9 +1,11 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -26,8 +28,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_JuQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 4;
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -48,13 +49,13 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainQi(magicNumber + 1);
-        Utils.playerDrawCardByClass(magicNumber, IXiaZhiLiuCard.class);
+        Utils.playerGainQi(2);
+        addToBot(new DrawCardAction(p, magicNumber));
     }
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        Utils.playerGainBlock(block);
+        Utils.playerGainEnergy(1);
     }
 
     @Override

@@ -5,8 +5,10 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.DexterityPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -27,16 +29,16 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_QueBu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
-        block = baseBlock = 6;
+        magicNumber = baseMagicNumber = 15;
+        block = baseBlock = 9;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
-            upgradeBlock(2);
+            upgradeBlock(4);
+            upgradeMagicNumber(5);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -51,12 +53,17 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.playerGainBlock(block);
-        Utils.playerDrawCardByClass(magicNumber, IYuZhiLiuCard.class);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainBlock(block);
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) {
+            return;
+        }
+        if (p.currentBlock < magicNumber) {
+            Utils.playerGainPower(new DexterityPower(p, 1));
+        }
     }
 
     @Override

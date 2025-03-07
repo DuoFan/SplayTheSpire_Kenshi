@@ -230,7 +230,7 @@ public class Utils {
     public static DamageInfo giveBaoYanDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
         if (s != null && t != null) {
             DamageInfo info = new DamageInfo(s, amount, type);
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info, AbstractGameAction.AttackEffect.FIRE));
             AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(t, info));
             return info;
         } else {
@@ -456,6 +456,7 @@ public class Utils {
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_CuiKuLaXiu());
+            cards.add(new FZL_JuanTuChongLai());
             cards.add(new FZL_Ji_FanShi_Card());
         }
 
@@ -498,6 +499,7 @@ public class Utils {
             cards.add(new YanZL_LiaoYuanJianQi());
             cards.add(new YanZL_ChunYangJianYi());
             cards.add(new YanZL_HuoYuJingShi());
+            cards.add(new YanZL_HuoZhiYu());
             cards.add(new YanZL_FenCheng());
             cards.add(new YanZL_LianYu());
             cards.add(new YanZL_LieHuoChang());
@@ -628,12 +630,17 @@ public class Utils {
     }
 
     public static void giveAllMonsterBaoYanDamage(int baseDamage) {
-        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
+        int[] damages = new int[monsters.size()];
         AbstractPlayer p = AbstractDungeon.player;
+
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE, true));
 
         for (int i = 0; i < monsters.size(); i++) {
             AbstractMonster _m = monsters.get(i);
-            Utils.giveBaoYanDamage(p, _m, Utils.modifyDamageByRongRong(baseDamage, _m), DamageInfo.DamageType.NORMAL);
+            damages[i] = Utils.modifyDamageByRongRong(baseDamage, _m);
+            DamageInfo info = new DamageInfo(p, damages[i], DamageInfo.DamageType.NORMAL);
+            AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(_m, info));
         }
 
     }

@@ -53,9 +53,6 @@ public class HuoYuJingShi extends AbstractPower {
     public int onAttacked(DamageInfo info, int damageAmount) {
         int result = super.onAttacked(info, damageAmount);
 
-        System.out.println("-------------------------VV");
-        System.out.println(info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner);
-
         if (info.owner != null && info.type != DamageInfo.DamageType.THORNS && info.type != DamageInfo.DamageType.HP_LOSS && info.owner != this.owner) {
             this.flash();
             Utils.givePowerTop(owner, info.owner, new RongRong(info.owner, amount));

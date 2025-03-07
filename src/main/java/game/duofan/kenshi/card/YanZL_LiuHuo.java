@@ -31,14 +31,14 @@ public class YanZL_LiuHuo extends CustomCard implements IYanZhiLiuCard {
 
     public YanZL_LiuHuo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 4;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -52,8 +52,13 @@ public class YanZL_LiuHuo extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new GiveAllEnemiesRongAction(magicNumber));
-        Utils.playerDrawCardByClass(magicNumber, IYanZhiLiuCard.class);
+        ArrayList<AbstractMonster> targets = Utils.getAllAliveMonsters();
+        for (int i = 0; i < targets.size(); i++) {
+            Utils.givePower(p, targets.get(i), new RongRong(targets.get(i), magicNumber));
+        }
+        Utils.addToBotAbstract(() ->{
+            Utils.giveAllMonsterBaoYanDamage(1);
+        });
     }
 
     @Override

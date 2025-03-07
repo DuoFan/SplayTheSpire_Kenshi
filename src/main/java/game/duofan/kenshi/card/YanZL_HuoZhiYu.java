@@ -1,48 +1,40 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IFengZhiLiuCard;
-import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
+import game.duofan.kenshi.action.HuoZhiYuAction;
+import game.duofan.kenshi.power.*;
 
-public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
+public class YanZL_HuoZhiYu extends CustomCard implements IYanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(FZL_YaZhi.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_HuoZhiYu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public FZL_YaZhi() {
+    public YanZL_HuoZhiYu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 6;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -56,13 +48,12 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
-        Utils.givePower(p, m, new WeakPower(m, magicNumber, false));
+        addToBot(new HuoZhiYuAction(magicNumber, m));
     }
 
     @Override
-    public void fengZhiLiuEffect() {
-        Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
+    public void yanZhiLiuEffect() {
+        Utils.giveAllMonsterBaoYanDamage(1);
     }
 
     @Override
@@ -70,7 +61,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
@@ -78,7 +69,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.FengZhiLiu;
+        return Liu_StateMachine.StateEnum.YanZhiLiu;
     }
 
     @Override

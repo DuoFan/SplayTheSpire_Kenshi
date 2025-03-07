@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,16 +19,18 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 2;
+    private static final int COST = 3;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardTarget TARGET = CardTarget.NONE;
+
+    AbstractMonster targetMonster;
 
     public YanZL_FenCheng() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 6;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -42,6 +43,16 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
         }
     }
 
+    @Override
+    public void update() {
+        super.update();
+        if (Liu_StateMachine.getInstance().getLiu() == Liu_StateMachine.StateEnum.YanZhiLiu) {
+            target = CardTarget.ENEMY;
+        } else {
+            target = CardTarget.NONE;
+        }
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *
@@ -50,12 +61,23 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new FenChengAction(magicNumber, m));
+        targetMonster = m;
+        Utils.addToBotAbstract(() ->{
+            addToBot(new FenChengAction());
+        });
     }
 
     @Override
     public void yanZhiLiuEffect() {
-        Utils.giveAllMonsterBaoYanDamage(1);
+        if (targetMonster != null) {
+            Utils.givePower(AbstractDungeon.player, targetMonster, new RongRong(targetMonster, magicNumber));
+        }
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        targetMonster = null;
     }
 
     @Override
@@ -76,6 +98,6 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public boolean isInvokeLiuEffectToTop() {
-        return false;
+        return true;
     }
 }

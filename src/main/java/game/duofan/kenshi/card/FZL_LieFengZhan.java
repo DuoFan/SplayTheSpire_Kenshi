@@ -38,7 +38,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_LieFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 6;
+        int baseValue = 8;
         this.damage = this.baseDamage = baseValue;
         baseMagicNumber = magicNumber = 1;
         exhaust = true;

@@ -34,7 +34,7 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_ZhiQie() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
+        this.damage = this.baseDamage = 9;
         this.magicNumber = this.baseMagicNumber = 1;
     }
 
