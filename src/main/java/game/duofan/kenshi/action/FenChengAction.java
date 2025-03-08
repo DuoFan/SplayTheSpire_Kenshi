@@ -39,10 +39,10 @@ public class FenChengAction extends AbstractGameAction {
                 AbstractMonster m = monsters.get(i);
                 AbstractPower rongRong = m.getPower(RongRong.POWER_ID);
                 if (rongRong != null && rongRong.amount > 0) {
-                    if (rongRong.amount <= 1) {
+                    if (rongRong.amount <= 2) {
                         Utils.removePower(m, RongRong.POWER_ID);
                     } else {
-                        Utils.gainPower(m, new RongRong(m, -1));
+                        Utils.gainPower(m, new RongRong(m, -2));
                         stop = false;
                     }
                 }

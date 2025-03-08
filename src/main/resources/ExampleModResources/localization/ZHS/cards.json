@@ -322,15 +322,15 @@
     "DESCRIPTION": "获得 !B! 点 格挡 ，本回合每次受到攻击，给予攻击者 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :给予1个目标1层 虚弱 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，本回合每次受到攻击，给予攻击者 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :给予1个目标1层 虚弱 。"
   },
-  "game.duofan.kenshi:YanZL_HuoZhiYu": {
-    "NAME": "火之雨",
-    "DESCRIPTION": "给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": "给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。"
+  "game.duofan.kenshi:YanZL_HuoYuJianQi": {
+    "NAME": "火雨剑气",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 给予 !M! 层 duofan_kenshi:熔融 ，将数值减半并向两侧传递。 NL duofan_kenshi:炎之流 :对 *所有敌人 造成1点 duofan_kenshi:爆炎伤害 。"
   },
   "game.duofan.kenshi:YanZL_FenCheng": {
     "NAME": "焚城",
-    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去1层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去1层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
+    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "纯阳剑意",

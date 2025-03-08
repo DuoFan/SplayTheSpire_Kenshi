@@ -21,7 +21,7 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 3;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.NONE;
