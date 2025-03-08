@@ -456,7 +456,8 @@ public class Utils {
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_FuFeng());
             cards.add(new FZL_CuiKuLaXiu());
-            cards.add(new FZL_JuanTuChongLai());
+            cards.add(new FZL_XianFaZhiRen());
+            cards.add(new FZL_QiuYeLianJian());
             cards.add(new FZL_Ji_FanShi_Card());
         }
 
@@ -466,7 +467,7 @@ public class Utils {
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_ZiDianQingShuang());
-            cards.add(new XZL_ZhenWuDangMo());
+            cards.add(new XZL_SaoDangQunMo());
             cards.add(new XZL_CaiCheQuMing());
             cards.add(new XZL_ZiXiaZhenQi());
             cards.add(new XZL_QiChongDouNiu());
@@ -484,8 +485,10 @@ public class Utils {
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_GuHong());
             cards.add(new YuZL_JiShuiSanQianCard());
-            cards.add(new YuZL_BenNiaoXianFei());
+            cards.add(new YuZL_HuiNiaoXianFei());
+            cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
+            cards.add(new YuZL_PaiXian());
             cards.add(new YuZL_BuSiNiao());
         }
 

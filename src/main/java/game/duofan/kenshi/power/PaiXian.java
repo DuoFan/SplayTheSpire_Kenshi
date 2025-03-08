@@ -1,6 +1,7 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -13,9 +14,9 @@ import game.duofan.common.*;
 
 import java.util.ArrayList;
 
-public class FuFeng extends AbstractPower {
+public class PaiXian extends AbstractPower {
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(FuFeng.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(PaiXian.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -23,7 +24,7 @@ public class FuFeng extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public FuFeng(AbstractCreature owner, int amount) {
+    public PaiXian(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -57,12 +58,14 @@ public class FuFeng extends AbstractPower {
     public void effect() {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
 
-        AbstractPlayer p = AbstractDungeon.player;
-
         for (int i = 0; i < monsters.size(); i++) {
             AbstractMonster m = monsters.get(i);
-            Utils.givePower(p, m, new PoBai(m, amount));
+            if (Utils.isIntentAttack(m)) {
+                Utils.playerGainBlock(amount);
+                this.addToBot(new LoseEnergyAction(1));
+                flash();
+                break;
+            }
         }
-        flash();
     }
 }

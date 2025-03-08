@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.YinXueDieAction;
+import game.duofan.kenshi.action.JiShuiSanQianAction;
 import game.duofan.kenshi.power.*;
 
 public class YuZL_JiShuiSanQianCard extends CustomCard implements IYuZhiLiuCard {
@@ -37,7 +37,7 @@ public class YuZL_JiShuiSanQianCard extends CustomCard implements IYuZhiLiuCard 
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(0);
+            selfRetain = true;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -51,7 +51,7 @@ public class YuZL_JiShuiSanQianCard extends CustomCard implements IYuZhiLiuCard 
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new YinXueDieAction(this));
+        addToBot(new JiShuiSanQianAction(this));
         Utils.addToBotAbstract(() -> {
             if (targetCard != null) {
                 Utils.playerGainPowerTop(new JiShuiSanQian(p, targetCard));

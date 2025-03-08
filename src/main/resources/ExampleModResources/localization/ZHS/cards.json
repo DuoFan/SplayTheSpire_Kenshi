@@ -137,10 +137,26 @@
     "DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。"
   },
-  "game.duofan.kenshi:FZL_JuanTuChongLai": {
-    "NAME": "卷土重来",
-    "DESCRIPTION": "造成 !D! 点伤害，在你受到伤害后，从弃牌堆返回手牌。 NL duofan_kenshi:枫之流 :使这张牌在本场战斗伤害增加 !M! 点。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，在你受到伤害后，从弃牌堆返回手牌。 NL duofan_kenshi:枫之流 :使这张牌在本场战斗伤害增加 !M! 点。"
+  "game.duofan.kenshi:FZL_XianFaZhiRen": {
+    "NAME": "先发制人",
+    "DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。",
+    "EXTENDED_DESCRIPTION": [
+      "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。"
+    ]
+  },
+  "game.duofan.kenshi:FZL_QiuYeLianJian": {
+    "NAME": "秋夜练剑",
+    "DESCRIPTION": "造成 !D! 点伤害，若被格挡，本场战斗伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，若被格挡，本场战斗伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。"
+  },
+  "game.duofan.kenshi:XiaoChenJianFa": {
+    "NAME": "小成剑法",
+    "DESCRIPTION": "造成 !D! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。",
+    "EXTENDED_DESCRIPTION": [
+      "这张牌的伤害取决于练剑的勤奋程度。"
+    ]
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "烈风斩",
@@ -197,8 +213,8 @@
     "DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。",
     "UPGRADE_DESCRIPTION": "手牌中的每张 *攻击牌 使该牌获得 !M! 点伤害，共造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :给予1层 易伤 。"
   },
-  "game.duofan.kenshi:XZL_ZhenWuDangMo": {
-    "NAME": "真武荡魔",
+  "game.duofan.kenshi:XZL_SaoDangQunMo": {
+    "NAME": "扫荡群魔",
     "DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。",
     "UPGRADE_DESCRIPTION": "对 *所有敌人 造成 !D! 点 伤害。 NL 拥有的每层 duofan_kenshi:气 使该牌费用减1。 NL duofan_kenshi:霞之流 :存活的每个敌人使你获得1点 力量 。"
   },
@@ -209,8 +225,8 @@
   },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "气冲斗牛",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得1层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点。"
+    "DESCRIPTION": "造成 !D! 点伤害，每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点，共造成 !duofan_kenshi:QiLamagePlus! 点伤害。 NL duofan_kenshi:霞之流 :获得1层 duofan_kenshi:气 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，每有1层 duofan_kenshi:气 ，造成伤害增加 !M! 点，共造成 !duofan_kenshi:QiLamagePlus! 点伤害。 NL duofan_kenshi:霞之流 :获得1层 duofan_kenshi:气 。"
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
     "NAME": "气化万千",
@@ -262,8 +278,18 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。"
   },
-  "game.duofan.kenshi:YuZL_BenNiaoXianFei": {
-    "NAME": "笨鸟先飞",
+  "game.duofan.kenshi:YuZL_PaiXian": {
+    "NAME": "排险",
+    "DESCRIPTION": " *回合开始时 ，若存在意图为 *攻击 的敌人，获得 !M! 点 格挡 并失去 [E] 。(叠加时不会重复失去 [E] ) NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": " *回合开始时 ，若存在意图为 *攻击 的敌人，获得 !M! 点 格挡 并失去 [E] 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
+  },
+  "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
+    "NAME": "飞鸽传书",
+    "DESCRIPTION": "从 *抽牌堆 选择并抽取 !M! 张 *技能牌 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取 !M! 张 *技能牌 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。 NL 消耗 "
+  },
+  "game.duofan.kenshi:YuZL_HuiNiaoXianFei": {
+    "NAME": "慧鸟先飞",
     "DESCRIPTION": " 固有 NL 抽取1张 *技能牌 。 NL duofan_kenshi:羽之流 :使其在 *本场战斗 费用减1。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": " 固有 NL 抽取1张 *技能牌 和 *攻击牌 。 NL duofan_kenshi:羽之流 :使其在 *本场战斗 费用减1。 NL 消耗 "
   },
@@ -274,8 +300,8 @@
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "击水三千",
-    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 "
+    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ， 保留 "
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "不死鸟",
@@ -284,8 +310,8 @@
   },
   "game.duofan.kenshi:BuSiNiaoZhiYu": {
     "NAME": "不死鸟之羽",
-    "DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 场卡牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 场卡牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 张卡牌。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，抽取 !M! 张卡牌。"
   },
   "game.duofan.kenshi:YanZL_LiuHuo": {
     "NAME": "流火",
@@ -329,8 +355,8 @@
   },
   "game.duofan.kenshi:YanZL_FenCheng": {
     "NAME": "焚城",
-    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
+    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有敌人坚不可摧 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有FENC敌人坚不可摧 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "纯阳剑意",

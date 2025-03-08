@@ -2,8 +2,10 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
@@ -27,6 +29,7 @@ public class YanZL_HuoYuJianQi extends CustomCard implements IYanZhiLiuCard {
 
     public YanZL_HuoYuJianQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        damage = baseDamage = 8;
         magicNumber = baseMagicNumber = 6;
     }
 
@@ -48,6 +51,7 @@ public class YanZL_HuoYuJianQi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         addToBot(new HuoZhiYuAction(magicNumber, m));
     }
 

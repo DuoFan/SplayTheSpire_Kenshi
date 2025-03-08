@@ -1,46 +1,41 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClassAction;
-import game.duofan.kenshi.action.DrawCardByFilterAction;
-import game.duofan.kenshi.action.IDoCard;
 import game.duofan.kenshi.power.*;
 
-public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, IDoCard {
-    public static final String ID = IDManager.getInstance().getID(YuZL_BenNiaoXianFei.class);
+public class YuZL_PaiXian extends CustomCard implements IYuZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(YuZL_PaiXian.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.SKILL;
+    private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
-    DrawCardByFilterAction drawAction;
-    DrawCardByFilterAction drawAction2;
-    int minusCost = 0;
-
-    public YuZL_BenNiaoXianFei() {
+    public YuZL_PaiXian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = 1;
-        exhaust = true;
-        this.isInnate = true;
+        magicNumber = baseMagicNumber = 12;
+        block = baseBlock = 8;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
-            this.upgradeName();
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            upgradeMagicNumber(4);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -54,10 +49,7 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        drawAction = Utils.playerDrawCardByFilterAction(magicNumber, (x) -> x.type == CardType.SKILL);
-        if (upgraded) {
-            drawAction2 = Utils.playerDrawCardByFilterAction(magicNumber, (x) -> x.type == CardType.ATTACK);
-        }
+        Utils.playerGainPower(new PaiXian(p, magicNumber));
     }
 
     @Override
@@ -72,29 +64,7 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
 
     @Override
     public void yuZhiLiuEffect() {
-        minusCost++;
-        if (drawAction != null) {
-            drawAction.setDoCard(this);
-        }
-        if(drawAction2 != null){
-            drawAction2.setDoCard(this);
-        }
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        drawAction = null;
-        drawAction2 = null;
-        minusCost = 0;
-    }
-
-    @Override
-    public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
-        drawAction = null;
-        drawAction2 = null;
-        minusCost = 0;
+        Utils.playerGainBlock(block);
     }
 
     @Override
@@ -104,11 +74,6 @@ public class YuZL_BenNiaoXianFei extends CustomCard implements IYuZhiLiuCard, ID
 
     @Override
     public boolean isInvokeLiuEffectToTop() {
-        return true;
-    }
-
-    @Override
-    public void DoCard(AbstractCard card) {
-        card.modifyCostForCombat(-minusCost);
+        return false;
     }
 }

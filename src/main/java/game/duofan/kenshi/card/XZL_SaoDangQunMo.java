@@ -1,46 +1,45 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
-import game.duofan.kenshi.variable.IQiLamagePlus;
-import game.duofan.kenshi.variable.QiAmount;
-import game.duofan.kenshi.variable.QiLamagePlus;
 
-public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQiLamagePlus {
+public class XZL_SaoDangQunMo extends CustomCard implements IXiaZhiLiuCard, IQiMin {
 
-    public static final String ID = IDManager.getInstance().getID(XZL_QiChongDouNiu.class);
+    public static final String ID = IDManager.getInstance().getID(XZL_SaoDangQunMo.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 3;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardTarget TARGET = CardTarget.ALL_ENEMY;
 
-    public XZL_QiChongDouNiu() {
+    public XZL_SaoDangQunMo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 8;
-        this.damage = this.baseDamage = baseValue;
-        magicNumber = baseMagicNumber = 3;
+        this.damage = this.baseDamage = 12;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeBaseCost(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -54,7 +53,20 @@ public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQi
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        this.addToBot(new DamageAction(m, new DamageInfo(p, new QiLamagePlus().value(this), DamageInfo.DamageType.NORMAL)));
+        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
+    }
+
+    @Override
+    public void triggerOnCardPlayed(AbstractCard cardPlayed) {
+        super.triggerOnCardPlayed(cardPlayed);
+        if (cardPlayed == this) {
+            return;
+        }
+        Utils.addToBotAbstract(() -> {
+            int qiAmount = Utils.getQiAmount();
+            int result = cost - qiAmount;
+            this.setCostForTurn(result);
+        });
     }
 
     @Override
@@ -69,7 +81,10 @@ public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQi
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        Utils.playerGainQi(1);
+        int aliveMonsterAmount = Utils.getAllAliveMonsters().size();
+        if (aliveMonsterAmount > 0) {
+            Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, aliveMonsterAmount));
+        }
     }
 
     @Override
@@ -80,10 +95,5 @@ public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQi
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
-    }
-
-    @Override
-    public int getPlusPerQi() {
-        return magicNumber;
     }
 }

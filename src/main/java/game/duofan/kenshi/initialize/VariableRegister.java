@@ -2,10 +2,7 @@ package game.duofan.kenshi.initialize;
 
 import basemod.BaseMod;
 import basemod.interfaces.EditCardsSubscriber;
-import game.duofan.kenshi.variable.LamageScaler;
-import game.duofan.kenshi.variable.OverPJAmount;
-import game.duofan.kenshi.variable.PJAmount;
-import game.duofan.kenshi.variable.QiAmount;
+import game.duofan.kenshi.variable.*;
 
 public class VariableRegister implements EditCardsSubscriber {
 
@@ -15,5 +12,6 @@ public class VariableRegister implements EditCardsSubscriber {
         BaseMod.addDynamicVariable(new PJAmount());
         BaseMod.addDynamicVariable(new OverPJAmount());
         BaseMod.addDynamicVariable(new LamageScaler());
+        BaseMod.addDynamicVariable(new QiLamagePlus());
     }
 }

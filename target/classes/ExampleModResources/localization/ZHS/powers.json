@@ -175,6 +175,12 @@
       "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
     ]
   },
+  "game.duofan.kenshi:PaiXian": {
+    "NAME": "排险",
+    "DESCRIPTIONS": [
+      "回合开始时 ，若存在意图为 #r攻击 的敌人，获得 #r%d 点格挡并失去 [E] 。"
+    ]
+  },
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [

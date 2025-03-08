@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.InvinciblePower;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.RongRong;
 
@@ -25,37 +26,45 @@ public class FenChengAction extends AbstractGameAction {
 
     public FenChengAction() {
         this.actionType = ActionType.DAMAGE;
-        this.duration = Settings.ACTION_DUR_FAST;
     }
 
     public void update() {
-        this.tickDuration();
-        if (this.isDone) {
-            Utils.giveAllMonsterBaoYanDamage(1);
+        isDone = true;
+        Utils.giveAllMonsterBaoYanDamage(1);
 
-            ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-            boolean stop = true;
-            for (int i = 0; i < monsters.size(); i++) {
-                AbstractMonster m = monsters.get(i);
-                AbstractPower rongRong = m.getPower(RongRong.POWER_ID);
-                if (rongRong != null && rongRong.amount > 0) {
-                    if (rongRong.amount <= 2) {
-                        Utils.removePower(m, RongRong.POWER_ID);
-                    } else {
-                        Utils.gainPower(m, new RongRong(m, -2));
-                        stop = false;
-                    }
+        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+        boolean stop = true;
+        for (int i = 0; i < monsters.size(); i++) {
+            AbstractMonster m = monsters.get(i);
+            AbstractPower rongRong = m.getPower(RongRong.POWER_ID);
+            if (rongRong != null && rongRong.amount > 0) {
+                if (rongRong.amount <= 2) {
+                    Utils.removePower(m, RongRong.POWER_ID);
+                } else {
+                    Utils.gainPower(m, new RongRong(m, -2));
+                    stop = false;
                 }
-            }
-
-            if (!stop) {
-                this.addToBot(new FenChengAction());
-            }
-
-            if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
-                AbstractDungeon.actionManager.clearPostCombatActions();
             }
         }
 
+        if(!stop){
+            stop = true;
+            for (int i = 0; i < monsters.size(); i++) {
+                AbstractMonster m = monsters.get(0);
+                AbstractPower power = m.getPower(InvinciblePower.POWER_ID);
+                if(power == null || power.amount > 0){
+                    stop = false;
+                    break;
+                }
+            }
+        }
+
+        if (!stop) {
+            this.addToBot(new FenChengAction());
+        }
+
+        if (AbstractDungeon.getCurrRoom().monsters.areMonstersBasicallyDead()) {
+            AbstractDungeon.actionManager.clearPostCombatActions();
+        }
     }
 }

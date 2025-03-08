@@ -20,7 +20,7 @@ public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.SKILL;
+    private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
@@ -28,7 +28,6 @@ public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
     public YanZL_LianYu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        exhaust = true;
     }
 
     @Override

@@ -3,9 +3,8 @@ package game.duofan.kenshi.card;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.OnPlayerDamagedSubscriber;
-import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,46 +13,41 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.watcher.VigorPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
+import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
-public class FZL_JuanTuChongLai extends CustomCard implements IFengZhiLiuCard, OnPlayerDamagedSubscriber {
+public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(FZL_JuanTuChongLai.class);
+    public static final String ID = IDManager.getInstance().getID(FZL_QiuYeLianJian.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    public FZL_JuanTuChongLai() {
+    public FZL_QiuYeLianJian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 6;
-        magicNumber = baseMagicNumber = 3;
-        BaseMod.subscribe(this);
-    }
-
-    @Override
-    protected void finalize() throws Throwable {
-        super.finalize();
-        System.out.println("-----------------析构");
-        BaseMod.unsubscribe(this);
+        magicNumber = baseMagicNumber = 2;
+        cardsToPreview = new XiaoChenJianFa();
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeDamage(3);
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -70,11 +64,26 @@ public class FZL_JuanTuChongLai extends CustomCard implements IFengZhiLiuCard, O
         this.addToBot(new DamageAction(
                 m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
         ));
+        if(m.currentBlock > 0){
+            Utils.addToBotAbstract(() -> {
+                baseDamage += magicNumber;
+            });
+        }
+        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu();
     }
 
     @Override
     public void fengZhiLiuEffect() {
-        baseDamage += magicNumber;
+        AbstractPlayer p = AbstractDungeon.player;
+        XiaoChenJianFa xiaoChenJianFa = new XiaoChenJianFa(baseDamage);
+        Utils.makeTempCardInHand(xiaoChenJianFa, 1);
+        if (!exhaustOnUseOnce) {
+            exhaustOnUseOnce = true;
+            addToBot(new ExhaustSpecificCardAction(this, p.hand));
+            addToBot(new ExhaustSpecificCardAction(this, p.drawPile));
+            addToBot(new ExhaustSpecificCardAction(this, p.discardPile));
+        }
     }
 
     @Override
@@ -96,16 +105,5 @@ public class FZL_JuanTuChongLai extends CustomCard implements IFengZhiLiuCard, O
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
-    }
-
-    @Override
-    public int receiveOnPlayerDamaged(int i, DamageInfo damageInfo) {
-        AbstractPlayer p = AbstractDungeon.player;
-        if (p != null && i > p.currentBlock) {
-            if (p.discardPile != null && p.discardPile.contains(this) && AbstractDungeon.actionManager != null) {
-                addToBot(new DiscardToHandAction(this));
-            }
-        }
-        return i;
     }
 }

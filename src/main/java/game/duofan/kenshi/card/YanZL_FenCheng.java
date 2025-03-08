@@ -11,6 +11,7 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.FenChengAction;
+import game.duofan.kenshi.action.WaitForFenChengAction;
 import game.duofan.kenshi.power.*;
 
 public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
@@ -62,9 +63,7 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-        Utils.addToBotAbstract(() ->{
-            addToBot(new FenChengAction());
-        });
+        addToBot(new WaitForFenChengAction());
     }
 
     @Override
