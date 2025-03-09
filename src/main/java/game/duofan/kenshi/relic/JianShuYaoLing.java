@@ -9,10 +9,12 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.reward.JianShuYaoLingReward;
 
 import java.util.Iterator;
 
@@ -52,31 +54,6 @@ public class JianShuYaoLing extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
-        super.atBattleStart();
-
-        EventManager.getInstance().removeAll_NotPersist_Event();
-
-        EventManager.getInstance().notifyEvent(EventKey.ON_BATTLE_START, this, null);
-
-        Iterator iterator = AbstractDungeon.getMonsters().monsters.iterator();
-
-        AbstractMonster m = null;
-        while (iterator.hasNext()) {
-            m = (AbstractMonster) iterator.next();
-            if (m.type == AbstractMonster.EnemyType.BOSS) {
-                break;
-            }
-        }
-        if ((m != null && m.type == AbstractMonster.EnemyType.BOSS)) {
-            EventManager.getInstance().notifyEvent(EventKey.ON_BOSS_BATTLE_START, this, null);
-        }
-
-        this.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new ZhuLiuBaiJia(AbstractDungeon.player)));
-    }
-
-    @Override
     public void onVictory() {
         super.onVictory();
 
@@ -90,26 +67,9 @@ public class JianShuYaoLing extends CustomRelic {
                 this.initializeTips();
             }
 
+            AbstractDungeon.getCurrRoom().rewards.add(new JianShuYaoLingReward());
+
             this.flash();
         }
-    }
-
-    @Override
-    public void atTurnStart() {
-        super.atTurnStart();
-        this.flash();
-        EventManager.getInstance().notifyEvent(EventKey.ON_TURN_START, this, null);
-    }
-
-    @Override
-    public void atTurnStartPostDraw() {
-        super.atTurnStartPostDraw();
-        EventManager.getInstance().notifyEvent(EventKey.ON_TURN_START_POST_DRAW, this, null);
-    }
-
-    @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        super.onPlayCard(c, m);
-        EventManager.getInstance().notifyEvent(EventKey.ON_CARD_PLAY, this, c);
     }
 }

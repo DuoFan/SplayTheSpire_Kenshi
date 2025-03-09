@@ -18,6 +18,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.QiuYeLianJianAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.Shi_StateMachine;
@@ -64,11 +65,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
         this.addToBot(new DamageAction(
                 m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
         ));
-        if(m.currentBlock > 0){
-            Utils.addToBotAbstract(() -> {
-                baseDamage += magicNumber;
-            });
-        }
+        addToBot(new QiuYeLianJianAction(this, magicNumber));
         exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu();
     }

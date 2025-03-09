@@ -7,15 +7,15 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.YanZL_LianYu;
+import game.duofan.kenshi.card.YanZL_ChiBi;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.ArrayList;
 
-public class QingJueLianYuGeiFreeCardAction extends AbstractGameAction {
+public class ChiBiFreeCardAction extends AbstractGameAction {
     boolean retrieveCard;
 
-    public QingJueLianYuGeiFreeCardAction() {
+    public ChiBiFreeCardAction() {
         retrieveCard = false;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.duration = Settings.ACTION_DUR_FAST;
@@ -56,7 +56,7 @@ public class QingJueLianYuGeiFreeCardAction extends AbstractGameAction {
 
         while (derp.size() != 3) {
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, true);
-            if(c.cardID.equals(YanZL_LianYu.ID)){
+            if(c.cardID.equals(YanZL_ChiBi.ID)){
                 continue;
             }
             derp.add(c);

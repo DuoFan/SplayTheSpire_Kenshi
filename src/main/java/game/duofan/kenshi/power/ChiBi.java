@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
 
-public class LianYu extends AbstractPower implements IEventListener {
+public class ChiBi extends AbstractPower implements IEventListener {
 
-    static final String POWER_ID = IDManager.getInstance().getID(LianYu.class);
+    static final String POWER_ID = IDManager.getInstance().getID(ChiBi.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -20,7 +20,7 @@ public class LianYu extends AbstractPower implements IEventListener {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public LianYu(AbstractCreature owner, int amount) {
+    public ChiBi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;

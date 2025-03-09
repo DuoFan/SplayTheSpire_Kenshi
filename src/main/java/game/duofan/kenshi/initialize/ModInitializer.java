@@ -17,6 +17,7 @@ public class ModInitializer {
         BaseMod.subscribe(new CardRegister());
         BaseMod.subscribe(new CharacterRegister());
         BaseMod.subscribe(new RelicsRegister());
+        BaseMod.subscribe(new RewardRegister());
     }
 
 }

@@ -47,18 +47,6 @@
       "本回合下一张攻击牌造成的伤害增加 #r%d%%。"
     ]
   },
-  "game.duofan.kenshi:Qi": {
-    "NAME": "气",
-    "DESCRIPTIONS": [
-      "本回合下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
-    ]
-  },
-  "game.duofan.kenshi:PoJia": {
-    "NAME": "破甲",
-    "DESCRIPTIONS": [
-      "回合结束时， #r格挡 减半。"
-    ]
-  },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [
@@ -83,54 +71,10 @@
       "本回合若打出的 #r攻击牌 少于4张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
     ]
   },
-  "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
-    "NAME": "打出后返回",
-    "DESCRIPTIONS": [
-      "本回合打出 #r[NAME] 后，将其放回 #r抽牌堆 。"
-    ]
-  },
-  "game.duofan.kenshi:QingShenZhui": {
-    "NAME": "轻身坠",
-    "DESCRIPTIONS": [
-      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非技能牌 结算。",
-      "受到的 #r%d 点伤害 #r延迟 到本回合 #r结束 或 #r打出非技能牌 结算。"
-    ]
-  },
-  "game.duofan.kenshi:XieLiZhunBei": {
-    "NAME": "卸力准备",
-    "DESCRIPTIONS": [
-      "下回合开始时，获得 #r%d 点格挡 。"
-    ]
-  },
-  "game.duofan.kenshi:PoBai": {
-    "NAME": "破败",
-    "DESCRIPTIONS": [
-      "生命值低于 #r%d 点时，死亡。"
-    ]
-  },
-  "game.duofan.kenshi:BuSiNiao": {
-    "NAME": "不死鸟",
-    "DESCRIPTIONS": [
-      "防止受到的 #r伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。",
-      "防止受到的 #r致命伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。"
-    ]
-  },
-  "game.duofan.kenshi:NiePan": {
-    "NAME": "涅槃",
-    "DESCRIPTIONS": [
-      " #r下回合开始前无法受到伤害 ， #r回合开始时 回复 #r生命值 到 #r%d ，获得%d [E] ，抽取%d张卡牌。"
-    ]
-  },
-  "game.duofan.kenshi:JiShuiSanQian": {
-    "NAME": "击水三千",
-    "DESCRIPTIONS": [
-      "本回合 #r[NAME] 造成的未被 #r格挡 的伤害将获得等量 #r格挡 。"
-    ]
-  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，抽取1张卡牌。"
+      "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，本回合获得1点 #r力量 。"
     ]
   },
   "game.duofan.kenshi:FuFeng": {
@@ -139,10 +83,22 @@
       "回合开始时，给予 #r所有敌人 %d层 #r破败 。"
     ]
   },
+  "game.duofan.kenshi:PoBai": {
+    "NAME": "破败",
+    "DESCRIPTIONS": [
+      "生命值低于 #r%d 点时，死亡。"
+    ]
+  },
   "game.duofan.kenshi:PoBaiGongJi": {
     "NAME": "破败攻击",
     "DESCRIPTIONS": [
       "本回合下一张 #r攻击牌 ，给予目标 #r%d层 #r破败 。"
+    ]
+  },
+  "game.duofan.kenshi:SuSha": {
+    "NAME": "肃杀",
+    "DESCRIPTIONS": [
+      "本回合若 #r[NAME]造成斩杀，给予所有敌人%d层破败 。"
     ]
   },
   "game.duofan.kenshi:WuBianLuoMu": {
@@ -163,6 +119,18 @@
       "触发 #r霞之流 效果，打出 #r其他流派卡牌 时，获得1层 #r气 。"
     ]
   },
+  "game.duofan.kenshi:Qi": {
+    "NAME": "气",
+    "DESCRIPTIONS": [
+      "本回合下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
+    ]
+  },
+  "game.duofan.kenshi:PoJia": {
+    "NAME": "破甲",
+    "DESCRIPTIONS": [
+      "回合结束时， #r格挡 减半。"
+    ]
+  },
   "game.duofan.kenshi:ZiXiaZhenQi": {
     "NAME": "紫霞真气",
     "DESCRIPTIONS": [
@@ -175,10 +143,42 @@
       "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
     ]
   },
+  "game.duofan.kenshi:QingShenZhui": {
+    "NAME": "轻身坠",
+    "DESCRIPTIONS": [
+      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非技能牌 结算。",
+      "受到的 #r%d 点伤害 #r延迟 到本回合 #r结束 或 #r打出非技能牌 结算。"
+    ]
+  },
+  "game.duofan.kenshi:XieLiZhunBei": {
+    "NAME": "卸力准备",
+    "DESCRIPTIONS": [
+      "下回合开始时，获得 #r%d 点格挡 。"
+    ]
+  },
   "game.duofan.kenshi:PaiXian": {
     "NAME": "排险",
     "DESCRIPTIONS": [
       "回合开始时 ，若存在意图为 #r攻击 的敌人，获得 #r%d 点格挡并失去 [E] 。"
+    ]
+  },
+  "game.duofan.kenshi:JiShuiSanQian": {
+    "NAME": "击水三千",
+    "DESCRIPTIONS": [
+      "本回合 #r[NAME] 造成的未被 #r格挡 的伤害将获得等量 #r格挡 。"
+    ]
+  },
+  "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
+    "NAME": "打出后返回",
+    "DESCRIPTIONS": [
+      "本回合打出 #r[NAME] 后，将其放回 #r抽牌堆 。"
+    ]
+  },
+  "game.duofan.kenshi:BuSiNiao": {
+    "NAME": "不死鸟",
+    "DESCRIPTIONS": [
+      "防止受到的 #r伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。",
+      "防止受到的 #r致命伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。"
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
@@ -211,8 +211,8 @@
       "本回合每次受到攻击，给予攻击者 #r%d 层 #r熔融 。"
     ]
   },
-  "game.duofan.kenshi:LianYu": {
-    "NAME": "炼狱",
+  "game.duofan.kenshi:ChiBi": {
+    "NAME": "赤壁",
     "DESCRIPTIONS": [
       " #r所有爆炎伤害 都将给予 #r%d 层 #r熔融 。"
     ]

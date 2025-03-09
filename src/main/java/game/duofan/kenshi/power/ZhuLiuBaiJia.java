@@ -10,7 +10,10 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.*;
+import game.duofan.kenshi.card.FZL_HuiFengZhan;
 import game.duofan.kenshi.card.IQiMin;
 
 public class ZhuLiuBaiJia extends AbstractPower {
@@ -88,7 +91,8 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
             switch (curLiu) {
                 case FengZhiLiu:
-                    Shi_StateMachine.getInstance().addPower(Shi_StateMachine.StateEnum.GongShi, 1);
+                    Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
+                    Utils.playerGainPower(new LoseStrengthPower(AbstractDungeon.player, 1));
                     break;
                 case XiaZhiLiu:
                     Utils.playerGainQi(1);
@@ -131,7 +135,7 @@ public class ZhuLiuBaiJia extends AbstractPower {
 
                 if (Utils.getQiAmount() > 0) {
                     AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
-                    if(qi != null){
+                    if (qi != null) {
                         qi.flash();
                     }
                     if (card instanceof IXiaZhiLiuCard) {

@@ -51,11 +51,9 @@ public class ShiJianShi extends AbstractPower {
     public void updateDescription() {
         if (targetCard == null) {
             this.description = "试剑石出现了错误";
-        }
-        else if(owner.hasPower("Minion")){
+        } else if (owner.hasPower("Minion")) {
             this.description = " #r[" + owner.name + "] " + "是一个爪牙，" + " #r无法造成斩杀! ";
-        }
-        else {
+        } else {
             this.description = "使用 #r[" + targetCard.name + "] " + "斩杀" + " #r[" + owner.name + "] " + " 以获得10 #r金币 ";
         }
     }
@@ -72,13 +70,13 @@ public class ShiJianShi extends AbstractPower {
             if (!owner.hasPower(ID)) {
                 return;
             }
-            if ((owner.isDying || owner.currentHealth <= 0) && !owner.halfDead) {
+            if (Utils.isKilledUnMinion(owner)) {
                 AbstractDungeon.player.gainGold(this.gold);
                 AbstractPlayer p = AbstractDungeon.player;
-                for(int i = 0; i < this.gold; ++i) {
+                for (int i = 0; i < this.gold; ++i) {
                     AbstractDungeon.effectList.add(new GainPennyEffect(p, owner.hb.cX, owner.hb.cY, p.hb.cX, p.hb.cY, true));
                 }
-                Utils.removePower(owner,ID);
+                Utils.removePower(owner, ID);
             }
         });
     }

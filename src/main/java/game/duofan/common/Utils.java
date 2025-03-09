@@ -105,6 +105,13 @@ public class Utils {
                 m.intent == AbstractMonster.Intent.ATTACK_DEFEND;
     }
 
+    public static boolean isKilledUnMinion(AbstractCreature m) {
+        if (m.hasPower("Minion")) {
+            return false;
+        }
+        return (m.isDying || m.currentHealth <= 0) && !m.halfDead;
+    }
+
     public interface Lambda extends Runnable {
     }
 
@@ -454,7 +461,9 @@ public class Utils {
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_LieFengZhan());
+            cards.add(new FZL_HuiFengZhan());
             cards.add(new FZL_FuFeng());
+            cards.add(new FZL_SuSha());
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_XianFaZhiRen());
             cards.add(new FZL_QiuYeLianJian());
@@ -489,11 +498,12 @@ public class Utils {
             cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());
+            cards.add(new YuZL_DongQuChunLai());
             cards.add(new YuZL_BuSiNiao());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
-            cards.add(new YanZL_LiuHuo());
+            cards.add(new YanZL_YanLang());
             cards.add(new YanZL_BuJingYan());
             cards.add(new YanZL_LuoXuanYan());
             cards.add(new YanZL_ZhuoXinYan());
@@ -504,7 +514,7 @@ public class Utils {
             cards.add(new YanZL_HuoYuJingShi());
             cards.add(new YanZL_HuoYuJianQi());
             cards.add(new YanZL_FenCheng());
-            cards.add(new YanZL_LianYu());
+            cards.add(new YanZL_ChiBi());
             cards.add(new YanZL_LieHuoChang());
         }
 

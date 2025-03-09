@@ -9,12 +9,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.QingJueLianYuGeiFreeCardAction;
+import game.duofan.kenshi.action.ChiBiFreeCardAction;
 import game.duofan.kenshi.power.*;
 
-public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
+public class YanZL_ChiBi extends CustomCard implements IYanZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YanZL_LianYu.class);
+    public static final String ID = IDManager.getInstance().getID(YanZL_ChiBi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -25,7 +25,7 @@ public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public YanZL_LianYu() {
+    public YanZL_ChiBi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
     }
@@ -48,12 +48,12 @@ public class YanZL_LianYu extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.gainPower(p, new LianYu(p, magicNumber));
+        Utils.gainPower(p, new ChiBi(p, magicNumber));
     }
 
     @Override
     public void yanZhiLiuEffect() {
-        addToBot(new QingJueLianYuGeiFreeCardAction());
+        addToBot(new ChiBiFreeCardAction());
     }
 
     @Override

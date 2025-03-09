@@ -16,7 +16,6 @@ public class CardRegister implements EditCardsSubscriber {
     public void receiveEditCards() {
 
         ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
-        ;
         cards.add(new Strike());
         cards.add(new Defend());
 

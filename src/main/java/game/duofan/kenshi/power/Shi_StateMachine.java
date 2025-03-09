@@ -45,9 +45,6 @@ public class Shi_StateMachine {
     }
 
     void changeStateTo(StateEnum stateEnum, int amount) {
-        int oldStateAmount = getStateAmount();
-        boolean isOldJiaShi = isStateMatch(StateEnum.JiaShi);
-
         reset();
         switch (stateEnum) {
             case JiaShi:
@@ -60,13 +57,6 @@ public class Shi_StateMachine {
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
         state.enter();
-
-        boolean isNewGongShi = isStateMatch(StateEnum.GongShi);
-
-        if (isOldJiaShi && isNewGongShi) {
-            EventManager.getInstance().notifyEvent(EventKey.ON_JIASHI_TO_GONGSHI, this
-                    , oldStateAmount);
-        }
     }
 
     public void addPower(StateEnum stateEnum, int amount) {

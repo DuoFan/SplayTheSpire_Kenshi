@@ -20,9 +20,10 @@ import java.util.Iterator;
 public class DaoWuYaAction extends AbstractGameAction {
     private AbstractPlayer p;
 
-    public DaoWuYaAction() {
+    public DaoWuYaAction(int amount) {
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
+        this.amount = amount;
     }
 
     public void update() {
@@ -42,8 +43,8 @@ public class DaoWuYaAction extends AbstractGameAction {
             }
         }
 
-        if(eAmount > 0){
-            Utils.playerGainEnergy(eAmount);
+        if (eAmount > 0) {
+            Utils.playerGainEnergy(eAmount * amount);
         }
 
         this.isDone = true;

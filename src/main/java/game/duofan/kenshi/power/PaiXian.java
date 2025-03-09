@@ -24,6 +24,8 @@ public class PaiXian extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
+    int loseAmount;
+
     public PaiXian(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -40,12 +42,20 @@ public class PaiXian extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], amount);
+        this.description = String.format(DESCRIPTIONS[0], amount, loseAmount);
     }
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
+        loseAmount = 1;
+        updateDescription();
+    }
+
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        loseAmount++;
         updateDescription();
     }
 
@@ -62,7 +72,7 @@ public class PaiXian extends AbstractPower {
             AbstractMonster m = monsters.get(i);
             if (Utils.isIntentAttack(m)) {
                 Utils.playerGainBlock(amount);
-                this.addToBot(new LoseEnergyAction(1));
+                this.addToBot(new LoseEnergyAction(loseAmount));
                 flash();
                 break;
             }
