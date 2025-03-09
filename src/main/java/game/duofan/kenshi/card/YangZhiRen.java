@@ -55,6 +55,11 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
         this.initializeTitle();
     }
 
+    @Override
+    public boolean canUpgrade() {
+        return true;
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *

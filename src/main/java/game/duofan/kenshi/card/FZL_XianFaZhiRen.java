@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -33,6 +34,7 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
 
     boolean isInit;
     boolean isPlayed;
+    AbstractMonster targetMonster;
 
     public FZL_XianFaZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -44,7 +46,7 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeDamage(3);
+            upgradeMagicNumber(1);
         }
     }
 
@@ -78,6 +80,7 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        targetMonster = m;
         this.addToBot(new DamageAction(
                 m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
         ));
@@ -96,7 +99,11 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void fengZhiLiuEffect() {
         AbstractPlayer p = AbstractDungeon.player;
-        Utils.playerGainPower(new StrengthPower(p, 1));
+
+        if(targetMonster != null){
+            Utils.givePower(p, targetMonster, new VulnerablePower(targetMonster, magicNumber, false));
+        }
+
         if (!exhaustOnUseOnce) {
             exhaustOnUseOnce = true;
             addToBot(new ExhaustSpecificCardAction(this, p.hand));

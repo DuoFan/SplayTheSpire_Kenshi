@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -61,7 +62,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
+        addToBot(new DrawCardAction(1));
     }
 
     @Override

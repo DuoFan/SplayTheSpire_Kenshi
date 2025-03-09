@@ -25,20 +25,18 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.COMMON;
+    private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     public XZL_BaiHongGuanRi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
-        this.isInnate = true;
         cardsToPreview = new XZL_BaiHongGuanRi(true);
     }
 
     public XZL_BaiHongGuanRi(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
-        this.isInnate = true;
     }
 
     @Override

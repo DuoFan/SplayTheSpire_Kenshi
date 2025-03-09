@@ -68,7 +68,7 @@
   "game.duofan.kenshi:JingYeSi": {
     "NAME": "静夜思",
     "DESCRIPTIONS": [
-      "本回合若打出的 #r攻击牌 少于4张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
+      "本回合若打出的 #r攻击牌 少于3张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
@@ -98,7 +98,7 @@
   "game.duofan.kenshi:SuSha": {
     "NAME": "肃杀",
     "DESCRIPTIONS": [
-      "本回合若 #r[NAME]造成斩杀，给予所有敌人%d层破败 。"
+      "本回合若 #r[NAME] 造成斩杀，给予所有敌人 #r%d 层 #r破败 。"
     ]
   },
   "game.duofan.kenshi:WuBianLuoMu": {
@@ -159,7 +159,7 @@
   "game.duofan.kenshi:PaiXian": {
     "NAME": "排险",
     "DESCRIPTIONS": [
-      "回合开始时 ，若存在意图为 #r攻击 的敌人，获得 #r%d 点格挡并失去 [E] 。"
+      "回合开始时 ，若存在意图为 #r攻击 的敌人，获得 #r%d 点格挡并失去%d [E] 。"
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
@@ -220,7 +220,7 @@
   "game.duofan.kenshi:LieHuoChang": {
     "NAME": "猎火场",
     "DESCRIPTIONS": [
-      "回合开始时，给予 #r所有敌人 #r%d 层 #r熔融 ，并造成1点 #r爆炎伤害 。"
+      "回合结束时，对 #r所有敌人 造成 #r%d 点 #r爆炎伤害 。"
     ]
   }
 }

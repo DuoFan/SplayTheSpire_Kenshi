@@ -72,6 +72,15 @@ public class YuZL_GuHong extends CustomCard implements IYuZhiLiuCard {
 
         if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
+
+            AbstractPlayer p = AbstractDungeon.player;
+            if(p == null){
+                return;
+            }
+            if(p.currentBlock + block >= magicNumber){
+                return;
+            }
+
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

@@ -24,7 +24,7 @@ public class LieHuoChang extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public LieHuoChang(AbstractCreature owner,int amount) {
+    public LieHuoChang(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -49,27 +49,12 @@ public class LieHuoChang extends AbstractPower {
         this.updateDescription();
     }
 
-
     @Override
-    public void atStartOfTurnPostDraw() {
-        super.atStartOfTurnPostDraw();
-        flash();
-        LieHuoChangEffect(amount);
-    }
-
-    public static void LieHuoChangEffect(int rongrongGive) {
-        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        AbstractPlayer p = AbstractDungeon.player;
-        for (int i = 0; i < monsters.size(); i++) {
-            AbstractMonster m = monsters.get(i);
-            Utils.givePower(p, m, new RongRong(m, rongrongGive));
-        }
-
-        for (int i = 0; i < monsters.size(); i++) {
-            AbstractMonster m = monsters.get(i);
-            Utils.addToBotAbstract(() ->{
-                Utils.giveBaoYanDamageInTop(p, m, Utils.modifyDamageByRongRong(1, m), DamageInfo.DamageType.NORMAL);
-            });
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        if(isPlayer){
+            flash();
+            Utils.giveAllMonsterBaoYanDamage(amount);
         }
     }
 }

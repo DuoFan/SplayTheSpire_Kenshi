@@ -16,8 +16,8 @@
   },
   "game.duofan.kenshi:YiJianHuiYou_Card": {
     "NAME": "以剑会友",
-    "DESCRIPTION": "本回合下1张 *攻击牌  会打出 *2 次。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "本回合下1张 *攻击牌  会打出 *2 次。 NL 消耗 "
+    "DESCRIPTION": "本回合下1张 *攻击牌 会打出2次。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "本回合下1张 *攻击牌 会打出2次。 NL 消耗 "
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "攻伐闪转",
@@ -99,13 +99,13 @@
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "压制",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :获得1点 力量 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :获得1点 力量 。"
+    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。"
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "秋风破",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张 卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
+    "DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "百花杀",
@@ -129,23 +129,23 @@
   },
   "game.duofan.kenshi:FZL_XianFaZhiRen": {
     "NAME": "先发制人",
-    "DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。",
+    "DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。",
     "EXTENDED_DESCRIPTION": [
-      "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 : 消耗 并获得 !M! 点 力量 。"
+      "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。"
     ]
   },
   "game.duofan.kenshi:FZL_QiuYeLianJian": {
     "NAME": "秋夜练剑",
-    "DESCRIPTION": "造成 !D! 点伤害，本场战斗所有秋夜练剑牌的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，本场战斗所有秋夜练剑牌的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。"
+    "DESCRIPTION": "造成 !D! 点伤害，本场战斗所有 *秋夜练剑牌 的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，本场战斗所有 *秋夜练剑牌 的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。"
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
     "NAME": "小成剑法",
     "DESCRIPTION": "造成 !D! 点伤害。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。",
     "EXTENDED_DESCRIPTION": [
-      "这张牌的伤害取决于练剑的勤奋程度。"
+      "这张牌的伤害取决于练剑的成果。"
     ]
   },
   "game.duofan.kenshi:FZL_HuiFengZhan": {
@@ -205,8 +205,8 @@
   },
   "game.duofan.kenshi:XZL_BaiHongGuanRi": {
     "NAME": "白虹贯日",
-    "DESCRIPTION": " 固有 NL 造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌。",
-    "UPGRADE_DESCRIPTION": " 固有 NL 造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日+ 到你的手牌。"
+    "DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日+ 到你的手牌。"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "彩彻区明",
@@ -258,8 +258,8 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，获得1点 敏捷 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，获得1点 敏捷 。"
   },
-  "game.duofan.kenshi:YuZL_YingMu": {
-    "NAME": "鹰目",
+  "game.duofan.kenshi:YuZL_YuanMu": {
+    "NAME": "远目",
     "DESCRIPTION": " 预见 4，看到的每一张 *非攻击牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。",
     "UPGRADE_DESCRIPTION": " 预见 4，看到的每一张 *非攻击牌 使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。"
   },
@@ -385,12 +385,12 @@
   },
   "game.duofan.kenshi:YanZL_ChiBi": {
     "NAME": "赤壁",
-    "DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :发现1张 *炎卡(不包括赤壁) ，且在本回合费用降为0。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :发现1张 *炎卡(不包括赤壁) ，且在本回合费用降为0。 NL 消耗 "
+    "DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :发现1张 *炎卡(不包括赤壁) ，且在本回合费用降为0。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:爆炎伤害 将给予 !M! 层 duofan_kenshi:熔融 。 NL duofan_kenshi:炎之流 :发现1张 *炎卡(不包括赤壁) ，且在本回合费用降为0。"
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "猎火场",
-    "DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :给予 *所有敌人 !M! 层 duofan_kenshi:熔融 ，并造成1点 duofan_kenshi:爆炎伤害 。"
+    "DESCRIPTION": " *回合结束时 ，对所有敌人造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": " *回合结束时 ，对所有敌人造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。"
   }
 }

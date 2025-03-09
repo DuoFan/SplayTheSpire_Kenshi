@@ -48,7 +48,8 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void update() {
         super.update();
-        if (Liu_StateMachine.getInstance().getLiu() == Liu_StateMachine.StateEnum.YanZhiLiu) {
+        if (Liu_StateMachine.getInstance().getLiu() == Liu_StateMachine.StateEnum.YanZhiLiu
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
             target = CardTarget.ENEMY;
         } else {
             target = CardTarget.NONE;
