@@ -160,18 +160,6 @@ public class ZhuLiuBaiJia extends AbstractPower {
     }
 
     @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-        LinkCardManager.getInstance().tryPlaySelfCard(card);
-    }
-
-    @Override
-    public void onCardDraw(AbstractCard card) {
-        super.onCardDraw(card);
-        LinkCardManager.getInstance().tryDrawLinkedCard(card);
-    }
-
-    @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         Liu_StateMachine.getInstance().reset();

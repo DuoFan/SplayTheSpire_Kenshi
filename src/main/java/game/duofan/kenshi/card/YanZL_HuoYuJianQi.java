@@ -31,6 +31,7 @@ public class YanZL_HuoYuJianQi extends CustomCard implements IYanZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 8;
         magicNumber = baseMagicNumber = 6;
+        BaoYanCardManager.getInstance().addCard(this);
     }
 
     @Override

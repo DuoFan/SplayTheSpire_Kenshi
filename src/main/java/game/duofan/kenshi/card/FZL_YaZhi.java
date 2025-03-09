@@ -16,7 +16,6 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
-import game.duofan.kenshi.power.Shi_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {

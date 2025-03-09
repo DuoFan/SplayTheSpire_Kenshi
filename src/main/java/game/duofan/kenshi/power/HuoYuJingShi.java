@@ -62,14 +62,6 @@ public class HuoYuJingShi extends AbstractPower {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (card.type == AbstractCard.CardType.ATTACK && Shi_StateMachine.getInstance().isStateValid(Shi_StateMachine.StateEnum.GongShi)) {
-            Shi_StateMachine.getInstance().update();
-        }
-    }
-
-    @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
         Utils.playRemovePower(POWER_ID);

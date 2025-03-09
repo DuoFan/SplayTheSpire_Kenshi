@@ -5,11 +5,8 @@ import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.IUpdateDescription;
-import game.duofan.kenshi.power.LinkCardManager;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class PickUpCardToDuanZaoAction extends AbstractGameAction {
 

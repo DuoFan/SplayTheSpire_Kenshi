@@ -31,7 +31,6 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     public XZL_BaiHongGuanRi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
-        magicNumber = baseMagicNumber = 2;
         this.isInnate = true;
         cardsToPreview = new XZL_BaiHongGuanRi(true);
     }
@@ -39,7 +38,6 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     public XZL_BaiHongGuanRi(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 9;
-        magicNumber = baseMagicNumber = 2;
         this.isInnate = true;
     }
 
@@ -48,6 +46,10 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeDamage(3);
+            if(cardsToPreview != null){
+                cardsToPreview.upgrade();
+            }
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
@@ -85,9 +87,6 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        AbstractCard c = new XZL_BaiHongGuanRi();
-        c.damage += magicNumber;
-        c.baseDamage += magicNumber;
-        Utils.makeTempCardInHand(c, 1);
+        Utils.makeTempCardInHand(this, 1);
     }
 }

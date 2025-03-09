@@ -35,9 +35,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new YinZhiRen());
         cards.add(new XiaoChenJianFa(0));
 
-        cards.add(new FeiXing());
         cards.add(new ShiJianShi());
-        cards.add(new TianGongKaiWu());
         cards.add(new YangGong());
         cards.add(new GaiTouHuanMian());
         cards.add(new TaYin());

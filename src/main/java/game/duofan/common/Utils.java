@@ -33,33 +33,6 @@ public class Utils {
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0F, s, true));
     }
 
-    public static void updateLinkCard_Description(AbstractCard card) {
-        AbstractCard linked = LinkCardManager.getInstance().findLinkedCard(card);
-        boolean isExchange = LinkCardManager.getInstance().isSetToExchange(card);
-
-        CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(card.cardID);
-
-        // 1. 获取基础描述
-        String baseDesc = card.upgraded ? cardStrings.UPGRADE_DESCRIPTION : cardStrings.DESCRIPTION;
-
-        // 2. 处理连锁状态
-        if (linked != null) {
-            // 替换 "连锁 1张卡牌" -> "已连锁: [卡牌名]"
-            baseDesc = baseDesc.replace("duofan_kenshi:连锁 1张手牌",
-                    String.format(" NL 已连锁: *[%s]", linked.name));
-        }
-
-        // 3. 处理置换卡状态
-        if (isExchange) {
-            // 替换闪之流效果描述
-            baseDesc = baseDesc.replace("duofan_kenshi:闪之流 :成为 duofan_kenshi:置换牌 并 duofan_kenshi:失去流派属性 。",
-                    "duofan_kenshi:置换牌");
-        }
-
-        card.rawDescription = baseDesc;
-        card.initializeDescription(); // 确保描述刷新
-    }
-
     public static void insertAbstract(Lambda func, int index) {
         AbstractDungeon.actionManager.addToBottom(new AbstractGameAction() {
             @Override
@@ -473,6 +446,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             cards.add(new XZL_GuiYuan());
+            cards.add(new XZL_FengMo());
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BaiHongGuanRi());
             cards.add(new XZL_ZiDianQingShuang());
@@ -499,6 +473,7 @@ public class Utils {
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());
             cards.add(new YuZL_DongQuChunLai());
+            cards.add(new YuZL_YinJiuZhiKe());
             cards.add(new YuZL_BuSiNiao());
         }
 
