@@ -144,7 +144,6 @@ public class SuSha extends AbstractPower {
                 AbstractMonster m = monsters.get(i);
                 Utils.givePowerTop(p, monsters.get(i), new PoBai(m, pobaiGive));
             }
-            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         } else if (isFenCheng) {
             Utils.addToBotAbstract(() -> {
                 checkKillThenRemove();

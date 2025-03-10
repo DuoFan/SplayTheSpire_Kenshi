@@ -116,8 +116,6 @@ public class JiShuiSanQian extends AbstractPower {
                     }
                 }
             }
-
-            this.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, this.ID));
         }
     }
 
