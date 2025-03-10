@@ -1,7 +1,6 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AllEnemyApplyPowerAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -17,8 +16,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
-import game.duofan.kenshi.action.WaitForFenChengAction;
+import game.duofan.kenshi.action.YanJieAction;
 import game.duofan.kenshi.card.YanZL_FenCheng;
+import game.duofan.kenshi.card.YanZL_YanJie;
 
 import java.util.ArrayList;
 
@@ -38,6 +38,7 @@ public class SuSha extends AbstractPower {
     AbstractCard targetCard;
     int pobaiGive;
     boolean isFenCheng;
+    boolean isYanJie;
 
     public SuSha(AbstractCreature owner, AbstractCard targetCard, int _pobaiGive) {
         this.name = NAME;
@@ -82,6 +83,7 @@ public class SuSha extends AbstractPower {
                 upper = null;
             }
             isFenCheng = targetCard instanceof YanZL_FenCheng;
+            isYanJie = targetCard instanceof YanZL_YanJie;
         }
     }
 
@@ -101,7 +103,8 @@ public class SuSha extends AbstractPower {
                     if (a instanceof DamageAllEnemiesAction || isFenCheng) {
                         waitToCheckDieMonsters = Utils.getAllAliveMonsters();
                         break;
-                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction) {
+                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction
+                            || a instanceof YanJieAction) {
                         if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
                             continue;
                         }
@@ -117,37 +120,44 @@ public class SuSha extends AbstractPower {
             }
 
             Utils.addToBotAbstract(() -> {
-                checkKillThenRemove();
+                checkKill();
             });
         }
     }
 
-    void checkKillThenRemove() {
+    void checkKill() {
         if (!owner.hasPower(ID)) {
             return;
         }
 
-        if (waitToCheckDieMonsters == null) {
+        if (waitToCheckDieMonsters == null || waitToCheckDieMonsters.size() <= 0) {
             return;
         }
-        boolean isKill = false;
-        for (int i = 0; i < waitToCheckDieMonsters.size(); i++) {
+        int killCount = 0;
+        for (int i = waitToCheckDieMonsters.size() - 1; i >= 0; i--) {
             if (Utils.isKilledUnMinion(waitToCheckDieMonsters.get(i))) {
-                isKill = true;
-                break;
+                killCount++;
+                waitToCheckDieMonsters.remove(i);
             }
         }
-        if (isKill) {
+        while (killCount > 0) {
             ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
             AbstractPlayer p = AbstractDungeon.player;
             for (int i = 0; i < monsters.size(); i++) {
                 AbstractMonster m = monsters.get(i);
                 Utils.givePowerTop(p, monsters.get(i), new PoBai(m, pobaiGive));
             }
-        } else if (isFenCheng) {
-            Utils.addToBotAbstract(() -> {
-                checkKillThenRemove();
-            });
+            killCount--;
+        }
+        if (isFenCheng || isYanJie) {
+            isYanJie = false;
+            ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
+            if (actions != null && actions.size() > 0) {
+                upper = actions.get(actions.size() - 1);
+                Utils.addToBotAbstract(() -> {
+                    checkKill();
+                });
+            }
         }
     }
 

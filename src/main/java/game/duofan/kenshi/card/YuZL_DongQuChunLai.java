@@ -36,7 +36,7 @@ public class YuZL_DongQuChunLai extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_DongQuChunLai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 3;
         exhaust = true;
     }
 
@@ -58,12 +58,12 @@ public class YuZL_DongQuChunLai extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new RegenPower(p, magicNumber));
+        Utils.gainHeal(p, magicNumber);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.gainHeal(AbstractDungeon.player, 1);
+        Utils.playerGainPower(new RegenPower(AbstractDungeon.player, 2));
     }
 
     @Override

@@ -16,6 +16,8 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
+import game.duofan.kenshi.card.YanZL_FenCheng;
+import game.duofan.kenshi.card.YanZL_YanJie;
 
 import java.util.ArrayList;
 
@@ -33,6 +35,9 @@ public class JiShuiSanQian extends AbstractPower {
     boolean isGetBlock;
     AbstractGameAction upper;
     AbstractCard targetCard;
+
+    boolean isFenCheng;
+    boolean isYanJie;
 
     public JiShuiSanQian(AbstractCreature owner, AbstractCard targetCard) {
         this.name = NAME;
@@ -76,6 +81,8 @@ public class JiShuiSanQian extends AbstractPower {
             } else {
                 upper = null;
             }
+            isFenCheng = targetCard instanceof YanZL_FenCheng;
+            isYanJie = targetCard instanceof YanZL_YanJie;
         }
     }
 
@@ -83,38 +90,52 @@ public class JiShuiSanQian extends AbstractPower {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         if (card == targetCard) {
-            ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
-            AbstractPlayer p = AbstractDungeon.player;
+            sendCheckBlockAction();
+        }
+    }
 
-            if (actions.size() > 0) {
-                for (int i = actions.size() - 1; i >= 0; i--) {
-                    AbstractGameAction a = actions.get(i);
-                    if (a.equals(upper)) {
-                        break;
-                    }
+    void sendCheckBlockAction(){
+        ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
+        AbstractPlayer p = AbstractDungeon.player;
 
-                    if (a instanceof DamageAllEnemiesAction) {
-                        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-                        for (int j = 0; j < monsters.size(); j++) {
-                            AbstractMonster m = monsters.get(j);
-                            Utils.insertAbstract(() -> {
-                                if (m.lastDamageTaken > 0) {
-                                    Utils.gainBlockTop(p, m.lastDamageTaken);
-                                }
-                            }, i + j + 1);
-                        }
-                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction) {
-                        if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
-                            continue;
-                        }
+        if (actions.size() > 0) {
+            for (int i = actions.size() - 1; i >= 0; i--) {
+                AbstractGameAction a = actions.get(i);
+                if (a.equals(upper)) {
+                    break;
+                }
+
+                if (a instanceof DamageAllEnemiesAction) {
+                    ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
+                    for (int j = 0; j < monsters.size(); j++) {
+                        AbstractMonster m = monsters.get(j);
                         Utils.insertAbstract(() -> {
-                            AbstractCreature m = a.target;
                             if (m.lastDamageTaken > 0) {
                                 Utils.gainBlockTop(p, m.lastDamageTaken);
                             }
-                        }, i + 1);
+                        }, i + j + 1);
                     }
+                } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction) {
+                    if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
+                        continue;
+                    }
+                    Utils.insertAbstract(() -> {
+                        AbstractCreature m = a.target;
+                        if (m.lastDamageTaken > 0) {
+                            Utils.gainBlockTop(p, m.lastDamageTaken);
+                        }
+                    }, i + 1);
                 }
+            }
+        }
+
+        if(isFenCheng || isYanJie){
+            isYanJie = false;
+            if (actions != null && actions.size() > 0) {
+                upper = actions.get(actions.size() - 1);
+                Utils.addToBotAbstract(()->{
+                    sendCheckBlockAction();
+                });
             }
         }
     }

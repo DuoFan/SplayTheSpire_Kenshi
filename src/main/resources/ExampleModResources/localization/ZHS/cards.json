@@ -39,8 +39,8 @@
     "DESCRIPTION": "每当打出 *攻击牌 使你抽取1张 *攻击牌 ，并使其获得 消耗 。",
     "UPGRADE_DESCRIPTION": "每当打出 *攻击牌 使你抽取1张 *攻击牌 ，并使其获得 消耗 。"
   },
-  "game.duofan.kenshi:ZhanBaiShe_Card": {
-    "NAME": "斩白蛇",
+  "game.duofan.kenshi:ZhanYanLuo_Card": {
+    "NAME": "斩阎罗",
     "DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "UPGRADE_DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "EXTENDED_DESCRIPTION": [
@@ -168,6 +168,11 @@
     "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，若 *本回合 这张牌造成 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，若 *本回合 这张牌造成 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。"
   },
+  "game.duofan.kenshi:FZL_ShaRenRuMa": {
+    "NAME": "杀人如麻",
+    "DESCRIPTION": "在每回合开始时获得 [E] 。 NL 打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1个敌人 !M! 层 易伤 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "在每回合开始时获得 [E] 。 NL 打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1个敌人 !M! 层 易伤 和 虚弱 。 NL 虚无 "
+  },
   "game.duofan.kenshi:FZL_Ji_FanShi_Card": {
     "NAME": "极·反式",
     "DESCRIPTION": " *待实现 NL 你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。",
@@ -290,13 +295,13 @@
   },
   "game.duofan.kenshi:YuZL_DongQuChunLai": {
     "NAME": "冬去春来",
-    "DESCRIPTION": "获得 !M! 层 再生 。 NL duofan_kenshi:羽之流 :回复1点生命。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 再生 。 NL duofan_kenshi:羽之流 :回复1点生命。 NL 消耗 "
+    "DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 "
   },
   "game.duofan.kenshi:YuZL_YinJiuZhiKe": {
     "NAME": "饮鸠止渴",
-    "DESCRIPTION": "失去 !M! 点 *最大生命 ，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "失去 !M! 点 *最大生命 ，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 "
+    "DESCRIPTION": "失去 !M! 点 *最大生命 ，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "失去 !M! 点 *最大生命 ，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 ， 保留 "
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "飞鸽传书",
@@ -332,6 +337,11 @@
     "NAME": "炎浪",
     "DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 X次。 NL duofan_kenshi:炎之流 :获得 [E] 。",
     "UPGRADE_DESCRIPTION": "给予 *所有敌人 !M! 层 duofan_kenshi:熔融 X次。 NL duofan_kenshi:炎之流 :获得 [E] 。"
+  },
+  "game.duofan.kenshi:YanZL_YanJie": {
+    "NAME": "炎劫",
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 X次。 NL duofan_kenshi:炎之流 :额外造成1次伤害。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 X+1次。 NL duofan_kenshi:炎之流 :额外造成1次伤害。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_YanLiuJiXing": {
     "NAME": "焰流击星",

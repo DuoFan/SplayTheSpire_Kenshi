@@ -13,9 +13,9 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
 import game.duofan.kenshi.relic.YiQi;
 
-public class ZhanBaiShe extends AbstractPower {
+public class ZhanYanLuo extends AbstractPower {
 
-    static final String POWER_ID = IDManager.getInstance().getID(ZhanBaiShe.class);
+    static final String POWER_ID = IDManager.getInstance().getID(ZhanYanLuo.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -23,7 +23,7 @@ public class ZhanBaiShe extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public ZhanBaiShe(AbstractMonster m) {
+    public ZhanYanLuo(AbstractMonster m) {
         this.name = NAME;
         this.ID = POWER_ID;
         owner = m;

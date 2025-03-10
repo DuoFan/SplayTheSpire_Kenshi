@@ -53,8 +53,8 @@
       "试剑石还没有准备好。"
     ]
   },
-  "game.duofan.kenshi:ZhanBaiShe": {
-    "NAME": "斩白蛇",
+  "game.duofan.kenshi:ZhanYanLuo": {
+    "NAME": "斩阎罗",
     "DESCRIPTIONS": [
       "斩杀 #r[NAME] ，以获得 #r义旗 。"
     ]
@@ -101,10 +101,10 @@
       "本回合若 #r[NAME] 造成斩杀，给予所有敌人 #r%d 层 #r破败 。"
     ]
   },
-  "game.duofan.kenshi:WuBianLuoMu": {
-    "NAME": "无边落木",
+  "game.duofan.kenshi:ShaRenRuMa": {
+    "NAME": "杀人如麻",
     "DESCRIPTIONS": [
-      "回合开始时，抽取 #r%d 张卡牌。"
+      "回合开始时获得 #r%d [E] ，打出的 #r非攻击牌 使你失去 #r%d 点生命。"
     ]
   },
   "game.duofan.kenshi:Ji_FanShi": {

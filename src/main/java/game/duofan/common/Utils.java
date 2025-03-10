@@ -438,6 +438,7 @@ public class Utils {
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_XianFaZhiRen());
             cards.add(new FZL_QiuYeLianJian());
+            cards.add(new FZL_ShaRenRuMa());
             cards.add(new FZL_Ji_FanShi_Card());
         }
 
@@ -477,6 +478,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
             cards.add(new YanZL_YanLang());
+            cards.add(new YanZL_YanJie());
             cards.add(new YanZL_BuJingYan());
             cards.add(new YanZL_LuoXuanYan());
             cards.add(new YanZL_ZhuoXinYan());

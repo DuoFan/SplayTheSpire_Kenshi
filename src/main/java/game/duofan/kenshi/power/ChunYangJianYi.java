@@ -17,10 +17,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.BaiHongGuanRiAction;
-import game.duofan.kenshi.action.FenChengAction;
-import game.duofan.kenshi.action.NotifyBaoYanDamageAction;
-import game.duofan.kenshi.action.WaitForFenChengAction;
+import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.YangZhiRen;
 
 import java.lang.reflect.Field;
@@ -196,6 +193,13 @@ public class ChunYangJianYi extends AbstractPower {
                         } catch (IllegalAccessException e) {
                             System.out.println("--------------纯阳剑意修改DamageAction或DamageRandomEnemyAction伤害失败，无法访问待修改字段");
                         }
+                    }
+                    else if (a instanceof YanJieAction) {
+                        if (waitForRongRongMonsters == null) {
+                            waitForRongRongMonsters = new HashSet<>();
+                        }
+                        waitForRongRongMonsters.add((AbstractMonster) a.target);
+                        a.amount += RONG_RONG_GIVE;
                     }
                 }
             }

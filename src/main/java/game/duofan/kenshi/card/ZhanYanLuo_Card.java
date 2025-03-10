@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.brashmonkey.spriter.Player;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,11 +10,11 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.*;
-import game.duofan.kenshi.power.ZhanBaiShe;
+import game.duofan.kenshi.power.ZhanYanLuo;
 import game.duofan.kenshi.relic.YiQi;
 
-public class ZhanBaiShe_Card extends CustomCard implements IEventListener {
-    public static final String ID = IDManager.getInstance().getID(ZhanBaiShe_Card.class);
+public class ZhanYanLuo_Card extends CustomCard implements IEventListener {
+    public static final String ID = IDManager.getInstance().getID(ZhanYanLuo_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -29,7 +28,7 @@ public class ZhanBaiShe_Card extends CustomCard implements IEventListener {
     boolean hasYiQi;
     boolean isRegist;
 
-    public ZhanBaiShe_Card() {
+    public ZhanYanLuo_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
 
         if (AbstractDungeon.player != null) {
@@ -83,7 +82,7 @@ public class ZhanBaiShe_Card extends CustomCard implements IEventListener {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!hasYiQi) {
-            Utils.givePower(p, m, new ZhanBaiShe(m));
+            Utils.givePower(p, m, new ZhanYanLuo(m));
         } else {
             Utils.givePower(p, m, new StrengthPower(m, -1));
             Utils.playerGainPower(new StrengthPower(m, 1));
