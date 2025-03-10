@@ -41,8 +41,6 @@ public class ChunYangJianYi extends AbstractPower {
     AbstractCard targetCard;
     AbstractMonster targetMonster;
 
-    int _amount;
-
     public ChunYangJianYi(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -59,28 +57,28 @@ public class ChunYangJianYi extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], _amount);
+        this.description = String.format(DESCRIPTIONS[0], getValidCount());
+    }
+
+    int getValidCount() {
+        return Math.max(0, amount - Utils.stasticsAttackCardPlayedInTurn());
     }
 
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        _amount = amount;
         this.updateDescription();
     }
 
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        _amount += stackAmount;
-        _amount = Math.max(_amount, amount);
         this.updateDescription();
     }
 
     @Override
-    public void atStartOfTurn() {
-        super.atStartOfTurn();
-        _amount = amount;
+    public void atStartOfTurnPostDraw() {
+        super.atStartOfTurnPostDraw();
         this.updateDescription();
     }
 
@@ -92,7 +90,7 @@ public class ChunYangJianYi extends AbstractPower {
 
     @Override
     public float atDamageGive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        if (_amount > 0 && card.type == AbstractCard.CardType.ATTACK) {
+        if (card.type == AbstractCard.CardType.ATTACK && getValidCount() > 0) {
             tryEffectForCard(card);
         }
         return super.atDamageGive(damage, type, card);
@@ -101,7 +99,7 @@ public class ChunYangJianYi extends AbstractPower {
     @Override
     public void onPlayCard(AbstractCard card, AbstractMonster m) {
         super.onPlayCard(card, m);
-        if (_amount > 0 && card.type == AbstractCard.CardType.ATTACK) {
+        if (card.type == AbstractCard.CardType.ATTACK && getValidCount() > 0) {
             ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
             if (actions.size() > 0) {
                 upper = actions.get(actions.size() - 1);
@@ -109,14 +107,17 @@ public class ChunYangJianYi extends AbstractPower {
             targetCard = card;
             targetMonster = m;
         }
+        else{
+            targetCard = null;
+        }
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
 
-        if (_amount > 0 && card.equals(targetCard)) {
-            _amount--;
+        if (card.equals(targetCard)) {
+            flash();
             updateDescription();
             ArrayList<AbstractGameAction> actions = AbstractDungeon.actionManager.actions;
             AbstractPlayer p = AbstractDungeon.player;
@@ -158,16 +159,14 @@ public class ChunYangJianYi extends AbstractPower {
                         } catch (IllegalAccessException e) {
                             System.out.println("--------------纯阳剑意修改DamageAllEnemiesAction伤害失败，无法访问待修改字段");
                         }
-                    }
-                    else if(a instanceof WaitForFenChengAction){
+                    } else if (a instanceof WaitForFenChengAction) {
                         if (waitForRongRongMonsters == null) {
                             waitForRongRongMonsters = new HashSet<>();
                         }
 
                         ArrayList<AbstractMonster> monsters = new ArrayList<>(AbstractDungeon.getMonsters().monsters);
                         waitForRongRongMonsters.addAll(monsters);
-                    }
-                    else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction) {
+                    } else if (a instanceof DamageAction || a instanceof DamageRandomEnemyAction || a instanceof BaiHongGuanRiAction) {
 
                         if (a.target.equals(AbstractDungeon.player) || !(a.target instanceof AbstractMonster)) {
                             continue;
@@ -193,8 +192,7 @@ public class ChunYangJianYi extends AbstractPower {
                         } catch (IllegalAccessException e) {
                             System.out.println("--------------纯阳剑意修改DamageAction或DamageRandomEnemyAction伤害失败，无法访问待修改字段");
                         }
-                    }
-                    else if (a instanceof YanJieAction) {
+                    } else if (a instanceof YanJieAction) {
                         if (waitForRongRongMonsters == null) {
                             waitForRongRongMonsters = new HashSet<>();
                         }
@@ -216,7 +214,7 @@ public class ChunYangJianYi extends AbstractPower {
             upper = null;
             targetCard = null;
             targetMonster = null;
-            if (_amount <= 0) {
+            if (getValidCount() <= 0) {
                 restore();
             }
         }

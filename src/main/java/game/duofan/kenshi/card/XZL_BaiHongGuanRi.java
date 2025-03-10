@@ -85,6 +85,10 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        Utils.makeTempCardInHand(this, 1);
+        AbstractCard c = new XZL_BaiHongGuanRi();
+        if(upgraded){
+            c.upgrade();
+        }
+        Utils.makeTempCardInHand(c, 1);
     }
 }

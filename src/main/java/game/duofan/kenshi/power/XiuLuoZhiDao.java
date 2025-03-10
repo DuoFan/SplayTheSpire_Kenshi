@@ -20,8 +20,6 @@ public class XiuLuoZhiDao extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    int loseAmount;
-
     public XiuLuoZhiDao(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -40,24 +38,17 @@ public class XiuLuoZhiDao extends AbstractPower {
     @Override
     public void onInitialApplication() {
         super.onInitialApplication();
-        loseAmount = 1;
         this.updateDescription();
     }
 
-    @Override
-    public void stackPower(int stackAmount) {
-        super.stackPower(stackAmount);
-        loseAmount++;
-    }
-
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, loseAmount);
+        this.description = String.format(DESCRIPTIONS[0], this.amount, amount);
     }
 
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
         Utils.playerGainPower(new StrengthPower(owner, amount));
-        Utils.playerGainPower(new DexterityPower(owner, -loseAmount));
+        Utils.playerGainPower(new DexterityPower(owner, -amount));
     }
 }

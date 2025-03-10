@@ -47,19 +47,7 @@ public class JingYeSi extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], stasticsAttackCardPlayedInTurn());
-    }
-
-    int stasticsAttackCardPlayedInTurn() {
-        ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisTurn;
-        int d = 0;
-        for (int i = 0; i < cards.size(); i++) {
-            AbstractCard c = cards.get(i);
-            if (c.type == AbstractCard.CardType.ATTACK) {
-                d++;
-            }
-        }
-        return d;
+        this.description = String.format(DESCRIPTIONS[0], Utils.stasticsAttackCardPlayedInTurn());
     }
 
     @Override
@@ -73,7 +61,7 @@ public class JingYeSi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        int attackAmount = stasticsAttackCardPlayedInTurn();
+        int attackAmount = Utils.stasticsAttackCardPlayedInTurn();
         if (attackAmount < JingYeSi_Card.attackLimit) {
             flash();
             amount--;

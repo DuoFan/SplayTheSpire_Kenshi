@@ -639,4 +639,16 @@ public class Utils {
         }
         return damage;
     }
+
+    public static int stasticsAttackCardPlayedInTurn() {
+        ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisTurn;
+        int d = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            AbstractCard c = cards.get(i);
+            if (c.type == AbstractCard.CardType.ATTACK) {
+                d++;
+            }
+        }
+        return d;
+    }
 }

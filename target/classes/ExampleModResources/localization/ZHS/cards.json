@@ -54,8 +54,8 @@
   },
   "game.duofan.kenshi:XiuLuoZhiDao_Card": {
     "NAME": "修罗之道",
-    "DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去1点 敏捷 。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去1点 敏捷 。 NL 虚无 "
+    "DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去 !M! 点 敏捷 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去 !M! 点 敏捷 。 NL 虚无 "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "静夜思",
