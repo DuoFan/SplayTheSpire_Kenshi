@@ -15,7 +15,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard, IQiMin {
+public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(XZL_ShengXie.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源

@@ -1,6 +1,24 @@
 [
   {
     "NAMES": [
+      "锻造"
+    ],
+    "DESCRIPTION": "锻造1张卡牌。 NL #r攻击牌 :基础伤害加2 NL #r技能牌 :获得保留 NL #r能力牌 :费用减1 "
+  },
+  {
+    "NAMES": [
+      "RighteousFlag","righteousflag"
+    ],
+    "DESCRIPTION": "#rRelic, cannot be obtained repeatedly. At the start of combat, take #b1 #yStrength from a random enemy."
+  },
+  {
+    "NAMES": [
+      "破败"
+    ],
+    "DESCRIPTION": "生命值低于 #r10% 时，死亡。 NL 每 #r额外 的1层，使该数值增加 2% #r(boss) /5% #r(非boss) /20% #r(爪牙) 。"
+  },
+  {
+    "NAMES": [
       "气"
     ],
     "DESCRIPTION": "本回合接下来 #r1 次触发的 #r流派效果 额外触发1次，而后移除1层。"
@@ -10,24 +28,6 @@
       "气敏"
     ],
     "DESCRIPTION": "如果该牌消耗了气，则其 #r流派效果 额外触发2次，而非1次。"
-  },
-  {
-    "NAMES": [
-      "锻造"
-    ],
-    "DESCRIPTION": "锻造1张卡牌。 NL #r攻击牌 :基础伤害加2 NL #r技能牌 :获得保留 NL #r能力牌 :费用减1 "
-  },
-  {
-    "NAMES": [
-      "义旗"
-    ],
-    "DESCRIPTION": " #r遗物 ， #r不可重复获得 ，战斗开始时， #r夺取 随机敌人1点 #r力量 。"
-  },
-  {
-    "NAMES": [
-      "破败"
-    ],
-    "DESCRIPTION": "生命值低于 #r10% 时，死亡。 NL 每 #r额外 的1层，使该数值增加 2% #r(boss) /5% #r(非boss) /20% #r(爪牙) 。"
   },
   {
     "NAMES": [
@@ -46,12 +46,6 @@
       "熔融"
     ],
     "DESCRIPTION": "受到的 #r爆炎伤害 增加1点，在回合结束时最多保留10点。 "
-  },
-  {
-    "NAMES": [
-      "溅射"
-    ],
-    "DESCRIPTION": "对 #r目标左右两侧 的 #r敌人 造成 #r爆炎伤害 。"
   },
   {
     "NAMES": [

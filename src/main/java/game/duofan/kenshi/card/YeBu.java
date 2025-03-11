@@ -50,6 +50,6 @@ public class YeBu extends CustomCard {
         AbstractDungeon.actionManager.addToBottom(
                 new DrawCardAction(magicNumber)
         );
-        Utils.playerGainPower(new AnYing(p));
+        Utils.playerGainPower(new YeBuPower(p));
     }
 }

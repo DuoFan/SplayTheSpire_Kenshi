@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import game.duofan.kenshi.power.Ji_FanShi;
+import game.duofan.kenshi.power.FanShi;
 
 public class DrawCardByFilterAction extends AbstractGameAction {
 
@@ -31,7 +31,7 @@ public class DrawCardByFilterAction extends AbstractGameAction {
 
         CardGroup g = p.drawPile;
 
-        if (p.hasPower(Ji_FanShi.POWER_ID)) {
+        if (p.hasPower(FanShi.POWER_ID)) {
             g = p.discardPile;
         }
 
@@ -61,7 +61,12 @@ public class DrawCardByFilterAction extends AbstractGameAction {
             for (int i = 0; i < drawCount; i++) {
                 AbstractCard card = filteredCards.group.get(i);
                 g.removeCard(card);
-                g.addToTop(card);
+                if(g == p.drawPile){
+                    g.addToTop(card);
+                }
+                else{
+                    g.addToBottom(card);
+                }
             }
 
             AbstractGameAction follow = null;

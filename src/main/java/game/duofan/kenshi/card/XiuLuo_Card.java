@@ -1,24 +1,19 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.power.XiuLuo;
 
-import java.util.Iterator;
-
-public class FZL_Ji_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(FZL_Ji_FanShi_Card.class);
+public class XiuLuo_Card extends CustomCard {
+    public static final String ID = IDManager.getInstance().getID(XiuLuo_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -27,18 +22,21 @@ public class FZL_Ji_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
     private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
-    private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-    public FZL_Ji_FanShi_Card() {
+    public XiuLuo_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        isEthereal = true;
+        magicNumber = baseMagicNumber = 6;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(3);
+            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            this.initializeDescription();
         }
     }
 
@@ -50,31 +48,8 @@ public class FZL_Ji_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new Ji_FanShi(p));
-    }
 
-    @Override
-    public void triggerOnGlowCheck() {
-        super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public void fengZhiLiuEffect() {
-
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.FengZhiLiu;
-    }
-
-    @Override
-    public boolean isInvokeLiuEffectToTop() {
-        return false;
+        Utils.playerGainPower(new StrengthPower(p, magicNumber));
+        Utils.playerGainPower(new XiuLuo(p, 6));
     }
 }

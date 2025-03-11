@@ -5,6 +5,7 @@ import basemod.interfaces.EditKeywordsSubscriber;
 import com.badlogic.gdx.Gdx;
 import com.google.gson.Gson;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.localization.Keyword;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
@@ -18,12 +19,14 @@ public class KeywordRegister implements EditKeywordsSubscriber {
     @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
-        String lang = "zhs";
-        if (language == Settings.GameLanguage.ZHS) {
-            lang = "zhs";
+        String lang;
+        if (Settings.language == Settings.GameLanguage.ZHS) {
+            lang = "ZHS";
+        } else {
+            lang = "ENG";
         }
 
-        String json = Gdx.files.internal("ExampleModResources/localization/keywords_" + lang + ".json")
+        String json = Gdx.files.internal("ExampleModResources/localization/" + lang + "/keywords.json")
                 .readString(String.valueOf(StandardCharsets.UTF_8));
         Keyword[] keywords = gson.fromJson(json, Keyword[].class);
         if (keywords != null) {

@@ -15,11 +15,11 @@ import game.duofan.kenshi.power.*;
 import game.duofan.kenshi.variable.ILamageScale;
 import game.duofan.kenshi.variable.LamageScaler;
 
-public class XZL_ChiXiao extends CustomCard implements IXiaZhiLiuCard, IQiMin, ILamageScale {
+public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, IQiMin, ILamageScale {
 
     static LamageScaler lamageScaler = new LamageScaler();
 
-    public static final String ID = IDManager.getInstance().getID(XZL_ChiXiao.class);
+    public static final String ID = IDManager.getInstance().getID(XZL_ChunJun.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -32,7 +32,7 @@ public class XZL_ChiXiao extends CustomCard implements IXiaZhiLiuCard, IQiMin, I
 
     AbstractMonster monster;
 
-    public XZL_ChiXiao() {
+    public XZL_ChunJun() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         int baseValue = 9;
         this.damage = this.baseDamage = baseValue;

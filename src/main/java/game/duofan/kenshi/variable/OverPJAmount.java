@@ -3,8 +3,6 @@ package game.duofan.kenshi.variable;
 import basemod.abstracts.DynamicVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.power.AnYing;
 
 public class OverPJAmount extends DynamicVariable {
     @Override

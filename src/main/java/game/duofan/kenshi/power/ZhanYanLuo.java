@@ -42,9 +42,7 @@ public class ZhanYanLuo extends AbstractPower {
 
     public void updateDescription() {
         if (owner == null) {
-            this.description = "屠魔令出现了错误";
-        } else if (owner.hasPower("Minion")) {
-            this.description = " #r[" + owner.name + "] " + "是一个爪牙，" + " #r无法造成斩杀! ";
+            this.description = "斩阎罗";
         } else {
             this.description = DESCRIPTIONS[0].replace("[NAME]", owner.name);
         }
@@ -53,10 +51,6 @@ public class ZhanYanLuo extends AbstractPower {
     @Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         super.onAfterUseCard(card, action);
-
-        if (owner.hasPower("Minion")) {
-            return;
-        }
 
         Utils.addToTopAbstract(() -> {
             if (!owner.hasPower(ID)) {

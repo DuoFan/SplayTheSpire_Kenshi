@@ -2,12 +2,12 @@
   "game.duofan.kenshi:Strike": {
     "NAME": "打击",
     "DESCRIPTION": "造成 !D! 点伤害。",
-    "UPGRADE_DESCRIPTION": " 造成 !D! 点伤害。"
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。"
   },
   "game.duofan.kenshi:Defend": {
     "NAME": "防御",
     "DESCRIPTION": "获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": " 获得 !B! 点 格挡 。"
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。"
   },
   "game.duofan.kenshi:XingJianLi_Card": {
     "NAME": "行剑礼",
@@ -41,8 +41,8 @@
   },
   "game.duofan.kenshi:ZhanYanLuo_Card": {
     "NAME": "斩阎罗",
-    "DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
-    "UPGRADE_DESCRIPTION": "指定目标，将其 斩杀 时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
+    "DESCRIPTION": "指定目标，其死亡时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
+    "UPGRADE_DESCRIPTION": "指定目标，其死亡时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "EXTENDED_DESCRIPTION": [
       "夺取敌人1点力量。 NL 保留 ， 消耗 "
     ]
@@ -52,10 +52,10 @@
     "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每 斩杀 一个敌人，受到 !M! 点伤害。",
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每 斩杀 一个敌人，受到 !M! 点伤害。"
   },
-  "game.duofan.kenshi:XiuLuoZhiDao_Card": {
-    "NAME": "修罗之道",
-    "DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去 !M! 点 敏捷 。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得2点 力量 ， *回合开始时 ，获得 !M! 点 力量 ，失去 !M! 点 敏捷 。 NL 虚无 "
+  "game.duofan.kenshi:XiuLuo_Card": {
+    "NAME": "修罗",
+    "DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去6点 生命 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去6点 生命 。 NL 虚无 "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "静夜思",
@@ -165,17 +165,17 @@
   },
   "game.duofan.kenshi:FZL_SuSha": {
     "NAME": "肃杀",
-    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，若 *本回合 这张牌造成 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，若 *本回合 这张牌造成 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。"
+    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ， *本回合 这张牌造成的每次 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ， *本回合 这张牌造成的每次 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。"
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "杀心骤起",
-    "DESCRIPTION": "获得 [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。"
+    "DESCRIPTION": "获得 [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得 [E] [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。 虚无 "
   },
-  "game.duofan.kenshi:FZL_Ji_FanShi_Card": {
-    "NAME": "极·反式",
-    "DESCRIPTION": " *待实现 NL 你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。",
+  "game.duofan.kenshi:FZL_FanShi_Card": {
+    "NAME": "反式",
+    "DESCRIPTION": "你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。",
     "UPGRADE_DESCRIPTION": "你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。"
   },
   "game.duofan.kenshi:XZL_JuQi": {
@@ -253,8 +253,8 @@
     "DESCRIPTION": "造成 !D! 点伤害，使敌人失去 !M! 点 力量 。 NL duofan_kenshi:霞之流 :给予1层 虚弱 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，使敌人失去 !M! 点 力量 。 NL duofan_kenshi:霞之流 :给予1层 虚弱 。 NL 消耗 "
   },
-  "game.duofan.kenshi:XZL_ChiXiao": {
-    "NAME": "赤霄",
+  "game.duofan.kenshi:XZL_ChunJun": {
+    "NAME": "纯钧",
     "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。 NL duofan_kenshi:气敏 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。 NL duofan_kenshi:气敏 "
   },
@@ -320,7 +320,7 @@
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "击水三千",
-    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ， 保留 ",
+    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ，本回合其造成的未被 格挡 的伤害将获得等量 格挡 。 NL duofan_kenshi:羽之流 :本回合打出 *抽取牌 后，将其放回 *抽牌堆 。 NL 消耗 ， 保留 "
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
@@ -345,8 +345,8 @@
   },
   "game.duofan.kenshi:YanZL_YanLiuJiXing": {
     "NAME": "焰流击星",
-    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， duofan_kenshi:溅射 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， duofan_kenshi:溅射 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。"
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， 对目标左右两侧的敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 ， 对目标左右两侧的敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :将本牌放回抽牌堆。"
   },
   "game.duofan.kenshi:YanZL_HuiJinJianQi": {
     "NAME": "灰烬剑气",
@@ -388,10 +388,10 @@
     "DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :抽取1张 *攻击牌 。",
     "UPGRADE_DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :抽取1张 *攻击牌 。"
   },
-  "game.duofan.kenshi:YanZL_BuJingYan": {
-    "NAME": "不净炎",
-    "DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能1个敌人拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能1个敌人拥有不净炎 。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
+  "game.duofan.kenshi:YanZL_LianHuan": {
+    "NAME": "连环",
+    "DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能连环1个敌人。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "每当目标受到 duofan_kenshi:爆炎伤害 时，对 *其他敌人 造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL *仅能连环1个敌人。 NL duofan_kenshi:炎之流 :对目标造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL 消耗 "
   },
   "game.duofan.kenshi:YanZL_ChiBi": {
     "NAME": "赤壁",
@@ -400,7 +400,7 @@
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "猎火场",
-    "DESCRIPTION": " *回合结束时 ，对所有敌人造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": " *回合结束时 ，对所有敌人造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。"
+    "DESCRIPTION": " *回合结束时 ，对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": " *回合结束时 ，对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。"
   }
 }

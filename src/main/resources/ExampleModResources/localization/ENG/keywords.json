@@ -7,9 +7,9 @@
   },
   {
     "NAMES": [
-      "义旗"
+      "RighteousFlag","righteousflag"
     ],
-    "DESCRIPTION": " #r遗物 ， #r不可重复获得 ，战斗开始时， #r夺取 随机敌人1点 #r力量 。"
+    "DESCRIPTION": "#rRelic, cannot be obtained repeatedly. At the start of combat, take #b1 #yStrength from a random enemy."
   },
   {
     "NAMES": [

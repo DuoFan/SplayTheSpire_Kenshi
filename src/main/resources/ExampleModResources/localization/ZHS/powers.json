@@ -29,20 +29,8 @@
       "每当打出 #r攻击牌 使你抽取 #r%d 张 #r攻击牌 ，并使其获得 #r消耗 。"
     ]
   },
-  "game.duofan.kenshi:JiaShi": {
-    "NAME": "架势",
-    "DESCRIPTIONS": [
-      "从卡牌得到 #y格挡 增加 #r%d 点, NL NL 每打出1张 #r技能牌 移除1层。"
-    ]
-  },
-  "game.duofan.kenshi:GongShi": {
-    "NAME": "攻势",
-    "DESCRIPTIONS": [
-      "本回合攻击牌造成的 #y伤害 增加 #r%d 点， NL NL 每打出1张 #r攻击牌 移除1层。"
-    ]
-  },
-  "game.duofan.kenshi:AnYing": {
-    "NAME": "暗影",
+  "game.duofan.kenshi:YeBuPower": {
+    "NAME": "夜步",
     "DESCRIPTIONS": [
       "本回合下一张攻击牌造成的伤害增加 #r%d%%。"
     ]
@@ -59,10 +47,10 @@
       "斩杀 #r[NAME] ，以获得 #r义旗 。"
     ]
   },
-  "game.duofan.kenshi:XiuLuoZhiDao": {
-    "NAME": "修罗之道",
+  "game.duofan.kenshi:XiuLuo": {
+    "NAME": "修罗",
     "DESCRIPTIONS": [
-      " #r回合开始时 ，获得 #r%d 点 #r力量 ，失去 #r%d 点 #r敏捷 。"
+      " #r回合开始时 ，失去 #r%d 点 #r生命 。"
     ]
   },
   "game.duofan.kenshi:JingYeSi": {
@@ -98,17 +86,17 @@
   "game.duofan.kenshi:SuSha": {
     "NAME": "肃杀",
     "DESCRIPTIONS": [
-      "本回合若 #r[NAME] 造成斩杀，给予所有敌人 #r%d 层 #r破败 。"
+      "本回合 #r[NAME] 造成的每次斩杀，给予所有敌人 #r%d 层 #r破败 。"
     ]
   },
-  "game.duofan.kenshi:ShaRenRuMa": {
-    "NAME": "杀人如麻",
+  "game.duofan.kenshi:ShaXinZhouQi": {
+    "NAME": "杀心骤起",
     "DESCRIPTIONS": [
-      "回合开始时获得 #r%d [E] ，打出的 #r非攻击牌 使你失去 #r%d 点生命。"
+      "本回合打出的 #r非攻击牌 使你失去 #r%d 点生命。"
     ]
   },
-  "game.duofan.kenshi:Ji_FanShi": {
-    "NAME": "极·反式",
+  "game.duofan.kenshi:FanShi": {
+    "NAME": "反式",
     "DESCRIPTIONS": [
       "你将总是从 #r弃牌堆 抽取卡牌。"
     ]
@@ -199,8 +187,8 @@
       "本回合 #r下%d张攻击牌 先给予2层 #r熔融 ，后造成 #r爆炎伤害 。"
     ]
   },
-  "game.duofan.kenshi:BuJingYan": {
-    "NAME": "不净炎",
+  "game.duofan.kenshi:LianHuan": {
+    "NAME": "连环",
     "DESCRIPTIONS": [
       "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
     ]

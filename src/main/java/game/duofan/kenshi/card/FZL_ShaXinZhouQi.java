@@ -1,7 +1,6 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -20,7 +18,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -31,7 +29,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_ShaXinZhouQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 1;
         this.isEthereal = true;
     }
 
@@ -39,6 +37,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -64,7 +63,8 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-        Utils.playerGainPower(new ShaRenRuMa(p, 1));
+        Utils.playerGainEnergy(magicNumber);
+        Utils.playerGainPower(new ShaXinZhouQi(p, 1));
     }
 
     @Override
@@ -80,10 +80,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void fengZhiLiuEffect() {
         if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new VulnerablePower(targetMonster, magicNumber, false));
-            if (upgraded) {
-                Utils.givePower(AbstractDungeon.player, targetMonster, new WeakPower(targetMonster, magicNumber, false));
-            }
+            Utils.givePower(AbstractDungeon.player, targetMonster, new VulnerablePower(targetMonster, 1, false));
         }
     }
 

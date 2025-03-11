@@ -322,7 +322,7 @@ public class Utils {
     }
 
     public static void playerEnterAnYin() {
-        playerGainPower(new AnYing(AbstractDungeon.player));
+        playerGainPower(new YeBuPower(AbstractDungeon.player));
     }
 
     public static void playerGainStrength(int amount) {
@@ -439,7 +439,7 @@ public class Utils {
             cards.add(new FZL_XianFaZhiRen());
             cards.add(new FZL_QiuYeLianJian());
             cards.add(new FZL_ShaXinZhouQi());
-            cards.add(new FZL_Ji_FanShi_Card());
+            cards.add(new FZL_FanShi_Card());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
@@ -456,7 +456,7 @@ public class Utils {
             cards.add(new XZL_QiHuaWanQian());
             cards.add(new XZL_JuQue());
             cards.add(new XZL_ShengXie());
-            cards.add(new XZL_ChiXiao());
+            cards.add(new XZL_ChunJun());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
@@ -479,7 +479,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YanZhiLiu)) {
             cards.add(new YanZL_YanLang());
             cards.add(new YanZL_YanJie());
-            cards.add(new YanZL_BuJingYan());
+            cards.add(new YanZL_LianHuan());
             cards.add(new YanZL_LuoXuanYan());
             cards.add(new YanZL_ZhuoXinYan());
             cards.add(new YanZL_YanLiuJiXing());
@@ -502,7 +502,7 @@ public class Utils {
         ArrayList<AbstractCard> cards = getCardsFromLiu(flag);
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
-            cards.removeIf((x) -> x.cardID.equals(FZL_Ji_FanShi_Card.ID));
+            cards.removeIf((x) -> x.cardID.equals(FZL_FanShi_Card.ID));
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
