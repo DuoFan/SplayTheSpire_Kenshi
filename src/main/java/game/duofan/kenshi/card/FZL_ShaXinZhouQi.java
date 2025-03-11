@@ -15,21 +15,21 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class FZL_ShaRenRuMa extends CustomCard implements IFengZhiLiuCard {
-    public static final String ID = IDManager.getInstance().getID(FZL_ShaRenRuMa.class);
+public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
+    public static final String ID = IDManager.getInstance().getID(FZL_ShaXinZhouQi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
+    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
 
     AbstractMonster targetMonster;
 
-    public FZL_ShaRenRuMa() {
+    public FZL_ShaXinZhouQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 3;
         this.isEthereal = true;
