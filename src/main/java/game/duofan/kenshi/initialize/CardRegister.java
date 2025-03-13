@@ -41,7 +41,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new TaYin());
         cards.add(new NiTai());
         cards.add(new YeBu());
-        cards.add(new DaoWuYa());
+        cards.add(new TuoTaiHuanGu());
 
         for (int i = 0; i < cards.size(); i++) {
             BaseMod.addCard(cards.get(i));

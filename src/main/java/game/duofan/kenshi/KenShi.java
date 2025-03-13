@@ -25,7 +25,7 @@ import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
-import game.duofan.kenshi.relic.JianShuYaoLing;
+import game.duofan.kenshi.relic.LiuPaiHuiZhang;
 
 import java.util.ArrayList;
 
@@ -100,7 +100,7 @@ public class KenShi extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(JianShuYaoLing.ID);
+        retVal.add(LiuPaiHuiZhang.ID);
         return retVal;
     }
 

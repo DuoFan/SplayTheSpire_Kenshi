@@ -77,10 +77,6 @@ public class GaiTouHuanMian extends CustomCard {
                 break;
             }
 
-            if (upgraded) {
-                card.upgrade();
-            }
-
             Utils.makeTempCardInHand(card,1);
         }
     }

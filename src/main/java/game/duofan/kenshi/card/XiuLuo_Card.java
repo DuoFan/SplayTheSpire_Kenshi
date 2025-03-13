@@ -50,6 +50,6 @@ public class XiuLuo_Card extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
 
         Utils.playerGainPower(new StrengthPower(p, magicNumber));
-        Utils.playerGainPower(new XiuLuo(p, 6));
+        Utils.playerGainPower(new XiuLuo(p, 3));
     }
 }

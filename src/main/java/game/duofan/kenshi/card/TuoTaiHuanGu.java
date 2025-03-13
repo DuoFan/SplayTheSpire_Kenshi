@@ -1,21 +1,17 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DaoWuYaAction;
-import game.duofan.kenshi.action.PickUpCardToDuanZaoAction;
+import game.duofan.kenshi.action.TuoTaiHuanGuAction;
 
-public class DaoWuYa extends CustomCard {
+public class TuoTaiHuanGu extends CustomCard {
 
-    public static final String ID = IDManager.getInstance().getID(DaoWuYa.class);
+    public static final String ID = IDManager.getInstance().getID(TuoTaiHuanGu.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -26,7 +22,7 @@ public class DaoWuYa extends CustomCard {
     private static final CardRarity RARITY = CardRarity.RARE;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public DaoWuYa() {
+    public TuoTaiHuanGu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
         magicNumber = baseMagicNumber = 1;
@@ -50,6 +46,6 @@ public class DaoWuYa extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new DaoWuYaAction(magicNumber));
+        addToBot(new TuoTaiHuanGuAction(magicNumber));
     }
 }

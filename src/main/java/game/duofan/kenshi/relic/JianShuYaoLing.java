@@ -26,7 +26,7 @@ public class JianShuYaoLing extends CustomRelic {
     // 遗物未解锁时的轮廓。可以不使用。如果要使用，取消注释
     // private static final String OUTLINE_PATH = "ExampleModResources/img/relics/MyRelic_Outline.png";
     // 遗物类型
-    private static final RelicTier RELIC_TIER = RelicTier.STARTER;
+    private static final RelicTier RELIC_TIER = RelicTier.SHOP;
     // 点击音效
     private static final LandingSound LANDING_SOUND = LandingSound.FLAT;
 

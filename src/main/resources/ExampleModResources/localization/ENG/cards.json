@@ -54,8 +54,8 @@
   },
   "game.duofan.kenshi:XiuLuo_Card": {
     "NAME": "Shura",
-    "DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去6点 生命 。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去6点 生命 。 NL 虚无 "
+    "DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去3点 生命 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去3点 生命 。 NL 虚无 "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "Night Thoughts",
@@ -92,8 +92,8 @@
     "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。",
     "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。"
   },
-  "game.duofan.kenshi:DaoWuYa": {
-    "NAME": "Infinite Tao",
+  "game.duofan.kenshi:TuoTaiHuanGu": {
+    "NAME": "Thoroughly Remould Self",
     "DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] [E] 。 NL 消耗 "
   },

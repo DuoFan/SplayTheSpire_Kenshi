@@ -84,7 +84,6 @@ game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\card\YanZL_YanLang.class
 game\duofan\kenshi\card\YuZL_YinJiuZhiKe.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
-game\duofan\kenshi\action\DaoWuYaAction.class
 game\duofan\kenshi\power\RongRong.class
 game\duofan\kenshi\card\Strike.class
 game\duofan\kenshi\card\TaYin.class
@@ -126,6 +125,7 @@ game\duofan\kenshi\card\YuZL_DongQuChunLai.class
 game\duofan\kenshi\power\IFengZhiLiuCard.class
 game\duofan\common\Utils$2.class
 game\duofan\kenshi\card\YuZL_BaiLuYou.class
+game\duofan\kenshi\card\TuoTaiHuanGu.class
 game\duofan\kenshi\card\QianBianWanHua.class
 game\duofan\kenshi\card\YanZL_LiaoYuanJianQi.class
 game\duofan\kenshi\card\XZL_ChunJun.class
@@ -139,6 +139,7 @@ game\duofan\kenshi\power\XiaZhiLiu.class
 game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\FenChengAction.class
 game\duofan\kenshi\action\RepeatAction.class
+game\duofan\kenshi\action\TuoTaiHuanGuAction.class
 game\duofan\kenshi\card\IQiMin.class
 game\duofan\kenshi\power\PoBaiGongJi.class
 game\duofan\kenshi\action\WaitForFenChengAction.class
@@ -154,7 +155,6 @@ game\duofan\kenshi\card\YuZL_BuSiNiao.class
 game\duofan\kenshi\action\JiShuiSanQianAction.class
 game\duofan\kenshi\card\GongFaShanZhuan_Card.class
 game\duofan\kenshi\power\ZhuLiuBaiJia$XinSuiYiDongListener.class
-game\duofan\kenshi\card\DaoWuYa.class
 game\duofan\kenshi\action\YanJieAction.class
 game\duofan\kenshi\power\QingShenZhui.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class
@@ -192,6 +192,7 @@ game\duofan\kenshi\card\YanZL_FenCheng.class
 game\duofan\kenshi\power\IRecoverCard.class
 game\duofan\kenshi\card\JingYeSi_Card.class
 game\duofan\kenshi\power\HuoYuJingShi.class
+game\duofan\kenshi\relic\LiuPaiHuiZhang.class
 game\duofan\kenshi\action\NotifyBaoYanDamageAction.class
 game\duofan\kenshi\card\XingJianLi_Card.class
 game\duofan\common\IEventListener.class

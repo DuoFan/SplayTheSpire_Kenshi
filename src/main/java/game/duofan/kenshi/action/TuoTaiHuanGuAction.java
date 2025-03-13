@@ -5,22 +5,18 @@ package game.duofan.kenshi.action;//
 
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.UIStrings;
 import game.duofan.common.Utils;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DaoWuYaAction extends AbstractGameAction {
+public class TuoTaiHuanGuAction extends AbstractGameAction {
     private AbstractPlayer p;
 
-    public DaoWuYaAction(int amount) {
+    public TuoTaiHuanGuAction(int amount) {
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
         this.amount = amount;
