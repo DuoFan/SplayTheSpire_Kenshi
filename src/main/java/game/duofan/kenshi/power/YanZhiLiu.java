@@ -42,4 +42,15 @@ public class YanZhiLiu extends AbstractPower {
         this.description = DESCRIPTIONS[0];
     }
 
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        Utils.liuPowerAtEndOfTurn();
+    }
+
+    @Override
+    public void onRemove() {
+        super.onRemove();
+        Utils.giveAllMonsterBaoYanDamage(1);
+    }
 }

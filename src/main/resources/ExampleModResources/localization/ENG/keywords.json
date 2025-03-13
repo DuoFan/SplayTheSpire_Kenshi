@@ -1,21 +1,21 @@
 [
   {
     "NAMES": [
-      "锻造"
+      "forge"
     ],
-    "DESCRIPTION": "锻造1张卡牌。 NL #r攻击牌 :基础伤害加2 NL #r技能牌 :获得保留 NL #r能力牌 :费用减1 "
+    "DESCRIPTION": "Forge #b1 card. NL Attack:Increase #b2 base damage. NL Skill:Make it #yretain. NL Power: Reduce #b1 cost."
   },
   {
     "NAMES": [
       "RighteousFlag","righteousflag"
     ],
-    "DESCRIPTION": "#rRelic, cannot be obtained repeatedly. At the start of combat, take #b1 #yStrength from a random enemy."
+    "DESCRIPTION": "#yRelic, cannot be obtained repeatedly. At the start of combat, take #b1 #yStrength from a random enemy."
   },
   {
     "NAMES": [
-      "破败"
+      "wither"
     ],
-    "DESCRIPTION": "生命值低于 #r10% 时，死亡。 NL 每 #r额外 的1层，使该数值增加 2% #r(boss) /5% #r(非boss) /20% #r(爪牙) 。"
+    "DESCRIPTION": "Make it death when hp lower than #b10% of max hp. NL Each extra level, increases the number #b2% (Boss)/ #b5% (Normal)/ #b20% (Minion)."
   },
   {
     "NAMES": [
@@ -49,26 +49,26 @@
   },
   {
     "NAMES": [
-      "枫之流"
+      "leave"
     ],
-    "DESCRIPTION": "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，本回合获得1点 #r力量 。"
+    "DESCRIPTION": "Triggers leave effect. When you exit leave Style, gain #b1 #yStrength this turn."
   },
   {
     "NAMES": [
       "霞之流"
     ],
-    "DESCRIPTION": "触发 #r霞之流 效果，打出 #r其他流派卡牌 时，获得1层 #r气 。"
+    "DESCRIPTION": "触发 #r霞之流 效果，离开该流派时获得1层 #r气 。"
   },
   {
     "NAMES": [
       "羽之流"
     ],
-    "DESCRIPTION": "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
+    "DESCRIPTION": "触发 #r羽之流 效果，离开该流派时获得3点 #r格挡 。"
   },
   {
     "NAMES": [
       "炎之流"
     ],
-    "DESCRIPTION": "触发 #r炎之流 效果，打出 #r其他流派卡牌 时，对 #r所有敌人 造成1点 #r爆炎伤害 。"
+    "DESCRIPTION": "触发 #r炎之流 效果，离开该流派时对 #r所有敌人 造成1点 #r爆炎伤害 。"
   }
 ]

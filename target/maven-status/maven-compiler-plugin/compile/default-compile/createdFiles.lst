@@ -15,7 +15,6 @@ game\duofan\kenshi\card\YanZL_HuoYuJingShi.class
 game\duofan\kenshi\patch\PlayerDrawPatch.class
 game\duofan\kenshi\power\ChunYangJianYi.class
 game\duofan\kenshi\card\ShiJun.class
-game\duofan\kenshi\power\ZhuLiuBaiJia$1.class
 game\duofan\kenshi\variable\ITargetMonsterGetter.class
 game\duofan\kenshi\card\FZL_CuiKuLaXiu.class
 game\duofan\kenshi\card\YuZL_JiShuiSanQianCard.class
@@ -55,6 +54,7 @@ game\duofan\kenshi\initialize\CardRegister.class
 game\duofan\kenshi\card\XZL_FengMo.class
 game\duofan\kenshi\variable\QiLamagePlus.class
 game\duofan\kenshi\card\NiTai.class
+game\duofan\kenshi\power\BuSiNiaoPlus.class
 game\duofan\kenshi\power\SuSha.class
 game\duofan\kenshi\card\XZL_QiHuaWanQian.class
 game\duofan\kenshi\power\IUpdateDescription.class
@@ -132,6 +132,7 @@ game\duofan\kenshi\card\XZL_ChunJun.class
 game\duofan\kenshi\card\YanZL_LianHuan.class
 game\duofan\kenshi\power\Liu_StateMachine$StateEnum.class
 game\duofan\kenshi\action\DrawCardByClassAction.class
+game\duofan\kenshi\patch\UseCardActionPatch.class
 game\duofan\kenshi\action\ReduceCostAction.class
 game\duofan\kenshi\power\IYanZhiLiuCard.class
 game\duofan\kenshi\card\XZL_SaoDangQunMo.class
@@ -154,7 +155,6 @@ game\duofan\kenshi\card\XZL_GuiYuan.class
 game\duofan\kenshi\card\YuZL_BuSiNiao.class
 game\duofan\kenshi\action\JiShuiSanQianAction.class
 game\duofan\kenshi\card\GongFaShanZhuan_Card.class
-game\duofan\kenshi\power\ZhuLiuBaiJia$XinSuiYiDongListener.class
 game\duofan\kenshi\action\YanJieAction.class
 game\duofan\kenshi\power\QingShenZhui.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class

@@ -10,12 +10,7 @@ public class EventKey {
 
     public static final String ON_CARD_BE_DUANZAO = "ON_CARD_BE_DUANZAO";
 
-    public static final String ON_CARD_LINKED = "ON_CARD_LINKED";
-
-    public static final String ON_YU_CARD_PLAY = "ON_YU_CARD_PLAY";
-
     public static final String ON_BATTLE_START = "ON_BATTLE_START";
-    public static final String ON_TURN_START_POST_DRAW = "ON_TURN_START_POST_DRAWS";
 
     public static final String ON_BAO_YAN_DAMAGE = "ON_BAO_YAN_DAMAGE";
 

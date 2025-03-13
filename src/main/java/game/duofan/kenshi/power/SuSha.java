@@ -135,7 +135,7 @@ public class SuSha extends AbstractPower {
         }
         int killCount = 0;
         for (int i = waitToCheckDieMonsters.size() - 1; i >= 0; i--) {
-            if (Utils.isKilledUnMinion(waitToCheckDieMonsters.get(i))) {
+            if (Utils.isKilled(waitToCheckDieMonsters.get(i))) {
                 killCount++;
                 waitToCheckDieMonsters.remove(i);
             }

@@ -54,7 +54,12 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        Utils.playerGainPower(new BuSiNiao(p, magicNumber, upgraded));
+        if(!upgraded){
+            Utils.playerGainPower(new BuSiNiao(p, magicNumber, 10));
+        }
+        else{
+            Utils.playerGainPower(new BuSiNiaoPlus(p, magicNumber, 10));
+        }
     }
 
     @Override

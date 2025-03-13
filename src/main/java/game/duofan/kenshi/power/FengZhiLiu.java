@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 
@@ -21,6 +23,7 @@ public class FengZhiLiu extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
     public FengZhiLiu(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -41,5 +44,17 @@ public class FengZhiLiu extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
-    
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        Utils.liuPowerAtEndOfTurn();
+    }
+
+    @Override
+    public void onRemove() {
+        super.onRemove();
+        Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
+        Utils.playerGainPower(new LoseStrengthPower(AbstractDungeon.player, 1));
+    }
 }

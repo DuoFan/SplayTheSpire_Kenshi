@@ -15,7 +15,7 @@
     "UPGRADE_DESCRIPTION": " Exhaust 1 card. NL Draw 1 Style-Card and reduce 1 cost for the drawn card."
   },
   "game.duofan.kenshi:YiJianHuiYou_Card": {
-    "NAME": "Make Friends\n With Sword",
+    "NAME": "Make Friends\n Through Sword",
     "DESCRIPTION": "This turn，your next Attack is played twice. NL Exhaust ",
     "UPGRADE_DESCRIPTION": "This turn，your next Attack is played twice. NL Exhaust "
   },
@@ -49,134 +49,134 @@
   },
   "game.duofan.kenshi:ShiJun": {
     "NAME": "Regicide",
-    "DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每 斩杀 一个敌人，受到 !M! 点伤害。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每 斩杀 一个敌人，受到 !M! 点伤害。"
+    "DESCRIPTION": "Deal !D! damage to All enemies. NL Each Fatal give you !M! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to All enemies. NL Each Fatal give you !M! damage."
   },
   "game.duofan.kenshi:XiuLuo_Card": {
     "NAME": "Shura",
-    "DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去3点 生命 。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ， *每回合开始时 ，失去3点 生命 。 NL 虚无 "
+    "DESCRIPTION": "Gain !M! Strength. NL At the start of your turn, lose 3 hp. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL At the start of your turn, lose 3 hp. NL Ethereal "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "Night Thoughts",
-    "DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于3张，额外获得一回合并移除一层该效果。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的 *攻击牌 少于3张，额外获得一回合并移除一层该效果。 NL 消耗 "
+    "DESCRIPTION": "At the end of your any turn, if you played less than 3 Attack, take an extra turn and remove one of this effect. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "At the end of your any turn, if you played less than 3 Attack, take an extra turn and remove one of this effect. NL Exhaust "
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "Night Walk",
-    "DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "抽取 !M! 张卡牌，本回合下一张攻击牌造成的伤害增加50%。 NL 消耗 "
+    "DESCRIPTION": "Draw !M! cards, next Attack in this turn will deal 50% more damage. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Draw !M! cards, next Attack in this turn will deal 50% more damage. NL Exhaust "
   },
   "game.duofan.kenshi:NiTai": {
     "NAME": "Mimicry",
-    "DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。",
-    "UPGRADE_DESCRIPTION": "选择1张 *流派卡 ，触发 !M! 次对应的 *流派效果 。"
+    "DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times.",
+    "UPGRADE_DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times."
   },
   "game.duofan.kenshi:TaYin": {
     "NAME": "Imprint",
-    "DESCRIPTION": "从3张 *流派卡牌 中选择1张加入手牌，不包含 *稀有卡牌 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从3张 *流派卡牌 中选择1张加入手牌，不包含 *稀有卡牌 ，这张牌在本回合费用降为0。 NL 消耗 "
+    "DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL It costs 0 this turn. NL Exhaust "
   },
   "game.duofan.kenshi:GaiTouHuanMian": {
     "NAME": "Makeover",
-    "DESCRIPTION": "消耗所有手牌，将等量 *流派卡牌 加入手牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 固有 NL 消耗所有手牌，将等量 *流派卡牌 加入手牌。"
+    "DESCRIPTION": "Exhaust your hand, add equal number of Style-Card to hand. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": " Innate NL Exhaust your hand, add equal number of Style-Card to hand. NL Exhaust "
   },
   "game.duofan.kenshi:YangGong": {
     "NAME": "Feint",
-    "DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。",
-    "UPGRADE_DESCRIPTION": " 保留 NL 造成 !D! 点伤害，获得 !M! 点 活力 ，抽取1张 *攻击牌 。"
+    "DESCRIPTION": "Deal !D! damage, gain !M! vigor, and draw an Attack. NL Retain ",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, gain !M! vigor, and draw an Attack. NL Retain "
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "Sword Testing Stone",
-    "DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。",
-    "UPGRADE_DESCRIPTION": " duofan_kenshi:锻造 1张手牌，指定目标，锻造牌将其 斩杀 时获得10金币。 NL 给予 !M! 层 易伤 。"
+    "DESCRIPTION": "Select a card to duofan_kenshi:forge. NL Designated enemy, and gain 10 Gold when the forged card Fatal to the enemy. NL Apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Select a card to duofan_kenshi:forge. NL Designated enemy, and gain 10 Gold when the forged card Fatal to the enemy. NL Apply !M! Vulnerable."
   },
   "game.duofan.kenshi:TuoTaiHuanGu": {
     "NAME": "Thoroughly Remould Self",
-    "DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 升级 所有手牌，每 升级 1张手牌使你获得 [E] [E] 。 NL 消耗 "
+    "DESCRIPTION": "Upgrade all cards in your hand for the rest of combat, Each Upgrade gives you [E]. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Upgrade all cards in your hand for the rest of combat, Each Upgrade gives you [E] [E]. NL Exhaust "
   },
   "game.duofan.kenshi:FZL_YaZhi": {
-    "NAME": "压制",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 虚弱 。 NL duofan_kenshi:枫之流 :抽取1张卡牌。"
+    "NAME": "Suppression",
+    "DESCRIPTION": "Deal !D! damage, Apply !M! Weak. NL duofan_kenshi:leave :Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, Apply !M! Weak. NL duofan_kenshi :leave:Draw 1 card."
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
-    "NAME": "秋风破",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
+    "NAME": "Wind Burst",
+    "DESCRIPTION": "Deal !D! damage, Draw 1 card. NL duofan_kenshi:leave :Gain !M! vigor.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, Draw 1 card. NL duofan_kenshi:leave :Gain !M! vigor."
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
-    "NAME": "百花杀",
-    "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。"
+    "NAME": "Hundred Flowers Kill",
+    "DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither."
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
-    "NAME": "万叶败",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。"
+    "NAME": "Thousand Leaves Wither",
+    "DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither."
   },
   "game.duofan.kenshi:FZL_ZhiQie": {
-    "NAME": "枝切",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。"
+    "NAME": "Branch Cutting",
+    "DESCRIPTION": "Deal !D! damage, Apply !M! Vulnerable. NL duofan_kenshi:leave :Apply 1 Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, Apply !M! Vulnerable. NL duofan_kenshi:leave :Apply 1 Vulnerable."
   },
   "game.duofan.kenshi:FZL_CuiKuLaXiu": {
-    "NAME": "摧枯拉朽",
-    "DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害3次，每次未被 格挡 的伤害使你获得1点 力量 。 NL duofan_kenshi:枫之流 :获得 !B! 点 格挡 。"
+    "NAME": "Overwhelming Destroy",
+    "DESCRIPTION": "Deal !D! damage 3 times, Each unblocked damage give you 1 Strength. NL duofan_kenshi:leave :Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 3 times, Each unblocked damage give you 1 Strength. NL duofan_kenshi:leave :Gain !B! Block."
   },
   "game.duofan.kenshi:FZL_XianFaZhiRen": {
-    "NAME": "先发制人",
-    "DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，首次打出时费用为0。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。",
+    "NAME": "Preemptive Attack",
+    "DESCRIPTION": "Deal !D! damage, costs 0 first time. NL duofan_kenshi:leave : Exhaust and apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, costs 0 first time. NL duofan_kenshi:leave : Exhaust and apply !M! Vulnerable.",
     "EXTENDED_DESCRIPTION": [
-      "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 : 消耗 并给予 !M! 层 易伤 。"
+      "Deal !D! damage. NL duofan_kenshi:leave :Exhaust and apply !M! Vulnerable."
     ]
   },
   "game.duofan.kenshi:FZL_QiuYeLianJian": {
-    "NAME": "秋夜练剑",
-    "DESCRIPTION": "造成 !D! 点伤害，本场战斗所有 *秋夜练剑牌 的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，本场战斗所有 *秋夜练剑牌 的伤害增加 !M! 点。 NL duofan_kenshi:枫之流 : 消耗 并将 *小成剑法 加入手牌。"
+    "NAME": "Practise Sword",
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by 2 this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by 2 this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand."
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
-    "NAME": "小成剑法",
-    "DESCRIPTION": "造成 !D! 点伤害。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。",
+    "NAME": "Superb Sword Moves",
+    "DESCRIPTION": "Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage.",
     "EXTENDED_DESCRIPTION": [
-      "这张牌的伤害取决于练剑的成果。"
+      "The damage of this card depends on the results of sword practice.。"
     ]
   },
   "game.duofan.kenshi:FZL_HuiFengZhan": {
-    "NAME": "回风斩",
-    "DESCRIPTION": "造成 !D! 点 伤害 。 NL 每回合 *首次进入枫之流 时，从弃牌堆返回手牌。 NL duofan_kenshi:枫之流 :本回合获得1点 力量 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 伤害 。 NL 每回合 *首次进入枫之流 时，从弃牌堆返回手牌。 NL duofan_kenshi:枫之流 :本回合获得1点 力量 。"
+    "NAME": "Wind Return",
+    "DESCRIPTION": "Deal !D! damage. NL Each turn first time to Style-Leave return this from the discard pile to your hand. NL duofan_kenshi:leave :gain 1 Strength this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Each turn first time to Style-Leave return this from the discard pile to your hand. NL duofan_kenshi:leave :gain 1 Strength this turn."
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
-    "NAME": "烈风斩",
-    "DESCRIPTION": "造成 !D! 点伤害，获得 !M! 点 力量 。 NL duofan_kenshi:枫之流 :额外获得1点 力量 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，获得 !M! 点 力量 。 NL duofan_kenshi:枫之流 :额外获得1点 力量 。 NL 消耗 "
+    "NAME": "Wind Slash",
+    "DESCRIPTION": "Deal !D! damage, gain !M! Strength. NL duofan_kenshi:leave :Gain 1 Strength. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, gain !M! Strength. NL duofan_kenshi:leave :Gain 1 Strength. NL Exhaust "
   },
   "game.duofan.kenshi:FZL_FuFeng": {
-    "NAME": "腐风",
-    "DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。",
-    "UPGRADE_DESCRIPTION": " *回合开始时 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :本回合下一张攻击牌给予1层 duofan_kenshi:破败 。"
+    "NAME": "Corruption",
+    "DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
   },
   "game.duofan.kenshi:FZL_SuSha": {
-    "NAME": "肃杀",
-    "DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ， *本回合 这张牌造成的每次 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从 *抽牌堆 选择并抽取1张 *攻击牌 ， *本回合 这张牌造成的每次 斩杀 ，给予 *所有敌人 !M! 层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :给予1个敌人1层 易伤 。"
+    "NAME": "Grim Intent",
+    "DESCRIPTION": "Put 1 Attack from your drawpile into your hand. NL Each kill caused by selected card in this turn apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Put 1 Attack from your drawpile into your hand. NL Each kill caused by selected card in this turn apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Exhaust "
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
-    "NAME": "杀心骤起",
-    "DESCRIPTION": "获得 [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得 [E] [E] ，本回合打出的 *非攻击牌 使你失去1点生命。 NL duofan_kenshi:枫之流 :给予1层 易伤 。 虚无 "
+    "NAME": "Murderous Intent",
+    "DESCRIPTION": "Gain [E] . NL Non-Attack card played this turn cause you lose 1 hp. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] . NL Non-Attack card played this turn cause you lose 1 hp. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal "
   },
   "game.duofan.kenshi:FZL_FanShi_Card": {
-    "NAME": "反式",
-    "DESCRIPTION": "你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。",
-    "UPGRADE_DESCRIPTION": "你将总是从 *弃牌堆 抽取卡牌。 NL duofan_kenshi:枫之流 :先从 *抽牌堆 选择并抽取 !M! 张卡牌。"
+    "NAME": "Anti Moves",
+    "DESCRIPTION": "You will always draw cards from the discard pile. NL duofan_kenshi:leave :Put !M! card from your drawpile into your hand.",
+    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile. NL duofan_kenshi:leave :Put !M! cards from your drawpile into your hand."
   },
   "game.duofan.kenshi:XZL_JuQi": {
     "NAME": "聚气",

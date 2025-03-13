@@ -44,4 +44,16 @@ public class YuZhiLiu extends AbstractPower {
     public void updateDescription() {
         this.description = DESCRIPTIONS[0];
     }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        Utils.liuPowerAtEndOfTurn();
+    }
+
+    @Override
+    public void onRemove() {
+        super.onRemove();
+        Utils.playerGainBlock(3);
+    }
 }

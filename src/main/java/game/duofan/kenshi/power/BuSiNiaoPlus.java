@@ -14,8 +14,8 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.BuSiNiaoZhiYu;
 
-public class BuSiNiao extends AbstractPower {
-    static final String POWER_ID = IDManager.getInstance().getID(BuSiNiao.class);
+public class BuSiNiaoPlus extends AbstractPower {
+    static final String POWER_ID = IDManager.getInstance().getID(BuSiNiaoPlus.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -25,7 +25,7 @@ public class BuSiNiao extends AbstractPower {
 
     int exhaustAmount;
 
-    public BuSiNiao(AbstractCreature owner, int exhaustAmount, int amount) {
+    public BuSiNiaoPlus(AbstractCreature owner, int exhaustAmount, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -60,9 +60,13 @@ public class BuSiNiao extends AbstractPower {
             return damageAmount;
         }
 
-        exhaustCards();
-        useAmount();
-        return 0;
+        if (damageAmount >= owner.currentHealth) {
+            exhaustCards();
+            useAmount();
+            return 0;
+        } else {
+            return super.onLoseHp(damageAmount);
+        }
     }
 
     void exhaustCards() {

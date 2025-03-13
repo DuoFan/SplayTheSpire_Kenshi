@@ -228,9 +228,6 @@ public class KenShi extends CustomPlayer {
         EventManager.getInstance().removeAll_NotPersist_Event();
 
         EventManager.getInstance().notifyEvent(EventKey.ON_BATTLE_START, this, null);
-
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player,
-                new ZhuLiuBaiJia(AbstractDungeon.player)));
     }
 
     // 以下为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

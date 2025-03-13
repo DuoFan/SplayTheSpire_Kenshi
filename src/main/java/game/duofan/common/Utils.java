@@ -1,7 +1,9 @@
 package game.duofan.common;
 
+import basemod.devcommands.power.Power;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -80,10 +82,74 @@ public class Utils {
         if (m.hasPower("Minion")) {
             return false;
         }
+        return isKilled(m);
+    }
+
+    public static boolean isKilled(AbstractCreature m) {
         return (m.isDying || m.currentHealth <= 0) && !m.halfDead;
     }
 
     public interface Lambda extends Runnable {
+    }
+
+    public static void liuPowerOnUseCard(AbstractCard card) {
+
+        System.out.println("-------------------AA");
+
+        Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
+
+        if (liu != Liu_StateMachine.StateEnum.None) {
+
+            boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
+
+            AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
+            XinSuiYiDong xinSuiYiDong = null;
+            if (_xinSuiYiDong != null) {
+                xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
+            }
+
+            if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0)) {
+                if (card instanceof IXiaZhiLiuCard) {
+                    Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
+                } else {
+                    Utils.invokeLiuCardEffectWithTiming(card);
+                }
+                Liu_StateMachine.getInstance().setLastEffectLiuCardOnTurn(card);
+                Liu_StateMachine.getInstance().setLastEffectLiuCardOnBattle(card);
+
+
+                if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
+                    xinSuiYiDong.subTurnAmountToEffect();
+                }
+                if (!isLiuMatch) {
+                    Liu_StateMachine.getInstance().changeLiu(liu);
+                }
+
+                if (Utils.getQiAmount() > 0) {
+                    AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
+                    if (qi != null) {
+                        qi.flash();
+                    }
+                    if (card instanceof IXiaZhiLiuCard) {
+                        Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
+                    } else {
+                        Utils.invokeLiuCardEffectWithTiming(card);
+                    }
+                    if (card instanceof IQiMin) {
+                        Utils.invokeLiuCardEffectWithTiming(card);
+                    }
+                    Utils.playerReduceQi(1);
+                }
+            } else {
+                Liu_StateMachine.getInstance().changeLiu(liu);
+            }
+        }
+    }
+
+    public static void liuPowerAtEndOfTurn() {
+        Liu_StateMachine.getInstance().reset();
+        Liu_StateMachine.getInstance().clearFlags();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {
