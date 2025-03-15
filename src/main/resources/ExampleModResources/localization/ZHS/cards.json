@@ -21,8 +21,8 @@
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "攻伐闪转",
-    "DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，受到伤害时，获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，受到伤害时，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，失去生命时，获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，失去生命时，获得 !M! 点 格挡 。"
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "心随意动",
@@ -380,13 +380,13 @@
   },
   "game.duofan.kenshi:YanZL_FenCheng": {
     "NAME": "焚城",
-    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有敌人坚不可摧 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有FENC敌人坚不可摧 。 duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
+    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有敌人坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到 *不存在敌人拥有 duofan_kenshi:熔融 或 *所有FENC敌人坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "纯阳剑意",
-    "DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :抽取1张 *攻击牌 。",
-    "UPGRADE_DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 duofan_kenshi:炎之流 :抽取1张 *攻击牌 。"
+    "DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :抽取1张 *攻击牌 。",
+    "UPGRADE_DESCRIPTION": "每回合 前 !M! 张攻击牌 先给予2层 duofan_kenshi:熔融 ，后造成 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :抽取1张 *攻击牌 。"
   },
   "game.duofan.kenshi:YanZL_LianHuan": {
     "NAME": "连环",

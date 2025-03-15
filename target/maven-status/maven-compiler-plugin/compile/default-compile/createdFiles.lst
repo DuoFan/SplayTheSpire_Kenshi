@@ -44,6 +44,7 @@ game\duofan\kenshi\card\Defend.class
 game\duofan\kenshi\action\JianSheAction.class
 game\duofan\kenshi\card\YuZL_PaiXian.class
 game\duofan\kenshi\card\YuZL_YunXiaoYuJi.class
+game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterSelectScreenPatch_portraitSkeleton.class
 game\duofan\kenshi\action\BaiHongGuanRiAction.class
 game\duofan\kenshi\card\YuZL_FeiGeChuanShu.class
 game\duofan\kenshi\card\YanZL_YanLiuJiXing.class
@@ -57,6 +58,7 @@ game\duofan\kenshi\card\NiTai.class
 game\duofan\kenshi\power\BuSiNiaoPlus.class
 game\duofan\kenshi\power\SuSha.class
 game\duofan\kenshi\card\XZL_QiHuaWanQian.class
+game\duofan\kenshi\relic\JianPuTuLu.class
 game\duofan\kenshi\power\IUpdateDescription.class
 game\duofan\kenshi\power\LieHuoChang.class
 game\duofan\kenshi\card\YuZL_QueBu.class
@@ -80,6 +82,7 @@ game\duofan\kenshi\relic\JianShuYaoLing.class
 game\duofan\kenshi\card\XZL_ShuangJi.class
 game\duofan\kenshi\power\ChiBi.class
 game\duofan\kenshi\card\XZL_ZiXiaZhenQi.class
+game\duofan\kenshi\patch\CharacterSelectScreenPatches.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\card\YanZL_YanLang.class
 game\duofan\kenshi\card\YuZL_YinJiuZhiKe.class
@@ -151,6 +154,7 @@ game\duofan\kenshi\card\YinZhiRen.class
 game\duofan\kenshi\power\WuBianLuoMu.class
 game\duofan\kenshi\power\XieLiZhunBei.class
 game\duofan\kenshi\variable\OverPJAmount.class
+game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterOptionPatch_reloadAnimation.class
 game\duofan\kenshi\card\XZL_GuiYuan.class
 game\duofan\kenshi\card\YuZL_BuSiNiao.class
 game\duofan\kenshi\action\JiShuiSanQianAction.class
@@ -181,6 +185,7 @@ game\duofan\kenshi\power\LiuCardReduceCostOnTurn.class
 game\duofan\kenshi\card\FZL_WanYeBai.class
 game\duofan\kenshi\power\ReturnToDrawPileAfterPlayed.class
 game\duofan\kenshi\action\JuGouAction.class
+game\duofan\kenshi\patch\KenshiPortraitAnim.class
 game\duofan\kenshi\initialize\TextRegister.class
 game\duofan\kenshi\power\JingYeSi.class
 game\duofan\kenshi\power\IXiaZhiLiuCard.class
@@ -192,7 +197,6 @@ game\duofan\kenshi\card\YanZL_FenCheng.class
 game\duofan\kenshi\power\IRecoverCard.class
 game\duofan\kenshi\card\JingYeSi_Card.class
 game\duofan\kenshi\power\HuoYuJingShi.class
-game\duofan\kenshi\relic\LiuPaiHuiZhang.class
 game\duofan\kenshi\action\NotifyBaoYanDamageAction.class
 game\duofan\kenshi\card\XingJianLi_Card.class
 game\duofan\common\IEventListener.class

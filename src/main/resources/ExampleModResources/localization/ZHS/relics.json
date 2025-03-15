@@ -1,6 +1,6 @@
 {
-  "game.duofan.kenshi:LiuPaiHuiZhang": {
-    "NAME": "流派徽章",
+  "game.duofan.kenshi:JianPuTuLu": {
+    "NAME": "剑谱图录",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
       "回合开始时，进入一个 #y随机流派 。"

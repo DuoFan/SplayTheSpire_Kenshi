@@ -3,20 +3,22 @@ package game.duofan.kenshi;
 import basemod.abstracts.CustomPlayer;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
+import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.cutscenes.CutscenePanel;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.city.Vampires;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
+import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import game.duofan.common.EventKey;
@@ -24,8 +26,7 @@ import game.duofan.common.EventManager;
 import game.duofan.kenshi.card.*;
 import game.duofan.common.Const;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.power.ZhuLiuBaiJia;
-import game.duofan.kenshi.relic.LiuPaiHuiZhang;
+import game.duofan.kenshi.relic.JianPuTuLu;
 
 import java.util.ArrayList;
 
@@ -54,11 +55,10 @@ public class KenShi extends CustomPlayer {
     // 每个图层的旋转速度
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
-    private static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(Utils.generateID(KenShi.class.getSimpleName()));
+    public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(Utils.generateID(KenShi.class.getSimpleName()));
 
     public KenShi(String name) {
         super(name, CharacterEnum.CHARACTER_KENSHI, ORB_TEXTURES, "ExampleModResources/img/UI/orb/vfx.png", LAYER_SPEED, null, null);
-
 
         // 人物对话气泡的大小，如果游戏中尺寸不对在这里修改（libgdx的坐标轴左下为原点）
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
@@ -100,7 +100,7 @@ public class KenShi extends CustomPlayer {
     // 初始遗物的ID，可以先写个原版遗物凑数
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
-        retVal.add(LiuPaiHuiZhang.ID);
+        retVal.add(JianPuTuLu.ID);
         return retVal;
     }
 

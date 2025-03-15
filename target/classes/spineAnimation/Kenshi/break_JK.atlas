@@ -1,0 +1,235 @@
+
+break_JK.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Linear
+repeat: none
+arm_L
+  rotate: false
+  xy: 1731, 353
+  size: 296, 601
+  orig: 296, 601
+  offset: 0, 0
+  index: -1
+arm_R
+  rotate: false
+  xy: 591, 188
+  size: 689, 766
+  orig: 689, 766
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 2, 956
+  size: 1920, 1080
+  orig: 1920, 1080
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 2, 96
+  size: 587, 858
+  orig: 587, 858
+  offset: 0, 0
+  index: -1
+body_B
+  rotate: true
+  xy: 1282, 430
+  size: 524, 419
+  orig: 524, 419
+  offset: 0, 0
+  index: -1
+fire_ring2
+  rotate: false
+  xy: 1246, 23
+  size: 483, 163
+  orig: 483, 163
+  offset: 0, 0
+  index: -1
+hair_F
+  rotate: false
+  xy: 1416, 201
+  size: 279, 227
+  orig: 279, 227
+  offset: 0, 0
+  index: -1
+hat1
+  rotate: false
+  xy: 853, 3
+  size: 391, 183
+  orig: 391, 183
+  offset: 0, 0
+  index: -1
+hat_ring
+  rotate: false
+  xy: 1282, 210
+  size: 132, 141
+  orig: 132, 141
+  offset: 0, 0
+  index: -1
+hat_ring_F
+  rotate: false
+  xy: 1924, 981
+  size: 61, 134
+  orig: 61, 134
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 591, 2
+  size: 184, 260
+  orig: 184, 260
+  offset: 0, 0
+  index: -1
+leaf1
+  rotate: false
+  xy: 1924, 1562
+  size: 78, 44
+  orig: 78, 44
+  offset: 0, 0
+  index: -1
+leaf1_fire
+  rotate: true
+  xy: 1924, 1751
+  size: 73, 82
+  orig: 73, 82
+  offset: 0, 0
+  index: -1
+leaf1_fire2
+  rotate: true
+  xy: 1924, 1608
+  size: 73, 78
+  orig: 73, 78
+  offset: 0, 0
+  index: -1
+leaf1_fire3
+  rotate: true
+  xy: 1924, 1490
+  size: 70, 75
+  orig: 70, 75
+  offset: 0, 0
+  index: -1
+leaf2
+  rotate: false
+  xy: 2004, 1627
+  size: 41, 54
+  orig: 41, 54
+  offset: 0, 0
+  index: -1
+leaf2_fire
+  rotate: true
+  xy: 1924, 1683
+  size: 66, 80
+  orig: 66, 80
+  offset: 0, 0
+  index: -1
+leaf2_fire2
+  rotate: false
+  xy: 1987, 1054
+  size: 56, 61
+  orig: 56, 61
+  offset: 0, 0
+  index: -1
+leaf2_fire3
+  rotate: true
+  xy: 1924, 1117
+  size: 64, 66
+  orig: 64, 66
+  offset: 0, 0
+  index: -1
+leaf3
+  rotate: true
+  xy: 1924, 1437
+  size: 51, 75
+  orig: 51, 75
+  offset: 0, 0
+  index: -1
+leaf3_fire
+  rotate: true
+  xy: 1924, 1873
+  size: 51, 89
+  orig: 51, 89
+  offset: 0, 0
+  index: -1
+leaf3_fire2
+  rotate: true
+  xy: 1924, 1826
+  size: 45, 83
+  orig: 45, 83
+  offset: 0, 0
+  index: -1
+leaf3_fire3
+  rotate: true
+  xy: 1924, 1926
+  size: 40, 96
+  orig: 40, 96
+  offset: 0, 0
+  index: -1
+tie
+  rotate: true
+  xy: 1924, 1183
+  size: 252, 67
+  orig: 252, 67
+  offset: 0, 0
+  index: -1
+tie_F
+  rotate: false
+  xy: 1924, 1968
+  size: 105, 68
+  orig: 105, 68
+  offset: 0, 0
+  index: -1
+
+break_JK2.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Linear
+repeat: none
+fire
+  rotate: true
+  xy: 1524, 113
+  size: 587, 486
+  orig: 587, 486
+  offset: 0, 0
+  index: -1
+fire_ring
+  rotate: false
+  xy: 2, 2
+  size: 1520, 698
+  orig: 1520, 698
+  offset: 0, 0
+  index: -1
+fog
+  rotate: false
+  xy: 2, 702
+  size: 1877, 1080
+  orig: 1877, 1080
+  offset: 0, 0
+  index: -1
+
+break_JK3.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Linear
+repeat: none
+arm_L_jianqiao
+  rotate: false
+  xy: 2, 2
+  size: 638, 327
+  orig: 638, 327
+  offset: 0, 0
+  index: -1
+hair_B
+  rotate: false
+  xy: 1074, 1003
+  size: 404, 398
+  orig: 404, 398
+  offset: 0, 0
+  index: -1
+taiji
+  rotate: false
+  xy: 2, 331
+  size: 1070, 1070
+  orig: 1070, 1070
+  offset: 0, 0
+  index: -1

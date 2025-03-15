@@ -19,56 +19,56 @@
   },
   {
     "NAMES": [
-      "气"
+      "qi"
     ],
-    "DESCRIPTION": "本回合接下来 #r1 次触发的 #r流派效果 额外触发1次，而后移除1层。"
+    "DESCRIPTION": "Next trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi ."
   },
   {
     "NAMES": [
-      "气敏"
+      "sensitive"
     ],
-    "DESCRIPTION": "如果该牌消耗了气，则其 #r流派效果 额外触发2次，而非1次。"
+    "DESCRIPTION": "If the card consumed #yqi, its Style-Effect triggers #b2 additional times instead of 1."
   },
   {
     "NAMES": [
-      "破甲伤害"
+      "armor-piercing"
     ],
-    "DESCRIPTION": "若目标拥有 #r格挡 ，则 #r每1点伤害 破坏其3点 #r格挡 。 "
+    "DESCRIPTION": "If the enemy has #yBlock, then each point destroys #b3 #yBlock."
   },
   {
     "NAMES": [
-      "爆炎伤害"
+      "flame-damage"
     ],
-    "DESCRIPTION": "目标的每层 #r熔融 使该伤害增加1点。 "
+    "DESCRIPTION": "Each #ymelting increase this damage for #b1 ."
   },
   {
     "NAMES": [
-      "熔融"
+      "melting"
     ],
-    "DESCRIPTION": "受到的 #r爆炎伤害 增加1点，在回合结束时最多保留10点。 "
+    "DESCRIPTION": "Each #ymelting increase #yflame-damage for #b1 , a maximum of #b10 points remain at the end of the round."
   },
   {
     "NAMES": [
       "leave"
     ],
-    "DESCRIPTION": "Triggers leave effect. When you exit leave Style, gain #b1 #yStrength this turn."
+    "DESCRIPTION": "Triggers #yleave effect. When you exit #yleave Style, gain #b1 #yStrength this turn."
   },
   {
     "NAMES": [
-      "霞之流"
+      "cloud"
     ],
-    "DESCRIPTION": "触发 #r霞之流 效果，离开该流派时获得1层 #r气 。"
+    "DESCRIPTION": "Triggers #ycloud effect. When you exit #ycloud Style, gain #b2 #yqi ."
   },
   {
     "NAMES": [
-      "羽之流"
+      "feather"
     ],
-    "DESCRIPTION": "触发 #r羽之流 效果，离开该流派时获得3点 #r格挡 。"
+    "DESCRIPTION": "Triggers #yfeather effect. When you exit #yfeather Style, gain #b3 #yBlock ."
   },
   {
     "NAMES": [
-      "炎之流"
+      "flame"
     ],
-    "DESCRIPTION": "触发 #r炎之流 效果，离开该流派时对 #r所有敌人 造成1点 #r爆炎伤害 。"
+    "DESCRIPTION": "Triggers #yflame effect. When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
   }
 ]

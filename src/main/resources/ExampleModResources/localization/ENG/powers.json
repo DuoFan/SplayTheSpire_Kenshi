@@ -1,214 +1,213 @@
 {
-  "game.duofan.kenshi:ZhuLiuBaiJia": {
-    "NAME": "诸流百家",
-    "DESCRIPTIONS": [
-      "打出流派卡后，进入对应 #r流派 。"
-    ]
-  },
   "game.duofan.kenshi:YiJianHuiYou": {
-    "NAME": "以剑会友",
+    "NAME": "Make Friends Through Sword",
     "DESCRIPTIONS": [
-      "本回合下 #r%d 张 #r攻击牌  会打出 #r2 次。"
+      "This turn，your next #b%d Attack is played twice."
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
-    "NAME": "攻伐闪转",
+    "NAME": "Attack And Evade",
     "DESCRIPTIONS": [
-      "每次造成伤害时，获得 #r%d 点 #r活力 ，受到伤害时，获得 #r%d 点 #r格挡 。"
+      "Gain #b%d #yvigor When you deal damage. NL Gain #b%d #yBlock When you lose HP."
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
-    "NAME": "心随意动",
+    "NAME": "Mind Follows Will",
     "DESCRIPTIONS": [
-      "本回合剩余 #r%d 张 #r流派卡 可无条件触发 #r流派效果 。"
+      "本回合剩余 #b%d 张流派卡 可无条件触发流派效果 。"
     ]
   },
   "game.duofan.kenshi:JiYiXingTai": {
-    "NAME": "极意形态",
+    "NAME": "Extreme Form",
     "DESCRIPTIONS": [
-      "每当打出 #r攻击牌 使你抽取 #r%d 张 #r攻击牌 ，并使其获得 #r消耗 。"
+      "每当打出攻击牌使你抽取 #b%d 张攻击牌 ，并使其获得 #y消耗 。"
     ]
   },
   "game.duofan.kenshi:YeBuPower": {
-    "NAME": "夜步",
+    "NAME": "Night Walk",
     "DESCRIPTIONS": [
-      "本回合下一张攻击牌造成的伤害增加 #r%d%%。"
+      "本回合下一张攻击牌造成的伤害增加 #b%d%%。"
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {
-    "NAME": "试剑石",
+    "NAME": "Sword Testing Stone",
     "DESCRIPTIONS": [
       "试剑石还没有准备好。"
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
-    "NAME": "斩阎罗",
+    "NAME": "Kill Through Hell",
     "DESCRIPTIONS": [
-      "斩杀 #r[NAME] ，以获得 #r义旗 。"
+      "斩杀 #y[NAME] ，以获得 #y义旗 。"
     ]
   },
   "game.duofan.kenshi:XiuLuo": {
-    "NAME": "修罗",
+    "NAME": "Shura",
     "DESCRIPTIONS": [
-      " #r回合开始时 ，失去 #r%d 点 #r生命 。"
+      "回合开始时 ，失去 #b%d 点生命 。"
     ]
   },
   "game.duofan.kenshi:JingYeSi": {
-    "NAME": "静夜思",
+    "NAME": "Night Thoughts",
     "DESCRIPTIONS": [
-      "本回合若打出的 #r攻击牌 少于3张，额外获得一回合。 NL 当前已打出 #r%d 张 #r攻击牌 。"
+      "本回合若打出的攻击牌少于 #b3 张，额外获得一回合。 NL 当前已打出 #b%d 张攻击牌 。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
-    "NAME": "枫之流",
+    "NAME": "Style-Leave",
     "DESCRIPTIONS": [
-      "触发 #r枫之流 效果，打出 #r其他流派卡牌 时，本回合获得1点 #r力量 。"
+      "触发 #y枫之流 效果，离开该流派时本回合获得 #b1 点 #y力量 。"
     ]
   },
   "game.duofan.kenshi:FuFeng": {
-    "NAME": "腐风",
+    "NAME": "Corruption",
     "DESCRIPTIONS": [
-      "回合开始时，给予 #r所有敌人 %d层 #r破败 。"
+      "回合开始时，给予所有敌人 #b%d 层 #y破败 。"
     ]
   },
   "game.duofan.kenshi:PoBai": {
-    "NAME": "破败",
+    "NAME": "Wither",
     "DESCRIPTIONS": [
-      "生命值低于 #r%d 点时，死亡。"
+      "生命值低于 #b%d 点时，死亡。"
     ]
   },
   "game.duofan.kenshi:PoBaiGongJi": {
-    "NAME": "破败攻击",
+    "NAME": "Wither Attack",
     "DESCRIPTIONS": [
-      "本回合下一张 #r攻击牌 ，给予目标 #r%d层 #r破败 。"
+      "本回合下一张攻击牌，给予目标 #b%d 层 #y破败 。"
     ]
   },
   "game.duofan.kenshi:SuSha": {
-    "NAME": "肃杀",
+    "NAME": "Grim Intent",
     "DESCRIPTIONS": [
-      "本回合 #r[NAME] 造成的每次斩杀，给予所有敌人 #r%d 层 #r破败 。"
+      "本回合 #y[NAME] 造成的每次死亡，给予所有敌人 #b%d 层 #y破败 。"
     ]
   },
   "game.duofan.kenshi:ShaXinZhouQi": {
-    "NAME": "杀心骤起",
+    "NAME": "Murderous Intent",
     "DESCRIPTIONS": [
-      "本回合打出的 #r非攻击牌 使你失去 #r%d 点生命。"
+      "本回合打出的非攻击牌使你失去 #b%d 点生命。"
     ]
   },
   "game.duofan.kenshi:FanShi": {
-    "NAME": "反式",
+    "NAME": "Anti Moves",
     "DESCRIPTIONS": [
-      "你将总是从 #r弃牌堆 抽取卡牌。"
+      "你将总是从弃牌堆抽取卡牌。"
     ]
   },
   "game.duofan.kenshi:XiaZhiLiu": {
-    "NAME": "霞之流",
+    "NAME": "Style-Cloud",
     "DESCRIPTIONS": [
-      "触发 #r霞之流 效果，打出 #r其他流派卡牌 时，获得1层 #r气 。"
+      "触发 #y霞之流 效果，离开该流派时获得 #b1 层 #y气 。"
     ]
   },
   "game.duofan.kenshi:Qi": {
-    "NAME": "气",
+    "NAME": "Qi",
     "DESCRIPTIONS": [
-      "本回合下 #r%d 次触发的 #r流派效果 额外触发1次，而后移除1层。 NL NL 回合结束时全部移除。"
+      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL NL 回合结束时全部移除。"
     ]
   },
   "game.duofan.kenshi:PoJia": {
-    "NAME": "破甲",
+    "NAME": "Armor Piercing",
     "DESCRIPTIONS": [
-      "回合结束时， #r格挡 减半。"
+      "回合结束时， #y格挡 减半。"
     ]
   },
   "game.duofan.kenshi:ZiXiaZhenQi": {
-    "NAME": "紫霞真气",
+    "NAME": "Purple Realm",
     "DESCRIPTIONS": [
-      "回合开始时，获得 #r%d 层 #r气。"
+      "回合开始时，获得 #b%d 层 #y气 。"
     ]
   },
   "game.duofan.kenshi:YuZhiLiu": {
-    "NAME": "羽之流",
+    "NAME": "Style-Feather",
     "DESCRIPTIONS": [
-      "触发 #r羽之流 效果，打出 #r其他流派卡牌 时，获得3点 #r格挡 。"
+      "触发 #y羽之流 效果，离开该流派时获得 #b3 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
-    "NAME": "轻身坠",
+    "NAME": "Falling Lightly",
     "DESCRIPTIONS": [
-      "受到的 #r%d 点伤害 #r延迟 到下回合 #r结束 或 #r打出非技能牌 结算。",
-      "受到的 #r%d 点伤害 #r延迟 到本回合 #r结束 或 #r打出非技能牌 结算。"
+      "受到的 #b%d 点伤害延迟到下回合结束或打出非技能牌结算。",
+      "受到的 #b%d 点伤害延迟到本回合结束或打出非技能牌结算。"
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {
-    "NAME": "卸力准备",
+    "NAME": "Unloading Preparation",
     "DESCRIPTIONS": [
-      "下回合开始时，获得 #r%d 点格挡 。"
+      "下回合开始时，获得 #b%d 点格挡 。"
     ]
   },
   "game.duofan.kenshi:PaiXian": {
-    "NAME": "排险",
+    "NAME": "Risk Elimination",
     "DESCRIPTIONS": [
-      "回合开始时 ，若存在意图为 #r攻击 的敌人，获得 #r%d 点格挡并失去%d [E] 。"
+      "回合开始时 ，若存在意图为攻击的敌人，获得 #b%d 点格挡并失去 #b%d [E] 。"
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
-    "NAME": "击水三千",
+    "NAME": "Strike Water Three Thousand Miles",
     "DESCRIPTIONS": [
-      "本回合 #r[NAME] 造成的未被 #r格挡 的伤害将获得等量 #r格挡 。"
+      "本回合 #y[NAME] 造成的未被 #y格挡 的伤害将获得等量 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
-    "NAME": "打出后返回",
+    "NAME": "Return After Played",
     "DESCRIPTIONS": [
-      "本回合打出 #r[NAME] 后，将其放回 #r抽牌堆 。"
+      "本回合打出 #y[NAME] 后，将其放回抽牌堆 。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
-    "NAME": "不死鸟",
+    "NAME": "Phoenix",
     "DESCRIPTIONS": [
-      "防止受到的 #r伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。",
-      "防止受到的 #r致命伤害 并 消耗 #r%d 张卡牌(优先消耗 #r不死鸟之羽 )， #r牌组为空时，死亡。"
+      "防止受到的伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
+    ]
+  },
+  "game.duofan.kenshi:BuSiNiaoPlus": {
+    "NAME": "Phoenix+",
+    "DESCRIPTIONS": [
+      "防止受到的致命伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
-    "NAME": "炎之流",
+    "NAME": "Style-Flame",
     "DESCRIPTIONS": [
-      "触发 #r炎之流 效果，打出 #r其他流派卡牌 时，对 #r所有敌人 造成1点 #r爆炎伤害 。"
+      "触发 #y炎之流 效果，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:RongRong": {
-    "NAME": "熔融",
+    "NAME": "Melting",
     "DESCRIPTIONS": [
-      " 受到的 #r爆炎伤害 增加 #r%d 点，在回合结束时最多保留10点。"
+      " 受到的 #y爆炎伤害 增加 #b%d 点，在回合结束时最多保留 #b10 点。"
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {
-    "NAME": "纯阳剑意",
+    "NAME": "Pure Yang Sword Intent",
     "DESCRIPTIONS": [
-      "本回合 #r下%d张攻击牌 先给予2层 #r熔融 ，后造成 #r爆炎伤害 。"
+      "本回合下 #b%d 张攻击牌 先给予 #b2 层 #y熔融 ，后造成 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:LianHuan": {
-    "NAME": "连环",
+    "NAME": "Chain",
     "DESCRIPTIONS": [
-      "受到 #r爆炎伤害 时，对 #r所有其他敌人 造成 #r%d 点 #r爆炎伤害。"
+      "受到 #y爆炎伤害 时，对所有其他敌人造成 #b%d 点 #y爆炎伤害。"
     ]
   },
   "game.duofan.kenshi:HuoYuJingShi": {
-    "NAME": "火域警示",
+    "NAME": "Fire Realm Warning",
     "DESCRIPTIONS": [
-      "本回合每次受到攻击，给予攻击者 #r%d 层 #r熔融 。"
+      "本回合每次受到攻击，给予攻击者 #b%d 层 #y熔融 。"
     ]
   },
   "game.duofan.kenshi:ChiBi": {
-    "NAME": "赤壁",
+    "NAME": "Red Cliff",
     "DESCRIPTIONS": [
-      " #r所有爆炎伤害 都将给予 #r%d 层 #r熔融 。"
+      "所有 #y爆炎伤害 都将给予 #b%d 层 #y熔融 。"
     ]
   },
   "game.duofan.kenshi:LieHuoChang": {
-    "NAME": "猎火场",
+    "NAME": "Fire Hunting Ground",
     "DESCRIPTIONS": [
-      "回合结束时，对 #r所有敌人 造成 #r%d 点 #r爆炎伤害 。"
+      "回合结束时，对所有敌人造成 #b%d 点 #y爆炎伤害 。"
     ]
   }
 }
