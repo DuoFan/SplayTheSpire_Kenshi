@@ -32,7 +32,8 @@
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [
-      "试剑石还没有准备好。"
+      " #y[NAME] 是一个 #y爪牙 无法造成 #y斩杀 !",
+      "使用 #y[CARDNAME] #y斩杀 #y[NAME] 以获得 #b10 金币。"
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
@@ -104,7 +105,7 @@
   "game.duofan.kenshi:Qi": {
     "NAME": "气",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL NL 回合结束时全部移除。"
+      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL 回合结束时失去所有 #y气 。"
     ]
   },
   "game.duofan.kenshi:PoJia": {
@@ -177,7 +178,7 @@
   "game.duofan.kenshi:RongRong": {
     "NAME": "熔融",
     "DESCRIPTIONS": [
-      " 受到的 #y爆炎伤害 增加 #b%d 点，在回合结束时最多保留 #b10 点。"
+      "受到的 #y爆炎伤害 增加 #b%d 点，在回合结束时最多保留 #b10 点。"
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {

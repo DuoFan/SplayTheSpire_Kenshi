@@ -21,7 +21,7 @@
     "NAMES": [
       "qi"
     ],
-    "DESCRIPTION": "Next trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi ."
+    "DESCRIPTION": "Next trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi . NL At the end of your turn, Lose All #yqi ."
   },
   {
     "NAMES": [
@@ -57,7 +57,7 @@
     "NAMES": [
       "cloud"
     ],
-    "DESCRIPTION": "Triggers #ycloud effect. When you exit #ycloud Style, gain #b2 #yqi ."
+    "DESCRIPTION": "Triggers #ycloud effect. When you exit #ycloud Style, gain #b1 #yqi ."
   },
   {
     "NAMES": [

@@ -1,17 +1,17 @@
 {
   "game.duofan.kenshi:JianPuTuLu": {
-    "NAME": "剑谱图录",
+    "NAME": "Sword Manual",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "回合开始时，进入一个 #y随机流派 。"
+      "At the start of your turn, enter a #yRandom-Style ."
     ]
   },
   "game.duofan.kenshi:JianShuYaoLing": {
-    "NAME": "剑术要领",
+    "NAME": "Swordsmanship Essentials",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "接下来的 #y5 场战斗，额外掉落1张 #y罕见流派卡牌 奖励。",
-      "这个祝福已经耗尽。"
+      "The next #y5 combats will drop an additional uncommon Style-Card.",
+      "This blessing has been exhausted."
     ]
   },
   "game.duofan.kenshi:YiQi": {

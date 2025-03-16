@@ -32,7 +32,6 @@ public class CharacterRegister implements EditCharactersSubscriber {
     private static final String BIG_ORB = "ExampleModResources/img/char/card_orb.png";
     // 小尺寸的能量图标（战斗中，牌堆预览）
     private static final String ENEYGY_ORB = "ExampleModResources/img/char/cost_orb.png";
-    public static final Color MY_COLOR = new Color(79.0F / 255.0F, 185.0F / 255.0F, 9.0F / 255.0F, 1.0F);
 
 
     public CharacterRegister() {

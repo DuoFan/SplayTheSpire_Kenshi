@@ -49,12 +49,10 @@ public class ShiJianShi extends AbstractPower {
     }
 
     public void updateDescription() {
-        if (targetCard == null) {
-            this.description = "试剑石出现了错误";
-        } else if (owner.hasPower("Minion")) {
-            this.description = " #r[" + owner.name + "] " + "是一个爪牙，" + " #r无法造成斩杀! ";
+        if (owner.hasPower("Minion")) {
+            this.description = DESCRIPTIONS[0].replace("[NAME]", owner.name);
         } else {
-            this.description = "使用 #r[" + targetCard.name + "] " + "斩杀" + " #r[" + owner.name + "] " + " 以获得10 #r金币 ";
+            this.description = DESCRIPTIONS[1].replace("[NAME]", owner.name).replace("[CARDNAME]", targetCard.name);
         }
     }
 

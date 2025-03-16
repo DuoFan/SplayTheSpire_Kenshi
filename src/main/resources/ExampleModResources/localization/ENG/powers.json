@@ -14,200 +14,201 @@
   "game.duofan.kenshi:XinSuiYiDong": {
     "NAME": "Mind Follows Will",
     "DESCRIPTIONS": [
-      "本回合剩余 #b%d 张流派卡 可无条件触发流派效果 。"
+      "Left #b%d Style-Card of this turn trigger Style-Effect unconditionally."
     ]
   },
   "game.duofan.kenshi:JiYiXingTai": {
     "NAME": "Extreme Form",
     "DESCRIPTIONS": [
-      "每当打出攻击牌使你抽取 #b%d 张攻击牌 ，并使其获得 #y消耗 。"
+      "Whenever you played Attack, Draw #b%d Attack and make the drawn card able to Exhaust."
     ]
   },
   "game.duofan.kenshi:YeBuPower": {
     "NAME": "Night Walk",
     "DESCRIPTIONS": [
-      "本回合下一张攻击牌造成的伤害增加 #b%d%%。"
+      "Next Attack in this turn will deal #b%d%% more damage."
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "Sword Testing Stone",
     "DESCRIPTIONS": [
-      "试剑石还没有准备好。"
+      " #y[NAME] is a #yMinion , you can't #yfatal to it.",
+      "Use #y[CARDNAME] #yfatal to #y[NAME] to gain #b10 gold."
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
     "NAME": "Kill Through Hell",
     "DESCRIPTIONS": [
-      "斩杀 #y[NAME] ，以获得 #y义旗 。"
+      "kill #y[NAME] to gain duofan_kenshi:RighteousFlag."
     ]
   },
   "game.duofan.kenshi:XiuLuo": {
     "NAME": "Shura",
     "DESCRIPTIONS": [
-      "回合开始时 ，失去 #b%d 点生命 。"
+      "At the start of your turn, lose %b%d HP."
     ]
   },
   "game.duofan.kenshi:JingYeSi": {
     "NAME": "Night Thoughts",
     "DESCRIPTIONS": [
-      "本回合若打出的攻击牌少于 #b3 张，额外获得一回合。 NL 当前已打出 #b%d 张攻击牌 。"
+      "If you played less than #b3 Attack, take an extra turn. NL Current played #b%d Attack."
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "Style-Leave",
     "DESCRIPTIONS": [
-      "触发 #y枫之流 效果，离开该流派时本回合获得 #b1 点 #y力量 。"
+      "Triggers #yleave effect. When you exit #yleave Style, gain #b1 #yStrength this turn."
     ]
   },
   "game.duofan.kenshi:FuFeng": {
     "NAME": "Corruption",
     "DESCRIPTIONS": [
-      "回合开始时，给予所有敌人 #b%d 层 #y破败 。"
+      "At the start of your turn, apply #b%d #ywither to ALL enemies."
     ]
   },
   "game.duofan.kenshi:PoBai": {
     "NAME": "Wither",
     "DESCRIPTIONS": [
-      "生命值低于 #b%d 点时，死亡。"
+      "Make it death when hp lower than #b%d ."
     ]
   },
   "game.duofan.kenshi:PoBaiGongJi": {
     "NAME": "Wither Attack",
     "DESCRIPTIONS": [
-      "本回合下一张攻击牌，给予目标 #b%d 层 #y破败 。"
+      "The next Attack this turn, apply #b%d #wither ."
     ]
   },
   "game.duofan.kenshi:SuSha": {
     "NAME": "Grim Intent",
     "DESCRIPTIONS": [
-      "本回合 #y[NAME] 造成的每次死亡，给予所有敌人 #b%d 层 #y破败 。"
+      "Each kill caused by #y[NAME] in this turn apply #b%d #ywither to ALL enemies."
     ]
   },
   "game.duofan.kenshi:ShaXinZhouQi": {
     "NAME": "Murderous Intent",
     "DESCRIPTIONS": [
-      "本回合打出的非攻击牌使你失去 #b%d 点生命。"
+      "Non-Attack card played this turn cause you lose #b%d HP."
     ]
   },
   "game.duofan.kenshi:FanShi": {
     "NAME": "Anti Moves",
     "DESCRIPTIONS": [
-      "你将总是从弃牌堆抽取卡牌。"
+      "You will always draw cards from the discard pile."
     ]
   },
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "Style-Cloud",
     "DESCRIPTIONS": [
-      "触发 #y霞之流 效果，离开该流派时获得 #b1 层 #y气 。"
+      "Triggers #ycloud effect. When you exit #ycloud Style, gain #b1 #yqi ."
     ]
   },
   "game.duofan.kenshi:Qi": {
     "NAME": "Qi",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL NL 回合结束时全部移除。"
+      "Next #b%d times to trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi . NL At the end of your turn, Lose All #yqi ."
     ]
   },
   "game.duofan.kenshi:PoJia": {
     "NAME": "Armor Piercing",
     "DESCRIPTIONS": [
-      "回合结束时， #y格挡 减半。"
+      "Reduce #yBlock by half at the end of it's turn."
     ]
   },
   "game.duofan.kenshi:ZiXiaZhenQi": {
     "NAME": "Purple Realm",
     "DESCRIPTIONS": [
-      "回合开始时，获得 #b%d 层 #y气 。"
+      "At the start of your turn, gain #b%d #yqi."
     ]
   },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "Style-Feather",
     "DESCRIPTIONS": [
-      "触发 #y羽之流 效果，离开该流派时获得 #b3 点 #y格挡 。"
+      "Triggers #yfeather effect. When you exit #yfeather Style, gain #b3 #yBlock ."
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "Falling Lightly",
     "DESCRIPTIONS": [
-      "受到的 #b%d 点伤害延迟到下回合结束或打出非技能牌结算。",
-      "受到的 #b%d 点伤害延迟到本回合结束或打出非技能牌结算。"
+      "Damage #b%d received delayed until the next turn end or play Non-Skill.",
+      "Damage #b%d received delayed until the this turn end or play Non-Skill."
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {
     "NAME": "Unloading Preparation",
     "DESCRIPTIONS": [
-      "下回合开始时，获得 #b%d 点格挡 。"
+      "At the start of your next turn, gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:PaiXian": {
     "NAME": "Risk Elimination",
     "DESCRIPTIONS": [
-      "回合开始时 ，若存在意图为攻击的敌人，获得 #b%d 点格挡并失去 #b%d [E] 。"
+      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock and lose #b%d [E] ."
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
     "NAME": "Strike Water Three Thousand Miles",
     "DESCRIPTIONS": [
-      "本回合 #y[NAME] 造成的未被 #y格挡 的伤害将获得等量 #y格挡 。"
+      "Gain #yBlock equal to unblocked damage dealt by #y[NAME] in this turn."
     ]
   },
   "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
     "NAME": "Return After Played",
     "DESCRIPTIONS": [
-      "本回合打出 #y[NAME] 后，将其放回抽牌堆 。"
+      "Shuffle #y[NAME] into your drawpile this turn after played."
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "Phoenix",
     "DESCRIPTIONS": [
-      "防止受到的伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
+      "Prevent you would lose HP, and #yExhaust #b%d cards( #yExhaust #yPhoenix #yFeather first)."
     ]
   },
   "game.duofan.kenshi:BuSiNiaoPlus": {
     "NAME": "Phoenix+",
     "DESCRIPTIONS": [
-      "防止受到的致命伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
+      "Prevent you would lose HP-Fatal, and #yExhaust #b%d cards( #yExhaust #yPhoenix #yFeather first)."
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "Style-Flame",
     "DESCRIPTIONS": [
-      "触发 #y炎之流 效果，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。"
+      "Triggers #yflame effect. When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
     ]
   },
   "game.duofan.kenshi:RongRong": {
     "NAME": "Melting",
     "DESCRIPTIONS": [
-      " 受到的 #y爆炎伤害 增加 #b%d 点，在回合结束时最多保留 #b10 点。"
+      "Each #ymelting increase #yflame-damage for #b1 , a maximum of #b10 points remain at the end of the round."
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {
     "NAME": "Pure Yang Sword Intent",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 张攻击牌 先给予 #b2 层 #y熔融 ，后造成 #y爆炎伤害 。"
+      "This turn, the next #b%d Attack apply #b2 #ymelting, then deal #yflame-damage."
     ]
   },
   "game.duofan.kenshi:LianHuan": {
     "NAME": "Chain",
     "DESCRIPTIONS": [
-      "受到 #y爆炎伤害 时，对所有其他敌人造成 #b%d 点 #y爆炎伤害。"
+      "Whenever the enemy damaged by #yflame-damage, deal #yflame-damage to Other enemies."
     ]
   },
   "game.duofan.kenshi:HuoYuJingShi": {
     "NAME": "Fire Realm Warning",
     "DESCRIPTIONS": [
-      "本回合每次受到攻击，给予攻击者 #b%d 层 #y熔融 。"
+      "Whenever you are attacked in this turn, apply #b%d #ymelting back."
     ]
   },
   "game.duofan.kenshi:ChiBi": {
     "NAME": "Red Cliff",
     "DESCRIPTIONS": [
-      "所有 #y爆炎伤害 都将给予 #b%d 层 #y熔融 。"
+      " #yflame-damage apply #b%d #ymelting ."
     ]
   },
   "game.duofan.kenshi:LieHuoChang": {
     "NAME": "Fire Hunting Ground",
     "DESCRIPTIONS": [
-      "回合结束时，对所有敌人造成 #b%d 点 #y爆炎伤害 。"
+      "At the end of your turn, deal #b%d #yflame-damage to All enemies."
     ]
   }
 }

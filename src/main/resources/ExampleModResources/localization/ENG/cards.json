@@ -390,8 +390,8 @@
   },
   "game.duofan.kenshi:YanZL_LianHuan": {
     "NAME": "Chain",
-    "DESCRIPTION": "Whenever the enemy damaged by duofan_kenshi:flame-damage, deal !M! 点 duofan_kenshi:flame-damage to Other enemies. NL Only one enemy chained. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Whenever the enemy damaged by duofan_kenshi:flame-damage, deal !M! 点 duofan_kenshi:flame-damage to Other enemies. NL Only one enemy chained. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage. NL Exhaust "
+    "DESCRIPTION": "Whenever the enemy damaged by duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to Other enemies. NL Only one enemy chained. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Whenever the enemy damaged by duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to Other enemies. NL Only one enemy chained. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage. NL Exhaust "
   },
   "game.duofan.kenshi:YanZL_ChiBi": {
     "NAME": "Red Cliff",

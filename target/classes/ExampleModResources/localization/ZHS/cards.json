@@ -21,8 +21,8 @@
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "攻伐闪转",
-    "DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，受到伤害时，获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，受到伤害时，获得 !M! 点 格挡 。"
+    "DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，失去生命时，获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "每次造成伤害时，获得 !M! 点 活力 ，失去生命时，获得 !M! 点 格挡 。"
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "心随意动",
