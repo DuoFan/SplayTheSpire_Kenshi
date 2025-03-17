@@ -63,18 +63,11 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-
-        AbstractGameAction a1 = new DamageAction(
-                m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
-        );
-        addToBot(a1);
+        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
         Utils.addToBotAbstract(() ->{
             d1 = m.lastDamageTaken;
         });
-        AbstractGameAction a2 = new DamageAction(
-                m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
-        );
-        addToBot(a2);
+        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
         Utils.addToBotAbstract(() ->{
             d2 = m.lastDamageTaken;
         });

@@ -257,6 +257,13 @@ public class Utils {
         return AbstractDungeon.actionManager.cardsPlayedThisCombat.get(AbstractDungeon.actionManager.cardsPlayedThisCombat.size() - x);
     }
 
+    public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect attackEffect) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    DamageAction(t, new DamageInfo(s, amount, type), attackEffect));
+        }
+    }
+
     public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new
