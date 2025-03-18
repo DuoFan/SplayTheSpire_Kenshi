@@ -8,7 +8,7 @@
   "game.duofan.kenshi:GongFaShanZhuan": {
     "NAME": "Attack And Evade",
     "DESCRIPTIONS": [
-      "Gain #b%d #yvigor When you deal damage. NL Gain #b%d #yBlock When you lose HP."
+      "Gain #b%d #yvigor When you deal unblocked damage. NL Gain #b%d #yBlock When you lose HP."
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {

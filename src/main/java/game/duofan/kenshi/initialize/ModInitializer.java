@@ -18,6 +18,7 @@ public class ModInitializer {
         BaseMod.subscribe(new CharacterRegister());
         BaseMod.subscribe(new RelicsRegister());
         BaseMod.subscribe(new RewardRegister());
+        BaseMod.subscribe(new AudioRegister());
     }
 
 }

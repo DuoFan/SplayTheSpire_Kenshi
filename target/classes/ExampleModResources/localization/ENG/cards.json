@@ -21,8 +21,8 @@
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "Attack And Evade",
-    "DESCRIPTION": "Gain !M! vigor When you deal damage. NL Gain !M! Block When you lose HP.",
-    "UPGRADE_DESCRIPTION": "Gain !M! vigor When you deal damage. NL Gain !M! Block When you lose HP."
+    "DESCRIPTION": "Gain !M! vigor When you deal unblocked damage. NL Gain !M! Block When you lose HP.",
+    "UPGRADE_DESCRIPTION": "Gain !M! vigor When you deal unblocked damage. NL Gain !M! Block When you lose HP."
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "Mind Follows Will",

@@ -264,6 +264,13 @@ public class Utils {
         }
     }
 
+    public static void giveDamageFast(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect attackEffect) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToBottom(new
+                    DamageAction(t, new DamageInfo(s, amount, type), attackEffect, true));
+        }
+    }
+
     public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new

@@ -3,9 +3,12 @@ package game.duofan.kenshi.card;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.OnPlayerDamagedSubscriber;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -16,6 +19,8 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -81,6 +86,8 @@ public class FZL_SuSha extends CustomCard implements IFengZhiLiuCard {
                 Utils.playerGainPowerTop(new SuSha(p, targetCard, magicNumber));
             }
         });
+        this.addToBot(new SFXAction("ATTACK_FIRE"));
+        this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.RED, p.hb.cX, p.hb.cY), 0.33F));
     }
 
     @Override

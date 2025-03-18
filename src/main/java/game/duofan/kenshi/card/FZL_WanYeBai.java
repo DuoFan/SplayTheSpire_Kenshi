@@ -1,15 +1,21 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.StarBounceEffect;
+import com.megacrit.cardcrawl.vfx.combat.ViolentAttackEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -55,15 +61,21 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
         int c = magicNumber;
+
+        if (Settings.FAST_MODE) {
+            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
+        } else {
+            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED), 0.4F));
+        }
+
         while (c > 0) {
-            this.addToBot(new DamageAction(
-                    m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
-            ));
+            Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
             Utils.addToBotAbstract(() -> {
                 if (m.lastDamageTaken > 0) {
                     Utils.givePowerTop(p, m, new PoBai(m, 1));
                 }
             });
+            this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             c--;
         }
     }

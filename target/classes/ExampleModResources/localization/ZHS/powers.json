@@ -8,7 +8,7 @@
   "game.duofan.kenshi:GongFaShanZhuan": {
     "NAME": "攻伐闪转",
     "DESCRIPTIONS": [
-      "每次造成伤害时，获得 #b%d 点 #y活力 ，受到伤害时，获得 #b%d 点 #y格挡 。"
+      "每次造成未被格挡的伤害时，获得 #b%d 点 #y活力 ，受到伤害时，获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {

@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,11 +22,8 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import game.duofan.common.EventKey;
-import game.duofan.common.EventManager;
+import game.duofan.common.*;
 import game.duofan.kenshi.card.*;
-import game.duofan.common.Const;
-import game.duofan.common.Utils;
 import game.duofan.kenshi.relic.JianPuTuLu;
 
 import java.util.ArrayList;
@@ -159,6 +157,7 @@ public class KenShi extends CustomPlayer {
     // 人物选择界面点击你的人物按钮时触发的方法，这里为屏幕轻微震动
     @Override
     public void doCharSelectScreenSelectEffect() {
+        CardCrawlGame.sound.play(AudioKey.SWORD_SOUND, 0.1f);
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false);
     }
 
@@ -176,7 +175,7 @@ public class KenShi extends CustomPlayer {
     // 自定义模式选择你的人物时播放的音效
     @Override
     public String getCustomModeCharacterButtonSoundKey() {
-        return "ATTACK_HEAVY";
+        return AudioKey.SWORD_SOUND;
     }
 
     // 游戏中左上角显示在你的名字之后的人物名称

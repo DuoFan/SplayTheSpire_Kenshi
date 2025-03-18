@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -12,6 +13,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.StarBounceEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -63,14 +65,13 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
             Utils.addToBotAbstract(() ->{
                 targetIsDie = m.isDead || m.currentHealth <= 0 || m.isDying;
             });
-            this.addToBot(new DamageAction(
-                    m, new DamageInfo(p, this.damage, DamageInfo.DamageType.NORMAL)
-            ));
+            Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
             Utils.addToBotAbstract(() -> {
                 if (!targetIsDie && m.lastDamageTaken > 0) {
                     Utils.playerGainPower(new StrengthPower(p, 1));
                 }
             });
+            this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             c--;
         }
     }

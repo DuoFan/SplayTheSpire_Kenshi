@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -68,7 +69,7 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
     }
 
     @Override

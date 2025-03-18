@@ -44,6 +44,7 @@ game\duofan\kenshi\card\Defend.class
 game\duofan\kenshi\action\JianSheAction.class
 game\duofan\kenshi\card\YuZL_PaiXian.class
 game\duofan\kenshi\card\YuZL_YunXiaoYuJi.class
+game\duofan\kenshi\initialize\AudioRegister.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterSelectScreenPatch_portraitSkeleton.class
 game\duofan\kenshi\action\BaiHongGuanRiAction.class
 game\duofan\kenshi\card\YuZL_FeiGeChuanShu.class
@@ -187,6 +188,7 @@ game\duofan\kenshi\power\ReturnToDrawPileAfterPlayed.class
 game\duofan\kenshi\action\JuGouAction.class
 game\duofan\kenshi\patch\KenshiPortraitAnim.class
 game\duofan\kenshi\initialize\TextRegister.class
+game\duofan\common\AudioKey.class
 game\duofan\kenshi\power\JingYeSi.class
 game\duofan\kenshi\power\IXiaZhiLiuCard.class
 game\duofan\kenshi\power\Liu_StateMachine$FengZhiLiu_State.class

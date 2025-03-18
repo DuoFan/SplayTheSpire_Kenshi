@@ -1,12 +1,17 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -49,6 +54,9 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("ATTACK_FIRE"));
+        this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.OLIVE, p.hb.cX, p.hb.cY), 0.33F));
+        this.addToBot(new VFXAction(p, new BorderLongFlashEffect(Color.ORANGE), 0.0F, true));
         Utils.playerGainPower(new FanShi(p));
     }
 
