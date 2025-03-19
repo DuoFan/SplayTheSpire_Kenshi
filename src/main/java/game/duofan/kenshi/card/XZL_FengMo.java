@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +12,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -56,6 +58,14 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
+        Utils.addToBotAbstract(()->{
+            for(int i = 0; i < 20; ++i) {
+                AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(Color.DARK_GRAY, m.hb.cX, m.hb.cY));
+            }
+        });
+
         targetMonster = m;
         Utils.givePower(p, m, new VulnerablePower(m, magicNumber, false));
         Utils.givePower(p, m, new WeakPower(m, magicNumber, false));

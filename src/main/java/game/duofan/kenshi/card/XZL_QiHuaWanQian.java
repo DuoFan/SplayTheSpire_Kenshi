@@ -1,16 +1,25 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightRayFlyOutEffect;
+import com.megacrit.cardcrawl.vfx.combat.SanctityEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.DrawCardByClassAction;
+import game.duofan.kenshi.effect.ColorSanctityEffect;
 import game.duofan.kenshi.power.*;
 
 public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
@@ -49,10 +58,15 @@ public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.addToBotAbstract(() ->{
+        Utils.addToBotAbstract(() -> {
             int qiAmount = Utils.getQiAmount();
 
-            if(qiAmount > 0){
+            if (qiAmount > 0) {
+
+                this.addToTop(new VFXAction(new ColorSanctityEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, 10, Color.PURPLE)));
+                this.addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
+                this.addToBot(new VFXAction(new BorderFlashEffect(Color.PURPLE, true), 0.1F));
+
                 Utils.playRemovePowerTop(Qi.POWER_ID);
                 Utils.playerGainEnergy(qiAmount);
                 addToBot(new DrawCardAction(qiAmount));

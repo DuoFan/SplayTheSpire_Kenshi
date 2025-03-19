@@ -1,6 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -9,8 +11,12 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.StarBounceEffect;
+import com.megacrit.cardcrawl.vfx.WallopEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 import game.duofan.kenshi.variable.ILamageScale;
 import game.duofan.kenshi.variable.LamageScaler;
@@ -58,7 +64,10 @@ public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, IQiMin, I
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         monster = m;
-        this.addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
+        Utils.addToBotAbstract(() -> {
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+        });
     }
 
     @Override
@@ -75,7 +84,12 @@ public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, IQiMin, I
     public void xiaZhiLiuEffect(boolean isByQi) {
         if (monster != null) {
             AbstractPlayer p = AbstractDungeon.player;
-            this.addToBot(new DamageAction(monster, new DamageInfo(p, lamageScaler.value(this), DamageInfo.DamageType.NORMAL)));
+            int d = lamageScaler.value(this);
+            Utils.giveDamage(p, monster, d, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
+            Utils.addToBotAbstract(() -> {
+                AbstractDungeon.effectList.add(new FlashAtkImgEffect(monster.hb.cX, monster.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+            });
+            this.addToBot(new VFXAction(new WallopEffect(d, monster.hb.cX, monster.hb.cY)));
         }
     }
 

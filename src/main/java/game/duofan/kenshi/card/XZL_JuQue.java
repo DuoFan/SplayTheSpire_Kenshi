@@ -1,6 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +12,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -69,14 +72,18 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
 
         targetMonster = m;
 
+        if (m != null) {
+            this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
+        }
+
         int _damage = pjAmount.value(this);
         if (_damage > 0) {
-            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL);
+            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         }
 
         _damage = overPJAmount.value(this);
         if (_damage > 0) {
-            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL);
+            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
         }
     }
 

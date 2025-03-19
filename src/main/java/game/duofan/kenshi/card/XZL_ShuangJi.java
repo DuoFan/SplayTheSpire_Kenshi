@@ -1,8 +1,11 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -110,7 +114,11 @@ public class XZL_ShuangJi extends CustomCard implements IXiaZhiLiuCard {
         AbstractCard selfYinZR = (upgraded ? yinZRUp : yinZR).makeStatEquivalentCopy();
         selfYangZRUUid = selfYangZR.uuid;
         selfYinZRUUID = selfYinZR.uuid;
+
+        this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.FIREBRICK, p.hb.cX, p.hb.cY), 0.33F));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(selfYangZR, true, true));
+
+        this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.FOREST, p.hb.cX, p.hb.cY), 0.33F));
         AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(selfYinZR, true, true));
     }
 

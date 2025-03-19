@@ -99,6 +99,7 @@ game\duofan\kenshi\initialize\RelicsRegister.class
 game\duofan\kenshi\card\BuSiNiaoZhiYu.class
 game\duofan\kenshi\power\ZiXiaZhenQi.class
 game\duofan\kenshi\card\YanZL_YanJie.class
+game\duofan\kenshi\effect\ColorSanctityEffect.class
 game\duofan\common\Utils$4.class
 game\duofan\kenshi\card\FZL_ShaXinZhouQi.class
 game\duofan\kenshi\card\XZL_ZiDianQingShuang.class

@@ -1,6 +1,8 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -10,6 +12,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.combat.ClashEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -83,7 +86,11 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
         targetMonster = m;
         attackDamage = damage;
         if (attackDamage > 0) {
-            Utils.giveDamage(p, m, attackDamage, DamageInfo.DamageType.NORMAL);
+
+            if (m != null) {
+                this.addToBot(new VFXAction(new ClashEffect(m.hb.cX, m.hb.cY), 0.1F));
+            }
+            Utils.giveDamage(p, m, attackDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
         }
     }
 
