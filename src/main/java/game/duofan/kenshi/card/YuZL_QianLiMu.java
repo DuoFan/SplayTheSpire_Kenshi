@@ -1,7 +1,10 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.ScryAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -10,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -64,6 +68,8 @@ public class YuZL_QianLiMu extends CustomCard implements IYuZhiLiuCard {
             }
         }
 
+        this.addToTop(new SFXAction("HEAL_1"));
+        this.addToBot(new VFXAction(p, new BorderLongFlashEffect(Color.SKY), 0.0F, true));
         this.addToBot(new ScryAction(scryCount));
         if (validCount > 0) {
             final int _skillCount = validCount;

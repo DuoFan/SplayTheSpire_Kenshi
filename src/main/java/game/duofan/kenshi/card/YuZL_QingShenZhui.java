@@ -1,12 +1,18 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
+import game.duofan.common.AudioKey;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -50,6 +56,8 @@ public class YuZL_QingShenZhui extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        this.addToBot(new SFXAction(AudioKey.QIN_SHEN_ZHUI_SOUND));
         Utils.playerGainPower(new QingShenZhui(p));
     }
 

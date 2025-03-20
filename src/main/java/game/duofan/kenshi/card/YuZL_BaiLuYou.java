@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
 import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
 import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -97,6 +98,7 @@ public class YuZL_BaiLuYou extends CustomCard implements IYuZhiLiuCard {
         if (canUse) {
             Utils.addToBotAbstract(() -> {
                 drawPile.removeCard(this);
+                addToBot(new SFXAction(AudioKey.BAI_LU_YOU_SOUND));
                 AbstractDungeon.actionManager.cardQueue.add(new CardQueueItem(this, null,
                         EnergyPanel.getCurrentEnergy(), true, true));
             });

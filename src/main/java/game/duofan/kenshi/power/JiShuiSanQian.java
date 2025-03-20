@@ -2,6 +2,7 @@ package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,6 +14,8 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.WallopEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.BaiHongGuanRiAction;
@@ -112,6 +115,9 @@ public class JiShuiSanQian extends AbstractPower {
                         Utils.insertAbstract(() -> {
                             if (m.lastDamageTaken > 0) {
                                 Utils.gainBlockTop(p, m.lastDamageTaken);
+                                Utils.addToTopAbstract(() -> {
+                                    AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+                                });
                             }
                         }, i + j + 1);
                     }
@@ -123,6 +129,9 @@ public class JiShuiSanQian extends AbstractPower {
                         AbstractCreature m = a.target;
                         if (m.lastDamageTaken > 0) {
                             Utils.gainBlockTop(p, m.lastDamageTaken);
+                            Utils.addToTopAbstract(() -> {
+                                AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+                            });
                         }
                     }, i + 1);
                 }

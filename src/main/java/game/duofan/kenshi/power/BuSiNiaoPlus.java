@@ -1,7 +1,10 @@
 package game.duofan.kenshi.power;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,6 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.BuSiNiaoZhiYu;
@@ -124,6 +128,9 @@ public class BuSiNiaoPlus extends AbstractPower {
 
     void useAmount() {
         amount--;
+        flash();
+        this.addToTop(new SFXAction("ATTACK_FIRE"));
+        this.addToTop(new VFXAction(AbstractDungeon.player, new BorderLongFlashEffect(Color.SCARLET), 0.0F, true));
         if (amount <= 0) {
             Utils.playRemovePowerTop(POWER_ID);
         }

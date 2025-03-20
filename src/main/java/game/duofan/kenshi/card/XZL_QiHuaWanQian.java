@@ -2,7 +2,6 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -13,13 +12,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
-import com.megacrit.cardcrawl.vfx.combat.LightRayFlyOutEffect;
-import com.megacrit.cardcrawl.vfx.combat.SanctityEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.DrawCardByClassAction;
-import game.duofan.kenshi.effect.ColorSanctityEffect;
+import game.duofan.kenshi.patch.effect.ColorSanctityEffect;
 import game.duofan.kenshi.power.*;
 
 public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
