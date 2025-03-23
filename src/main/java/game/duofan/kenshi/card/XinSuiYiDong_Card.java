@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -8,8 +9,10 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.XinSuiYiDong;
 
 public class XinSuiYiDong_Card extends CustomCard {
@@ -45,6 +48,14 @@ public class XinSuiYiDong_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
+        Color c1 = new Color(1, 215 / 255f, 0, 1);
+        Utils.addToBotAbstract(() -> {
+            for (int i = 0; i < 20; ++i) {
+                AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(c1, p.hb.cX, p.hb.cY));
+            }
+        });
+
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new XinSuiYiDong(p, magicNumber))
         );

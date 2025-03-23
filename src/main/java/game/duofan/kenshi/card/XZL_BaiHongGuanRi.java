@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -44,7 +45,7 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeDamage(3);
-            if(cardsToPreview != null){
+            if (cardsToPreview != null) {
                 cardsToPreview.upgrade();
             }
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
@@ -60,7 +61,7 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new BaiHongGuanRiAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL)));
+        addToBot(new BaiHongGuanRiAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
     }
 
     @Override
@@ -86,7 +87,7 @@ public class XZL_BaiHongGuanRi extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
         AbstractCard c = new XZL_BaiHongGuanRi();
-        if(upgraded){
+        if (upgraded) {
             c.upgrade();
         }
         Utils.makeTempCardInHand(c, 1);

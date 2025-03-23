@@ -21,6 +21,7 @@ public class YanZhiLiu extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+
     public YanZhiLiu(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
@@ -51,6 +52,6 @@ public class YanZhiLiu extends AbstractPower {
     @Override
     public void onRemove() {
         super.onRemove();
-        Utils.giveAllMonsterBaoYanDamage(1);
+        Utils.giveAllMonsterBaoYanDamage(null, 1);
     }
 }

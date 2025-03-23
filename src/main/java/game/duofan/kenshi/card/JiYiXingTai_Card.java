@@ -1,15 +1,22 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
+import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.JiYiXingTai;
 
 public class JiYiXingTai_Card extends CustomCard {
@@ -44,6 +51,15 @@ public class JiYiXingTai_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        this.addToBot(new SFXAction("ATTACK_FIRE"));
+        Color c1 = Color.ORANGE;
+        Utils.addToBotAbstract(() -> {
+            for (int i = 0; i < 20; ++i) {
+                AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(c1, p.hb.cX, p.hb.cY));
+            }
+        });
+        this.addToBot(new VFXAction(p, new BorderLongFlashEffect(c1), 0.0F, true));
+
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new JiYiXingTai(p, 1))
         );

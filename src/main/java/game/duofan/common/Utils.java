@@ -264,6 +264,13 @@ public class Utils {
         }
     }
 
+    public static void giveDamageTop(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect attackEffect) {
+        if (s != null && t != null) {
+            AbstractDungeon.actionManager.addToTop(new
+                    DamageAction(t, new DamageInfo(s, amount, type), attackEffect));
+        }
+    }
+
     public static void giveDamageFast(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type, AbstractGameAction.AttackEffect attackEffect) {
         if (s != null && t != null) {
             AbstractDungeon.actionManager.addToBottom(new
@@ -271,22 +278,8 @@ public class Utils {
         }
     }
 
-    public static void giveDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
-        if (s != null && t != null) {
-            AbstractDungeon.actionManager.addToBottom(new
-                    DamageAction(t, new DamageInfo(s, amount, type)));
-        }
-    }
-
-    public static void giveDamageTop(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
-        if (s != null && t != null) {
-            AbstractDungeon.actionManager.addToTop(new
-                    DamageAction(t, new DamageInfo(s, amount, type)));
-        }
-    }
-
     public static DamageInfo giveBaoYanDamage(AbstractCreature s, AbstractCreature t, int amount, DamageInfo.DamageType type) {
-        if (s != null && t != null) {
+        if (t != null) {
             DamageInfo info = new DamageInfo(s, amount, type);
             AbstractDungeon.actionManager.addToBottom(new DamageAction(t, info, AbstractGameAction.AttackEffect.FIRE));
             AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(t, info));
@@ -698,16 +691,19 @@ public class Utils {
     }
 
     public static void giveAllMonsterBaoYanDamage(int baseDamage) {
+        giveAllMonsterBaoYanDamage(AbstractDungeon.player,baseDamage);
+    }
+
+    public static void giveAllMonsterBaoYanDamage(AbstractCreature source, int baseDamage) {
         ArrayList<AbstractMonster> monsters = AbstractDungeon.getMonsters().monsters;
         int[] damages = new int[monsters.size()];
-        AbstractPlayer p = AbstractDungeon.player;
 
-        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE, true));
+        AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(source, damages, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE, true));
 
         for (int i = 0; i < monsters.size(); i++) {
             AbstractMonster _m = monsters.get(i);
             damages[i] = Utils.modifyDamageByRongRong(baseDamage, _m);
-            DamageInfo info = new DamageInfo(p, damages[i], DamageInfo.DamageType.NORMAL);
+            DamageInfo info = new DamageInfo(source, damages[i], DamageInfo.DamageType.NORMAL);
             AbstractDungeon.actionManager.addToBottom(new NotifyBaoYanDamageAction(_m, info));
         }
 

@@ -2,8 +2,10 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -11,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -62,14 +65,16 @@ public class ShiJun extends CustomCard {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
         int[] damages = new int[AbstractDungeon.getMonsters().monsters.size()];
         Arrays.fill(damages, damage);
+        this.addToBot(new SFXAction("ATTACK_HEAVY"));
+        this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
         addToBot(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL,
-                AbstractGameAction.AttackEffect.FIRE));
+                AbstractGameAction.AttackEffect.NONE));
         Utils.addToBotAbstract(() -> {
             for (int i = 0; i < monsters.size(); i++) {
                 AbstractMonster monster = monsters.get(i);
                 if (((monster).isDying || monster.currentHealth <= 0) && !monster.halfDead
                         && !monster.hasPower("Minion")) {
-                    Utils.giveDamage(p, p, magicNumber, DamageInfo.DamageType.NORMAL);
+                    Utils.giveDamage(p, p, magicNumber, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
                 }
             }
         });

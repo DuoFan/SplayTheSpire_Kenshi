@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -56,6 +57,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.playerGainQi(2);
+        addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
         this.addToBot(new VFXAction(new BorderFlashEffect(Color.WHITE, true)));
         this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.LIME, "CARD_DRAW_8"), 1.0F));
         addToBot(new DrawCardAction(p, magicNumber));

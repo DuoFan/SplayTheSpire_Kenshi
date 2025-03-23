@@ -1,16 +1,23 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.FlameBarrierEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.effect.ColorSanctityEffect;
 import game.duofan.kenshi.power.*;
 
 public class YanZL_LieHuoChang extends CustomCard implements IYanZhiLiuCard {
@@ -46,6 +53,11 @@ public class YanZL_LieHuoChang extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        if (Settings.FAST_MODE) {
+            this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.1F));
+        } else {
+            this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
+        }
         AbstractDungeon.actionManager.addToBottom(
                 new ApplyPowerAction(p, p, new LieHuoChang(p, magicNumber))
         );
@@ -63,7 +75,7 @@ public class YanZL_LieHuoChang extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        Utils.giveAllMonsterBaoYanDamage(magicNumber);
+        Utils.giveAllMonsterBaoYanDamage(null, magicNumber);
     }
 
     @Override

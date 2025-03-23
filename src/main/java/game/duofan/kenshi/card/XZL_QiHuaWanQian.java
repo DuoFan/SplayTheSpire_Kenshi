@@ -15,7 +15,7 @@ import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.patch.effect.ColorSanctityEffect;
+import game.duofan.kenshi.effect.ColorSanctityEffect;
 import game.duofan.kenshi.power.*;
 
 public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {

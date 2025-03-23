@@ -1,4 +1,4 @@
-package game.duofan.kenshi.patch.effect;//
+package game.duofan.kenshi.effect;//
 // Source code recreated from a .class file by IntelliJ IDEA
 // (powered by FernFlower decompiler)
 //

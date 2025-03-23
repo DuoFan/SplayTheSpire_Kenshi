@@ -15,7 +15,7 @@ import game.duofan.kenshi.relic.YiQi;
 
 public class ZhanYanLuo extends AbstractPower {
 
-    static final String POWER_ID = IDManager.getInstance().getID(ZhanYanLuo.class);
+    public static final String POWER_ID = IDManager.getInstance().getID(ZhanYanLuo.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     // 能力的名称
@@ -46,28 +46,5 @@ public class ZhanYanLuo extends AbstractPower {
         } else {
             this.description = DESCRIPTIONS[0].replace("[NAME]", owner.name);
         }
-    }
-
-    @Override
-    public void onAfterUseCard(AbstractCard card, UseCardAction action) {
-        super.onAfterUseCard(card, action);
-
-        Utils.addToTopAbstract(() -> {
-            if (!owner.hasPower(ID)) {
-                return;
-            }
-            if ((owner.isDying || owner.currentHealth <= 0) && !owner.halfDead) {
-                if (AbstractDungeon.player.hasRelic(YiQi.ID)) {
-                    return;
-                }
-                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(
-                        Settings.WIDTH / 2.0f,
-                        Settings.HEIGHT / 2.0f,
-                        new YiQi() // 你的自定义遗物实例
-                );
-                Utils.removePower(owner, ID);
-                EventManager.getInstance().notifyEvent(EventKey.ON_GAIN_YI_QI, this, null);
-            }
-        });
     }
 }

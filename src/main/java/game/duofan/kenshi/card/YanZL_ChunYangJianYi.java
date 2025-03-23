@@ -1,15 +1,22 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.BorderFlashEffect;
+import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
+import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.effect.ColorSanctityEffect;
 import game.duofan.kenshi.power.*;
 
 public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
@@ -48,6 +55,11 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        addToBot(new SFXAction("ATTACK_FIRE"));
+        Color c1 = new Color(1.0F, 1.0F, 0.1F, 1.0F);
+        this.addToBot(new VFXAction(p, new ColorSanctityEffect(p.hb.cX, p.hb.cY, 5, c1), 0.1f));
+        AbstractDungeon.effectsQueue.add(new BorderFlashEffect(c1));
+        AbstractDungeon.effectsQueue.add(new BorderLongFlashEffect(new Color(1.0F, 0.4F, 0.1F, 1.0F)));
         Utils.playerGainPower(new ChunYangJianYi(p, magicNumber));
     }
 

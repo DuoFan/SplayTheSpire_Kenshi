@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -59,7 +60,7 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        CardCrawlGame.sound.play("STANCE_ENTER_DIVINITY");
+        addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
         Utils.addToBotAbstract(()->{
             for(int i = 0; i < 20; ++i) {
                 AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(Color.DARK_GRAY, m.hb.cX, m.hb.cY));

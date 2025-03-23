@@ -4,6 +4,7 @@ game\duofan\kenshi\card\XZL_BaiHongGuanRi.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
 game\duofan\kenshi\action\TaYinAction.class
+game\duofan\kenshi\effect\WeaveEffect$InternalEffect.class
 game\duofan\kenshi\action\DuanZaoAction$1.class
 game\duofan\kenshi\action\DuanZaoHandAction.class
 game\duofan\kenshi\variable\IQiLamagePlus.class
@@ -15,6 +16,7 @@ game\duofan\kenshi\card\YanZL_HuoYuJingShi.class
 game\duofan\kenshi\patch\PlayerDrawPatch.class
 game\duofan\kenshi\power\ChunYangJianYi.class
 game\duofan\kenshi\card\ShiJun.class
+game\duofan\kenshi\patch\ZhanYanLuoPatch.class
 game\duofan\kenshi\variable\ITargetMonsterGetter.class
 game\duofan\kenshi\card\FZL_CuiKuLaXiu.class
 game\duofan\kenshi\card\YuZL_JiShuiSanQianCard.class
@@ -32,6 +34,7 @@ game\duofan\kenshi\action\YanLangAction.class
 game\duofan\common\Utils$1.class
 game\duofan\kenshi\card\FZL_SuSha.class
 game\duofan\kenshi\action\IDoCard.class
+game\duofan\kenshi\effect\ColorThirdEyeEffect.class
 game\duofan\kenshi\card\XZL_CaiCheQuMing.class
 game\duofan\kenshi\power\LianHuan.class
 game\duofan\kenshi\power\XiuLuo.class
@@ -99,7 +102,9 @@ game\duofan\kenshi\initialize\RelicsRegister.class
 game\duofan\kenshi\card\BuSiNiaoZhiYu.class
 game\duofan\kenshi\power\ZiXiaZhenQi.class
 game\duofan\kenshi\card\YanZL_YanJie.class
+game\duofan\kenshi\effect\ColorSanctityEffect.class
 game\duofan\common\Utils$4.class
+game\duofan\kenshi\effect\WeaveEffect.class
 game\duofan\kenshi\card\FZL_ShaXinZhouQi.class
 game\duofan\kenshi\card\XZL_ZiDianQingShuang.class
 game\duofan\kenshi\power\Liu_StateMachine.class
@@ -108,12 +113,10 @@ game\duofan\kenshi\action\GetFreeLiuCardAction.class
 game\duofan\kenshi\card\FZL_ZhiQie.class
 game\duofan\common\Utils$3.class
 game\duofan\kenshi\card\XZL_ShengXie.class
-game\duofan\kenshi\patch\effect\ColorThirdEyeEffect.class
 game\duofan\kenshi\patch\DrawCardActionPatch.class
 game\duofan\kenshi\relic\YiQi.class
 game\duofan\kenshi\card\FZL_FuFeng.class
 game\duofan\kenshi\card\FZL_XianFaZhiRen.class
-game\duofan\kenshi\patch\effect\ColorThirdEyeEffect$ThirdEyeParticleEffect.class
 game\duofan\kenshi\card\YangZhiRen.class
 game\duofan\kenshi\initialize\ModInitializer.class
 game\duofan\kenshi\variable\LamageScaler.class
@@ -128,6 +131,7 @@ game\duofan\kenshi\power\ZhuLiuBaiJia.class
 game\duofan\kenshi\card\YuZL_QianLiMu.class
 game\duofan\kenshi\action\HuoZhiYuAction.class
 game\duofan\kenshi\card\YuZL_DongQuChunLai.class
+game\duofan\kenshi\effect\ColorSanctityEffect$InternalEffect.class
 game\duofan\kenshi\power\IFengZhiLiuCard.class
 game\duofan\common\Utils$2.class
 game\duofan\kenshi\card\YuZL_BaiLuYou.class
@@ -153,7 +157,6 @@ game\duofan\kenshi\action\WaitForFenChengAction.class
 game\duofan\kenshi\power\FanShi.class
 game\duofan\kenshi\card\XiuLuo_Card.class
 game\duofan\kenshi\card\FZL_QiuYeLianJian.class
-game\duofan\kenshi\patch\effect\ColorSanctityEffect.class
 game\duofan\kenshi\card\YinZhiRen.class
 game\duofan\kenshi\power\WuBianLuoMu.class
 game\duofan\kenshi\power\XieLiZhunBei.class
@@ -173,6 +176,7 @@ game\duofan\kenshi\power\YanZhiLiu.class
 game\duofan\kenshi\reward\RewardTypeEnum.class
 game\duofan\kenshi\action\PickUpCardToDuanZaoAction.class
 game\duofan\kenshi\card\YuZL_YanGuiLai.class
+game\duofan\kenshi\effect\ColorThirdEyeEffect$ThirdEyeParticleEffect.class
 game\duofan\kenshi\card\ShiJianShi.class
 game\duofan\kenshi\action\DuanZaoAction.class
 game\duofan\kenshi\power\YeBuPower.class

@@ -13,16 +13,17 @@ public class BaiHongGuanRiAction extends AbstractGameAction {
     private DamageInfo info;
     private static final float DURATION = 0.1F;
 
-    public BaiHongGuanRiAction(AbstractCreature target, DamageInfo info) {
+    public BaiHongGuanRiAction(AbstractCreature target, DamageInfo info,AttackEffect _attackEffect) {
         this.info = info;
         this.setValues(target, info);
         this.actionType = ActionType.DAMAGE;
         this.duration = 0.1F;
+        attackEffect = _attackEffect;
     }
 
     public void update() {
         if (this.duration == 0.1F && this.target != null) {
-            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, AttackEffect.SLASH_DIAGONAL));
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(this.target.hb.cX, this.target.hb.cY, attackEffect));
             this.target.damage(this.info);
             if ((((AbstractMonster)this.target).isDying || this.target.currentHealth <= 0) && !this.target.halfDead && !this.target.hasPower("Minion")) {
                 Utils.playerGainEnergy(1);

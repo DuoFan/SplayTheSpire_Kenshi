@@ -1,6 +1,7 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -52,7 +53,7 @@ public class YangGong extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p,m, damage, DamageInfo.DamageType.NORMAL);
+        Utils.giveDamage(p,m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
         Utils.gainPower(p, new VigorPower(p, magicNumber));
         Utils.playerDrawCardByFilterAction(1, c -> c.type == AbstractCard.CardType.ATTACK);
     }

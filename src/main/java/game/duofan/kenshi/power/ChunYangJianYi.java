@@ -140,13 +140,14 @@ public class ChunYangJianYi extends AbstractPower {
                         try {
                             Field f = DamageAllEnemiesAction.class.getDeclaredField("utilizeBaseDamage");
                             f.setAccessible(true);
+                            a.attackEffect = AbstractGameAction.AttackEffect.FIRE;
                             //不会重计算伤害
                             if (f.get(a).equals(false)) {
                                 int[] damages = ((DamageAllEnemiesAction) a).damage;
                                 for (int j = 0; j < damages.length; ++j) {
                                     damages[j] += RONG_RONG_GIVE;
                                     if (j < monsters.size()) {
-                                        AbstractMonster m = monsters.get(i);
+                                        AbstractMonster m = monsters.get(j);
                                         DamageInfo info = new DamageInfo(p, damages[j]);
                                         actions.add(i + 1, new NotifyBaoYanDamageAction(m, info));
                                     }
@@ -180,6 +181,7 @@ public class ChunYangJianYi extends AbstractPower {
                         try {
                             Field f = a.getClass().getDeclaredField("info");
                             f.setAccessible(true);
+                            a.attackEffect = AbstractGameAction.AttackEffect.FIRE;
                             DamageInfo info = (DamageInfo) f.get(a);
                             info.output += RONG_RONG_GIVE;
                             int nextActionIndex = i + 1;

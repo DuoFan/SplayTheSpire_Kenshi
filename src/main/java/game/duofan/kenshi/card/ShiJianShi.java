@@ -1,11 +1,15 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
@@ -52,7 +56,13 @@ public class ShiJianShi extends CustomCard {
         target = m;
         addToBot(new PickUpCardToDuanZaoAction((c) -> {
             if (c != null) {
-                Utils.givePower(p, m, new game.duofan.kenshi.power.ShiJianShi(c, m, 10));
+                Utils.givePowerTop(p, m, new game.duofan.kenshi.power.ShiJianShi(c, m, 10));
+                Utils.addToTopAbstract(()->{
+                    for(int i = 0; i < 20; ++i) {
+                        AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(Color.OLIVE, m.hb.cX, m.hb.cY));
+                    }
+                });
+                addToTop(new SFXAction("STANCE_ENTER_DIVINITY"));
             }
         }, 1));
         Utils.givePower(p, m, new VulnerablePower(m, 1, false));

@@ -52,9 +52,9 @@ public class LieHuoChang extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        if(isPlayer){
+        if (isPlayer) {
             flash();
-            Utils.giveAllMonsterBaoYanDamage(amount);
+            Utils.giveAllMonsterBaoYanDamage(null, amount);
         }
     }
 }

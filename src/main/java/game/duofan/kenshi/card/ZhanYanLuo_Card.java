@@ -1,7 +1,9 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
+import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -9,6 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.*;
 import game.duofan.kenshi.power.ZhanYanLuo;
 import game.duofan.kenshi.relic.YiQi;
@@ -81,6 +84,14 @@ public class ZhanYanLuo_Card extends CustomCard implements IEventListener {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
+        addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
+        Utils.addToBotAbstract(()->{
+            for(int i = 0; i < 20; ++i) {
+                AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(Color.SCARLET, m.hb.cX, m.hb.cY));
+            }
+        });
+
         if (!hasYiQi) {
             Utils.givePower(p, m, new ZhanYanLuo(m));
         } else {

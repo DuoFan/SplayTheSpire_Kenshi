@@ -104,7 +104,7 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
                     if (targetMonster.hasPower(PoBai.POWER_ID)) {
                         AbstractPlayer p = AbstractDungeon.player;
                         int damage = targetMonster.getPower(PoBai.POWER_ID).amount;
-                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL);
+                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
                     }
                 }
             });
