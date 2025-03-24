@@ -210,8 +210,8 @@
   },
   "game.duofan.kenshi:XZL_BaiHongGuanRi": {
     "NAME": "白虹贯日",
-    "DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日+ 到你的手牌。"
+    "DESCRIPTION": "造成 !D! 点伤害， 斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日 到你的手牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害， 斩杀 目标时获得 [E] 。 NL duofan_kenshi:霞之流 :增加1张 *白虹贯日+ 到你的手牌。"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "彩彻区明",

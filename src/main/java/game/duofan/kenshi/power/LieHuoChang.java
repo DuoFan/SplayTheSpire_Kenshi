@@ -54,7 +54,7 @@ public class LieHuoChang extends AbstractPower {
         super.atEndOfTurn(isPlayer);
         if (isPlayer) {
             flash();
-            Utils.giveAllMonsterBaoYanDamage(null, amount);
+            Utils.giveAllMonsterBaoYanDamage(amount, DamageInfo.DamageType.HP_LOSS);
         }
     }
 }

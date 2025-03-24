@@ -75,7 +75,7 @@ public class YanZL_LieHuoChang extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        Utils.giveAllMonsterBaoYanDamage(null, magicNumber);
+        Utils.giveAllMonsterBaoYanDamage(magicNumber);
     }
 
     @Override

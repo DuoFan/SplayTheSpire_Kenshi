@@ -3,6 +3,7 @@ package game.duofan.kenshi.power;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -52,6 +53,6 @@ public class YanZhiLiu extends AbstractPower {
     @Override
     public void onRemove() {
         super.onRemove();
-        Utils.giveAllMonsterBaoYanDamage(null, 1);
+        Utils.giveAllMonsterBaoYanDamage(1, DamageInfo.DamageType.HP_LOSS);
     }
 }
