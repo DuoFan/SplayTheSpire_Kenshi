@@ -76,13 +76,14 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
             action = new BetterDrawPileToHandAction(magicNumber, true);
             Utils.addToBotAbstract(() -> {
                 addToBot(action);
+                action = null;
             });
         } else {
             try {
                 Field f = action.getClass().getDeclaredField("numberOfCards");
                 f.setAccessible(true);
                 int c = f.getInt(action);
-                c++;
+                c += magicNumber;
                 f.setInt(action, c);
                 f.setAccessible(false);
             } catch (NoSuchFieldException e) {
@@ -91,6 +92,12 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
                 System.out.println("-------------反式增加次数失败");
             }
         }
+    }
+
+    @Override
+    public void onMoveToDiscard() {
+        super.onMoveToDiscard();
+        action = null;
     }
 
     @Override
