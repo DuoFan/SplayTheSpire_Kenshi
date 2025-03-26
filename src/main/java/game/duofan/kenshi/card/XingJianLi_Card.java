@@ -62,7 +62,7 @@ public class XingJianLi_Card extends CustomCard implements IDoCard {
     @Override
     public void DoCard(AbstractCard card) {
         if (card.cost > 0 || card.costForTurn > 0) {
-            card.modifyCostForCombat(-1);
+            card.setCostForTurn(card.costForTurn - 1);
         }
     }
 }

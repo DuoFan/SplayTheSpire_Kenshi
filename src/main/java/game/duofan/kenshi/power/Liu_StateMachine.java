@@ -64,6 +64,7 @@ public class Liu_StateMachine implements IEventListener {
         if (state != null) {
             state.exit();
             state = null;
+            EventManager.getInstance().notifyEvent(EventKey.ON_LIU_EXITED, this, null);
         }
     }
 
@@ -86,7 +87,6 @@ public class Liu_StateMachine implements IEventListener {
     }
 
     public boolean hasLiuFlag(StateEnum stateEnum, StateEnum liu) {
-        System.out.println("----------------liu:" + liu + "result:" + hasLiuFlag(stateEnum.value, liu));
         return hasLiuFlag(stateEnum.value, liu);
     }
 

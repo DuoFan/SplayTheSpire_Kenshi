@@ -6,10 +6,12 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.esotericsoftware.spine.AnimationState;
+import com.esotericsoftware.spine.Event;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.EnergyManager;
@@ -22,8 +24,10 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.sun.org.apache.bcel.internal.generic.FLOAD;
 import game.duofan.common.*;
 import game.duofan.kenshi.card.*;
+import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.relic.JianPuTuLu;
 
 import java.util.ArrayList;
@@ -35,7 +39,7 @@ public class KenShi extends CustomPlayer {
     // 火堆的人物立绘（行动后）
     private static final String MY_CHARACTER_SHOULDER_2 = "ExampleModResources/img/char/shoulder2.png";
     // 人物死亡图像
-    private static final String CORPSE_IMAGE = "ExampleModResources/img/char/corpse.png";
+    private static final String CORPSE_IMAGE = "img/character/defeat.png";
     // 战斗界面左下角能量图标的每个图层
     private static final String[] ORB_TEXTURES = new String[]{
             "ExampleModResources/img/UI/orb/layer5.png",
@@ -54,6 +58,11 @@ public class KenShi extends CustomPlayer {
     private static final float[] LAYER_SPEED = new float[]{-40.0F, -32.0F, 20.0F, -20.0F, 0.0F, -10.0F, -8.0F, 5.0F, -5.0F, 0.0F};
     // 人物的本地化文本，如卡牌的本地化文本一样，如何书写见下
     public static final CharacterStrings characterStrings = CardCrawlGame.languagePack.getCharacterString(Utils.generateID(KenShi.class.getSimpleName()));
+
+    int bodyTrack = 0;
+    int hurtTrack = 1;
+
+    Liu_StateMachine.StateEnum lastLiu;
 
     public KenShi(String name) {
         super(name, CharacterEnum.CHARACTER_KENSHI, ORB_TEXTURES, "ExampleModResources/img/UI/orb/vfx.png", LAYER_SPEED, null, null);
@@ -75,10 +84,114 @@ public class KenShi extends CustomPlayer {
         );
 
         // 如果你的人物没有动画，那么这些不需要写
-        // this.loadAnimation("ExampleModResources/img/char/character.atlas", "ExampleModResources/img/char/character.json", 1.8F);
-        // AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
-        // e.setTime(e.getEndTime() * MathUtils.random());
-        // e.setTimeScale(1.2F);
+        this.loadAnimation("spineAnimation/Kenshi/stance_JK.atlas", "spineAnimation/Kenshi/stance_JK.json", 3F);
+        AnimationState.TrackEntry e = this.state.setAnimation(bodyTrack, "idle", true);
+        e.setTime(e.getEndTime() * MathUtils.random());
+        e.setTimeScale(1.2F);
+
+        lastLiu = Liu_StateMachine.StateEnum.None;
+    }
+
+    @Override
+    public void damage(DamageInfo info) {
+        super.damage(info);
+        if (this.lastDamageTaken > 0) {
+            playHurtAnim();
+        }
+    }
+
+    public void playIdleAnim() {
+        AnimationState.TrackEntry e = this.state.setAnimation(bodyTrack, "idle", true);
+    }
+
+    public void playHurtAnim() {
+        AnimationState.TrackEntry e = this.state.setAnimation(hurtTrack, "hurt", false);
+    }
+
+    public void playLiuAnim(Liu_StateMachine.StateEnum liu) {
+        exitLiuAnim();
+
+        lastLiu = liu;
+        switch (liu) {
+            case FengZhiLiu:
+                this.state.setAnimation(2, "leaf_idle", true);
+                break;
+            case XiaZhiLiu:
+                this.state.setAnimation(3, "zhenqi_on", false).setListener(new AnimationState.AnimationStateListener() {
+                    @Override
+                    public void event(int i, Event event) {
+
+                    }
+
+                    @Override
+                    public void complete(int i, int i1) {
+                        state.setAnimation(3, "zhenqi_idle", true);
+                    }
+
+                    @Override
+                    public void start(int i) {
+
+                    }
+
+                    @Override
+                    public void end(int i) {
+
+                    }
+                });
+                break;
+            case YuZhiLiu:
+                this.state.setAnimation(4, "yumao_idle", true);
+                break;
+            case YanZhiLiu:
+                this.state.setAnimation(5, "sowrd_fire_on", false).setListener(new AnimationState.AnimationStateListener() {
+                    @Override
+                    public void event(int i, Event event) {
+
+                    }
+
+                    @Override
+                    public void complete(int i, int i1) {
+                        state.setAnimation(5, "sowrd_fire_idle", true);
+                    }
+
+                    @Override
+                    public void start(int i) {
+
+                    }
+
+                    @Override
+                    public void end(int i) {
+
+                    }
+                });
+                break;
+        }
+    }
+
+    private void exitLiuAnim() {
+        switch (lastLiu){
+            case FengZhiLiu:
+                AnimationState.TrackEntry e1 = this.state.getCurrent(2);
+                if(e1 != null){
+                    e1.setLastTime(e1.getTime() % e1.getEndTime());
+                    e1.setLoop(false);
+                }
+                break;
+            case XiaZhiLiu:
+                this.state.setAnimation(3, "zhenqi_off", false);
+                break;
+            case YuZhiLiu:
+                AnimationState.TrackEntry e2 = this.state.getCurrent(4);
+                if(e2 != null){
+                    e2.setLastTime(e2.getTime() % e2.getEndTime());
+                    e2.setLoop(false);
+                }
+                break;
+            case YanZhiLiu:
+                this.state.setAnimation(5, "sowrd_fire_off", false);
+                break;
+        }
+        lastLiu = Liu_StateMachine.StateEnum.None;
     }
 
     // 初始卡组的ID，可直接写或引用变量
@@ -226,7 +339,27 @@ public class KenShi extends CustomPlayer {
 
         EventManager.getInstance().removeAll_NotPersist_Event();
 
+        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, new LiuAnimListener());
+        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_EXITED, new LiuExitListener());
         EventManager.getInstance().notifyEvent(EventKey.ON_BATTLE_START, this, null);
+    }
+
+    class LiuAnimListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            Liu_StateMachine.StateEnum stateEnum = (Liu_StateMachine.StateEnum) e;
+            playLiuAnim(stateEnum);
+        }
+    }
+
+
+    class LiuExitListener implements IEventListener {
+
+        @Override
+        public void OnEvent(Object sender, Object e) {
+            exitLiuAnim();
+        }
     }
 
     // 以下为原版人物枚举、卡牌颜色枚举扩展的枚举，需要写，接下来要用

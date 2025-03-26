@@ -1,5 +1,8 @@
 {
   "game.duofan.kenshi:JianShuYaoLingReward": {
     "TEXT": [ "Add a Uncommon Style-Card into your CardGroup." ]
+  },
+  "game.duofan.kenshi:PickUpCardToPutDrawpileTopAction": {
+    "TEXT": [ "put on top of your draw pile." ]
   }
 }

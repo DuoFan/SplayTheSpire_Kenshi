@@ -11,8 +11,8 @@
   },
   "game.duofan.kenshi:XingJianLi_Card": {
     "NAME": "行剑礼",
-    "DESCRIPTION": "随机 消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本场战斗耗能减1。",
-    "UPGRADE_DESCRIPTION": "消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本场战斗耗能减1。"
+    "DESCRIPTION": "随机 消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本回合耗能减1。",
+    "UPGRADE_DESCRIPTION": "消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本回合耗能减1。"
   },
   "game.duofan.kenshi:YiJianHuiYou_Card": {
     "NAME": "以剑会友",
@@ -60,7 +60,7 @@
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "静夜思",
     "DESCRIPTION": "任意回合结束时，若打出的攻击牌少于3张，额外获得一回合并移除一层该效果。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的攻击牌少于3张，额外获得一回合并移除一层该效果。 NL 消耗 "
+    "UPGRADE_DESCRIPTION": "任意回合结束时，若打出的攻击牌少于3张，额外获得一回合并移除一层该效果。 NL 将一张手牌放到抽牌堆顶。 NL 消耗 "
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "夜步",

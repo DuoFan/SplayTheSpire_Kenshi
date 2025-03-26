@@ -1,5 +1,8 @@
 {
   "game.duofan.kenshi:JianShuYaoLingReward": {
     "TEXT": [ "将一张罕见流派卡牌加入你的牌组中" ]
+  },
+  "game.duofan.kenshi:PickUpCardToPutDrawpileTopAction": {
+    "TEXT": [ "放在抽牌堆顶部" ]
   }
 }

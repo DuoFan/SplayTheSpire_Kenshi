@@ -1,5 +1,6 @@
 game\duofan\kenshi\action\RepeatAction$1.class
 game\duofan\kenshi\reward\JianShuYaoLingReward.class
+game\duofan\kenshi\KenShi$3.class
 game\duofan\kenshi\card\XZL_BaiHongGuanRi.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
@@ -81,14 +82,17 @@ game\duofan\kenshi\card\YanZL_HuoYuJianQi.class
 game\duofan\kenshi\initialize\RewardRegister.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
+game\duofan\kenshi\KenShi$LiuExitListener.class
 game\duofan\kenshi\action\ChiBiFreeCardAction.class
 game\duofan\kenshi\relic\JianShuYaoLing.class
 game\duofan\kenshi\card\XZL_ShuangJi.class
+game\duofan\kenshi\KenShi$LiuAnimListener.class
 game\duofan\kenshi\power\ChiBi.class
 game\duofan\kenshi\card\XZL_ZiXiaZhenQi.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\card\YanZL_YanLang.class
+game\duofan\kenshi\action\PickUpCardToPutDrawpileTopAction.class
 game\duofan\kenshi\card\YuZL_YinJiuZhiKe.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
 game\duofan\kenshi\power\RongRong.class
@@ -177,6 +181,7 @@ game\duofan\kenshi\reward\RewardTypeEnum.class
 game\duofan\kenshi\action\PickUpCardToDuanZaoAction.class
 game\duofan\kenshi\card\YuZL_YanGuiLai.class
 game\duofan\kenshi\effect\ColorThirdEyeEffect$ThirdEyeParticleEffect.class
+game\duofan\kenshi\KenShi$1.class
 game\duofan\kenshi\card\ShiJianShi.class
 game\duofan\kenshi\action\DuanZaoAction.class
 game\duofan\kenshi\power\YeBuPower.class
@@ -193,6 +198,7 @@ game\duofan\kenshi\power\LiuCardReduceCostOnTurn.class
 game\duofan\kenshi\card\FZL_WanYeBai.class
 game\duofan\kenshi\power\ReturnToDrawPileAfterPlayed.class
 game\duofan\kenshi\action\JuGouAction.class
+game\duofan\kenshi\KenShi$2.class
 game\duofan\kenshi\patch\KenshiPortraitAnim.class
 game\duofan\kenshi\initialize\TextRegister.class
 game\duofan\common\AudioKey.class

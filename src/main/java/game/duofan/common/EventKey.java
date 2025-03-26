@@ -2,6 +2,7 @@ package game.duofan.common;
 
 public class EventKey {
     public static final String ON_LIU_CHANGED = "ON_LIU_CHANGED";
+    public static final String ON_LIU_EXITED = "ON_LIU_EXITED";
 
     public static final String FIRST_FZL_ON_TURN = "FIRST_FZL_ON_TURN";
     public static final String FIRST_XZL_ON_TURN = "FIRST_XZL_ON_TURN";

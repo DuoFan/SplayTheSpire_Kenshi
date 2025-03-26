@@ -11,8 +11,8 @@
   },
   "game.duofan.kenshi:XingJianLi_Card": {
     "NAME": "Sword Etiquette",
-    "DESCRIPTION": " Exhaust 1 card at random. NL Draw 1 Style-Card and reduce 1 cost for the drawn card.",
-    "UPGRADE_DESCRIPTION": " Exhaust 1 card. NL Draw 1 Style-Card and reduce 1 cost for the drawn card."
+    "DESCRIPTION": " Exhaust 1 card at random. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card.",
+    "UPGRADE_DESCRIPTION": " Exhaust 1 card. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card."
   },
   "game.duofan.kenshi:YiJianHuiYou_Card": {
     "NAME": "Make Friends\n Through Sword",
