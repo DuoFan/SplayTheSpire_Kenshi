@@ -80,7 +80,7 @@
   "game.duofan.kenshi:GaiTouHuanMian": {
     "NAME": "改头换面",
     "DESCRIPTION": "消耗所有手牌，将等量流派卡牌加入手牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 固有 NL 消耗所有手牌，将等量流派卡牌加入手牌。"
+    "UPGRADE_DESCRIPTION": " 固有 NL 消耗所有手牌，将等量流派卡牌加入手牌。 NL 消耗 "
   },
   "game.duofan.kenshi:YangGong": {
     "NAME": "佯攻",
