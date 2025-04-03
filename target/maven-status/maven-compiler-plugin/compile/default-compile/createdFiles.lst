@@ -12,6 +12,7 @@ game\duofan\kenshi\variable\IQiLamagePlus.class
 game\duofan\kenshi\power\FengZhiLiu.class
 game\duofan\kenshi\card\YeBu.class
 game\duofan\kenshi\action\DrawCardByFilterAction.class
+game\duofan\kenshi\card\YuZL_WeiYuChouMo.class
 game\duofan\kenshi\action\ReturnToDrawPileAction.class
 game\duofan\kenshi\card\YanZL_HuoYuJingShi.class
 game\duofan\kenshi\patch\PlayerDrawPatch.class
@@ -93,7 +94,6 @@ game\duofan\kenshi\patch\CharacterSelectScreenPatches.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\card\YanZL_YanLang.class
 game\duofan\kenshi\action\PickUpCardToPutDrawpileTopAction.class
-game\duofan\kenshi\card\YuZL_YinJiuZhiKe.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
 game\duofan\kenshi\power\RongRong.class
 game\duofan\kenshi\card\Strike.class

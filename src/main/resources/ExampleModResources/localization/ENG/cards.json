@@ -298,10 +298,10 @@
     "DESCRIPTION": "Heal !M! HP. NL duofan_kenshi:feather :Gain 2 regen. NL Exhaust ",
     "UPGRADE_DESCRIPTION": "Heal !M! HP. NL duofan_kenshi:feather :Gain 2 regen. NL Exhaust "
   },
-  "game.duofan.kenshi:YuZL_YinJiuZhiKe": {
-    "NAME": "Drinking Poison\n To Quench Thirst",
-    "DESCRIPTION": "Lose !M! MaxHP, Gain !D! Block. NL duofan_kenshi:feather :Block is not removed at the start of your next turn. NL Exhaust , Retain ",
-    "UPGRADE_DESCRIPTION": "Lose !M! MaxHP, Gain !D! Block. NL duofan_kenshi:feather :Block is not removed at the start of your next turn. NL Exhaust , Retain "
+  "game.duofan.kenshi:YuZL_WeiYuChouMo": {
+    "NAME": "Prepare For\n A Rainy Day",
+    "DESCRIPTION": "Whenever this card is drawn, Gain [E] . NL Next turn, draw X cards. NL duofan_kenshi:feather :Gain 2X Block.",
+    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, Gain [E] . NL Next turn, draw X+1 cards. NL duofan_kenshi:feather :Gain 2X Block."
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "Pigeon Carrier",

@@ -298,10 +298,10 @@
     "DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 "
   },
-  "game.duofan.kenshi:YuZL_YinJiuZhiKe": {
-    "NAME": "饮鸠止渴",
-    "DESCRIPTION": "失去 !M! 点最大生命，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 ， 保留 ",
-    "UPGRADE_DESCRIPTION": "失去 !M! 点最大生命，获得 !D! 点 格挡 。 NL duofan_kenshi:羽之流 :下一回合开始时， 格挡 不会消失。 NL 消耗 ， 保留 "
+  "game.duofan.kenshi:YuZL_WeiYuChouMo": {
+    "NAME": "未雨绸缪",
+    "DESCRIPTION": "下个回合开始时抽取X张卡牌。 NL 抽到这张牌时获得 [E] 。 NL duofan_kenshi:羽之流 :获得2X点 格挡 。",
+    "UPGRADE_DESCRIPTION": "下个回合开始时抽取X+1张卡牌。 NL 抽到这张牌时获得 [E] 。 NL duofan_kenshi:羽之流 :获得2X点 格挡 。"
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "飞鸽传书",

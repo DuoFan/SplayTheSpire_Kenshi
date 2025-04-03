@@ -1,9 +1,7 @@
 package game.duofan.common;
 
-import basemod.devcommands.power.Power;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -545,7 +543,7 @@ public class Utils {
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());
             cards.add(new YuZL_DongQuChunLai());
-            cards.add(new YuZL_YinJiuZhiKe());
+            cards.add(new YuZL_WeiYuChouMo());
             cards.add(new YuZL_BuSiNiao());
         }
 

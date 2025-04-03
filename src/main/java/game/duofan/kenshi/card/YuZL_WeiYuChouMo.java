@@ -1,50 +1,44 @@
 package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
-import com.evacipated.cardcrawl.mod.stslib.actions.common.AutoplayCardAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.DiscardToHandAction;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.cards.CardQueueItem;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
+import com.megacrit.cardcrawl.relics.ChemicalX;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import game.duofan.common.*;
 import game.duofan.kenshi.power.*;
 
-public class YuZL_YinJiuZhiKe extends CustomCard implements IYuZhiLiuCard {
+public class YuZL_WeiYuChouMo extends CustomCard implements IYuZhiLiuCard {
 
-    public static final String ID = IDManager.getInstance().getID(YuZL_YinJiuZhiKe.class);
+    public static final String ID = IDManager.getInstance().getID(YuZL_WeiYuChouMo.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 0;
+    private static final int COST = -1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    public YuZL_YinJiuZhiKe() {
+    int effect;
+
+    public YuZL_WeiYuChouMo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 3;
-        baseBlock = baseDamage = 18;
-        exhaust = true;
-        selfRetain = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(-1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -59,15 +53,45 @@ public class YuZL_YinJiuZhiKe extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.addToBotAbstract(() -> {
-            p.decreaseMaxHealth(magicNumber);
+            effect = EnergyPanel.totalCount;
+            if (this.energyOnUse != -1) {
+                effect = this.energyOnUse;
+            }
+
+            if (p.hasRelic(ChemicalX.ID)) {
+                effect += 2;
+                p.getRelic(ChemicalX.ID).flash();
+            }
+
+            if(upgraded){
+                effect++;
+            }
+
+            if (effect > 0) {
+                this.addToBot(new ApplyPowerAction(p, p, new DrawCardNextTurnPower(p, effect), effect));
+                if (energyOnUse > 0) {
+                    p.energy.use(EnergyPanel.totalCount);
+                }
+            }
         });
-        Utils.playerGainBlock(baseBlock);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        this.addToBot(new ApplyPowerAction(p, p, new BlurPower(p, 1), 1));
+        int c = effect;
+        if (c > 0) {
+            if(upgraded){
+                c--;
+            }
+
+            if(c > 0){
+                Utils.playerGainBlock(c * 2);
+            }
+        }
+    }
+
+    public void triggerWhenDrawn() {
+        Utils.playerGainEnergy(1);
     }
 
     @Override
