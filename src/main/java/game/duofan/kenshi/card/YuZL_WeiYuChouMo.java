@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -29,8 +30,6 @@ public class YuZL_WeiYuChouMo extends CustomCard implements IYuZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
-    int effect;
-
     public YuZL_WeiYuChouMo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
     }
@@ -53,6 +52,7 @@ public class YuZL_WeiYuChouMo extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.addToBotAbstract(() -> {
+            int effect;
             effect = EnergyPanel.totalCount;
             if (this.energyOnUse != -1) {
                 effect = this.energyOnUse;
@@ -63,7 +63,7 @@ public class YuZL_WeiYuChouMo extends CustomCard implements IYuZhiLiuCard {
                 p.getRelic(ChemicalX.ID).flash();
             }
 
-            if(upgraded){
+            if (upgraded) {
                 effect++;
             }
 
@@ -74,24 +74,12 @@ public class YuZL_WeiYuChouMo extends CustomCard implements IYuZhiLiuCard {
                 }
             }
         });
+        Utils.playerGainEnergy(1);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        int c = effect;
-        if (c > 0) {
-            if(upgraded){
-                c--;
-            }
-
-            if(c > 0){
-                Utils.playerGainBlock(c * 2);
-            }
-        }
-    }
-
-    public void triggerWhenDrawn() {
-        Utils.playerGainEnergy(1);
+        addToBot(new DrawCardAction(AbstractDungeon.player, 1));
     }
 
     @Override

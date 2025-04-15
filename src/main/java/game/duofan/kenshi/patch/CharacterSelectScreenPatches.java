@@ -80,7 +80,6 @@ public class CharacterSelectScreenPatches {
                 CharacterOption o = (CharacterOption)iterator.next();
 
                 if(o.selected && o.name.equals(KENSHI_NAME)){
-                    System.out.println("--------");
                     getKenshiPortraitAnim().render(sb);
                 }
             }

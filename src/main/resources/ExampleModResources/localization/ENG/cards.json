@@ -300,8 +300,8 @@
   },
   "game.duofan.kenshi:YuZL_WeiYuChouMo": {
     "NAME": "Prepare For\n A Rainy Day",
-    "DESCRIPTION": "Whenever this card is drawn, Gain [E] . NL Next turn, draw X cards. NL duofan_kenshi:feather :Gain 2X Block.",
-    "UPGRADE_DESCRIPTION": "Whenever this card is drawn, Gain [E] . NL Next turn, draw X+1 cards. NL duofan_kenshi:feather :Gain 2X Block."
+    "DESCRIPTION": "Next turn, draw X cards. NL Gain [E] . NL duofan_kenshi:feather :Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Next turn, draw X+1 cards. NL Gain [E] . NL duofan_kenshi:feather :Draw 1 card."
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "Pigeon Carrier",

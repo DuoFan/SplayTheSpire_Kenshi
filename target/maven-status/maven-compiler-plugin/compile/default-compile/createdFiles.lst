@@ -160,6 +160,7 @@ game\duofan\kenshi\power\PoBaiGongJi.class
 game\duofan\kenshi\action\WaitForFenChengAction.class
 game\duofan\kenshi\power\FanShi.class
 game\duofan\kenshi\card\XiuLuo_Card.class
+game\duofan\kenshi\patch\Theme_ChallengerPatch.class
 game\duofan\kenshi\card\FZL_QiuYeLianJian.class
 game\duofan\kenshi\card\YinZhiRen.class
 game\duofan\kenshi\power\WuBianLuoMu.class

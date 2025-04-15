@@ -300,8 +300,8 @@
   },
   "game.duofan.kenshi:YuZL_WeiYuChouMo": {
     "NAME": "未雨绸缪",
-    "DESCRIPTION": "下个回合开始时抽取X张卡牌。 NL 抽到这张牌时获得 [E] 。 NL duofan_kenshi:羽之流 :获得2X点 格挡 。",
-    "UPGRADE_DESCRIPTION": "下个回合开始时抽取X+1张卡牌。 NL 抽到这张牌时获得 [E] 。 NL duofan_kenshi:羽之流 :获得2X点 格挡 。"
+    "DESCRIPTION": "下个回合开始时抽取X张卡牌，获得 [E] 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。",
+    "UPGRADE_DESCRIPTION": "下个回合开始时抽取X+1张卡牌，获得 [E] 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。"
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "飞鸽传书",
