@@ -33,8 +33,8 @@ public class FengZhiLiu extends AbstractPower {
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = -1;
 
-        String path128 = "ExampleModResources/img/powers/Example84.png";
-        String path48 = "ExampleModResources/img/powers/Example32.png";
+        String path128 = "img/powers/fZL/fZLPower84.png";
+        String path48 = "img/powers/fZL/fZLPower32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 

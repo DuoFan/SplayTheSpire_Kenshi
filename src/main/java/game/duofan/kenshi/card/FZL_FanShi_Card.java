@@ -55,8 +55,7 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("ATTACK_FIRE"));
-        this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.OLIVE, p.hb.cX, p.hb.cY), 0.33F));
-        this.addToBot(new VFXAction(p, new BorderLongFlashEffect(Color.ORANGE), 0.0F, true));
+        this.addToBot(new VFXAction(p, new BorderLongFlashEffect(new Color(1, 210 / 255f, 44 / 255f, 1)), 0.0F, true));
         Utils.playerGainPower(new FanShi(p));
     }
 
