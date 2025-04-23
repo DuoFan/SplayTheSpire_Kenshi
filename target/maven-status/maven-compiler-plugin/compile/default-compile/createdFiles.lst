@@ -124,6 +124,7 @@ game\duofan\kenshi\card\FZL_XianFaZhiRen.class
 game\duofan\kenshi\card\YangZhiRen.class
 game\duofan\kenshi\initialize\ModInitializer.class
 game\duofan\kenshi\variable\LamageScaler.class
+game\duofan\kenshi\power\ShaNian.class
 game\duofan\kenshi\card\YangGong.class
 game\duofan\kenshi\power\ShiJianShi.class
 game\duofan\common\Utils$Lambda.class

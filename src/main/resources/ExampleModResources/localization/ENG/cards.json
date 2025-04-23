@@ -54,8 +54,8 @@
   },
   "game.duofan.kenshi:XiuLuo_Card": {
     "NAME": "Shura",
-    "DESCRIPTION": "Gain !M! Strength. NL At the start of your turn, lose 3 HP. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Gain !M! Strength. NL At the start of your turn, lose 3 HP. NL Ethereal "
+    "DESCRIPTION": "Whenever you played Attack, Heal !M! HP and gain 1 duofan_kenshi:killing. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever you played Attack, Heal !M! HP and gain 1 duofan_kenshi:killing. NL Ethereal "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "Night Thoughts",

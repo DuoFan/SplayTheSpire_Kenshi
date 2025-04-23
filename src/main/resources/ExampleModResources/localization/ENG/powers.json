@@ -48,6 +48,16 @@
       "At the start of your turn, lose %b%d HP."
     ]
   },
+  "game.duofan.kenshi:ShaNian": {
+    "NAME": "Killing",
+    "DESCRIPTIONS": [
+      "level 5: #yExhaust all Non-Attack from your deck.",
+      "level 10:Gain #b2 #yStrength .",
+      "level 15:Take an extra turn after this one,die next turn.",
+      "Die next turn.",
+      "Die this turn."
+    ]
+  },
   "game.duofan.kenshi:JingYeSi": {
     "NAME": "Night Thoughts",
     "DESCRIPTIONS": [
@@ -75,7 +85,7 @@
   "game.duofan.kenshi:PoBaiGongJi": {
     "NAME": "Wither Attack",
     "DESCRIPTIONS": [
-      "The next Attack this turn, apply #b%d #wither ."
+      "The next Attack this turn, apply #b%d #ywither ."
     ]
   },
   "game.duofan.kenshi:SuSha": {

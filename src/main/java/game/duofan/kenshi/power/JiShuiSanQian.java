@@ -114,6 +114,7 @@ public class JiShuiSanQian extends AbstractPower {
                         AbstractMonster m = monsters.get(j);
                         Utils.insertAbstract(() -> {
                             if (m.lastDamageTaken > 0) {
+                                flash();
                                 Utils.gainBlockTop(p, m.lastDamageTaken);
                                 Utils.addToTopAbstract(() -> {
                                     AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
@@ -128,6 +129,7 @@ public class JiShuiSanQian extends AbstractPower {
                     Utils.insertAbstract(() -> {
                         AbstractCreature m = a.target;
                         if (m.lastDamageTaken > 0) {
+                            flash();
                             Utils.gainBlockTop(p, m.lastDamageTaken);
                             Utils.addToTopAbstract(() -> {
                                 AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));

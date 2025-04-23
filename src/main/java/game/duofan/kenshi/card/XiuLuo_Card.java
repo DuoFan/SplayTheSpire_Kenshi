@@ -23,7 +23,7 @@ public class XiuLuo_Card extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -33,14 +33,14 @@ public class XiuLuo_Card extends CustomCard {
     public XiuLuo_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
-        magicNumber = baseMagicNumber = 6;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(3);
+            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -63,7 +63,6 @@ public class XiuLuo_Card extends CustomCard {
         });
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(c1), 0.0F, true));
 
-        Utils.playerGainPower(new StrengthPower(p, magicNumber));
-        Utils.playerGainPower(new XiuLuo(p, 3));
+        Utils.playerGainPower(new XiuLuo(p, magicNumber));
     }
 }

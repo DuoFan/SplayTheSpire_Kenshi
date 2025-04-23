@@ -45,7 +45,17 @@
   "game.duofan.kenshi:XiuLuo": {
     "NAME": "修罗",
     "DESCRIPTIONS": [
-      "回合开始时 ，失去 #b%d 点生命 。"
+      "打出的攻击牌使你回复 #b%d 点生命 ，并获得 #b%d 层 #y杀念 。"
+    ]
+  },
+  "game.duofan.kenshi:ShaNian": {
+    "NAME": "杀念",
+    "DESCRIPTIONS": [
+      "累积5层:消耗牌组中所有非攻击牌。",
+      "累积10层:获得 #b2 点 #y力量 。",
+      "累积15层:回合结束将获得一个额外的回合，并在下一个回合结束时死亡。",
+      "你将在下一个回合结束时死亡。",
+      "你将在本回合结束时死亡。"
     ]
   },
   "game.duofan.kenshi:JingYeSi": {

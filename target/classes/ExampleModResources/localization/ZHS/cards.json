@@ -54,8 +54,8 @@
   },
   "game.duofan.kenshi:XiuLuo_Card": {
     "NAME": "修罗",
-    "DESCRIPTION": "获得 !M! 点 力量 ，回合开始时，失去3点 生命 。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 点 力量 ，回合开始时，失去3点 生命 。 NL 虚无 "
+    "DESCRIPTION": "打出的攻击牌使你回复 !M! 点生命,并获得1层 duofan_kenshi:杀念 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "打出的攻击牌使你回复 !M! 点生命,并获得1层 duofan_kenshi:杀念 。 NL 虚无 "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "静夜思",

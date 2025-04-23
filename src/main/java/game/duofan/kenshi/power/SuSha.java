@@ -140,6 +140,9 @@ public class SuSha extends AbstractPower {
                 waitToCheckDieMonsters.remove(i);
             }
         }
+        if(killCount > 0){
+            flash();
+        }
         while (killCount > 0) {
             ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
             AbstractPlayer p = AbstractDungeon.player;
