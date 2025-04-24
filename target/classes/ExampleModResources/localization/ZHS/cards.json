@@ -53,7 +53,7 @@
     "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害。 NL 每 斩杀 一个敌人，受到 !M! 点伤害。"
   },
   "game.duofan.kenshi:XiuLuo_Card": {
-    "NAME": "修罗",
+    "NAME": "修罗之道",
     "DESCRIPTION": "打出的攻击牌使你回复 !M! 点生命,并获得1层 duofan_kenshi:杀念 。 NL 虚无 ",
     "UPGRADE_DESCRIPTION": "打出的攻击牌使你回复 !M! 点生命,并获得1层 duofan_kenshi:杀念 。 NL 虚无 "
   },
