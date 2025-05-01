@@ -1,6 +1,7 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.unique.LoseEnergyAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -72,6 +73,7 @@ public class PaiXian extends AbstractPower {
             AbstractMonster m = monsters.get(i);
             if (Utils.isIntentAttack(m)) {
                 Utils.playerGainBlock(amount);
+                addToBot(new DrawCardAction(1));
                 this.addToBot(new LoseEnergyAction(loseAmount));
                 flash();
                 break;

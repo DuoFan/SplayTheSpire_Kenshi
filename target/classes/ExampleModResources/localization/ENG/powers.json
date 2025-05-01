@@ -6,9 +6,9 @@
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
-    "NAME": "Attack And Evade",
+    "NAME": "Deflection",
     "DESCRIPTIONS": [
-      "Gain #b%d #yvigor When you deal unblocked damage. NL Gain #b%d #yBlock When you lose HP."
+      "Gain #b%d #yBlock When you will be Non-BeatOfDeath damage."
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
@@ -45,17 +45,7 @@
   "game.duofan.kenshi:XiuLuo": {
     "NAME": "Shura",
     "DESCRIPTIONS": [
-      "At the start of your turn, lose %b%d HP."
-    ]
-  },
-  "game.duofan.kenshi:ShaNian": {
-    "NAME": "Killing",
-    "DESCRIPTIONS": [
-      "level 5: #yExhaust all Non-Attack from your deck.",
-      "level 10:Gain #b2 #yStrength .",
-      "level 15:Take an extra turn after this one,die next turn.",
-      "Die next turn.",
-      "Die this turn."
+      "Whenever you played Attack, add #b%d duplicate into your drawpile. NL Whenever you drawn Attack,gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:JingYeSi": {

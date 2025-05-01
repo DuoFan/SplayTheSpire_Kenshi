@@ -1,7 +1,6 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -10,10 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.*;
-import game.duofan.kenshi.action.DrawCardByFilterAction;
 
 public class XiuLuo extends AbstractPower {
 
@@ -25,7 +21,7 @@ public class XiuLuo extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    int shaNianGive;
+    int duplicateGive;
 
     public XiuLuo(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -35,7 +31,7 @@ public class XiuLuo extends AbstractPower {
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = amount;
-        shaNianGive = 1;
+        duplicateGive = 1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -46,7 +42,8 @@ public class XiuLuo extends AbstractPower {
     @Override
     public void stackPower(int stackAmount) {
         super.stackPower(stackAmount);
-        shaNianGive++;
+        duplicateGive++;
+        updateDescription();
     }
 
     @Override
@@ -54,8 +51,17 @@ public class XiuLuo extends AbstractPower {
         super.onAfterUseCard(card, action);
         if (card.type == AbstractCard.CardType.ATTACK) {
             flash();
-            Utils.gainHeal(AbstractDungeon.player, amount);
-            Utils.playerGainPower(new ShaNian(AbstractDungeon.player, 1));
+            AbstractCard d = card.makeStatEquivalentCopy();
+            Utils.makeTempCardInDrawPileAction(card, duplicateGive, true, true);
+        }
+    }
+
+    @Override
+    public void onCardDraw(AbstractCard card) {
+        super.onCardDraw(card);
+        if (card.type == AbstractCard.CardType.ATTACK) {
+            flash();
+            Utils.playerGainBlock(amount);
         }
     }
 
@@ -66,6 +72,6 @@ public class XiuLuo extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = String.format(DESCRIPTIONS[0], this.amount, shaNianGive);
+        this.description = String.format(DESCRIPTIONS[0], duplicateGive, this.amount);
     }
 }

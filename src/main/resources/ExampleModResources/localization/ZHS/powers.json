@@ -6,9 +6,9 @@
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
-    "NAME": "攻伐闪转",
+    "NAME": "闪转偏折",
     "DESCRIPTIONS": [
-      "每次造成未被格挡的伤害时，获得 #b%d 点 #y活力 ，受到伤害时，获得 #b%d 点 #y格挡 。"
+      "每当即将受到非律动伤害时，获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
@@ -37,7 +37,7 @@
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
-    "NAME": "斩阎罗",
+    "NAME": "诛侯",
     "DESCRIPTIONS": [
       "斩杀 #y[NAME] ，以获得 #y义旗 。"
     ]
@@ -45,17 +45,7 @@
   "game.duofan.kenshi:XiuLuo": {
     "NAME": "修罗",
     "DESCRIPTIONS": [
-      "打出的攻击牌使你回复 #b%d 点生命 ，并获得 #b%d 层 #y杀念 。"
-    ]
-  },
-  "game.duofan.kenshi:ShaNian": {
-    "NAME": "杀念",
-    "DESCRIPTIONS": [
-      "累积5层:消耗牌组中所有非攻击牌。",
-      "累积10层:获得 #b2 点 #y力量 。",
-      "累积15层:回合结束将获得一个额外的回合，并在下一个回合结束时死亡。",
-      "你将在下一个回合结束时死亡。",
-      "你将在本回合结束时死亡。"
+      "将打出攻击牌的 #b%d 张复制加入抽牌堆，抽取的每张攻击牌使你获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:JingYeSi": {

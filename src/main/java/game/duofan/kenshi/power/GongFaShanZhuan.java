@@ -3,6 +3,7 @@ package game.duofan.kenshi.power;
 import basemod.interfaces.OnPlayerDamagedSubscriber;
 import basemod.patches.com.megacrit.cardcrawl.characters.AbstractPlayer.OnPlayerDamagedHook;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -26,6 +27,7 @@ public class GongFaShanZhuan extends AbstractPower {
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
+    public boolean isPlayerTurn;
 
     public GongFaShanZhuan(AbstractCreature owner, int amount) {
         this.name = NAME;
@@ -40,6 +42,8 @@ public class GongFaShanZhuan extends AbstractPower {
         String path48 = "ExampleModResources/img/powers/Example32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
+
+        isPlayerTurn = true;
     }
 
     public void updateDescription() {
@@ -53,20 +57,14 @@ public class GongFaShanZhuan extends AbstractPower {
     }
 
     @Override
-    public void onUseCard(AbstractCard card, UseCardAction action) {
-        super.onUseCard(card, action);
-        if (action.target instanceof AbstractMonster) {
-            Utils.addToBotAbstract(() -> {
-                if (action.target.lastDamageTaken > 0) {
-                    Utils.playerGainPower(new VigorPower(AbstractDungeon.player, amount));
-                }
-            });
-        }
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        isPlayerTurn = owner.equals(AbstractDungeon.player);
     }
 
     @Override
-    public int onLoseHp(int damageAmount) {
-        Utils.playerGainBlockTop(amount);
-        return super.onLoseHp(damageAmount);
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        isPlayerTurn = !isPlayer;
     }
 }

@@ -25,7 +25,7 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(FZL_WanYeBai.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/fZL/wanYeBai_attack.png";
     private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = AbstractCard.CardType.ATTACK;

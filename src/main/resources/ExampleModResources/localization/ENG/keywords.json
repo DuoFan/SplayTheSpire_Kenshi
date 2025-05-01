@@ -13,12 +13,6 @@
   },
   {
     "NAMES": [
-      "killing"
-    ],
-    "DESCRIPTION": "level 5: #yExhaust all Non-Attack from your deck. NL level 10:Gain #b2 #yStrength . NL level 15:Take an extra turn after this one,die next turn."
-  },
-  {
-    "NAMES": [
       "wither"
     ],
     "DESCRIPTION": "Make it death when hp lower than #b10% of max hp. NL Each extra level, increases the number #b2% (Boss)/ #b5% (Normal)/ #b20% (Minion)."

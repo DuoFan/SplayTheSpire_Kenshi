@@ -20,9 +20,9 @@
     "UPGRADE_DESCRIPTION": "This turn，your next Attack is played twice. NL Exhaust "
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
-    "NAME": "Attack And Evade",
-    "DESCRIPTION": "Gain !M! vigor When you deal unblocked damage. NL Gain !M! Block When you lose HP.",
-    "UPGRADE_DESCRIPTION": "Gain !M! vigor When you deal unblocked damage. NL Gain !M! Block When you lose HP."
+    "NAME": "Deflection",
+    "DESCRIPTION": "Gain !M! Block When you will be Non-BeatOfDeath damage.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Block When you will be Non-BeatOfDeath damage."
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "Mind Follows Will",
@@ -53,9 +53,9 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage to All enemies. NL Each Fatal give you !M! damage."
   },
   "game.duofan.kenshi:XiuLuo_Card": {
-    "NAME": "Road To Shura",
-    "DESCRIPTION": "Whenever you played Attack, Heal !M! HP and gain 1 duofan_kenshi:killing. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Whenever you played Attack, Heal !M! HP and gain 1 duofan_kenshi:killing. NL Ethereal "
+    "NAME": "Shura",
+    "DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal "
   },
   "game.duofan.kenshi:JingYeSi_Card": {
     "NAME": "Night Thoughts",
@@ -100,7 +100,7 @@
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
     "DESCRIPTION": "Deal !D! damage, Apply !M! Weak. NL duofan_kenshi:leave :Draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, Apply !M! Weak. NL duofan_kenshi :leave:Draw 1 card."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage, Apply !M! Weak. NL duofan_kenshi:leave :Draw 1 card."
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "Wind Burst",
@@ -137,8 +137,8 @@
   },
   "game.duofan.kenshi:FZL_QiuYeLianJian": {
     "NAME": "Practise Sword",
-    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by 2 this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by 2 this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave : Exhaust and add *Superb *Sword *Moves into your hand."
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
     "NAME": "Superb Sword Moves",

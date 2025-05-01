@@ -334,11 +334,13 @@ public class Utils {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(o, amount));
     }
 
-    public static void gainBlockTop(AbstractCreature o, int amount) {
+    public static GainBlockAction gainBlockTop(AbstractCreature o, int amount) {
         if (o == null) {
-            return;
+            return null;
         }
-        AbstractDungeon.actionManager.addToTop(new GainBlockAction(o, amount));
+        GainBlockAction a = new GainBlockAction(o, amount);
+        AbstractDungeon.actionManager.addToTop(a);
+        return a;
     }
 
     public static void gainHeal(AbstractCreature o, int amount) {
@@ -412,9 +414,9 @@ public class Utils {
         gainBlock(p, amount);
     }
 
-    public static void playerGainBlockTop(int amount) {
+    public static GainBlockAction playerGainBlockTop(int amount) {
         AbstractPlayer p = AbstractDungeon.player;
-        gainBlockTop(p, amount);
+        return gainBlockTop(p, amount);
     }
 
     public static void playerGainQi(int amount) {
