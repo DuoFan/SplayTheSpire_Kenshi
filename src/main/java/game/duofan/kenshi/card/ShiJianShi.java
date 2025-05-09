@@ -40,7 +40,6 @@ public class ShiJianShi extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }
@@ -65,6 +64,5 @@ public class ShiJianShi extends CustomCard {
                 addToTop(new SFXAction("STANCE_ENTER_DIVINITY"));
             }
         }, 1));
-        Utils.givePower(p, m, new VulnerablePower(m, 1, false));
     }
 }

@@ -31,17 +31,15 @@ public class YangGong extends CustomCard {
     public YangGong() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 7;
-        magicNumber = baseMagicNumber = 3;
-        selfRetain = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            selfRetain = true;
         }
     }
 
@@ -54,7 +52,6 @@ public class YangGong extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p,m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        Utils.gainPower(p, new VigorPower(p, magicNumber));
         Utils.playerDrawCardByFilterAction(1, c -> c.type == AbstractCard.CardType.ATTACK);
     }
 }

@@ -37,7 +37,7 @@ public class DrawCardByFilterAction extends AbstractGameAction {
 
         if (g.isEmpty()) {
             this.isDone = true;
-            if (g == p.drawPile) {
+            if (g == p.drawPile && !p.discardPile.isEmpty()) {
                 DrawCardByFilterAction a = new DrawCardByFilterAction(amount, filter);
                 a.setDoCard(doCard);
                 addToTop(a);

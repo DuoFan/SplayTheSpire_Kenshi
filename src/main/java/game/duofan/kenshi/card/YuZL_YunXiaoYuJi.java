@@ -26,14 +26,14 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_YunXiaoYuJi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 6;
+        block = baseBlock = 9;
         this.magicNumber = this.baseMagicNumber = 3;
         this.cardsToPreview = new XZL_CaiCheQuMing(true);
     }
 
     public YuZL_YunXiaoYuJi(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 6;
+        block = baseBlock = 9;
         this.magicNumber = this.baseMagicNumber = 3;
     }
 
@@ -44,6 +44,9 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
             this.upgradeBlock(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            if(cardsToPreview != null){
+                cardsToPreview.upgrade();
+            }
         }
     }
 
@@ -61,8 +64,6 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
             Utils.playerReduceQiTop(1);
         }
         Utils.playerGainBlock(_block);
-        AbstractCard c = new XZL_CaiCheQuMing();
-        Utils.makeTempCardInHand(c, 1);
     }
 
     @Override
@@ -77,7 +78,11 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        addToBot(new DrawCardByClassAction(1, IXiaZhiLiuCard.class));
+        AbstractCard c = new XZL_CaiCheQuMing();
+        if(upgraded){
+            c.upgrade();
+        }
+        Utils.makeTempCardInHand(c, 1);
     }
 
     @Override

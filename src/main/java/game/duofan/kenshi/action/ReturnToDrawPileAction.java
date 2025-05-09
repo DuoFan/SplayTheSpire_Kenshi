@@ -29,8 +29,6 @@ public class ReturnToDrawPileAction extends AbstractGameAction {
             return;
         }
 
-        System.out.println("--------------试图将" + card.name + "放回抽牌堆");
-
         AbstractPlayer p = AbstractDungeon.player;
         if (p == null) {
             return;
@@ -57,8 +55,6 @@ public class ReturnToDrawPileAction extends AbstractGameAction {
         }
 
         g.moveToDeck(card, true);
-
-        System.out.println("--------------将" + card.name + "放回抽牌堆成功");
     }
 
 }

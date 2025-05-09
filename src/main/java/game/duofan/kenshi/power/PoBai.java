@@ -74,8 +74,7 @@ public class PoBai extends AbstractPower {
             int multple = 5;
             if (m.type == AbstractMonster.EnemyType.BOSS) {
                 multple = 2;
-            }
-            else if(m.hasPower("Minion")){
+            } else if (m.hasPower("Minion")) {
                 multple = 20;
             }
 

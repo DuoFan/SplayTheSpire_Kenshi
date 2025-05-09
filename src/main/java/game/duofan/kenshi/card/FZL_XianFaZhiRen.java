@@ -91,8 +91,8 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
             this.rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
             initializeDescription();
         }
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu();
+        /*exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu();*/
     }
 
     @Override
@@ -103,12 +103,12 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
             Utils.givePower(p, targetMonster, new VulnerablePower(targetMonster, magicNumber, false));
         }
 
-        if (!exhaustOnUseOnce) {
+        /*if (!exhaustOnUseOnce) {
             exhaustOnUseOnce = true;
             addToBot(new ExhaustSpecificCardAction(this, p.hand));
             addToBot(new ExhaustSpecificCardAction(this, p.drawPile));
             addToBot(new ExhaustSpecificCardAction(this, p.discardPile));
-        }
+        }*/
     }
 
     @Override

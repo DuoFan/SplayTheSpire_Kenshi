@@ -12,6 +12,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.VerticalImpactEffect;
@@ -37,7 +39,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_YaZhi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
+        this.damage = this.baseDamage = 11;
         magicNumber = baseMagicNumber = 1;
     }
 
@@ -45,7 +47,7 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeMagicNumber(1);
+            upgradeDamage(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -62,13 +64,14 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
         if (m != null) {
             this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
         }
-        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        Utils.givePower(p, m, new WeakPower(m, magicNumber, false));
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+        Utils.givePower(p, p, new StrengthPower(p, -magicNumber));
+        Utils.givePower(p, p, new GainStrengthPower(p, magicNumber));
     }
 
     @Override
     public void fengZhiLiuEffect() {
-        addToBot(new DrawCardAction(1));
+        addToBot(new DrawCardAction(magicNumber));
     }
 
     @Override

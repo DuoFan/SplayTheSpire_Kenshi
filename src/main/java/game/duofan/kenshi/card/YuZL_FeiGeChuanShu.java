@@ -25,6 +25,8 @@ public class YuZL_FeiGeChuanShu extends CustomCard implements IYuZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    FeiGeChuanShuAction a;
+
     public YuZL_FeiGeChuanShu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         exhaust = true;
@@ -50,12 +52,16 @@ public class YuZL_FeiGeChuanShu extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new FeiGeChuanShuAction(magicNumber));
+        a = new FeiGeChuanShuAction(magicNumber);
+        addToBot(a);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainBlock(block);
+        if(a != null){
+            a.drawImmediately = true;
+            a = null;
+        }
     }
 
     @Override
@@ -76,6 +82,6 @@ public class YuZL_FeiGeChuanShu extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public boolean isInvokeLiuEffectToTop() {
-        return false;
+        return true;
     }
 }

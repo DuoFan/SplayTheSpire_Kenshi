@@ -47,15 +47,14 @@ public class FZL_SuSha extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_SuSha() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
         exhaust = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
-            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级
+            exhaust = false;
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -81,20 +80,21 @@ public class FZL_SuSha extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
         addToBot(new SuShaAction(this));
-        Utils.addToBotAbstract(() -> {
+        /*Utils.addToBotAbstract(() -> {
             if (targetCard != null) {
                 Utils.playerGainPowerTop(new SuSha(p, targetCard, magicNumber));
             }
-        });
+        });*/
         this.addToBot(new SFXAction("ATTACK_FIRE"));
         this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.RED, p.hb.cX, p.hb.cY), 0.33F));
     }
 
     @Override
     public void fengZhiLiuEffect() {
-        if (targetMonster != null) {
+        Utils.playerGainPower(new PoBaiGongJi(AbstractDungeon.player, 1));
+        /*if (targetMonster != null) {
             Utils.givePower(AbstractDungeon.player, targetMonster, new VulnerablePower(targetMonster, 1, false));
-        }
+        }*/
     }
 
     @Override

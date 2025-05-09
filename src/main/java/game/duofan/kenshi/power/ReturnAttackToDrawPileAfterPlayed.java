@@ -2,7 +2,6 @@ package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -13,14 +12,11 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
-import game.duofan.common.Utils;
-import game.duofan.kenshi.action.ReturnToDrawPileAction;
 
-public class ReturnToDrawPileAfterPlayed extends AbstractPower {
-    static String tip = " NL 附加效果:将这张牌放回抽牌堆。";
-    static int idIndex;
+import java.util.ArrayList;
 
-    static final String ORIGIN_POWER_ID = IDManager.getInstance().getID(ReturnToDrawPileAfterPlayed.class);
+public class ReturnAttackToDrawPileAfterPlayed extends AbstractPower {
+    static final String ORIGIN_POWER_ID = IDManager.getInstance().getID(ReturnAttackToDrawPileAfterPlayed.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(ORIGIN_POWER_ID);
     // 能力的名称
@@ -28,16 +24,13 @@ public class ReturnToDrawPileAfterPlayed extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    AbstractCard targetCard;
+    ArrayList<AbstractCard> cards;
 
-    boolean isHaventBack;
-
-    public ReturnToDrawPileAfterPlayed(AbstractCreature owner, AbstractCard targetCard) {
+    public ReturnAttackToDrawPileAfterPlayed(AbstractCreature owner) {
         this.name = NAME;
-        this.ID = ORIGIN_POWER_ID + idIndex++;
+        this.ID = ORIGIN_POWER_ID;
         this.type = PowerType.BUFF;
         this.owner = owner;
-        this.targetCard = targetCard;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
         this.amount = -1;
@@ -52,18 +45,22 @@ public class ReturnToDrawPileAfterPlayed extends AbstractPower {
     public void onInitialApplication() {
         super.onInitialApplication();
         updateDescription();
+    }
 
-        if(!targetCard.shuffleBackIntoDrawPile){
-            isHaventBack = true;
-            targetCard.shuffleBackIntoDrawPile = true;
-            targetCard.rawDescription += tip;
-            targetCard.initializeDescription();
+    @Override
+    public void onPlayCard(AbstractCard card, AbstractMonster m) {
+        super.onPlayCard(card, m);
+        if(card.type == AbstractCard.CardType.ATTACK && !card.shuffleBackIntoDrawPile){
+            card.shuffleBackIntoDrawPile = true;
+            if(cards == null){
+                cards = new ArrayList<>();
+            }
+            cards.add(card);
         }
     }
 
     public void updateDescription() {
         String description = DESCRIPTIONS[0];
-        description = description.replace("[NAME]", targetCard.name);
         this.description = description;
     }
 
@@ -71,12 +68,14 @@ public class ReturnToDrawPileAfterPlayed extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
 
-        if(isHaventBack && targetCard != null){
-            targetCard.shuffleBackIntoDrawPile = false;
-            targetCard.rawDescription = targetCard.rawDescription.replace(tip,"");
-            targetCard.initializeDescription();
+        if(cards != null){
+            for (int i = 0; i < cards.size(); i++) {
+                cards.get(i).shuffleBackIntoDrawPile = false;
+            }
+            cards.clear();
+            cards = null;
         }
-
+        
         AbstractPlayer p = AbstractDungeon.player;
         addToTop(new RemoveSpecificPowerAction(p, p, ID));
     }

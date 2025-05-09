@@ -66,13 +66,18 @@ public class LianHuan extends AbstractPower implements IEventListener {
             if (m.hasPower(RongRong.POWER_ID)) {
                 damage += m.getPower(RongRong.POWER_ID).amount;
             }
-            Utils.giveBaoYanDamage(info.owner, m, damage, DamageInfo.DamageType.HP_LOSS);
+            Utils.giveBaoYanDamage(info.owner, m, damage, DamageInfo.DamageType.NORMAL);
         }
     }
 
-
     void dispose() {
         EventManager.getInstance().unregisterFromEvent(EventKey.ON_BAO_YAN_DAMAGE, this);
+    }
+
+    @Override
+    public void onRemove() {
+        super.onRemove();
+        dispose();
     }
 
     @Override

@@ -23,9 +23,9 @@ public class QianBianWanHua extends CustomCard {
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
 
     public QianBianWanHua() {
-
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 3;
+        exhaust = true;
     }
 
     @Override

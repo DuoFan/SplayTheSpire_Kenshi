@@ -29,12 +29,11 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    static int _baseDamage = 8;
+    static int _baseDamage = 6;
 
     public YangZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
-        magicNumber = baseMagicNumber = 1;
         BaoYanCardManager.getInstance().addCard(this);
         cardsToPreview = new YinZhiRen(true);
     }
@@ -42,7 +41,6 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     public YangZhiRen(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
-        magicNumber = baseMagicNumber = 1;
         BaoYanCardManager.getInstance().addCard(this);
     }
 
@@ -69,7 +67,6 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
-        Utils.givePower(p, m, new RongRong(m, magicNumber));
         Utils.playerDrawCardByClass(1, YinZhiRen.class);
     }
 

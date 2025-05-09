@@ -34,7 +34,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_QiuYeLianJian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 9;
         magicNumber = baseMagicNumber = 2;
         cardsToPreview = new XiaoChenJianFa();
     }
@@ -59,8 +59,6 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
         addToBot(new QiuYeLianJianAction(this, magicNumber));
-        exhaustOnUseOnce = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu();
     }
 
     @Override
@@ -68,12 +66,6 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
         AbstractPlayer p = AbstractDungeon.player;
         XiaoChenJianFa xiaoChenJianFa = new XiaoChenJianFa(baseDamage);
         Utils.makeTempCardInHand(xiaoChenJianFa, 1);
-        if (!exhaustOnUseOnce) {
-            exhaustOnUseOnce = true;
-            addToBot(new ExhaustSpecificCardAction(this, p.hand));
-            addToBot(new ExhaustSpecificCardAction(this, p.drawPile));
-            addToBot(new ExhaustSpecificCardAction(this, p.discardPile));
-        }
     }
 
     @Override

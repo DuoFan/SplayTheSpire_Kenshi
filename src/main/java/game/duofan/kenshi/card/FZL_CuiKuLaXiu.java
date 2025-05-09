@@ -36,7 +36,7 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_CuiKuLaXiu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
+        this.damage = this.baseDamage = 6;
         this.block = this.baseBlock = 10;
         magicNumber = baseMagicNumber = 1;
     }

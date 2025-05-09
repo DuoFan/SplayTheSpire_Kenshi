@@ -50,6 +50,6 @@ public class YanZhiLiu extends AbstractPower {
     @Override
     public void onRemove() {
         super.onRemove();
-        Utils.giveAllMonsterBaoYanDamage(1, DamageInfo.DamageType.HP_LOSS);
+        Utils.giveAllMonsterBaoYanDamage(1, DamageInfo.DamageType.NORMAL);
     }
 }

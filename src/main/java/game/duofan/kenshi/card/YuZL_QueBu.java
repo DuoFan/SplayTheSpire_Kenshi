@@ -30,14 +30,14 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
     public YuZL_QueBu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 15;
-        block = baseBlock = 9;
+        block = baseBlock = 8;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBlock(4);
+            upgradeBlock(3);
             upgradeMagicNumber(5);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
@@ -57,13 +57,14 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
+        /*AbstractPlayer p = AbstractDungeon.player;
         if (p == null) {
             return;
         }
         if (p.currentBlock < magicNumber) {
             Utils.playerGainPower(new DexterityPower(p, 1));
-        }
+        }*/
+        Utils.playerDrawCardByFilterAction(1,null);
     }
 
     @Override
@@ -78,9 +79,9 @@ public class YuZL_QueBu extends CustomCard implements IYuZhiLiuCard {
             if(p == null){
                 return;
             }
-            if(p.currentBlock + block >= magicNumber){
+            /*if(p.currentBlock + block >= magicNumber){
                 return;
-            }
+            }*/
 
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }

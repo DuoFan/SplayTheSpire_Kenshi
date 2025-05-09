@@ -2,7 +2,7 @@
   "game.duofan.kenshi:YiJianHuiYou": {
     "NAME": "以剑会友",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 张攻击牌  会打出 #b2 次。"
+      "本回合下 #b1 张攻击牌  会打出 #b%d 次。"
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
@@ -24,7 +24,7 @@
     ]
   },
   "game.duofan.kenshi:YeBuPower": {
-    "NAME": "夜步",
+    "NAME": "踏雪寻梅",
     "DESCRIPTIONS": [
       "本回合下一张攻击牌造成的伤害增加 #b%d%%。"
     ]
@@ -37,7 +37,7 @@
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
-    "NAME": "斩阎罗",
+    "NAME": "诛侯",
     "DESCRIPTIONS": [
       "斩杀 #y[NAME] ，以获得 #y义旗 。"
     ]
@@ -142,31 +142,38 @@
   "game.duofan.kenshi:PaiXian": {
     "NAME": "排险",
     "DESCRIPTIONS": [
-      "回合开始时 ，若存在意图为攻击的敌人，获得 #b%d 点格挡并失去 #b%d [E] 。"
+      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点格挡并失去 #b%d [E] 。"
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
     "NAME": "击水三千",
     "DESCRIPTIONS": [
-      "本回合 #y[NAME] 造成的未被 #y格挡 的伤害将获得等量 #y格挡 。"
+      "本回合攻击牌造成的未被 #y格挡 的伤害将获得等量 #y格挡 。"
     ]
   },
-  "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
+  "game.duofan.kenshi:ReturnAttackToDrawPileAfterPlayed": {
     "NAME": "打出后返回",
     "DESCRIPTIONS": [
-      "本回合打出 #y[NAME] 后，将其放回抽牌堆 。"
+      "本回合打出攻击牌后，将其放回抽牌堆 。"
+    ]
+  },
+  "game.duofan.kenshi:FeiGeChuanShu": {
+    "NAME": "飞鸽传书",
+    "DESCRIPTIONS": [
+      "回合开始时，从抽牌堆抽取 #y[NAME1] 。",
+      "回合开始时，从抽牌堆抽取 #y[NAME1] 和 #y[NAME2] 。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
-      "防止受到的伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
+      "防止受到的伤害并 #y消耗 #b%d 张卡牌。 NL 牌库不足 #b10 张时，移除该能力。"
     ]
   },
   "game.duofan.kenshi:BuSiNiaoPlus": {
     "NAME": "不死鸟+",
     "DESCRIPTIONS": [
-      "防止受到的致命伤害并 #y消耗 #b%d 张卡牌(优先消耗 #y不死鸟之羽 )。"
+      "防止受到的致命伤害并 #y消耗 #b%d 张卡牌。 NL 牌库不足 #b10 张时，移除该能力。"
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
@@ -184,7 +191,7 @@
   "game.duofan.kenshi:ChunYangJianYi": {
     "NAME": "纯阳剑意",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 张攻击牌 先给予 #b2 层 #y熔融 ，后造成 #y爆炎伤害 。"
+      "本回合下 #b%d 张攻击牌 先给予 #b1 层 #y熔融 ，后造成 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:LianHuan": {

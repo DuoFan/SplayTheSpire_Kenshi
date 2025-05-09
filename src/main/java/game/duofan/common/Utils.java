@@ -91,9 +91,6 @@ public class Utils {
     }
 
     public static void liuPowerOnUseCard(AbstractCard card) {
-
-        System.out.println("-------------------AA");
-
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
 
         if (liu != Liu_StateMachine.StateEnum.None) {
@@ -724,6 +721,18 @@ public class Utils {
         for (int i = 0; i < cards.size(); i++) {
             AbstractCard c = cards.get(i);
             if (c.type == AbstractCard.CardType.ATTACK) {
+                d++;
+            }
+        }
+        return d;
+    }
+
+    public static int stasticsCardPlayedInTurn(ICardFilter f) {
+        ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisTurn;
+        int d = 0;
+        for (int i = 0; i < cards.size(); i++) {
+            AbstractCard c = cards.get(i);
+            if(f == null || f.filter(c)){
                 d++;
             }
         }

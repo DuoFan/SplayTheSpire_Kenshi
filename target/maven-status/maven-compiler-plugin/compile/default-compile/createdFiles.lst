@@ -117,12 +117,14 @@ game\duofan\kenshi\power\Liu_StateMachine$FengZhiLiu_State.class
 game\duofan\kenshi\card\GaiTouHuanMian.class
 game\duofan\kenshi\power\YuZhiLiu.class
 game\duofan\kenshi\card\ZhanYanLuo_Card.class
+game\duofan\kenshi\power\FeiGeChuanShu.class
 game\duofan\kenshi\power\IRecoverCard.class
 game\duofan\kenshi\card\JingYeSi_Card.class
 game\duofan\kenshi\power\HuoYuJingShi.class
 game\duofan\kenshi\card\XingJianLi_Card.class
 game\duofan\common\IEventListener.class
 game\duofan\kenshi\KenShi$3.class
+game\duofan\kenshi\power\ReturnAttackToDrawPileAfterPlayed.class
 game\duofan\kenshi\card\YuZL_WeiYuChouMo.class
 game\duofan\kenshi\action\ReturnToDrawPileAction.class
 game\duofan\kenshi\variable\ITargetMonsterGetter.class
@@ -159,6 +161,7 @@ game\duofan\kenshi\card\XZL_ShuangJi.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches.class
 game\duofan\kenshi\KenShi$CharacterEnum.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
+game\duofan\kenshi\power\JiShuiSanQian$JiShuiSanQianExecutor.class
 game\duofan\kenshi\power\RongRong.class
 game\duofan\kenshi\card\TaYin.class
 game\duofan\kenshi\KenShi$LibraryEnum.class
@@ -188,6 +191,7 @@ game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\TuoTaiHuanGuAction.class
 game\duofan\kenshi\power\FanShi.class
 game\duofan\kenshi\card\XiuLuo_Card.class
+game\duofan\kenshi\action\LieFengZhanAction.class
 game\duofan\kenshi\patch\Theme_ChallengerPatch.class
 game\duofan\kenshi\card\YinZhiRen.class
 game\duofan\kenshi\power\WuBianLuoMu.class
@@ -211,7 +215,6 @@ game\duofan\kenshi\action\QiuYeLianJianAction.class
 game\duofan\kenshi\power\IYuZhiLiuCard.class
 game\duofan\kenshi\power\FuFeng.class
 game\duofan\kenshi\card\YanZL_LieHuoChang.class
-game\duofan\kenshi\power\ReturnToDrawPileAfterPlayed.class
 game\duofan\kenshi\action\JuGouAction.class
 game\duofan\common\AudioKey.class
 game\duofan\kenshi\power\JingYeSi.class

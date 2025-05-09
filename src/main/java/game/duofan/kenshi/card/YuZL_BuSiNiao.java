@@ -3,6 +3,7 @@ package game.duofan.kenshi.card;
 import basemod.abstracts.CustomCard;
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -31,7 +32,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     public YuZL_BuSiNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
-        magicNumber = baseMagicNumber = 4;
+        magicNumber = baseMagicNumber = 3;
         cardsToPreview = new BuSiNiaoZhiYu();
     }
 
@@ -53,11 +54,10 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
 
-        if(!upgraded){
-            Utils.playerGainPower(new BuSiNiao(p, magicNumber, 10));
-        }
-        else{
-            Utils.playerGainPower(new BuSiNiaoPlus(p, magicNumber, 10));
+        if (!upgraded) {
+            Utils.playerGainPower(new BuSiNiao(p, magicNumber));
+        } else {
+            Utils.playerGainPower(new BuSiNiaoPlus(p, magicNumber));
         }
     }
 
@@ -73,7 +73,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        addToTop(new MakeTempCardInDiscardAction(new BuSiNiaoZhiYu(), 2));
+        addToTop(new MakeTempCardInDrawPileAction(new BuSiNiaoZhiYu(), 2, true, true));
     }
 
     @Override

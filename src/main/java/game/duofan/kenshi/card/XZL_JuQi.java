@@ -56,7 +56,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainQi(2);
+        Utils.playerGainQi(1);
         addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
         this.addToBot(new VFXAction(new BorderFlashEffect(Color.WHITE, true)));
         this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.LIME, "CARD_DRAW_8"), 1.0F));

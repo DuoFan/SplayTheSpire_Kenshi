@@ -36,7 +36,6 @@ public class YanZL_YanJie extends CustomCard implements IYanZhiLiuCard {
 
     public YanZL_YanJie() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
         damage = baseDamage = 3;
         BaoYanCardManager.getInstance().addCard(this);
     }

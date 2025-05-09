@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.action.TuoTaiHuanGuAction;
 
 public class TuoTaiHuanGu extends CustomCard {
@@ -15,7 +16,7 @@ public class TuoTaiHuanGu extends CustomCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 3;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -24,7 +25,6 @@ public class TuoTaiHuanGu extends CustomCard {
 
     public TuoTaiHuanGu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        exhaust = true;
         magicNumber = baseMagicNumber = 1;
     }
 
@@ -32,7 +32,6 @@ public class TuoTaiHuanGu extends CustomCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -47,5 +46,8 @@ public class TuoTaiHuanGu extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         addToBot(new TuoTaiHuanGuAction(magicNumber));
+        if(upgraded){
+            Utils.playerGainEnergy(1);
+        }
     }
 }

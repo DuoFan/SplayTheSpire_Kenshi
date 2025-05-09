@@ -48,6 +48,9 @@ public class XZL_CaiCheQuMing extends CustomCard implements IXiaZhiLiuCard {
             this.upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
+            if(cardsToPreview != null){
+                this.cardsToPreview.upgrade();
+            }
         }
     }
 
@@ -64,8 +67,6 @@ public class XZL_CaiCheQuMing extends CustomCard implements IXiaZhiLiuCard {
         this.addToTop(new VFXAction(new BorderFlashEffect(Color.SKY, true), 0.1F));
         Utils.playerGainEnergy(1);
         Utils.playerGainQi(magicNumber);
-        AbstractCard c = new YuZL_YunXiaoYuJi();
-        Utils.makeTempCardInHand(c, 1);
     }
 
     @Override
@@ -80,7 +81,11 @@ public class XZL_CaiCheQuMing extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        addToBot(new DrawCardByClassAction(1, IYuZhiLiuCard.class));
+        AbstractCard c = new YuZL_YunXiaoYuJi();
+        if(upgraded){
+            c.upgrade();
+        }
+        Utils.makeTempCardInHand(c, 1);
     }
 
     @Override

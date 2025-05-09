@@ -36,7 +36,6 @@ public class YanZL_LianHuan extends CustomCard implements IYanZhiLiuCard {
     public YanZL_LianHuan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
-        exhaust = true;
     }
 
     @Override
@@ -61,16 +60,15 @@ public class YanZL_LianHuan extends CustomCard implements IYanZhiLiuCard {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
         for (int i = 0; i < monsters.size(); i++) {
             AbstractMonster monster = monsters.get(i);
-            if (monsters.get(i).hasPower(LianHuan.POWER_ID) && !monster.equals(m)) {
-                Utils.showToast("无法连环更多敌人！");
-                return;
+            if (monster.hasPower(LianHuan.POWER_ID) && !monster.equals(m)) {
+                Utils.removePowerTop(monster, LianHuan.POWER_ID);
             }
         }
 
         addToBot(new SFXAction("ATTACK_FIRE"));
         Color c1 = new Color(1.0F, 1.0F, 0.1F, 1.0F);
-        Utils.addToBotAbstract(()->{
-            for(int i = 0; i < 20; ++i) {
+        Utils.addToBotAbstract(() -> {
+            for (int i = 0; i < 20; ++i) {
                 AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(c1, m.hb.cX, m.hb.cY));
             }
         });

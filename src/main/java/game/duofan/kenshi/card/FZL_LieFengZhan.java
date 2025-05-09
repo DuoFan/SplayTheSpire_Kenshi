@@ -4,22 +4,30 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardQueueItem;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BeatOfDeathPower;
+import com.megacrit.cardcrawl.powers.DoubleTapPower;
+import com.megacrit.cardcrawl.powers.LoseStrengthPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.ICardFilter;
+import game.duofan.kenshi.action.LieFengZhanAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
-public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
+public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard, ICardFilter {
 
     public static final String ID = IDManager.getInstance().getID(FZL_LieFengZhan.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -31,20 +39,19 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
+    public boolean duplicate;
 
     public FZL_LieFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 8;
-        this.damage = this.baseDamage = baseValue;
-        baseMagicNumber = magicNumber = 1;
-        exhaust = true;
+        this.damage = this.baseDamage = 5;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeDamage(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -58,8 +65,16 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+
         Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        Utils.playerGainPower(new StrengthPower(p, magicNumber));
+
+        if (!duplicate) {
+            int playAmount = Utils.stasticsCardPlayedInTurn(this);
+            System.out.println("----------" + playAmount);
+            if (playAmount > 0) {
+                addToBot(new LieFengZhanAction(this, m, playAmount));
+            }
+        }
     }
 
     @Override
@@ -78,7 +93,9 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
         if (p == null) {
             return;
         }
-        this.addToBot(new ApplyPowerAction(p, p, new StrengthPower(p, 1)));
+
+        Utils.playerGainPower(new StrengthPower(p, magicNumber));
+        Utils.playerGainPower(new LoseStrengthPower(p, magicNumber));
     }
 
     @Override
@@ -89,5 +106,10 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
+    }
+
+    @Override
+    public boolean filter(AbstractCard c) {
+        return !c.name.equals(name) && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None;
     }
 }

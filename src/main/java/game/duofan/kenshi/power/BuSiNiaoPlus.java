@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -29,7 +30,7 @@ public class BuSiNiaoPlus extends AbstractPower {
 
     int exhaustAmount;
 
-    public BuSiNiaoPlus(AbstractCreature owner, int exhaustAmount, int amount) {
+    public BuSiNiaoPlus(AbstractCreature owner, int exhaustAmount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
@@ -38,7 +39,7 @@ public class BuSiNiaoPlus extends AbstractPower {
         this.exhaustAmount = exhaustAmount;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = -1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -56,15 +57,16 @@ public class BuSiNiaoPlus extends AbstractPower {
     @Override
     public int onLoseHp(int damageAmount) {
 
-        if (amount <= 0) {
-            return damageAmount;
-        }
-
         if (damageAmount <= 0) {
             return damageAmount;
         }
 
         if (damageAmount >= owner.currentHealth) {
+
+            Utils.addToTopAbstract(() ->{
+                checkRemove();
+            });
+
             exhaustCards();
             useAmount();
             return 0;
@@ -126,13 +128,20 @@ public class BuSiNiaoPlus extends AbstractPower {
         return exhaustIndex;
     }
 
+    void checkRemove(){
+        AbstractPlayer p = AbstractDungeon.player;
+        int cardAmount = p.drawPile.size();
+        cardAmount += p.discardPile.size();
+        cardAmount += p.hand.size();
+
+        if(cardAmount < 10){
+            Utils.playRemovePowerTop(POWER_ID);
+        }
+    }
+
     void useAmount() {
-        amount--;
         flash();
         this.addToTop(new SFXAction("ATTACK_FIRE"));
         this.addToTop(new VFXAction(AbstractDungeon.player, new BorderLongFlashEffect(Color.SCARLET), 0.0F, true));
-        if (amount <= 0) {
-            Utils.playRemovePowerTop(POWER_ID);
-        }
     }
 }

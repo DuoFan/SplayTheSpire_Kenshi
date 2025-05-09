@@ -30,6 +30,11 @@ public class GongFaShanZhuanPatch {
 
     @SpireInsertPatch(rloc = 80 - 65)
     public static SpireReturn Patch(DamageAction __instance,DamageInfo ___info) {
+
+        if(__instance == null || ___info == null){
+            return SpireReturn.Continue();
+        }
+
         if(___info.type == DamageInfo.DamageType.HP_LOSS || __instance == _lastInstance){
             return SpireReturn.Continue();
         }

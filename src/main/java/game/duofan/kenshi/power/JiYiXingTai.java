@@ -62,8 +62,10 @@ public class JiYiXingTai extends AbstractPower implements IDoCard {
     public void DoCard(AbstractCard card) {
         if (!card.exhaust && !card.exhaustOnUseOnce) {
             card.exhaustOnUseOnce = true;
-            card.rawDescription += " NL 消耗 ";
-            card.initializeDescription();
+            if(!card.rawDescription.contains(" NL 消耗 ")) {
+                card.rawDescription += " NL 消耗 ";
+                card.initializeDescription();
+            }
         }
     }
 }

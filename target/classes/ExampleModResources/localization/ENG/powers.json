@@ -2,7 +2,7 @@
   "game.duofan.kenshi:YiJianHuiYou": {
     "NAME": "Make Friends Through Sword",
     "DESCRIPTIONS": [
-      "This turn，your next #b%d Attack is played twice."
+      "This turn，your next #b1 Attack is played #b%d times."
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
@@ -148,25 +148,32 @@
   "game.duofan.kenshi:JiShuiSanQian": {
     "NAME": "Strike Water Three Thousand Miles",
     "DESCRIPTIONS": [
-      "Gain #yBlock equal to unblocked damage dealt by #y[NAME] in this turn."
+      "Gain #yBlock equal to unblocked damage dealt by Attack in this turn."
     ]
   },
-  "game.duofan.kenshi:ReturnToDrawPileAfterPlayed": {
+  "game.duofan.kenshi:ReturnAttackToDrawPileAfterPlayed": {
     "NAME": "Return After Played",
     "DESCRIPTIONS": [
-      "Shuffle #y[NAME] into your drawpile this turn after played."
+      "Shuffle Attack into your drawpile this turn after played."
+    ]
+  },
+  "game.duofan.kenshi:FeiGeChuanShu": {
+    "NAME": "Pigeon Carrier",
+    "DESCRIPTIONS": [
+      "At the start of your turn，draw #y[NAME1] from your drawpile.",
+      "At the start of your turn，draw #y[NAME1] and #y[NAME2] from your drawpile."
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "Phoenix",
     "DESCRIPTIONS": [
-      "Prevent you would lose HP, and #yExhaust #b%d cards( #yExhaust #yPhoenix #yFeather first)."
+      "Prevent you would lose HP, and #yExhaust #b%d cards. NL If card amount of deck less then #b10 ,remove this power."
     ]
   },
   "game.duofan.kenshi:BuSiNiaoPlus": {
     "NAME": "Phoenix+",
     "DESCRIPTIONS": [
-      "Prevent you would lose HP-Fatal, and #yExhaust #b%d cards( #yExhaust #yPhoenix #yFeather first)."
+      "Prevent you would lose HP-Fatal, and #yExhaust #b%d cards. NL If card amount of deck less then #b10 ,remove this power."
     ]
   },
   "game.duofan.kenshi:YanZhiLiu": {
@@ -184,7 +191,7 @@
   "game.duofan.kenshi:ChunYangJianYi": {
     "NAME": "Pure Yang Sword Intent",
     "DESCRIPTIONS": [
-      "This turn, the next #b%d Attack apply #b2 #ymelting, then deal #yflame-damage."
+      "This turn, the next #b%d Attack apply #b1 #ymelting, then deal #yflame-damage."
     ]
   },
   "game.duofan.kenshi:LianHuan": {

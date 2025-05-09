@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.*;
@@ -26,7 +27,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public class ChunYangJianYi extends AbstractPower {
-    public static final int RONG_RONG_GIVE = 2;
+    public static final int RONG_RONG_GIVE = 1;
 
     // 能力的ID
     public static final String POWER_ID = IDManager.getInstance().getID(ChunYangJianYi.class);
@@ -106,8 +107,7 @@ public class ChunYangJianYi extends AbstractPower {
             }
             targetCard = card;
             targetMonster = m;
-        }
-        else{
+        } else {
             targetCard = null;
         }
     }
@@ -145,9 +145,15 @@ public class ChunYangJianYi extends AbstractPower {
                             if (f.get(a).equals(false)) {
                                 int[] damages = ((DamageAllEnemiesAction) a).damage;
                                 for (int j = 0; j < damages.length; ++j) {
-                                    damages[j] += RONG_RONG_GIVE;
                                     if (j < monsters.size()) {
                                         AbstractMonster m = monsters.get(j);
+                                        AbstractPower artifact = m.getPower(ArtifactPower.POWER_ID);
+                                        if (artifact != null && artifact.amount > 0) {
+                                            damages[j] += Math.max(0, RONG_RONG_GIVE - artifact.amount);
+                                        }
+                                        else {
+                                            damages[j] += RONG_RONG_GIVE;
+                                        }
                                         DamageInfo info = new DamageInfo(p, damages[j]);
                                         actions.add(i + 1, new NotifyBaoYanDamageAction(m, info));
                                     }
@@ -183,7 +189,17 @@ public class ChunYangJianYi extends AbstractPower {
                             f.setAccessible(true);
                             a.attackEffect = AbstractGameAction.AttackEffect.FIRE;
                             DamageInfo info = (DamageInfo) f.get(a);
-                            info.output += RONG_RONG_GIVE;
+
+                            if(a.target != null){
+                                AbstractPower artifact = a.target.getPower(ArtifactPower.POWER_ID);
+                                if (artifact != null && artifact.amount > 0) {
+                                    info.output += Math.max(0, RONG_RONG_GIVE - artifact.amount);
+                                }
+                                else {
+                                    info.output += RONG_RONG_GIVE;
+                                }
+                            }
+
                             int nextActionIndex = i + 1;
                             if (nextActionIndex >= actions.size() || !(actions.get(nextActionIndex) instanceof NotifyBaoYanDamageAction)) {
                                 actions.add(nextActionIndex, new NotifyBaoYanDamageAction(a.target, info));
@@ -199,7 +215,13 @@ public class ChunYangJianYi extends AbstractPower {
                             waitForRongRongMonsters = new HashSet<>();
                         }
                         waitForRongRongMonsters.add((AbstractMonster) a.target);
-                        a.amount += RONG_RONG_GIVE;
+                        AbstractPower artifact = a.target.getPower(ArtifactPower.POWER_ID);
+                        if (artifact != null && artifact.amount > 0) {
+                            a.amount += Math.max(0, RONG_RONG_GIVE - artifact.amount);
+                        }
+                        else {
+                            a.amount += RONG_RONG_GIVE;
+                        }
                     }
                 }
             }

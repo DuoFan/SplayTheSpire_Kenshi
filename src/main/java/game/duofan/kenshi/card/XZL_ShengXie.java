@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import game.duofan.common.Const;
@@ -22,29 +24,25 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = 2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    AbstractMonster targetMonster;
+    boolean isPlayed;
 
     public XZL_ShengXie() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        int baseValue = 7;
-        this.damage = this.baseDamage = baseValue;
-        magicNumber = baseMagicNumber = 1;
-        exhaust = true;
+        magicNumber = baseMagicNumber = 5;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -58,9 +56,27 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        targetMonster = m;
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        Utils.givePower(p, m, new StrengthPower(m, -magicNumber));
+        if (!isPlayed) {
+            isPlayed = true;
+            Utils.givePower(p, m, new StrengthPower(m, -2));
+        }
+
+        DamageInfo info = new DamageInfo(p, 0, DamageInfo.DamageType.NORMAL);
+        DamageAction d = new DamageAction(m, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+
+        Utils.addToBotAbstract(() -> {
+            AbstractPower playerStrengthP = p.getPower(StrengthPower.POWER_ID);
+            AbstractPower monsterStrengthP = m.getPower(StrengthPower.POWER_ID);
+
+            int playerStrength = playerStrengthP == null ? 0 : playerStrengthP.amount;
+            int monsterStrength = monsterStrengthP == null ? 0 : monsterStrengthP.amount;
+
+            int diff = playerStrength - monsterStrength;
+            if (diff > 0) {
+                info.output += diff * magicNumber;
+            }
+        });
+        addToBot(d);
     }
 
     @Override
@@ -75,22 +91,9 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new WeakPower(targetMonster, 1, false));
-        }
+        Utils.playerGainPower(new StrengthPower(AbstractDungeon.player, 1));
     }
 
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        targetMonster = null;
-    }
-
-    @Override
-    public void triggerWhenDrawn() {
-        super.triggerWhenDrawn();
-        targetMonster = null;
-    }
 
     @Override
     public Liu_StateMachine.StateEnum getLiu() {
