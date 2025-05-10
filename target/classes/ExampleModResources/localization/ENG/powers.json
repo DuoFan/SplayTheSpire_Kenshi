@@ -120,6 +120,13 @@
       "At the start of your turn, gain #b%d #yqi."
     ]
   },
+  "game.duofan.kenshi:BuPoFa": {
+    "NAME": "Unbreakable",
+    "DESCRIPTIONS": [
+      "Damage can't break your #yblock at this turn.",
+      "Damage can't break your #yblock at #b%d turns."
+    ]
+  },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "Style-Feather",
     "DESCRIPTIONS": [

@@ -124,8 +124,8 @@
   },
   "game.duofan.kenshi:FZL_CuiKuLaXiu": {
     "NAME": "Overwhelming Destroy",
-    "DESCRIPTION": "Deal !D! damage 3 times, Each unblocked damage give you 1 Strength. NL duofan_kenshi:leave :Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage 3 times, Each unblocked damage give you 1 Strength. NL duofan_kenshi:leave :Gain !B! Block."
+    "DESCRIPTION": "Deal !D! damage 3 times. NL duofan_kenshi:leave :Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage 3 times. NL duofan_kenshi:leave :Gain !B! Block."
   },
   "game.duofan.kenshi:FZL_XianFaZhiRen": {
     "NAME": "Preemptive Attack",
@@ -150,8 +150,8 @@
   },
   "game.duofan.kenshi:FZL_HuiFengZhan": {
     "NAME": "Wind Return",
-    "DESCRIPTION": "Deal !D! damage. NL Each turn first time to duofan_kenshi:leave return this from the discard pile to your hand. NL duofan_kenshi:leave :Gain 1 Strength this turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Each turn first time to duofan_kenshi:leave return this from the discard pile to your hand. NL duofan_kenshi:leave :Gain 1 Strength this turn."
+    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:Next time enter duofan_kenshi:leave return this from the discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:Next time enter duofan_kenshi:leave return this from the discard pile to your hand."
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "Wind Slash",
@@ -208,10 +208,10 @@
     "DESCRIPTION": "Apply !M! Weak . NL duofan_kenshi:cloud :If enemy has 10 Weak at least,give half of its max healthy damage (floor).",
     "UPGRADE_DESCRIPTION": "Apply !M! Weak . NL duofan_kenshi:cloud :If enemy has 10 Weak at least,give half of its max healthy damage (floor)."
   },
-  "game.duofan.kenshi:XZL_BaiHongGuanRi": {
-    "NAME": "Sword Light",
-    "DESCRIPTION": "Deal !D! damage. NL If Fatal, Gain [E] . NL duofan_kenshi:cloud :Add *Sword *Light into your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL If Fatal, Gain [E] . NL duofan_kenshi:cloud :Add *Sword *Light+ into your hand."
+  "game.duofan.kenshi:XZL_BuPoFa": {
+    "NAME": "Unbreakable",
+    "DESCRIPTION": "Damage can't break your block at this turn. NL duofan_kenshi:cloud :Gain !B! block.",
+    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn. NL duofan_kenshi:cloud :Gain !B! block."
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
@@ -275,8 +275,8 @@
   },
   "game.duofan.kenshi:YuZL_YanGuiLai": {
     "NAME": "Swallow Return",
-    "DESCRIPTION": "Gain !B! Block. NL Each turn first time to duofan_kenshi:feather return this from the discard pile to your hand. NL duofan_kenshi:feather :Gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Each turn first time to duofan_kenshi:feather return this from the discard pile to your hand. NL duofan_kenshi:feather :Gain !M! Block."
+    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :Next time enter duofan_kenshi:feather return this from the discard pile to your hand.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :Next time enter duofan_kenshi:feather return this from the discard pile to your hand."
   },
   "game.duofan.kenshi:YuZL_BaiLuYou": {
     "NAME": "Egret Fly",
@@ -308,10 +308,10 @@
     "DESCRIPTION": "Select !M! Skill from your drawpile,draw it from drawpile next turn. NL duofan_kenshi:feather :Draw it immediately.",
     "UPGRADE_DESCRIPTION": "Select !M! Skill from your drawpile,draw them from drawpile next turn. NL duofan_kenshi:feather :Draw them immediately."
   },
-  "game.duofan.kenshi:YuZL_HuiNiaoXianFei": {
-    "NAME": "Wise Bird\n Flies First",
-    "DESCRIPTION": " Innate NL Draw 1 Skill. NL duofan_kenshi:feather :Reduce 1 cost for the drawn card. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": " Innate NL Draw 1 Skill and Attack. NL duofan_kenshi:feather :Reduce 1 cost for the drawn card. NL Exhaust "
+  "game.duofan.kenshi:YuZL_YuYi": {
+    "NAME": "Feathered Mantle",
+    "DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain ",
+    "UPGRADE_DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain "
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "Clean After Rain",

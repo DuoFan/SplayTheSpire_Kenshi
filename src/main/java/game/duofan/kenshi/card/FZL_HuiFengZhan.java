@@ -32,7 +32,7 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
 
     public FZL_HuiFengZhan() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 3;
+        damage = baseDamage = 5;
     }
 
     @Override
@@ -46,18 +46,9 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
     }
 
     @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        if (!isRegister) {
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_FZL_ON_TURN, this);
-            isRegister = true;
-        }
-    }
-
-    @Override
     public void triggerOnExhaust() {
         if (isRegister) {
-            EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_FZL_ON_TURN, this);
+            EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
         }
     }
 
@@ -74,9 +65,10 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
 
     @Override
     public void fengZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        Utils.playerGainPower(new StrengthPower(p, 1));
-        Utils.playerGainPower(new LoseStrengthPower(p, 1));
+        if (!isRegister) {
+            EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
+            isRegister = true;
+        }
     }
 
     @Override
@@ -92,6 +84,10 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
 
     @Override
     public void OnEvent(Object sender, Object e) {
+        if (!Liu_StateMachine.StateEnum.FengZhiLiu.equals(e)) {
+            return;
+        }
+
         AbstractPlayer p = AbstractDungeon.player;
         if (p == null) {
             return;
@@ -100,6 +96,11 @@ public class FZL_HuiFengZhan extends CustomCard implements IFengZhiLiuCard, IEve
             return;
         }
         addToBot(new DiscardToHandAction(this));
+
+        Utils.addToTopAbstract(() ->{
+            isRegister = false;
+            EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
+        });
     }
 
     @Override

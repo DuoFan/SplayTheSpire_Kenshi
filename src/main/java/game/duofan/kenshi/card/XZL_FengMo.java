@@ -91,7 +91,7 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
                 if (hp > 0) {
                     int damage = (int) (hp * 0.5f);
                     if (damage > 0) {
-                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
+                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
                     }
                 }
             }

@@ -29,7 +29,6 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
     public YuZL_YanGuiLai() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = 4;
-        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -37,25 +36,15 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             upgradeBlock(2);
-            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
     }
 
     @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
-        if(!isRegister){
-            EventManager.getInstance().registerToEvent(EventKey.FIRST_YuZL_ON_TURN, this);
-            isRegister = true;
-        }
-    }
-
-    @Override
     public void triggerOnExhaust() {
         if (isRegister) {
-            EventManager.getInstance().unregisterFromEvent(EventKey.FIRST_YuZL_ON_TURN, this);
+            EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
         }
     }
 
@@ -72,7 +61,10 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainBlock(magicNumber);
+        if(!isRegister){
+            EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, this);
+            isRegister = true;
+        }
     }
 
     @Override
@@ -88,6 +80,10 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
 
     @Override
     public void OnEvent(Object sender, Object e) {
+        if (!Liu_StateMachine.StateEnum.YuZhiLiu.equals(e)) {
+            return;
+        }
+
         AbstractPlayer p = AbstractDungeon.player;
         if(p == null){
             return;
@@ -96,6 +92,11 @@ public class YuZL_YanGuiLai extends CustomCard implements IYuZhiLiuCard, IEventL
             return;
         }
         addToBot(new DiscardToHandAction(this));
+
+        Utils.addToTopAbstract(() ->{
+            isRegister = false;
+            EventManager.getInstance().unregisterFromEvent(EventKey.ON_LIU_CHANGED, this);
+        });
     }
 
     @Override

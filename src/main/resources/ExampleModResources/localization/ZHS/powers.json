@@ -120,6 +120,13 @@
       "回合开始时，获得 #b%d 层 #y气 。"
     ]
   },
+  "game.duofan.kenshi:BuPoFa": {
+    "NAME": "不破法",
+    "DESCRIPTIONS": [
+      "本回合伤害无法损耗你的 #y格挡 。",
+      " #b%d 回合内，伤害无法损耗你的 #y格挡 。"
+    ]
+  },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [

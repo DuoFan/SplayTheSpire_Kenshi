@@ -36,9 +36,8 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_CuiKuLaXiu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 6;
+        this.damage = this.baseDamage = 10;
         this.block = this.baseBlock = 10;
-        magicNumber = baseMagicNumber = 1;
     }
 
 
@@ -66,11 +65,11 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
                 targetIsDie = m.isDead || m.currentHealth <= 0 || m.isDying;
             });
             Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-            Utils.addToBotAbstract(() -> {
+            /*Utils.addToBotAbstract(() -> {
                 if (!targetIsDie && m.lastDamageTaken > 0) {
                     Utils.playerGainPower(new StrengthPower(p, 1));
                 }
-            });
+            });*/
             this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
             c--;
         }
