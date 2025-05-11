@@ -77,10 +77,10 @@
     "DESCRIPTION": "从3张流派卡牌中选择1张加入手牌，不包含稀有卡牌。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "从3张流派卡牌中选择1张加入手牌，不包含稀有卡牌，这张牌在本回合耗能降为0。 NL 消耗 "
   },
-  "game.duofan.kenshi:GaiTouHuanMian": {
-    "NAME": "改头换面",
-    "DESCRIPTION": "消耗所有手牌，将等量流派卡牌加入手牌。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": " 固有 NL 消耗所有手牌，将等量流派卡牌加入手牌。 NL 消耗 "
+  "game.duofan.kenshi:BaoLuoWanXiang": {
+    "NAME": "包罗万象",
+    "DESCRIPTION": "被保留时将右侧的卡放入，打出时将其中的卡取出。 NL 剩余容量 !M! 。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": " 被保留时将右侧的卡放入，打出时将其中的卡取出。 NL 剩余容量 !M! 。 NL 保留 "
   },
   "game.duofan.kenshi:YangGong": {
     "NAME": "佯攻",
@@ -198,10 +198,10 @@
     "DESCRIPTION": "造成 !D! 点伤害。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 "
   },
-  "game.duofan.kenshi:XZL_GuiYuan": {
-    "NAME": "归元",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:霞之流 :获得 !M! 点 力量 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:霞之流 :获得 !M! 点 力量 。"
+  "game.duofan.kenshi:XZL_QiHai": {
+    "NAME": "气海",
+    "DESCRIPTION": "耗能视为 duofan_kenshi:气 。 NL 回合结束时吸纳能力中剩余的 duofan_kenshi:气 (无法超过上限)。 NL 不能被打出 ， 保留 ",
+    "UPGRADE_DESCRIPTION": "耗能视为 duofan_kenshi:气 。 NL 回合结束时吸纳能力中剩余的 duofan_kenshi:气 (无法超过上限)。 NL 不能被打出 ， 保留 "
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "封魔",
@@ -240,8 +240,8 @@
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
     "NAME": "气化万千",
-    "DESCRIPTION": "耗尽所有 duofan_kenshi:气 ，获得等量的 [E] 并抽取等量卡牌。(当前有 !duofan_kenshi:QiAmount! 层 duofan_kenshi:气 ) NL duofan_kenshi:霞之流 :先获得 !M! 层 duofan_kenshi:气 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "耗尽所有 duofan_kenshi:气 ，获得等量的 [E] 并抽取等量卡牌。(当前有 !duofan_kenshi:QiAmount! 层 duofan_kenshi:气 ) NL duofan_kenshi:霞之流 :先获得 !M! 层 duofan_kenshi:气 。 NL 消耗 "
+    "DESCRIPTION": "耗尽所有 duofan_kenshi:气 ，获得等量的 [E] 并抽取等量卡牌。 NL (当前有 !duofan_kenshi:QiAmount! 层 duofan_kenshi:气 ) NL duofan_kenshi:霞之流 :先获得 !M! 层 duofan_kenshi:气 。 NL 消耗 ",
+    "UPGRADE_DESCRIPTION": "耗尽所有 duofan_kenshi:气 ，获得等量的 [E] 并抽取等量卡牌。 NL (当前有 !duofan_kenshi:QiAmount! 层 duofan_kenshi:气 ) NL duofan_kenshi:霞之流 :先获得 !M! 层 duofan_kenshi:气 。 NL 消耗 "
   },
   "game.duofan.kenshi:XZL_JuQue": {
     "NAME": "巨阙",

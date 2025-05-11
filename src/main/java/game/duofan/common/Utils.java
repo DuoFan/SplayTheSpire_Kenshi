@@ -3,15 +3,18 @@ package game.duofan.common;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
@@ -429,11 +432,47 @@ public class Utils {
     }
 
     public static void playerReduceQi(int amount) {
-        playReducePower(Qi.POWER_ID, amount);
+        AbstractPower p = AbstractDungeon.player.getPower(Qi.POWER_ID);
+        if (p != null && p.amount > 0) {
+            playReducePower(Qi.POWER_ID, amount);
+        } else {
+            Utils.addToBotAbstract(() -> {
+                reduceQiFromQiHai(amount);
+            });
+        }
     }
 
     public static void playerReduceQiTop(int amount) {
-        playReducePowerTop(Qi.POWER_ID, amount);
+        AbstractPower p = AbstractDungeon.player.getPower(Qi.POWER_ID);
+        if (p != null && p.amount > 0) {
+            playReducePowerTop(Qi.POWER_ID, amount);
+        } else {
+            Utils.addToTopAbstract(() -> {
+                reduceQiFromQiHai(amount);
+            });
+        }
+    }
+
+    static void reduceQiFromQiHai(int amount) {
+        CardGroup hand = AbstractDungeon.player.hand;
+        if (hand == null) {
+            return;
+        }
+        for (int i = 0; i < hand.group.size() && amount > 0; i++) {
+            AbstractCard c = hand.group.get(i);
+            int reduce = 0;
+            if (c instanceof XZL_QiHai && c.cost > 0) {
+                while (c.cost > 0 && amount > 0){
+                    c.modifyCostForCombat(-1);
+                    amount--;
+                    reduce++;
+                }
+                if(reduce > 0){
+                    c.superFlash();
+                    AbstractDungeon.effectList.add(new BlockedNumberEffect(c.current_x + -132.0F * c.drawScale * Settings.scale, c.current_y + 220.0F * c.drawScale * Settings.scale, Integer.toString(reduce)));
+                }
+            }
+        }
     }
 
     public static int getQiAmount() {
@@ -442,13 +481,31 @@ public class Utils {
             return 0;
         }
 
+        int qi = 0;
+
         AbstractPower power = p.getPower(Qi.POWER_ID);
 
-        if (power == null) {
-            return 0;
+        if (power != null && power.amount > 0) {
+            qi = power.amount;
         }
 
-        return power.amount;
+        if (p == null) {
+            return qi;
+        }
+
+        CardGroup hand = p.hand;
+        if (hand == null) {
+            return qi;
+        }
+
+        for (int i = 0; i < hand.group.size(); i++) {
+            AbstractCard c = hand.group.get(i);
+            if (c instanceof XZL_QiHai && c.cost > 0) {
+                qi += c.cost;
+            }
+        }
+
+        return qi;
     }
 
     public static DrawCardByFilterAction playerDrawCardByFilterAction(int amount, ICardFilter filter) {
@@ -514,7 +571,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
-            cards.add(new XZL_GuiYuan());
+            cards.add(new XZL_QiHai());
             cards.add(new XZL_FengMo());
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BuPoFa());
@@ -732,7 +789,7 @@ public class Utils {
         int d = 0;
         for (int i = 0; i < cards.size(); i++) {
             AbstractCard c = cards.get(i);
-            if(f == null || f.filter(c)){
+            if (f == null || f.filter(c)) {
                 d++;
             }
         }

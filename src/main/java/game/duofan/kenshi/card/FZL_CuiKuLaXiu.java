@@ -29,15 +29,15 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
+    private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     boolean targetIsDie;
 
     public FZL_CuiKuLaXiu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 10;
-        this.block = this.baseBlock = 10;
+        this.damage = this.baseDamage = 9;
+        this.block = this.baseBlock = 9;
     }
 
 
@@ -45,7 +45,7 @@ public class FZL_CuiKuLaXiu extends CustomCard implements IFengZhiLiuCard {
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            this.upgradeDamage(3); // 将该卡牌的伤害提高3点。
+            this.upgradeDamage(1); // 将该卡牌的伤害提高3点。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }

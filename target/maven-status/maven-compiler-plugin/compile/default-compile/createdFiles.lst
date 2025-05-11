@@ -47,6 +47,7 @@ game\duofan\kenshi\power\BuSiNiaoPlus.class
 game\duofan\kenshi\power\LieHuoChang.class
 game\duofan\kenshi\card\XZL_JuQue.class
 game\duofan\kenshi\card\YanZL_HuiJinJianQi.class
+game\duofan\kenshi\patch\QiHaiPatch.class
 game\duofan\kenshi\initialize\CharacterRegister.class
 game\duofan\kenshi\card\JiYiXingTai_Card.class
 game\duofan\kenshi\card\YuZL_QingShenZhui.class
@@ -75,6 +76,7 @@ game\duofan\kenshi\card\XZL_ShengXie.class
 game\duofan\kenshi\card\FZL_FuFeng.class
 game\duofan\kenshi\card\YangZhiRen.class
 game\duofan\kenshi\variable\LamageScaler.class
+game\duofan\kenshi\card\BaoLuoWanXiang.class
 game\duofan\kenshi\card\YangGong.class
 game\duofan\kenshi\power\ShiJianShi.class
 game\duofan\kenshi\card\FZL_QiuFengPo.class
@@ -101,6 +103,7 @@ game\duofan\kenshi\card\FZL_QiuYeLianJian.class
 game\duofan\kenshi\variable\OverPJAmount.class
 game\duofan\kenshi\card\GongFaShanZhuan_Card.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class
+game\duofan\kenshi\card\XZL_QiHai.class
 game\duofan\kenshi\effect\ColorThirdEyeEffect$ThirdEyeParticleEffect.class
 game\duofan\kenshi\KenShi$1.class
 game\duofan\kenshi\card\ShiJianShi.class
@@ -116,7 +119,6 @@ game\duofan\kenshi\patch\KenshiPortraitAnim.class
 game\duofan\kenshi\initialize\TextRegister.class
 game\duofan\kenshi\power\IXiaZhiLiuCard.class
 game\duofan\kenshi\power\Liu_StateMachine$FengZhiLiu_State.class
-game\duofan\kenshi\card\GaiTouHuanMian.class
 game\duofan\kenshi\power\YuZhiLiu.class
 game\duofan\kenshi\card\ZhanYanLuo_Card.class
 game\duofan\kenshi\power\FeiGeChuanShu.class
@@ -200,7 +202,6 @@ game\duofan\kenshi\card\XZL_BuPoFa.class
 game\duofan\kenshi\power\WuBianLuoMu.class
 game\duofan\kenshi\power\XieLiZhunBei.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterOptionPatch_reloadAnimation.class
-game\duofan\kenshi\card\XZL_GuiYuan.class
 game\duofan\kenshi\card\YuZL_BuSiNiao.class
 game\duofan\kenshi\action\JiShuiSanQianAction.class
 game\duofan\kenshi\action\YanJieAction.class

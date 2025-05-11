@@ -198,10 +198,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave"
   },
-  "game.duofan.kenshi:XZL_GuiYuan": {
-    "NAME": "Concentrate",
-    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:cloud :Gain !M! Strength.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:cloud :Gain !M! Strength."
+  "game.duofan.kenshi:XZL_QiHai": {
+    "NAME": "Qi Sea",
+    "DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb all remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain ",
+    "UPGRADE_DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb all remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain "
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Sealing",
