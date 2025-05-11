@@ -1,5 +1,6 @@
 game\duofan\kenshi\action\RepeatAction$1.class
 game\duofan\kenshi\reward\JianShuYaoLingReward.class
+game\duofan\kenshi\card\YuZL_FeiYing.class
 game\duofan\common\IDManager.class
 game\duofan\kenshi\initialize\KeywordRegister.class
 game\duofan\kenshi\action\TaYinAction.class
@@ -49,6 +50,7 @@ game\duofan\kenshi\card\XZL_JuQue.class
 game\duofan\kenshi\card\YanZL_HuiJinJianQi.class
 game\duofan\kenshi\patch\QiHaiPatch.class
 game\duofan\kenshi\initialize\CharacterRegister.class
+game\duofan\kenshi\action\BaoLuoWanXiangAction.class
 game\duofan\kenshi\card\JiYiXingTai_Card.class
 game\duofan\kenshi\card\YuZL_QingShenZhui.class
 game\duofan\kenshi\power\ILiuCard.class
@@ -62,7 +64,7 @@ game\duofan\kenshi\card\XZL_ZiXiaZhenQi.class
 game\duofan\kenshi\card\YanZL_YanLang.class
 game\duofan\kenshi\action\PickUpCardToPutDrawpileTopAction.class
 game\duofan\kenshi\card\Strike.class
-game\duofan\kenshi\card\YuZL_GuHong.class
+game\duofan\kenshi\action\EnterRandomLiuAction.class
 game\duofan\kenshi\action\GiveAllEnemiesRongAction.class
 game\duofan\kenshi\card\BuSiNiaoZhiYu.class
 game\duofan\kenshi\power\ZiXiaZhenQi.class
@@ -101,6 +103,7 @@ game\duofan\kenshi\power\PoBaiGongJi.class
 game\duofan\kenshi\action\WaitForFenChengAction.class
 game\duofan\kenshi\card\FZL_QiuYeLianJian.class
 game\duofan\kenshi\variable\OverPJAmount.class
+game\duofan\kenshi\power\FeiYing.class
 game\duofan\kenshi\card\GongFaShanZhuan_Card.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class
 game\duofan\kenshi\card\XZL_QiHai.class

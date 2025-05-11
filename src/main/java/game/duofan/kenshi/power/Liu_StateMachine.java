@@ -203,6 +203,13 @@ public class Liu_StateMachine implements IEventListener {
             if (AbstractDungeon.player.hasPower(getPowerID())) {
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
             }
+            else{
+                Utils.addToBotAbstract(() ->{
+                    if (AbstractDungeon.player.hasPower(getPowerID())) {
+                        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
+                    }
+                });
+            }
         }
     }
 

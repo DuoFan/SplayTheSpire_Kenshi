@@ -63,7 +63,7 @@ public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
                 this.addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
                 this.addToBot(new VFXAction(new BorderFlashEffect(Color.PURPLE, true), 0.1F));
 
-                Utils.playRemovePowerTop(Qi.POWER_ID);
+                Utils.playerReduceQiTop(qiAmount);
                 Utils.playerGainEnergy(qiAmount);
                 addToBot(new DrawCardAction(qiAmount));
             }

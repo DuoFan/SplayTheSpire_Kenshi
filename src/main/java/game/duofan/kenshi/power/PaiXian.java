@@ -73,8 +73,8 @@ public class PaiXian extends AbstractPower {
             AbstractMonster m = monsters.get(i);
             if (Utils.isIntentAttack(m)) {
                 Utils.playerGainBlock(amount);
-                addToBot(new DrawCardAction(1));
-                this.addToBot(new LoseEnergyAction(loseAmount));
+                /*addToBot(new DrawCardAction(1));
+                this.addToBot(new LoseEnergyAction(loseAmount));*/
                 flash();
                 break;
             }

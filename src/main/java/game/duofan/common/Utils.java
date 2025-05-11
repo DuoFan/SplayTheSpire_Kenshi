@@ -592,7 +592,7 @@ public class Utils {
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_BaiLuYou());
             cards.add(new YuZL_YanGuiLai());
-            cards.add(new YuZL_GuHong());
+            cards.add(new YuZL_FeiYing());
             cards.add(new YuZL_JiShuiSanQianCard());
             cards.add(new YuZL_YuYi());
             cards.add(new YuZL_FeiGeChuanShu());

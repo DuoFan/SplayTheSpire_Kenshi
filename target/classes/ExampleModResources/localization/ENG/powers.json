@@ -149,7 +149,7 @@
   "game.duofan.kenshi:PaiXian": {
     "NAME": "Risk Elimination",
     "DESCRIPTIONS": [
-      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock and lose #b%d [E] ."
+      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
@@ -169,6 +169,12 @@
     "DESCRIPTIONS": [
       "At the start of your turn，draw #y[NAME1] from your drawpile.",
       "At the start of your turn，draw #y[NAME1] and #y[NAME2] from your drawpile."
+    ]
+  },
+  "game.duofan.kenshi:FeiYing": {
+    "NAME": "Flying Shadow",
+    "DESCRIPTIONS": [
+      "Whenever you enter a Style，gain #b%d #yblock ."
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {

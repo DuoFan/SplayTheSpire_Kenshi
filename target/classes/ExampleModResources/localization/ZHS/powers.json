@@ -149,7 +149,7 @@
   "game.duofan.kenshi:PaiXian": {
     "NAME": "排险",
     "DESCRIPTIONS": [
-      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点格挡并失去 #b%d [E] 。"
+      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
@@ -169,6 +169,12 @@
     "DESCRIPTIONS": [
       "回合开始时，从抽牌堆抽取 #y[NAME1] 。",
       "回合开始时，从抽牌堆抽取 #y[NAME1] 和 #y[NAME2] 。"
+    ]
+  },
+  "game.duofan.kenshi:FeiYing": {
+    "NAME": "飞影",
+    "DESCRIPTIONS": [
+      "每次进入流派，使你获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {

@@ -79,8 +79,8 @@
   },
   "game.duofan.kenshi:BaoLuoWanXiang": {
     "NAME": "包罗万象",
-    "DESCRIPTION": "被 保留 时将右侧的卡放入，打出时将其中的卡取出。 NL 剩余容量 !M! 。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": " 被 保留 时将右侧的卡放入，打出时将其中的卡取出。 NL 剩余容量 !M! 。 NL 保留 "
+    "DESCRIPTION": "被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 ",
+    "UPGRADE_DESCRIPTION": " 被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 "
   },
   "game.duofan.kenshi:YangGong": {
     "NAME": "佯攻",
@@ -283,15 +283,15 @@
     "DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 :获得 !M! 点 敏捷 。",
     "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 :获得 !M! 点 敏捷 。"
   },
-  "game.duofan.kenshi:YuZL_GuHong": {
-    "NAME": "孤鸿",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :若 格挡 少于 !M! 点，额外获得3点 格挡 。"
+  "game.duofan.kenshi:YuZL_FeiYing": {
+    "NAME": "飞影",
+    "DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
+    "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
   },
   "game.duofan.kenshi:YuZL_PaiXian": {
     "NAME": "排险",
-    "DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 ,抽取1张卡牌,并失去 [E] 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 ,抽取1张卡牌,并失去 [E] 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
+    "DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
   },
   "game.duofan.kenshi:YuZL_DongQuChunLai": {
     "NAME": "冬去春来",

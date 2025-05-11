@@ -22,8 +22,8 @@ public class XZL_QiHai extends CustomCard implements IXiaZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    public static final int COST = 2;
-    public static final int UPGRADED_COST = 3;
+    public static final int COST = 3;
+    public static final int UPGRADED_COST = 4;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;

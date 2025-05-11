@@ -77,10 +77,10 @@
     "DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL Exhaust ",
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL It costs 0 this turn. NL Exhaust "
   },
-  "game.duofan.kenshi:GaiTouHuanMian": {
-    "NAME": "Makeover",
-    "DESCRIPTION": "Exhaust your hand, add equal number of Style-Card to hand. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": " Innate NL Exhaust your hand, add equal number of Style-Card to hand. NL Exhaust "
+  "game.duofan.kenshi:BaoLuoWanXiang": {
+    "NAME": "Put In",
+    "DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity: !M!). NL Retain.",
+    "UPGRADE_DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity: !M!). NL Retain."
   },
   "game.duofan.kenshi:YangGong": {
     "NAME": "Feint",
@@ -283,15 +283,15 @@
     "DESCRIPTION": "Gain !B! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather :Gain !M! Dexterity.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather :Gain !M! Dexterity."
   },
-  "game.duofan.kenshi:YuZL_GuHong": {
-    "NAME": "Wild Goose",
-    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :If Block less then !M!, gain 3 Block.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :If Block less then !M!, gain 3 Block."
+  "game.duofan.kenshi:YuZL_FeiYing": {
+    "NAME": "Flying Shadow",
+    "DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style.",
+    "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style."
   },
   "game.duofan.kenshi:YuZL_PaiXian": {
     "NAME": "Risk Elimination",
-    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block and lose [E] 。 NL duofan_kenshi:feather :Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block and lose [E] 。 NL duofan_kenshi:feather :Gain !B! Block."
+    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block."
   },
   "game.duofan.kenshi:YuZL_DongQuChunLai": {
     "NAME": "Winter Turn\n To Spring",
