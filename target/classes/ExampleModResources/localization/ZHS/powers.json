@@ -29,6 +29,12 @@
       "本回合下一张攻击牌造成的伤害增加 #b%d%%。"
     ]
   },
+  "game.duofan.kenshi:ShuangJianHeBi": {
+    "NAME": "双剑合璧",
+    "DESCRIPTIONS": [
+      "下一张打出的攻击牌将对其目标打出 #y[NAME] 。"
+    ]
+  },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [

@@ -12,13 +12,13 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.kenshi.power.*;
 
-public class YuZL_YuYi extends CustomCard implements IYuZhiLiuCard {
+public class YuZL_YuYi extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(YuZL_YuYi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    public static final int COST = 6;
-    public static final int UPGRADED_COST = 9;
+    public static final int COST = 9;
+    public static final int UPGRADED_COST = 12;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.POWER;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -53,21 +53,6 @@ public class YuZL_YuYi extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.YuZhiLiu;
-    }
-
-    @Override
-    public boolean isInvokeLiuEffectToTop() {
-        return false;
-    }
-
-    @Override
-    public void yuZhiLiuEffect() {
 
     }
 }

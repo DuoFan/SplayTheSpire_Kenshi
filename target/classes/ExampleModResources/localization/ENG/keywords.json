@@ -7,6 +7,12 @@
   },
   {
     "NAMES": [
+      "container"
+    ],
+    "DESCRIPTION": "In hand,you can drag to reposition. NL #yExhaust , #yUpgrade , #yForge also affects inner cards."
+  },
+  {
+    "NAMES": [
       "RighteousFlag","righteousflag"
     ],
     "DESCRIPTION": "#yRelic, cannot be obtained repeatedly. At the start of combat, take #b1 #yStrength from a random enemy."

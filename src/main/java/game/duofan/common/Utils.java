@@ -1,5 +1,7 @@
 package game.duofan.common;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -88,6 +90,155 @@ public class Utils {
 
     public static boolean isKilled(AbstractCreature m) {
         return (m.isDying || m.currentHealth <= 0) && !m.halfDead;
+    }
+
+    public static void upgradeCardContainer(ICardContainer container) {
+        if (container == null) {
+            return;
+        }
+
+        CardGroup g = container.getContainer();
+        if (g == null) {
+            return;
+        }
+
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if (c.canUpgrade()) {
+                c.upgrade();
+            }
+        }
+    }
+
+    public static void exhaustCardContainer(ICardContainer container) {
+        if (container == null) {
+            return;
+        }
+
+        CardGroup g = container.getContainer();
+        if (g == null) {
+            return;
+        }
+
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if (c != null) {
+                AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(c, g));
+            }
+        }
+    }
+
+    public static void updateCardContainer(ICardContainer container) {
+        if (container == null) {
+            return;
+        }
+
+        CardGroup g = container.getContainer();
+        if (g != null) {
+            for (int i = 0; i < g.size(); i++) {
+                AbstractCard childCard = g.getNCardFromTop(i);
+                childCard.update();
+            }
+        }
+
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) {
+            return;
+        }
+
+        if (p.isDraggingCard && p.hoveredCard.equals(container)) {
+            updateCardPosition((AbstractCard) container);
+        }
+    }
+
+    private static void updateCardPosition(AbstractCard c) {
+        CardGroup hand = AbstractDungeon.player.hand;
+        int oriIndex = hand.group.indexOf(c);
+        int newIndex = calculateNewCardIndex();
+        if (newIndex != oriIndex) {
+            // 移动卡牌到新位置
+            addToBotAbstract(() ->
+            {
+                hand.group.remove(c);
+                hand.group.add(newIndex, c);
+                hand.refreshHandLayout();
+            });
+        }
+    }
+
+    private static int calculateNewCardIndex() {
+        CardGroup hand = AbstractDungeon.player.hand;
+
+        float mouseX = Gdx.input.getX();
+        int closestIndex = 0;
+        float minDistance = Float.MAX_VALUE;
+
+        // 计算距离鼠标最近的卡牌位置
+        for (int i = 0; i < hand.group.size(); i++) {
+            AbstractCard c = hand.group.get(i);
+            float distance = Math.abs(c.current_x - mouseX);
+            if (distance < minDistance) {
+                minDistance = distance;
+                closestIndex = i;
+            }
+        }
+        return closestIndex;
+    }
+
+    public static void renderCardContainer(SpriteBatch sb, ICardContainer container) {
+        if (container == null) {
+            return;
+        }
+
+        CardGroup g = container.getContainer();
+        if (g == null || g.isEmpty()) {
+            return;
+        }
+
+        AbstractCard parent = (AbstractCard) container;
+
+        // 获取父卡牌的屏幕位置
+        float parentX = parent.current_x;
+        float parentY = parent.current_y;
+
+        float[] CARD_OFFSETS_X = container.getCardOffsetsX();
+        float[] CARD_OFFSETS_Y = container.getCardOffsetsY();
+        float CARD_SCALE = container.getCardScale();
+
+        // 遍历所有子卡牌
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard childCard = g.getNCardFromTop(i);
+
+            // 设置子卡牌位置（相对父卡偏移）
+            childCard.target_x = parentX + CARD_OFFSETS_X[i % CARD_OFFSETS_X.length] * parent.drawScale;
+            childCard.target_y = parentY + CARD_OFFSETS_Y[i % CARD_OFFSETS_Y.length] * parent.drawScale;
+
+            // 固定缩放比例
+            childCard.targetDrawScale = parent.drawScale * CARD_SCALE;
+            childCard.setAngle(parent.angle);
+
+            // 禁用交互区域
+            childCard.hb.move(0, 0); // 隐藏点击区域
+
+            // 渲染子卡牌（需要复制原渲染逻辑）
+            childCard.render(sb);
+        }
+    }
+
+    public static void glowCheckCardContainer(ICardContainer container) {
+        if (container == null) {
+            return;
+        }
+
+        CardGroup g = container.getContainer();
+        if (g == null || g.isEmpty()) {
+            return;
+        }
+
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard childCard = g.getNCardFromTop(i);
+            childCard.triggerOnGlowCheck();
+        }
     }
 
     public interface Lambda extends Runnable {
@@ -462,12 +613,12 @@ public class Utils {
             AbstractCard c = hand.group.get(i);
             int reduce = 0;
             if (c instanceof XZL_QiHai && c.cost > 0) {
-                while (c.cost > 0 && amount > 0){
+                while (c.cost > 0 && amount > 0) {
                     c.modifyCostForCombat(-1);
                     amount--;
                     reduce++;
                 }
-                if(reduce > 0){
+                if (reduce > 0) {
                     c.superFlash();
                     AbstractDungeon.effectList.add(new BlockedNumberEffect(c.current_x + -132.0F * c.drawScale * Settings.scale, c.current_y + 220.0F * c.drawScale * Settings.scale, Integer.toString(reduce)));
                 }
@@ -571,7 +722,7 @@ public class Utils {
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
-            cards.add(new XZL_QiHai());
+            //cards.add(new XZL_QiHai());
             cards.add(new XZL_FengMo());
             cards.add(new XZL_ShuangJi());
             cards.add(new XZL_BuPoFa());
@@ -594,7 +745,7 @@ public class Utils {
             cards.add(new YuZL_YanGuiLai());
             cards.add(new YuZL_FeiYing());
             cards.add(new YuZL_JiShuiSanQianCard());
-            cards.add(new YuZL_YuYi());
+            //cards.add(new YuZL_YuYi());
             cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());

@@ -2,8 +2,10 @@ package game.duofan.kenshi.action;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
+import game.duofan.kenshi.card.ICardContainer;
 import game.duofan.kenshi.power.IUpdateDescription;
 
 public class DuanZaoAction extends AbstractGameAction {
@@ -56,6 +58,17 @@ public class DuanZaoAction extends AbstractGameAction {
             }
 
             EventManager.getInstance().notifyEvent(EventKey.ON_CARD_BE_DUANZAO, this, card);
+
+            if (card instanceof ICardContainer) {
+                ICardContainer container = (ICardContainer) card;
+                CardGroup g = container.getContainer();
+                if (g != null) {
+                    for (int i = 0; i < g.size(); i++) {
+                        AbstractCard c = g.getNCardFromTop(i);
+                        addToBot(new DuanZaoAction(c, amount));
+                    }
+                }
+            }
         }
 
         isDone = true;

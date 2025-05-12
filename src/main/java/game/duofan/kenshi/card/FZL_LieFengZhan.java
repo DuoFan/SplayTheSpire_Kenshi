@@ -26,8 +26,9 @@ import game.duofan.kenshi.action.LieFengZhanAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
+import game.duofan.kenshi.variable.VNameLiuAmount;
 
-public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard, ICardFilter {
+public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard {
 
     public static final String ID = IDManager.getInstance().getID(FZL_LieFengZhan.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -69,8 +70,7 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard, ICar
         Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
 
         if (!duplicate) {
-            int playAmount = Utils.stasticsCardPlayedInTurn(this);
-            System.out.println("----------" + playAmount);
+            int playAmount = new VNameLiuAmount().value(this);
             if (playAmount > 0) {
                 addToBot(new LieFengZhanAction(this, m, playAmount));
             }
@@ -106,10 +106,5 @@ public class FZL_LieFengZhan extends CustomCard implements IFengZhiLiuCard, ICar
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
-    }
-
-    @Override
-    public boolean filter(AbstractCard c) {
-        return !c.name.equals(name) && Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None;
     }
 }

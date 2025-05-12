@@ -14,10 +14,10 @@
     "DESCRIPTION": " Exhaust 1 card at random. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card.",
     "UPGRADE_DESCRIPTION": " Exhaust 1 card. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card."
   },
-  "game.duofan.kenshi:YiJianHuiYou_Card": {
-    "NAME": "Make Friends\n Through Sword",
-    "DESCRIPTION": "This turn，your next Attack will play 3 times.",
-    "UPGRADE_DESCRIPTION": "This turn，your next Attack will play 4 times."
+  "game.duofan.kenshi:JianQiao": {
+    "NAME": "Sword Sheath",
+    "DESCRIPTION": "When Retained, put in right Attack to inner. NL When played, play the stored card (Capacity !M!). NL Retain , duofan_kenshi:container .",
+    "UPGRADE_DESCRIPTION": "When Retained, put in right Attack to inner. NL When played, play the stored card (Capacity !M!). NL Retain , duofan_kenshi:container ."
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "Deflection",
@@ -77,15 +77,15 @@
     "DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL Exhaust ",
     "UPGRADE_DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL It costs 0 this turn. NL Exhaust "
   },
-  "game.duofan.kenshi:BaoLuoWanXiang": {
-    "NAME": "Put In",
-    "DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity: !M!). NL Retain.",
-    "UPGRADE_DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity: !M!). NL Retain."
+  "game.duofan.kenshi:BaoFu": {
+    "NAME": "Package",
+    "DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity !M!). NL Drag to reposition. NL Retain , duofan_kenshi:container .",
+    "UPGRADE_DESCRIPTION": "When Retained, put in right card to inner. NL When played, release the stored cards (Capacity !M!). NL Drag to reposition. NL Retain , duofan_kenshi:container ."
   },
-  "game.duofan.kenshi:YangGong": {
-    "NAME": "Feint",
-    "DESCRIPTION": "Deal !D! damage,draw an Attack.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage,draw an Attack. NL Retain "
+  "game.duofan.kenshi:ShuangJianHeBi_Card": {
+    "NAME": "Blades Unity",
+    "DESCRIPTION": "Deal !D! damage. NL The next Attack played triggers this card against the same target without this effect.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL The next Attack played triggers this card against the same target without this effect."
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "Sword Testing Stone",
@@ -155,8 +155,8 @@
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "Wind Slash",
-    "DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL duofan_kenshi:leave :Gain 1 Strength this turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL duofan_kenshi:leave :Gain 1 Strength this turn."
+    "DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL Replay !duofan_kenshi:VNameLiuAmount! . NL duofan_kenshi:leave :Gain 1 Strength this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL Replay !duofan_kenshi:VNameLiuAmount! . NL duofan_kenshi:leave :Gain 1 Strength this turn."
   },
   "game.duofan.kenshi:FZL_FuFeng": {
     "NAME": "Corruption",
@@ -205,13 +205,13 @@
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Sealing",
-    "DESCRIPTION": "Apply !M! Weak . NL duofan_kenshi:cloud :If enemy has 10 Weak at least,give half of its max healthy damage (floor).",
-    "UPGRADE_DESCRIPTION": "Apply !M! Weak . NL duofan_kenshi:cloud :If enemy has 10 Weak at least,give half of its max healthy damage (floor)."
+    "DESCRIPTION": "Apply 5 Weak . NL duofan_kenshi:cloud :If enemy has !M! Weak at least,give half of its max healthy damage (floor).",
+    "UPGRADE_DESCRIPTION": "Apply 5 Weak . NL duofan_kenshi:cloud :If enemy has !M! Weak at least,give half of its max healthy damage (floor)."
   },
   "game.duofan.kenshi:XZL_BuPoFa": {
     "NAME": "Unbreakable",
     "DESCRIPTION": "Damage can't break your block at this turn. NL duofan_kenshi:cloud :Gain !B! block.",
-    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn. NL duofan_kenshi:cloud :Gain !B! block."
+    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn,gain !B! block . NL duofan_kenshi:cloud :Gain !B! block."
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",

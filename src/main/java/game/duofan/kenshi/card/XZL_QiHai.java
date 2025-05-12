@@ -16,7 +16,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
 
-public class XZL_QiHai extends CustomCard implements IXiaZhiLiuCard {
+public class XZL_QiHai extends CustomCard {
 
     public static final String ID = IDManager.getInstance().getID(XZL_QiHai.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -58,21 +58,6 @@ public class XZL_QiHai extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.XiaZhiLiu;
-    }
-
-    @Override
-    public boolean isInvokeLiuEffectToTop() {
-        return false;
-    }
-
-    @Override
-    public void xiaZhiLiuEffect(boolean isByQi) {
 
     }
 }

@@ -13,5 +13,6 @@ public class VariableRegister implements EditCardsSubscriber {
         BaseMod.addDynamicVariable(new OverPJAmount());
         BaseMod.addDynamicVariable(new LamageScaler());
         BaseMod.addDynamicVariable(new QiLamagePlus());
+        BaseMod.addDynamicVariable(new VNameLiuAmount());
     }
 }

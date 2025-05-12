@@ -14,10 +14,10 @@
     "DESCRIPTION": "随机 消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本回合耗能减1。",
     "UPGRADE_DESCRIPTION": "消耗 1张手牌。 NL 抽取1张流派卡牌，使其在本回合耗能减1。"
   },
-  "game.duofan.kenshi:YiJianHuiYou_Card": {
-    "NAME": "以剑会友",
-    "DESCRIPTION": "本回合下1张攻击牌会打出3次。",
-    "UPGRADE_DESCRIPTION": "本回合下1张攻击牌会打出4次。"
+  "game.duofan.kenshi:JianQiao": {
+    "NAME": "剑鞘",
+    "DESCRIPTION": "被 保留 时将右侧临近的攻击牌放入其中，打出时将其一并打出(容量 !M! )。 NL 保留 ， duofan_kenshi:容器 ",
+    "UPGRADE_DESCRIPTION": "被 保留 时将右侧临近的攻击牌放入其中，打出时将其一并打出(容量 !M! )。 NL 保留 ， duofan_kenshi:容器 "
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "闪转偏折",
@@ -77,15 +77,15 @@
     "DESCRIPTION": "从3张流派卡牌中选择1张加入手牌，不包含稀有卡牌。 NL 消耗 ",
     "UPGRADE_DESCRIPTION": "从3张流派卡牌中选择1张加入手牌，不包含稀有卡牌，这张牌在本回合耗能降为0。 NL 消耗 "
   },
-  "game.duofan.kenshi:BaoLuoWanXiang": {
-    "NAME": "包罗万象",
-    "DESCRIPTION": "被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 ",
-    "UPGRADE_DESCRIPTION": " 被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 "
+  "game.duofan.kenshi:BaoFu": {
+    "NAME": "包袱",
+    "DESCRIPTION": "被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 ， duofan_kenshi:容器 ",
+    "UPGRADE_DESCRIPTION": " 被 保留 时将右侧的卡放入，打出时将其中的卡取出(容量 !M! )。 NL 保留 ， duofan_kenshi:容器 "
   },
-  "game.duofan.kenshi:YangGong": {
-    "NAME": "佯攻",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取1张攻击牌。",
-    "UPGRADE_DESCRIPTION": " 保留 NL 造成 !D! 点伤害，抽取1张攻击牌。"
+  "game.duofan.kenshi:ShuangJianHeBi_Card": {
+    "NAME": "双剑合璧",
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 下一张打出的攻击牌将对其目标打出本牌(该效果不会重复)。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 下一张打出的攻击牌将对其目标打出本牌(该效果不会重复)。"
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
@@ -155,8 +155,8 @@
   },
   "game.duofan.kenshi:FZL_LieFengZhan": {
     "NAME": "烈风斩",
-    "DESCRIPTION": "造成 !D! 点伤害,本回合打出的非同名流派卡牌使得该牌被重复打出1次(该效果不会重复)。 NL duofan_kenshi:枫之流 :本回合获得 !M! 点 力量 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害,本回合打出的非同名流派卡牌使得该牌被重复打出1次(该效果不会重复)。 NL duofan_kenshi:枫之流 :本回合获得 !M! 点 力量 。"
+    "DESCRIPTION": "造成 !D! 点伤害,本回合打出的非同名流派卡牌使该牌重复打出1次(该效果不会重复)。 NL 重复打出 !duofan_kenshi:VNameLiuAmount! 次。 NL duofan_kenshi:枫之流 :本回合获得 !M! 点 力量 。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害,本回合打出的非同名流派卡牌使该牌重复打出1次(该效果不会重复)。 NL 重复打出 !duofan_kenshi:VNameLiuAmount! 次。 NL duofan_kenshi:枫之流 :本回合获得 !M! 点 力量 。"
   },
   "game.duofan.kenshi:FZL_FuFeng": {
     "NAME": "腐风",
@@ -205,13 +205,13 @@
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "封魔",
-    "DESCRIPTION": "给予 !M! 层 虚弱 。 NL duofan_kenshi:霞之流 :若敌人的 虚弱 不低于10层，使其受到最大生命值一半的伤害(下整)。",
-    "UPGRADE_DESCRIPTION": "给予 !M! 层 虚弱 。 NL duofan_kenshi:霞之流 :若敌人的 虚弱 不低于10层，使其受到最大生命值一半的伤害(下整)。"
+    "DESCRIPTION": "给予5层 虚弱 。 NL duofan_kenshi:霞之流 :若敌人的 虚弱 不低于 !M! 层，使其受到最大生命值一半的伤害(下整)。",
+    "UPGRADE_DESCRIPTION": "给予5层 虚弱 。 NL duofan_kenshi:霞之流 :若敌人的 虚弱 不低于 !M! 层，使其受到最大生命值一半的伤害(下整)。"
   },
   "game.duofan.kenshi:XZL_BuPoFa": {
     "NAME": "不破法",
     "DESCRIPTION": "本回合伤害无法损耗你的 格挡 。 NL duofan_kenshi:霞之流 :获得 !B! 点格挡。",
-    "UPGRADE_DESCRIPTION": "本回合伤害无法损耗你的 格挡 。 NL duofan_kenshi:霞之流 :获得 !B! 点格挡。"
+    "UPGRADE_DESCRIPTION": "本回合伤害无法损耗你的 格挡 ，获得 !B! 点 格挡 。 NL duofan_kenshi:霞之流 :获得 !B! 点格挡。"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "彩彻区明",

@@ -29,6 +29,12 @@
       "Next Attack in this turn will deal #b%d%% more damage."
     ]
   },
+  "game.duofan.kenshi:ShuangJianHeBi": {
+    "NAME": "Blades Unity",
+    "DESCRIPTIONS": [
+      "The next Attack card played triggers #y[NAME] against the same target."
+    ]
+  },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "Sword Testing Stone",
     "DESCRIPTIONS": [

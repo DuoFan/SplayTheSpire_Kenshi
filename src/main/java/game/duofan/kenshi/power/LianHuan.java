@@ -68,6 +68,10 @@ public class LianHuan extends AbstractPower implements IEventListener {
             }
             Utils.giveBaoYanDamage(info.owner, m, damage, DamageInfo.DamageType.NORMAL);
         }
+
+        if(Utils.isKilled(owner) || owner.isDeadOrEscaped()){
+            dispose();
+        }
     }
 
     void dispose() {

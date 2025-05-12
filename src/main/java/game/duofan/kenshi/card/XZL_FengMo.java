@@ -34,19 +34,20 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
+    int weakGive = 5;
     AbstractMonster targetMonster;
 
     public XZL_FengMo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 5;
+        magicNumber = baseMagicNumber = 10;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级
-            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(-3);
             this.initializeDescription();
         }
     }
@@ -68,7 +69,7 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
         });
 
         targetMonster = m;
-        Utils.givePower(p, m, new WeakPower(m, magicNumber, false));
+        Utils.givePower(p, m, new WeakPower(m, weakGive, false));
     }
 
     @Override
@@ -86,7 +87,7 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
         if (targetMonster != null) {
             AbstractPlayer p = AbstractDungeon.player;
             AbstractPower weakP = targetMonster.getPower(WeakPower.POWER_ID);
-            if(weakP != null && weakP.amount >= 10){
+            if(weakP != null && weakP.amount >= magicNumber){
                 int hp = targetMonster.maxHealth;
                 if (hp > 0) {
                     int damage = (int) (hp * 0.5f);
