@@ -1,8 +1,8 @@
 {
-  "game.duofan.kenshi:YiJianHuiYou": {
-    "NAME": "以剑会友",
+  "game.duofan.kenshi:DisablePower": {
+    "NAME": "封印",
     "DESCRIPTIONS": [
-      "本回合下 #b1 张攻击牌  会打出 #b%d 次。"
+      "该能力在本回合被 #y封印 。"
     ]
   },
   "game.duofan.kenshi:GongFaShanZhuan": {
@@ -181,6 +181,12 @@
     "NAME": "飞影",
     "DESCRIPTIONS": [
       "每次进入流派，使你获得 #b%d 点 #y格挡 。"
+    ]
+  },
+  "game.duofan.kenshi:XueMu": {
+    "NAME": "血幕",
+    "DESCRIPTIONS": [
+      "每当敌人死亡，回复 #b%d 点生命。"
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {

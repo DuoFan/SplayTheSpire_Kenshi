@@ -99,8 +99,8 @@
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
-    "DESCRIPTION": "Deal !D! damage,lose !M! Strength this turn. NL duofan_kenshi:leave :Draw !M! card.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage,lose !M! Strength this turn. NL duofan_kenshi:leave :Draw !M! card."
+    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn."
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "Wind Burst",
@@ -250,18 +250,18 @@
   },
   "game.duofan.kenshi:XZL_ShengXie": {
     "NAME": "Sheng Xie",
-    "DESCRIPTION": "First Play: Enemy loses 2 Strength. NL Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength). NL duofan_kenshi:cloud :Gain 1 Strength.",
-    "UPGRADE_DESCRIPTION": "First Play: Enemy loses 2 Strength. NL Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength). NL duofan_kenshi:cloud :Gain 1 Strength."
+    "DESCRIPTION": "Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)(total !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)(total !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength."
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "Chun Jun",
     "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage. NL duofan_kenshi:sensitive ",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage. NL duofan_kenshi:sensitive "
   },
-  "game.duofan.kenshi:YuZL_QueBu": {
-    "NAME": "Sparrow Step",
-    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :draw 1 card."
+  "game.duofan.kenshi:YuZL_FengYuBuDong": {
+    "NAME": "Unshaken by Storm",
+    "DESCRIPTION": "Gain !B! Block for each Power you have.(total !duofan_kenshi:FengYuAmount! block ) NL duofan_kenshi:feather :Randomly duofan_kenshi:disable one of your debuffs this turn.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block for each Power you have.(total !duofan_kenshi:FengYuAmount! block ) NL duofan_kenshi:feather :Randomly duofan_kenshi:disable one of your debuffs this turn."
   },
   "game.duofan.kenshi:YuZL_QianLiMu": {
     "NAME": "Clairvoyance",
@@ -293,10 +293,10 @@
     "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block."
   },
-  "game.duofan.kenshi:YuZL_DongQuChunLai": {
-    "NAME": "Winter Turn\n To Spring",
-    "DESCRIPTION": "Heal !M! HP. NL duofan_kenshi:feather :Gain 2 regen. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Heal !M! HP. NL duofan_kenshi:feather :Gain 2 regen. NL Exhaust "
+  "game.duofan.kenshi:YuZL_XueMu": {
+    "NAME": "Blood Episode",
+    "DESCRIPTION": "Whenever an enemy dies, heal !M! HP. NL duofan_kenshi:feather :All enemies lose !M! HP. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal !M! HP. NL duofan_kenshi:feather :All enemies lose !M! HP. NL Ethereal "
   },
   "game.duofan.kenshi:YuZL_WeiYuChouMo": {
     "NAME": "Prepare For\n A Rainy Day",

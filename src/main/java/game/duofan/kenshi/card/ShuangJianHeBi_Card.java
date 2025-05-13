@@ -29,7 +29,7 @@ public class ShuangJianHeBi_Card extends CustomCard {
 
     public ShuangJianHeBi_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 8;
+        damage = baseDamage = 7;
     }
 
     @Override

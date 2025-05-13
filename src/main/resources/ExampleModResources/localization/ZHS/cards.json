@@ -27,7 +27,7 @@
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "心随意动",
     "DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件触发流派效果。",
-    "UPGRADE_DESCRIPTION": "每回合打出的前 !M! 张流派卡 无条件触发流派效果。"
+    "UPGRADE_DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件触发流派效果。"
   },
   "game.duofan.kenshi:QianBianWanHua": {
     "NAME": "千变万化",
@@ -99,8 +99,8 @@
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "压制",
-    "DESCRIPTION": "造成 !D! 点伤害，本回合失去 !M! 点 力量 。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，本回合失去 !M! 点 力量 。 NL duofan_kenshi:枫之流 :抽取 !M! 张卡牌。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 :本回合随机 duofan_kenshi:封印 敌人的一个非负面能力。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 :本回合随机 duofan_kenshi:封印 敌人的一个非负面能力。"
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "秋风破",
@@ -250,18 +250,18 @@
   },
   "game.duofan.kenshi:XZL_ShengXie": {
     "NAME": "胜邪",
-    "DESCRIPTION": "首次打出时使敌人失去 2 点 力量 。 NL 造成与敌人力量差 × !M! 的伤害。 NL duofan_kenshi:霞之流 :获得1点 力量 。",
-    "UPGRADE_DESCRIPTION": "首次打出时使敌人失去 2 点 力量 。 NL 造成与敌人力量差 × !M! 的伤害。 NL duofan_kenshi:霞之流 :获得1点 力量 。"
+    "DESCRIPTION": "造成与敌人力量差 × !M! 的伤害。(造成 !duofan_kenshi:ShengXieLamage! 点伤害) NL duofan_kenshi:霞之流 :获得1点 力量 。",
+    "UPGRADE_DESCRIPTION": "造成与敌人力量差 × !M! 的伤害。(造成 !duofan_kenshi:ShengXieLamage! 点伤害) NL duofan_kenshi:霞之流 :获得1点 力量 。"
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "纯钧",
     "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。 NL duofan_kenshi:气敏 ",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。 NL duofan_kenshi:气敏 "
   },
-  "game.duofan.kenshi:YuZL_QueBu": {
-    "NAME": "雀步",
-    "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :抽取1张卡牌。"
+  "game.duofan.kenshi:YuZL_FengYuBuDong": {
+    "NAME": "风雨不动",
+    "DESCRIPTION": "拥有的每个能力使你获得 !B! 点 格挡 。(获得 !duofan_kenshi:FengYuAmount! 点 格挡 ) NL duofan_kenshi:羽之流 :本回合随机 duofan_kenshi:封印 自身的一个负面能力。",
+    "UPGRADE_DESCRIPTION": "拥有的每个能力使你获得 !B! 点 格挡 。(获得 !duofan_kenshi:FengYuAmount! 点 格挡 ) NL duofan_kenshi:羽之流 :本回合随机 duofan_kenshi:封印 自身的一个负面能力。"
   },
   "game.duofan.kenshi:YuZL_QianLiMu": {
     "NAME": "千里目",
@@ -293,10 +293,10 @@
     "DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。",
     "UPGRADE_DESCRIPTION": "回合开始时，若存在意图为攻击的敌人，获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :获得 !B! 点 格挡 。"
   },
-  "game.duofan.kenshi:YuZL_DongQuChunLai": {
-    "NAME": "冬去春来",
-    "DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "回复 !M! 点生命。 NL duofan_kenshi:羽之流 :获得2层 再生 。 NL 消耗 "
+  "game.duofan.kenshi:YuZL_XueMu": {
+    "NAME": "血幕",
+    "DESCRIPTION": "每当敌人死亡，回复 !M! 点生命。 NL duofan_kenshi:羽之流 :所有敌人失去 !M! 点生命。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "每当敌人死亡，回复 !M! 点生命。 NL duofan_kenshi:羽之流 :所有敌人失去 !M! 点生命。 NL 虚无 "
   },
   "game.duofan.kenshi:YuZL_WeiYuChouMo": {
     "NAME": "未雨绸缪",

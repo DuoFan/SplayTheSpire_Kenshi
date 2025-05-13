@@ -17,8 +17,9 @@ import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.power.*;
+import game.duofan.kenshi.variable.ITargetMonsterGetter;
 
-public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
+public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard, ITargetMonsterGetter {
 
     public static final String ID = IDManager.getInstance().getID(XZL_ShengXie.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
@@ -32,6 +33,8 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
     boolean isPlayed;
+
+    AbstractMonster targetMonster;
 
     public XZL_ShengXie() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
@@ -48,6 +51,12 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
         }
     }
 
+    @Override
+    public void calculateCardDamage(AbstractMonster mo) {
+        super.calculateCardDamage(mo);
+        targetMonster = mo;
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *
@@ -56,10 +65,10 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        if (!isPlayed) {
+        /*if (!isPlayed) {
             isPlayed = true;
             Utils.givePower(p, m, new StrengthPower(m, -2));
-        }
+        }*/
 
         DamageInfo info = new DamageInfo(p, 0, DamageInfo.DamageType.NORMAL);
         DamageAction d = new DamageAction(m, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
@@ -103,5 +112,14 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
+    }
+
+    @Override
+    public AbstractMonster getTargetMonster() {
+        return targetMonster;
+    }
+
+    public boolean getIsPlayed(){
+        return isPlayed;
     }
 }

@@ -1,4 +1,10 @@
 {
+  "game.duofan.kenshi:DisablePower": {
+    "NAME": "Disable",
+    "DESCRIPTIONS": [
+      "This power is disabled in this turn."
+    ]
+  },
   "game.duofan.kenshi:YiJianHuiYou": {
     "NAME": "Make Friends Through Sword",
     "DESCRIPTIONS": [
@@ -181,6 +187,12 @@
     "NAME": "Flying Shadow",
     "DESCRIPTIONS": [
       "Whenever you enter a Style，gain #b%d #yblock ."
+    ]
+  },
+  "game.duofan.kenshi:XueMu": {
+    "NAME": "Blood Episode",
+    "DESCRIPTIONS": [
+      "Whenever an enemy dies, heal #b%d HP."
     ]
   },
   "game.duofan.kenshi:BuSiNiao": {

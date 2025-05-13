@@ -1,6 +1,12 @@
 [
   {
     "NAMES": [
+      "disable"
+    ],
+    "DESCRIPTION": "Disabled power cannot take effect this turn, but it can be stacked."
+  },
+  {
+    "NAMES": [
       "forge"
     ],
     "DESCRIPTION": "Forge #b1 card. NL Attack:Increase #b2 base damage. NL Skill:Make it #yretain. NL Power: Reduce #b1 cost."

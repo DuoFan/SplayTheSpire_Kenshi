@@ -464,6 +464,10 @@ public class Utils {
         givePower(o, o, power);
     }
 
+    public static void gainPowerTop(AbstractCreature o, AbstractPower power) {
+        givePowerTop(o, o, power);
+    }
+
     public static void removePower(AbstractCreature o, String powerID) {
         if (o != null) {
             AbstractDungeon.actionManager.addToBottom(new
@@ -738,7 +742,7 @@ public class Utils {
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {
-            cards.add(new YuZL_QueBu());
+            cards.add(new YuZL_FengYuBuDong());
             cards.add(new YuZL_QianLiMu());
             cards.add(new YuZL_QingShenZhui());
             cards.add(new YuZL_BaiLuYou());
@@ -749,7 +753,7 @@ public class Utils {
             cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());
-            cards.add(new YuZL_DongQuChunLai());
+            cards.add(new YuZL_XueMu());
             cards.add(new YuZL_WeiYuChouMo());
             cards.add(new YuZL_BuSiNiao());
         }
