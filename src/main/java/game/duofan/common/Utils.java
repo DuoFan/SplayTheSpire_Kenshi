@@ -669,6 +669,12 @@ public class Utils {
         return a;
     }
 
+    public static DrawCardByFilterAction playerDrawCardByFilterActionTop(int amount, ICardFilter filter) {
+        DrawCardByFilterAction a = new DrawCardByFilterAction(amount, filter);
+        AbstractDungeon.actionManager.addToTop(a);
+        return a;
+    }
+
     public static void playerDrawCardByClass(int amount, Class<?> targetClass) {
         AbstractDungeon.actionManager.addToBottom(new DrawCardByClassAction(amount, targetClass));
     }
@@ -716,12 +722,12 @@ public class Utils {
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_HuiFengZhan());
             cards.add(new FZL_FuFeng());
-            cards.add(new FZL_SuSha());
+            cards.add(new JianYu_Card());
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_XianFaZhiRen());
             cards.add(new FZL_QiuYeLianJian());
             cards.add(new FZL_ShaXinZhouQi());
-            cards.add(new FZL_FanShi_Card());
+            //cards.add(new FZL_FanShi_Card());
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
@@ -754,7 +760,7 @@ public class Utils {
             cards.add(new YuZL_YunXiaoYuJi());
             cards.add(new YuZL_PaiXian());
             cards.add(new YuZL_XueMu());
-            cards.add(new YuZL_WeiYuChouMo());
+            cards.add(new YuZL_HouNiao());
             cards.add(new YuZL_BuSiNiao());
         }
 

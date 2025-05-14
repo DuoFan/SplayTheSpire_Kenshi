@@ -19,11 +19,12 @@ public class CardRegister implements EditCardsSubscriber {
 
         cards.add(new XZL_QiHai());
         cards.add(new YuZL_YuYi());
+        cards.add(new FZL_FanShi_Card());
 
         cards.add(new Strike());
         cards.add(new Defend());
 
-        cards.add(new XingJianLi_Card());
+        cards.add(new LeXue());
         cards.add(new JianQiao());
         cards.add(new GongFaShanZhuan_Card());
         cards.add(new XinSuiYiDong_Card());
@@ -31,7 +32,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new QianBianWanHua());
         cards.add(new ZhanYanLuo_Card());
         cards.add(new XiuLuo_Card());
-        cards.add(new JingYeSi_Card());
+        cards.add(new TingXue());
         cards.add(new ShiJun());
 
         cards.add(new BuSiNiaoZhiYu());

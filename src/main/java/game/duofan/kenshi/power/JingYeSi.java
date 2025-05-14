@@ -6,14 +6,11 @@ import com.megacrit.cardcrawl.actions.watcher.SkipEnemiesTurnAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
-import game.duofan.kenshi.card.JingYeSi_Card;
-
-import java.util.ArrayList;
+import game.duofan.kenshi.card.TingXue;
 
 public class JingYeSi extends AbstractPower {
 
@@ -62,13 +59,13 @@ public class JingYeSi extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         int attackAmount = Utils.stasticsAttackCardPlayedInTurn();
-        if (attackAmount < JingYeSi_Card.attackLimit) {
+        /*if (attackAmount < TingXue.attackLimit) {
             flash();
             amount--;
             if(amount == 0){
                 Utils.playRemovePower(POWER_ID);
             }
             this.addToBot(new SkipEnemiesTurnAction());
-        }
+        }*/
     }
 }

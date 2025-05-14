@@ -54,10 +54,10 @@
       "将打出攻击牌的 #b%d 张复制加入抽牌堆，抽取的每张攻击牌使你获得 #b%d 点 #y格挡 。"
     ]
   },
-  "game.duofan.kenshi:JingYeSi": {
-    "NAME": "静夜思",
+  "game.duofan.kenshi:JianYu": {
+    "NAME": "剑域",
     "DESCRIPTIONS": [
-      "本回合若打出的攻击牌少于 #b3 张，额外获得一回合。 NL 当前已打出 #b%d 张攻击牌 。"
+      "每当攻击牌被消耗时，对所有敌人造成 #b%d 点伤害。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {

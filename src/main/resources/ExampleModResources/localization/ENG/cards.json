@@ -9,10 +9,10 @@
     "DESCRIPTION": "Gain !B! Block.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block."
   },
-  "game.duofan.kenshi:XingJianLi_Card": {
-    "NAME": "Sword Etiquette",
-    "DESCRIPTION": " Exhaust 1 card at random. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card.",
-    "UPGRADE_DESCRIPTION": " Exhaust 1 card. NL Draw 1 Style-Card and reduce 1 cost this turn for the drawn card."
+  "game.duofan.kenshi:LeXue": {
+    "NAME": "Eclectic Study",
+    "DESCRIPTION": "For each Style not in your hand, draw 1 card of that Style. NL Draws: !duofan_kenshi:LeXueAmount!",
+    "UPGRADE_DESCRIPTION": "For each Style not in your hand, draw 1 card of that Style. NL Draws: !duofan_kenshi:LeXueAmount!"
   },
   "game.duofan.kenshi:JianQiao": {
     "NAME": "Sword Sheath",
@@ -57,10 +57,10 @@
     "DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal ",
     "UPGRADE_DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal "
   },
-  "game.duofan.kenshi:JingYeSi_Card": {
-    "NAME": "Night Thoughts",
-    "DESCRIPTION": "At the end of your any turn, if you played less than 3 Attack, take an extra turn and remove one of this effect. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "At the end of your any turn, if you played less than 3 Attack, take an extra turn and remove one of this effect. NL Exhaust "
+  "game.duofan.kenshi:TingXue": {
+    "NAME": "Snow's Whisper",
+    "DESCRIPTION": "Unplayable. NL When drawn, draw !M! cards.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL When drawn, draw !M! cards."
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "Night Walk",
@@ -94,8 +94,8 @@
   },
   "game.duofan.kenshi:TuoTaiHuanGu": {
     "NAME": "Thoroughly Remould Self",
-    "DESCRIPTION": "Upgrade all cards in your hand for the rest of combat, Each Upgrade gives you [E].",
-    "UPGRADE_DESCRIPTION": "Upgrade all cards in your hand for the rest of combat, Each Upgrade gives you [E] . NL Gain [E] ."
+    "DESCRIPTION": "Upgrade All cards in your hand for the rest of combat, Each Upgrade gives you [E].",
+    "UPGRADE_DESCRIPTION": "Upgrade All cards in your hand for the rest of combat, Each Upgrade gives you [E] . NL Gain [E] ."
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
@@ -137,8 +137,8 @@
   },
   "game.duofan.kenshi:FZL_QiuYeLianJian": {
     "NAME": "Practise Sword",
-    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of ALL Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand."
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
     "NAME": "Superb Sword Moves",
@@ -160,13 +160,13 @@
   },
   "game.duofan.kenshi:FZL_FuFeng": {
     "NAME": "Corruption",
-    "DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to ALL enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
+    "DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
   },
-  "game.duofan.kenshi:FZL_SuSha": {
-    "NAME": "Grim Intent",
-    "DESCRIPTION": "Put 1 Attack from your drawpile into your hand. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Put 1 Attack from your drawpile into your hand. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
+  "game.duofan.kenshi:JianYu_Card": {
+    "NAME": "Sword Domain",
+    "DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies."
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "Murderous Intent",
@@ -175,13 +175,13 @@
   },
   "game.duofan.kenshi:FZL_FanShi_Card": {
     "NAME": "Anti Moves",
-    "DESCRIPTION": "You will always draw cards from the discard pile. NL duofan_kenshi:leave :Put !M! card from your drawpile into your hand.",
-    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile. NL duofan_kenshi:leave :Put !M! cards from your drawpile into your hand."
+    "DESCRIPTION": "You will always draw cards from the discard pile.",
+    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile."
   },
   "game.duofan.kenshi:XZL_JuQi": {
     "NAME": "Gathering Qi",
-    "DESCRIPTION": "Gain 1 duofan_kenshi:qi. NL Draw !M! cards. NL duofan_kenshi:Cloud :Gain [E] .",
-    "UPGRADE_DESCRIPTION": "Gain 1 duofan_kenshi:qi. NL Draw !M! cards. NL duofan_kenshi:Cloud :Gain [E] ."
+    "DESCRIPTION": "Gain !M! duofan_kenshi:qi. NL Draw 2 cards. NL duofan_kenshi:Cloud :Gain [E] .",
+    "UPGRADE_DESCRIPTION": "Gain !M! duofan_kenshi:qi. NL Draw 2 cards. NL duofan_kenshi:Cloud :Gain [E] ."
   },
   "game.duofan.kenshi:XZL_ShuangJi": {
     "NAME": "Bipolar",
@@ -200,8 +200,8 @@
   },
   "game.duofan.kenshi:XZL_QiHai": {
     "NAME": "Qi Sea",
-    "DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb all remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain ",
-    "UPGRADE_DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb all remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain "
+    "DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain ",
+    "UPGRADE_DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain "
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Sealing",
@@ -290,18 +290,18 @@
   },
   "game.duofan.kenshi:YuZL_PaiXian": {
     "NAME": "Risk Elimination",
-    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !B! Block."
+    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !M! Block."
   },
   "game.duofan.kenshi:YuZL_XueMu": {
     "NAME": "Blood Episode",
-    "DESCRIPTION": "Whenever an enemy dies, heal !M! HP. NL duofan_kenshi:feather :All enemies lose !M! HP. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal !M! HP. NL duofan_kenshi:feather :All enemies lose !M! HP. NL Ethereal "
+    "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL duofan_kenshi:feather :All enemies lose 3 HP. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL duofan_kenshi:feather :All enemies lose 3 HP. NL Ethereal "
   },
-  "game.duofan.kenshi:YuZL_WeiYuChouMo": {
-    "NAME": "Prepare For\n A Rainy Day",
-    "DESCRIPTION": "Next turn, draw X cards. NL Gain [E] . NL duofan_kenshi:feather :Draw 1 card.",
-    "UPGRADE_DESCRIPTION": "Next turn, draw X+1 cards. NL Gain [E] . NL duofan_kenshi:feather :Draw 1 card."
+  "game.duofan.kenshi:YuZL_HouNiao": {
+    "NAME": "Hobo Wing",
+    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block."
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "Pigeon Carrier",
@@ -385,8 +385,8 @@
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "Pure Yang\n Sword Intent",
-    "DESCRIPTION": "Each turn, the first !M! Attack apply 2 duofan_kenshi:melting, then deal duofan_kenshi:flame-damage. NL duofan_kenshi:flame :Draw an Attack.",
-    "UPGRADE_DESCRIPTION": "Each turn, the first !M! Attack apply 2 duofan_kenshi:melting, then deal duofan_kenshi:flame-damage. NL duofan_kenshi:flame :Draw an Attack."
+    "DESCRIPTION": "Each turn, the first !M! Attack apply 2 duofan_kenshi:melting, then deal duofan_kenshi:flame-damage. NL duofan_kenshi:flame :Apply 1 duofan_kenshi:melting to an enemy.",
+    "UPGRADE_DESCRIPTION": "Each turn, the first !M! Attack apply 2 duofan_kenshi:melting, then deal duofan_kenshi:flame-damage. NL duofan_kenshi:flame :Apply 1 duofan_kenshi:melting to an enemy."
   },
   "game.duofan.kenshi:YanZL_LianHuan": {
     "NAME": "Chain",

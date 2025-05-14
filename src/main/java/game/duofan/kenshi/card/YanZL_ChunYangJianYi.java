@@ -32,6 +32,8 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    AbstractMonster targetMonster;
+
     public YanZL_ChunYangJianYi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
@@ -55,6 +57,8 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
+        targetMonster = m;
+
         addToBot(new SFXAction("ATTACK_FIRE"));
         Color c1 = new Color(1.0F, 1.0F, 0.1F, 1.0F);
         this.addToBot(new VFXAction(p, new ColorSanctityEffect(p.hb.cX, p.hb.cY, 5, c1), 0.1f));
@@ -65,7 +69,20 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        Utils.playerDrawCardByFilterAction(1, c -> c.type == AbstractCard.CardType.ATTACK);
+        if (targetMonster != null) {
+            Utils.givePower(AbstractDungeon.player, targetMonster, new RongRong(targetMonster, 1));
+        }
+    }
+
+    @Override
+    public void update() {
+        super.update();
+        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
+                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+            target = CardTarget.ENEMY;
+        } else {
+            target = CardTarget.SELF;
+        }
     }
 
     @Override

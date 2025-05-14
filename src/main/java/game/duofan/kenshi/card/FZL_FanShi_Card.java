@@ -19,7 +19,7 @@ import game.duofan.kenshi.power.*;
 
 import java.lang.reflect.Field;
 
-public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
+public class FZL_FanShi_Card extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(FZL_FanShi_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
@@ -59,7 +59,7 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
         Utils.playerGainPower(new FanShi(p));
     }
 
-    @Override
+   /* @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
@@ -67,9 +67,9 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
                 || ZhuLiuBaiJia.canForceInvokeLiu()) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void fengZhiLiuEffect() {
         if (action == null) {
             action = new BetterDrawPileToHandAction(magicNumber, true);
@@ -91,7 +91,7 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
                 System.out.println("-------------反式增加次数失败");
             }
         }
-    }
+    }*/
 
     @Override
     public void onMoveToDiscard() {
@@ -99,7 +99,7 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
         action = null;
     }
 
-    @Override
+    /*@Override
     public Liu_StateMachine.StateEnum getLiu() {
         return Liu_StateMachine.StateEnum.FengZhiLiu;
     }
@@ -107,5 +107,5 @@ public class FZL_FanShi_Card extends CustomCard implements IFengZhiLiuCard {
     @Override
     public boolean isInvokeLiuEffectToTop() {
         return false;
-    }
+    }*/
 }

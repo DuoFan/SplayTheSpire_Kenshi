@@ -37,7 +37,7 @@ import java.util.Iterator;
 
 @SpirePatch2(clz = AbstractPlayer.class, method = "damage", paramtypez = {DamageInfo.class})
 public class YuYiPatch {
-    @SpireInsertPatch(rloc = 1810 - 1727)
+    @SpireInsertPatch(rloc = 1797 - 1727)
     public static SpireReturn Patch(AbstractPlayer __instance, DamageInfo info, int ___damageAmount) {
         if (___damageAmount <= 0) {
             return SpireReturn.Continue();
@@ -83,10 +83,28 @@ public class YuYiPatch {
             }
         }
 
+        __instance.lastDamageTaken = Math.min(___damageAmount, __instance.currentHealth);
+
+        if(___damageAmount <= 0){
+            return SpireReturn.Return();
+        }
+
+        AbstractPower p;
+        for(Iterator<AbstractPower> iP = __instance.powers.iterator(); iP.hasNext(); ___damageAmount = p.onLoseHp(___damageAmount)) {
+            p = (AbstractPower)iP.next();
+        }
+
+        Iterator<AbstractRelic> iR = __instance.relics.iterator();
+
+        while(iR.hasNext()) {
+            AbstractRelic r = (AbstractRelic)iR.next();
+            r.onLoseHp(___damageAmount);
+        }
+
         Iterator<AbstractPower> iP = __instance.powers.iterator();
 
         while (iP.hasNext()) {
-            AbstractPower p = (AbstractPower) iP.next();
+            p = (AbstractPower) iP.next();
             p.wasHPLost(info, ___damageAmount);
         }
 
@@ -101,7 +119,7 @@ public class YuYiPatch {
             Iterator<AbstractPower> iP2 = info.owner.powers.iterator();
 
             while (iP2.hasNext()) {
-                AbstractPower p = (AbstractPower) iP2.next();
+                p = (AbstractPower) iP2.next();
                 p.onInflictDamage(info, ___damageAmount, __instance);
             }
         }
@@ -149,12 +167,12 @@ public class YuYiPatch {
                     Iterator<AbstractPotion> i = __instance.potions.iterator();
 
                     while (i.hasNext()) {
-                        AbstractPotion p = (AbstractPotion) i.next();
-                        if (p.ID.equals("FairyPotion")) {
-                            p.flash();
+                        AbstractPotion po = (AbstractPotion) i.next();
+                        if (po.ID.equals("FairyPotion")) {
+                            po.flash();
                             __instance.currentHealth = 0;
-                            p.use(__instance);
-                            AbstractDungeon.topPanel.destroyPotion(p.slot);
+                            po.use(__instance);
+                            AbstractDungeon.topPanel.destroyPotion(po.slot);
                             return SpireReturn.Return();
                         }
                     }

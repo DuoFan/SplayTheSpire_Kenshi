@@ -60,10 +60,10 @@
       "Whenever you played Attack, add #b%d duplicate into your drawpile. NL Whenever you drawn Attack,gain #b%d #yBlock ."
     ]
   },
-  "game.duofan.kenshi:JingYeSi": {
-    "NAME": "Night Thoughts",
+  "game.duofan.kenshi:JianYu": {
+    "NAME": "Sword Domain",
     "DESCRIPTIONS": [
-      "If you played less than #b3 Attack, take an extra turn. NL Current played #b%d Attack."
+      "Whenever an Attack is Exhausted, deal #b%d damage to All enemies."
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {

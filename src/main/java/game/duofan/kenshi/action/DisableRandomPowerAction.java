@@ -40,6 +40,9 @@ public class DisableRandomPowerAction extends AbstractGameAction {
             if (debuff && p.type != AbstractPower.PowerType.DEBUFF) {
                 continue;
             }
+            else if(!debuff && p.type == AbstractPower.PowerType.DEBUFF){
+                continue;
+            }
 
             debuffList.add(p);
         }

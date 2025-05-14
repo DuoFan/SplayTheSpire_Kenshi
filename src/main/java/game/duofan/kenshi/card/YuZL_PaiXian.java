@@ -28,7 +28,7 @@ public class YuZL_PaiXian extends CustomCard implements IYuZhiLiuCard {
     public YuZL_PaiXian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 6;
-        block = baseBlock = 8;
+        //block = baseBlock = 8;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class YuZL_PaiXian extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainBlock(block);
+        Utils.playerGainBlock(magicNumber);
     }
 
     @Override

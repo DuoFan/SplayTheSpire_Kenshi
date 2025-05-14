@@ -25,7 +25,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(XZL_JuQi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/xZL/JuQi_skill.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
@@ -35,7 +35,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_JuQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
     }
 
     @Override
@@ -56,11 +56,11 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainQi(1);
+        Utils.playerGainQi(magicNumber);
         addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
-        this.addToBot(new VFXAction(new BorderFlashEffect(Color.WHITE, true)));
-        this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.LIME, "CARD_DRAW_8"), 1.0F));
-        addToBot(new DrawCardAction(p, magicNumber));
+        this.addToBot(new VFXAction(new BorderFlashEffect(Color.VIOLET, true)));
+        this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.VIOLET, "CARD_DRAW_8"), 1.0F));
+        addToBot(new DrawCardAction(p, 2));
     }
 
     @Override

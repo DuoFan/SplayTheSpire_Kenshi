@@ -16,5 +16,6 @@ public class VariableRegister implements EditCardsSubscriber {
         BaseMod.addDynamicVariable(new VNameLiuAmount());
         BaseMod.addDynamicVariable(new ShengXieLamage());
         BaseMod.addDynamicVariable(new FengYuAmount());
+        BaseMod.addDynamicVariable(new LeXueAmount());
     }
 }

@@ -13,8 +13,12 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.MonsterGroup;
+import com.megacrit.cardcrawl.powers.FlightPower;
 import com.megacrit.cardcrawl.powers.RegenPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
 import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.*;
@@ -28,16 +32,17 @@ public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
-    private static final int COST = 1;
+    private static final int COST = -2;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.POWER;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.UNCOMMON;
     private static final CardTarget TARGET = CardTarget.SELF;
 
+    static int heal = 3;
     public YuZL_XueMu() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 1;
         isEthereal = true;
     }
 
@@ -51,6 +56,38 @@ public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
         }
     }
 
+    @Override
+    public void update() {
+        super.update();
+
+        MapRoomNode n = AbstractDungeon.currMapNode;
+        if(n == null || n.getRoom() == null || n.getRoom().monsters == null){
+            cost = -2;
+            costForTurn = -2;
+            this.isCostModifiedForTurn = false;
+            return;
+        }
+
+        MonsterGroup monsterGroup = n.getRoom().monsters;
+
+        int c = -magicNumber;
+        for (int i = 0; i < monsterGroup.monsters.size(); i++) {
+            AbstractMonster m = monsterGroup.monsters.get(i);
+            if(Utils.isKilled(m) || m.isDeadOrEscaped()){
+                continue;
+            }
+            c++;
+        }
+
+        if(c < 0){
+            c = 0;
+        }
+
+        this.cost = c;
+        this.costForTurn = c;
+        this.isCostModifiedForTurn = false;
+    }
+
     /**
      * 当卡牌被使用时，调用这个方法。
      *
@@ -62,12 +99,12 @@ public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
         this.addToBot(new SFXAction("STANCE_ENTER_WRATH"));
         Color c1 = Color.SCARLET;
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(c1), 0.0F, true));
-        Utils.playerGainPower(new XueMu(p, magicNumber));
+        Utils.playerGainPower(new XueMu(p, heal));
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, magicNumber, DamageInfo.DamageType.HP_LOSS,
+        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, heal, DamageInfo.DamageType.HP_LOSS,
                 AbstractGameAction.AttackEffect.FIRE));
     }
 
