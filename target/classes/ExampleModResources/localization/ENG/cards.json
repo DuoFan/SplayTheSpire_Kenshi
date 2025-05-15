@@ -330,8 +330,8 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "Phoenix",
-    "DESCRIPTION": "Prevent you would lose HP, and Exhaust 3 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Prevent you would lose HP, and Exhaust 3 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal "
+    "DESCRIPTION": "Prevent you would lose HP, and Exhaust 2 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Prevent you would lose HP, and Exhaust 2 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal "
   },
   "game.duofan.kenshi:BuSiNiaoZhiYu": {
     "NAME": "Phoenix Feather",

@@ -330,8 +330,8 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "不死鸟",
-    "DESCRIPTION": "消耗3张卡牌以防止受到的伤害，每回合 !M! 次。 NL duofan_kenshi:羽之流 :将2张 *不死鸟之羽 放入抽牌堆。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "消耗3张卡牌以防止受到的伤害，每回合 !M! 次。 NL duofan_kenshi:羽之流 :将2张 *不死鸟之羽 放入抽牌堆。 NL 虚无 "
+    "DESCRIPTION": "消耗2张卡牌以防止受到的伤害，每回合 !M! 次。 NL duofan_kenshi:羽之流 :将2张 *不死鸟之羽 放入抽牌堆。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "消耗2张卡牌以防止受到的伤害，每回合 !M! 次。 NL duofan_kenshi:羽之流 :将2张 *不死鸟之羽 放入抽牌堆。 NL 虚无 "
   },
   "game.duofan.kenshi:BuSiNiaoZhiYu": {
     "NAME": "不死鸟之羽",

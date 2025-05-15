@@ -29,7 +29,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
-    public static int exhaustAmount = 3;
+    public static int exhaustAmount = 2;
     public YuZL_BuSiNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
