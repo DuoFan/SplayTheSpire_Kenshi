@@ -29,10 +29,11 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
+    public static int exhaustAmount = 3;
     public YuZL_BuSiNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 1;
         cardsToPreview = new BuSiNiaoZhiYu();
     }
 
@@ -41,6 +42,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            upgradeMagicNumber(1);
             this.initializeDescription();
         }
     }
@@ -53,12 +55,7 @@ public class YuZL_BuSiNiao extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
-        if (!upgraded) {
-            Utils.playerGainPower(new BuSiNiao(p, magicNumber));
-        } else {
-            Utils.playerGainPower(new BuSiNiaoPlus(p, magicNumber));
-        }
+        Utils.playerGainPower(new BuSiNiao(p, magicNumber));
     }
 
     @Override

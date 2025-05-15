@@ -66,6 +66,19 @@
       "Whenever an Attack is Exhausted, deal #b%d damage to All enemies."
     ]
   },
+  "game.duofan.kenshi:BuPoFa": {
+    "NAME": "Unbreakable",
+    "DESCRIPTIONS": [
+      "Damage can't break your #yblock at this turn.",
+      "Damage can't break your #yblock at #b%d turns."
+    ]
+  },
+  "game.duofan.kenshi:YuGan": {
+    "NAME": "Premonition",
+    "DESCRIPTIONS": [
+      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock ."
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "Style-Leave",
     "DESCRIPTIONS": [
@@ -132,13 +145,6 @@
       "At the start of your turn, gain #b%d #yqi."
     ]
   },
-  "game.duofan.kenshi:BuPoFa": {
-    "NAME": "Unbreakable",
-    "DESCRIPTIONS": [
-      "Damage can't break your #yblock at this turn.",
-      "Damage can't break your #yblock at #b%d turns."
-    ]
-  },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "Style-Feather",
     "DESCRIPTIONS": [
@@ -156,12 +162,6 @@
     "NAME": "Unloading Preparation",
     "DESCRIPTIONS": [
       "At the start of your next turn, gain #b%d #yBlock ."
-    ]
-  },
-  "game.duofan.kenshi:PaiXian": {
-    "NAME": "Risk Elimination",
-    "DESCRIPTIONS": [
-      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
@@ -198,7 +198,7 @@
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "Phoenix",
     "DESCRIPTIONS": [
-      "Prevent you would lose HP, and #yExhaust #b%d cards. NL If card amount of deck less then #b10 ,remove this power."
+      "Prevent you would lose HP, and Exhaust #b%d cards. NL Left #b%d times this turn."
     ]
   },
   "game.duofan.kenshi:BuSiNiaoPlus": {

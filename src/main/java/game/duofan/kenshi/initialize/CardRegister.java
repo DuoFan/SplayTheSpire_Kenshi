@@ -17,9 +17,16 @@ public class CardRegister implements EditCardsSubscriber {
 
         ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
 
-        cards.add(new XZL_QiHai());
-        cards.add(new YuZL_YuYi());
-        cards.add(new FZL_FanShi_Card());
+        cards.add(new QiHai());
+        cards.add(new BuPoFa_Card());
+
+        cards.add(new YuYi());
+        cards.add(new YuGan_Card());
+
+        cards.add(new FanShi_Card());
+        cards.add(new JianYu_Card());
+
+        cards.add(new JieLiDaLi());
 
         cards.add(new Strike());
         cards.add(new Defend());

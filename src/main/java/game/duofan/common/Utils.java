@@ -616,7 +616,7 @@ public class Utils {
         for (int i = 0; i < hand.group.size() && amount > 0; i++) {
             AbstractCard c = hand.group.get(i);
             int reduce = 0;
-            if (c instanceof XZL_QiHai && c.cost > 0) {
+            if (c instanceof QiHai && c.cost > 0) {
                 while (c.cost > 0 && amount > 0) {
                     c.modifyCostForCombat(-1);
                     amount--;
@@ -655,7 +655,7 @@ public class Utils {
 
         for (int i = 0; i < hand.group.size(); i++) {
             AbstractCard c = hand.group.get(i);
-            if (c instanceof XZL_QiHai && c.cost > 0) {
+            if (c instanceof QiHai && c.cost > 0) {
                 qi += c.cost;
             }
         }
@@ -722,7 +722,7 @@ public class Utils {
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_HuiFengZhan());
             cards.add(new FZL_FuFeng());
-            cards.add(new JianYu_Card());
+            //cards.add(new JianYu_Card());
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_XianFaZhiRen());
             cards.add(new FZL_QiuYeLianJian());
@@ -735,7 +735,7 @@ public class Utils {
             //cards.add(new XZL_QiHai());
             cards.add(new XZL_FengMo());
             cards.add(new XZL_ShuangJi());
-            cards.add(new XZL_BuPoFa());
+            //cards.add(new XZL_BuPoFa());
             cards.add(new XZL_ZiDianQingShuang());
             cards.add(new XZL_SaoDangQunMo());
             cards.add(new XZL_CaiCheQuMing());
@@ -758,7 +758,7 @@ public class Utils {
             //cards.add(new YuZL_YuYi());
             cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
-            cards.add(new YuZL_PaiXian());
+            //cards.add(new YuGan_Card());
             cards.add(new YuZL_XueMu());
             cards.add(new YuZL_HouNiao());
             cards.add(new YuZL_BuSiNiao());
@@ -769,7 +769,7 @@ public class Utils {
             cards.add(new YanZL_YanJie());
             cards.add(new YanZL_LianHuan());
             cards.add(new YanZL_LuoXuanYan());
-            cards.add(new YanZL_ZhuoXinYan());
+            //cards.add(new YanZL_ZhuoXinYan());
             cards.add(new YanZL_YanLiuJiXing());
             cards.add(new YanZL_HuiJinJianQi());
             cards.add(new YanZL_LiaoYuanJianQi());
@@ -790,7 +790,7 @@ public class Utils {
         ArrayList<AbstractCard> cards = getCardsFromLiu(flag);
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
-            cards.removeIf((x) -> x.cardID.equals(FZL_FanShi_Card.ID));
+            cards.removeIf((x) -> x.cardID.equals(FanShi_Card.ID));
         }
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.YuZhiLiu)) {

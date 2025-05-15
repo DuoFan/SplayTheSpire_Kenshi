@@ -97,6 +97,41 @@
     "DESCRIPTION": "Upgrade All cards in your hand for the rest of combat, Each Upgrade gives you [E].",
     "UPGRADE_DESCRIPTION": "Upgrade All cards in your hand for the rest of combat, Each Upgrade gives you [E] . NL Gain [E] ."
   },
+  "game.duofan.kenshi:JianYu_Card": {
+    "NAME": "Sword Domain",
+    "DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies.",
+    "UPGRADE_DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies."
+  },
+  "game.duofan.kenshi:QiHai": {
+    "NAME": "Qi Sea",
+    "DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain ",
+    "UPGRADE_DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain "
+  },
+  "game.duofan.kenshi:YuYi": {
+    "NAME": "Feathered Mantle",
+    "DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain ",
+    "UPGRADE_DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain "
+  },
+  "game.duofan.kenshi:BuPoFa_Card": {
+    "NAME": "Unbreakable",
+    "DESCRIPTION": "Damage can't break your block at this turn.",
+    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn,gain !B! block ."
+  },
+  "game.duofan.kenshi:FanShi_Card": {
+    "NAME": "Anti Moves",
+    "DESCRIPTION": "You will always draw cards from the discard pile.",
+    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile."
+  },
+  "game.duofan.kenshi:YuGan_Card": {
+    "NAME": "Premonition",
+    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block."
+  },
+  "game.duofan.kenshi:JieLiDaLi": {
+    "NAME": "Leveraged Blow",
+    "DESCRIPTION": "Deal !D! damage. This damage is increased by the enemy's Strength.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. This damage is increased by the enemy's Strength."
+  },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
     "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
@@ -163,20 +198,10 @@
     "DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.",
     "UPGRADE_DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
   },
-  "game.duofan.kenshi:JianYu_Card": {
-    "NAME": "Sword Domain",
-    "DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies.",
-    "UPGRADE_DESCRIPTION": "Whenever an Attack is Exhausted, deal !M! damage to All enemies."
-  },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "Murderous Intent",
     "DESCRIPTION": "Gain [E] [E] [E] . NL Non-Attack card played this turn cause you lose 1 HP. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal ",
     "UPGRADE_DESCRIPTION": "Gain [E] [E] . NL Non-Attack card played this turn cause you lose 1 HP. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal "
-  },
-  "game.duofan.kenshi:FZL_FanShi_Card": {
-    "NAME": "Anti Moves",
-    "DESCRIPTION": "You will always draw cards from the discard pile.",
-    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile."
   },
   "game.duofan.kenshi:XZL_JuQi": {
     "NAME": "Gathering Qi",
@@ -198,20 +223,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave"
   },
-  "game.duofan.kenshi:XZL_QiHai": {
-    "NAME": "Qi Sea",
-    "DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain ",
-    "UPGRADE_DESCRIPTION": "Cost as duofan_kenshi:qi. NL At the end of your turn, absorb ALL remaining duofan_kenshi:qi (up to max). NL Unplayable, Retain "
-  },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Sealing",
     "DESCRIPTION": "Apply 5 Weak . NL duofan_kenshi:cloud :If enemy has !M! Weak at least,give half of its max healthy damage (floor).",
     "UPGRADE_DESCRIPTION": "Apply 5 Weak . NL duofan_kenshi:cloud :If enemy has !M! Weak at least,give half of its max healthy damage (floor)."
-  },
-  "game.duofan.kenshi:XZL_BuPoFa": {
-    "NAME": "Unbreakable",
-    "DESCRIPTION": "Damage can't break your block at this turn. NL duofan_kenshi:cloud :Gain !B! block.",
-    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn,gain !B! block . NL duofan_kenshi:cloud :Gain !B! block."
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
@@ -288,11 +303,6 @@
     "DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style.",
     "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style."
   },
-  "game.duofan.kenshi:YuZL_PaiXian": {
-    "NAME": "Risk Elimination",
-    "DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, if exist enemy intends to attack, gain !M! Block。 NL duofan_kenshi:feather :Gain !M! Block."
-  },
   "game.duofan.kenshi:YuZL_XueMu": {
     "NAME": "Blood Episode",
     "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL duofan_kenshi:feather :All enemies lose 3 HP. NL Ethereal ",
@@ -308,11 +318,6 @@
     "DESCRIPTION": "Select !M! Skill from your drawpile,draw it from drawpile next turn. NL duofan_kenshi:feather :Draw it immediately.",
     "UPGRADE_DESCRIPTION": "Select !M! Skill from your drawpile,draw them from drawpile next turn. NL duofan_kenshi:feather :Draw them immediately."
   },
-  "game.duofan.kenshi:YuZL_YuYi": {
-    "NAME": "Feathered Mantle",
-    "DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain ",
-    "UPGRADE_DESCRIPTION": "Cost as Durability. NL Whenever be damaged, Durability is consumed first. NL block replenishes Durability (up to max). NL Unplayable, Retain "
-  },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "Clean After Rain",
     "DESCRIPTION": "Gain !B! Block, Consume 1 duofan_kenshi:qi to gain !M! Block more. NL duofan_kenshi:feather :Add *Sunshine *After *Rain into your hand.",
@@ -325,8 +330,8 @@
   },
   "game.duofan.kenshi:YuZL_BuSiNiao": {
     "NAME": "Phoenix",
-    "DESCRIPTION": "Prevent you would lose HP, and Exhaust !M! cards. NL If card amount of deck less then 10,remove this power. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Prevent you would lose HP-Fatal, and Exhaust !M! cards. NL If card amount of deck less then 10,remove this power. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal "
+    "DESCRIPTION": "Prevent you would lose HP, and Exhaust 3 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Prevent you would lose HP, and Exhaust 3 cards. NL Each turn !M! times. NL duofan_kenshi:feather :Add 2 *Phoenix *Feather into your discard pile. NL Ethereal "
   },
   "game.duofan.kenshi:BuSiNiaoZhiYu": {
     "NAME": "Phoenix Feather",
@@ -357,11 +362,6 @@
     "NAME": "Blazing Slash",
     "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Double enemy's duofan_kenshi:melting.",
     "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Double enemy's duofan_kenshi:melting."
-  },
-  "game.duofan.kenshi:YanZL_ZhuoXinYan": {
-    "NAME": "Burning Heart",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL duofan_kenshi:flame :If the enemy intends to attack, increase !M! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL duofan_kenshi:flame :If the enemy intends to attack, increase !M! damage."
   },
   "game.duofan.kenshi:YanZL_LuoXuanYan": {
     "NAME": "Spiral Flame",

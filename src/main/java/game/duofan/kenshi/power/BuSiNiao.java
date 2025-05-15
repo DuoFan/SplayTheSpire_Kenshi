@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.vfx.combat.VerticalAuraEffect;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.BuSiNiaoZhiYu;
+import game.duofan.kenshi.card.YuZL_BuSiNiao;
 
 public class BuSiNiao extends AbstractPower {
     static final String POWER_ID = IDManager.getInstance().getID(BuSiNiao.class);
@@ -29,18 +30,16 @@ public class BuSiNiao extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    int exhaustAmount;
+    int validCount = 0;
 
-    public BuSiNiao(AbstractCreature owner, int exhaustAmount) {
+    public BuSiNiao(AbstractCreature owner, int amount) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
-        this.exhaustAmount = exhaustAmount;
-
-        // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = -1;
+        this.amount = amount;
+        validCount = amount;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -50,9 +49,22 @@ public class BuSiNiao extends AbstractPower {
         this.updateDescription();
     }
 
+    @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        validCount += stackAmount;
+    }
+
     public void updateDescription() {
         String description = DESCRIPTIONS[0];
-        this.description = String.format(description, exhaustAmount);
+        this.description = String.format(description,YuZL_BuSiNiao.exhaustAmount ,validCount);
+    }
+
+    @Override
+    public void atStartOfTurn() {
+        super.atStartOfTurn();
+        validCount = amount;
+        updateDescription();
     }
 
     @Override
@@ -62,16 +74,23 @@ public class BuSiNiao extends AbstractPower {
             return damageAmount;
         }
 
-        Utils.addToTopAbstract(() ->{
-            checkRemove();
-        });
+        if(validCount <= 0){
+            return damageAmount;
+        }
 
-        exhaustCards();
-        useAmount();
-        return 0;
+        if (exhaustCards()) {
+            useAmount();
+            return  0;
+        }
+        else{
+            return damageAmount;
+        }
     }
 
-    void exhaustCards() {
+    boolean exhaustCards() {
+
+        int exhaustAmount = YuZL_BuSiNiao.exhaustAmount;
+
         AbstractCard[] cards = new AbstractCard[exhaustAmount];
         CardGroup[] groups = new CardGroup[exhaustAmount];
 
@@ -83,13 +102,17 @@ public class BuSiNiao extends AbstractPower {
         exhaustIndex = tryFillCardsWithoutBuSiNiaoZhiYu(exhaustIndex, cards, groups, AbstractDungeon.player.discardPile);
         exhaustIndex = tryFillCardsWithoutBuSiNiaoZhiYu(exhaustIndex, cards, groups, AbstractDungeon.player.hand);
 
-        for (int i = 0; i < cards.length; i++) {
-            AbstractCard c = cards[i];
-            CardGroup g = groups[i];
-            if (c != null) {
-                addToTop(new ExhaustSpecificCardAction(c, g));
+        if (exhaustIndex >= exhaustAmount) {
+            for (int i = 0; i < cards.length; i++) {
+                AbstractCard c = cards[i];
+                CardGroup g = groups[i];
+                if (c != null) {
+                    addToTop(new ExhaustSpecificCardAction(c, g));
+                }
             }
         }
+
+        return exhaustIndex >= exhaustAmount;
     }
 
     int tryFillCardsWithBuSiNiaoZhiYu(int exhaustIndex, AbstractCard[] cards, CardGroup[] groups, CardGroup g) {
@@ -124,20 +147,11 @@ public class BuSiNiao extends AbstractPower {
         return exhaustIndex;
     }
 
-    void checkRemove(){
-        AbstractPlayer p = AbstractDungeon.player;
-        int cardAmount = p.drawPile.size();
-        cardAmount += p.discardPile.size();
-        cardAmount += p.hand.size();
-
-        if(cardAmount < 10){
-            Utils.playRemovePowerTop(POWER_ID);
-        }
-    }
-
     void useAmount() {
         flash();
         this.addToTop(new SFXAction("ATTACK_FIRE"));
         this.addToTop(new VFXAction(AbstractDungeon.player, new BorderLongFlashEffect(Color.SCARLET), 0.0F, true));
+        validCount--;
+        updateDescription();
     }
 }

@@ -60,6 +60,18 @@
       "每当攻击牌被消耗时，对所有敌人造成 #b%d 点伤害。"
     ]
   },
+  "game.duofan.kenshi:BuPoFa": {
+    "NAME": "不破法",
+    "DESCRIPTIONS": [
+      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
+    ]
+  },
+  "game.duofan.kenshi:YuGan": {
+    "NAME": "预感",
+    "DESCRIPTIONS": [
+      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
+    ]
+  },
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
@@ -126,13 +138,6 @@
       "回合开始时，获得 #b%d 层 #y气 。"
     ]
   },
-  "game.duofan.kenshi:BuPoFa": {
-    "NAME": "不破法",
-    "DESCRIPTIONS": [
-      "本回合伤害无法损耗你的 #y格挡 。",
-      " #b%d 回合内，伤害无法损耗你的 #y格挡 。"
-    ]
-  },
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
@@ -150,12 +155,6 @@
     "NAME": "卸力准备",
     "DESCRIPTIONS": [
       "下回合开始时，获得 #b%d 点格挡 。"
-    ]
-  },
-  "game.duofan.kenshi:PaiXian": {
-    "NAME": "排险",
-    "DESCRIPTIONS": [
-      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:JiShuiSanQian": {
@@ -192,7 +191,7 @@
   "game.duofan.kenshi:BuSiNiao": {
     "NAME": "不死鸟",
     "DESCRIPTIONS": [
-      "防止受到的伤害并 #y消耗 #b%d 张卡牌。 NL 牌库不足 #b10 张时，移除该能力。"
+      "消耗 #b%d 张卡牌以防止受到的伤害，本回合剩余 #b%d 次。"
     ]
   },
   "game.duofan.kenshi:BuSiNiaoPlus": {
