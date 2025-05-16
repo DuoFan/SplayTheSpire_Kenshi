@@ -4,5 +4,8 @@
   },
   "game.duofan.kenshi:PickUpCardToPutDrawpileTopAction": {
     "TEXT": [ "放在抽牌堆顶部" ]
+  },
+  "game.duofan.kenshi:ZhengFengFirst": {
+    "TEXT": [ "必须先打出争锋!" ]
   }
 }

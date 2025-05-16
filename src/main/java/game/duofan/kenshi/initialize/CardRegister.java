@@ -22,6 +22,7 @@ public class CardRegister implements EditCardsSubscriber {
 
         cards.add(new YuYi());
         cards.add(new YuGan_Card());
+        cards.add(new XueLu_Card());
 
         cards.add(new FanShi_Card());
         cards.add(new JianYu_Card());
@@ -39,7 +40,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new QianBianWanHua());
         cards.add(new ZhanYanLuo_Card());
         cards.add(new XiuLuo_Card());
-        cards.add(new TingXue());
+        cards.add(new ZhengFeng());
         cards.add(new ShiJun());
 
         cards.add(new BuSiNiaoZhiYu());

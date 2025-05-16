@@ -4,5 +4,8 @@
   },
   "game.duofan.kenshi:PickUpCardToPutDrawpileTopAction": {
     "TEXT": [ "put on top of your draw pile." ]
+  },
+  "game.duofan.kenshi:ZhengFengFirst": {
+    "TEXT": [ "Must play Compulsory Strike first!" ]
   }
 }

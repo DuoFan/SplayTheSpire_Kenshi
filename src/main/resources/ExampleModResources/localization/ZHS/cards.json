@@ -40,7 +40,7 @@
     "UPGRADE_DESCRIPTION": "每当打出攻击牌使你抽取1张攻击牌，并使其获得 消耗 。"
   },
   "game.duofan.kenshi:ZhanYanLuo_Card": {
-    "NAME": "诛侯",
+    "NAME": "屠龙",
     "DESCRIPTION": "指定目标，其死亡时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "UPGRADE_DESCRIPTION": "指定目标，其死亡时，获得 duofan_kenshi:义旗 。 NL 保留 ， 即逝 ",
     "EXTENDED_DESCRIPTION": [
@@ -57,10 +57,10 @@
     "DESCRIPTION": "将打出攻击牌的1张复制加入抽牌堆。 NL 抽取的每张攻击牌使你获得 !M! 点 格挡 。 NL 虚无 ",
     "UPGRADE_DESCRIPTION": "将打出攻击牌的1张复制加入抽牌堆。 NL 抽取的每张攻击牌使你获得 !M! 点 格挡 。 NL 虚无 "
   },
-  "game.duofan.kenshi:TingXue": {
-    "NAME": "听雪",
-    "DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，抽取 !M! 张牌。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 当你抽到这张牌时，抽取 !M! 张牌。"
+  "game.duofan.kenshi:ZhengFeng": {
+    "NAME": "争锋",
+    "DESCRIPTION": "造成 !D! 点伤害，在手牌中时你必须先于非争锋牌打出这张牌。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，在手牌中时你必须先于非争锋牌打出这张牌。"
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "踏雪寻梅",
@@ -303,15 +303,15 @@
     "DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
     "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
   },
-  "game.duofan.kenshi:YuZL_XueMu": {
-    "NAME": "血幕",
-    "DESCRIPTION": "每当一个敌人死亡，回复3点生命。 NL 耗能为当前敌人数量减 !M! 。 NL duofan_kenshi:羽之流 :使所有敌人失去3点生命。 NL 虚无 ",
-    "UPGRADE_DESCRIPTION": "每当一个敌人死亡，回复3点生命。 NL 耗能为当前敌人数量减 !M! 。 NL duofan_kenshi:羽之流 :使所有敌人失去3点生命。 NL 虚无 "
+  "game.duofan.kenshi:XueLu_Card": {
+    "NAME": "血路",
+    "DESCRIPTION": "每当一个敌人死亡，回复3点生命。 NL 耗能为当前敌人数量减 !M! 。 NL 虚无 ",
+    "UPGRADE_DESCRIPTION": "每当一个敌人死亡，回复3点生命。 NL 耗能为当前敌人数量减 !M! 。 NL 虚无 "
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
-    "NAME": "侯鸟",
-    "DESCRIPTION": " 不能被打出 。 NL 进入手牌和弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 进入手牌和弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。"
+    "NAME": "乘风起势",
+    "DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。"
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "飞鸽传书",

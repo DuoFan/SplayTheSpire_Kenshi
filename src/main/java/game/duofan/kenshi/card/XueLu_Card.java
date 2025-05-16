@@ -2,13 +2,8 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,19 +11,12 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.MonsterGroup;
-import com.megacrit.cardcrawl.powers.FlightPower;
-import com.megacrit.cardcrawl.powers.RegenPower;
-import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.BorderLongFlashEffect;
-import com.megacrit.cardcrawl.vfx.stance.DivinityStanceChangeParticle;
 import game.duofan.common.*;
-import game.duofan.kenshi.power.*;
 
-import java.util.ArrayList;
+public class XueLu_Card extends CustomCard {
 
-public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
-
-    public static final String ID = IDManager.getInstance().getID(YuZL_XueMu.class);
+    public static final String ID = IDManager.getInstance().getID(XueLu_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/Strike.png";
@@ -40,7 +28,7 @@ public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
     private static final CardTarget TARGET = CardTarget.SELF;
 
     static int heal = 3;
-    public YuZL_XueMu() {
+    public XueLu_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 1;
         isEthereal = true;
@@ -99,33 +87,6 @@ public class YuZL_XueMu extends CustomCard implements IYuZhiLiuCard {
         this.addToBot(new SFXAction("STANCE_ENTER_WRATH"));
         Color c1 = Color.SCARLET;
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(c1), 0.0F, true));
-        Utils.playerGainPower(new XueMu(p, heal));
-    }
-
-    @Override
-    public void yuZhiLiuEffect() {
-        addToBot(new DamageAllEnemiesAction(AbstractDungeon.player, heal, DamageInfo.DamageType.HP_LOSS,
-                AbstractGameAction.AttackEffect.FIRE));
-    }
-
-    @Override
-    public void triggerOnGlowCheck() {
-        super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YuZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
-    }
-
-    @Override
-    public Liu_StateMachine.StateEnum getLiu() {
-        return Liu_StateMachine.StateEnum.YuZhiLiu;
-    }
-
-    @Override
-    public boolean isInvokeLiuEffectToTop() {
-        return false;
+        Utils.playerGainPower(new game.duofan.kenshi.power.XueLu(p, heal));
     }
 }

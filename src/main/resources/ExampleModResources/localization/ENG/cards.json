@@ -40,7 +40,7 @@
     "UPGRADE_DESCRIPTION": "Whenever you played Attack, Draw Attack and make the drawn card able to Exhaust."
   },
   "game.duofan.kenshi:ZhanYanLuo_Card": {
-    "NAME": "Kill Through Hell",
+    "NAME": "Slay The Dragon",
     "DESCRIPTION": "Designated enemy, kill to gain duofan_kenshi:RighteousFlag. NL Retain , fleeting ",
     "UPGRADE_DESCRIPTION": "Designated enemy, kill to gain duofan_kenshi:RighteousFlag. NL Retain , fleeting ",
     "EXTENDED_DESCRIPTION": [
@@ -57,10 +57,10 @@
     "DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal ",
     "UPGRADE_DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal "
   },
-  "game.duofan.kenshi:TingXue": {
-    "NAME": "Snow's Whisper",
-    "DESCRIPTION": "Unplayable. NL When drawn, draw !M! cards.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL When drawn, draw !M! cards."
+  "game.duofan.kenshi:ZhengFeng": {
+    "NAME": "Compulsory Strike",
+    "DESCRIPTION": "Deal !D! damage. NL Must play first if in hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Must play first if in hand."
   },
   "game.duofan.kenshi:YeBu": {
     "NAME": "Night Walk",
@@ -303,10 +303,10 @@
     "DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style.",
     "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style."
   },
-  "game.duofan.kenshi:YuZL_XueMu": {
-    "NAME": "Blood Episode",
-    "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL duofan_kenshi:feather :All enemies lose 3 HP. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL duofan_kenshi:feather :All enemies lose 3 HP. NL Ethereal "
+  "game.duofan.kenshi:XueLu_Card": {
+    "NAME": "Blood Road",
+    "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal "
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "Hobo Wing",

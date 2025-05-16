@@ -19,6 +19,7 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
+import game.duofan.kenshi.card.XueLu_Card;
 import game.duofan.kenshi.power.*;
 
 import java.util.ArrayList;
@@ -759,7 +760,7 @@ public class Utils {
             cards.add(new YuZL_FeiGeChuanShu());
             cards.add(new YuZL_YunXiaoYuJi());
             //cards.add(new YuGan_Card());
-            cards.add(new YuZL_XueMu());
+            //cards.add(new XueLu_Card());
             cards.add(new YuZL_HouNiao());
             cards.add(new YuZL_BuSiNiao());
         }

@@ -49,7 +49,7 @@
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
-    "NAME": "Kill Through Hell",
+    "NAME": "Slay The Dragon",
     "DESCRIPTIONS": [
       "kill #y[NAME] to gain duofan_kenshi:RighteousFlag."
     ]
@@ -189,8 +189,8 @@
       "Whenever you enter a Style，gain #b%d #yblock ."
     ]
   },
-  "game.duofan.kenshi:XueMu": {
-    "NAME": "Blood Episode",
+  "game.duofan.kenshi:XueLu": {
+    "NAME": "Blood Road",
     "DESCRIPTIONS": [
       "Whenever an enemy dies, heal #b%d HP."
     ]

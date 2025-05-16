@@ -43,7 +43,7 @@
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
-    "NAME": "诛侯",
+    "NAME": "屠龙",
     "DESCRIPTIONS": [
       "斩杀 #y[NAME] ，以获得 #y义旗 。"
     ]
@@ -182,8 +182,8 @@
       "每次进入流派，使你获得 #b%d 点 #y格挡 。"
     ]
   },
-  "game.duofan.kenshi:XueMu": {
-    "NAME": "血幕",
+  "game.duofan.kenshi:XueLu": {
+    "NAME": "血路",
     "DESCRIPTIONS": [
       "每当敌人死亡，回复 #b%d 点生命。"
     ]
