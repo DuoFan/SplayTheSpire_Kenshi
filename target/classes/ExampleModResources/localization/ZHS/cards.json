@@ -145,12 +145,12 @@
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
-    "NAME": "百花杀",
+    "NAME": "花落斩",
     "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。"
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
-    "NAME": "万叶败",
+    "NAME": "万叶斩",
     "DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。",
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。"
   },

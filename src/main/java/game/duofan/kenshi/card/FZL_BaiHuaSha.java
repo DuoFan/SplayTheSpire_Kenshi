@@ -24,7 +24,7 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/fZL/baiHuaSha_attack.png";
-    private static final int COST = 2;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
@@ -38,8 +38,7 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_BaiHuaSha() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 8;
-        magicNumber = baseMagicNumber = 1;
+        this.damage = this.baseDamage = 5;
     }
 
 
@@ -48,7 +47,6 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.upgradeDamage(2); // 将该卡牌的伤害提高3点。
-            upgradeMagicNumber(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
