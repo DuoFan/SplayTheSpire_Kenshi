@@ -29,7 +29,7 @@ public class YuZL_FengYuBuDong extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_FengYuBuDong() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 1;
+        block = baseBlock = 2;
     }
 
     @Override
@@ -58,7 +58,7 @@ public class YuZL_FengYuBuDong extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        addToBot(new DisableRandomPowerAction(AbstractDungeon.player, 1, true));
+        addToBot(new DisableRandomPowerAction(AbstractDungeon.player, 1, 1, true));
     }
 
     @Override

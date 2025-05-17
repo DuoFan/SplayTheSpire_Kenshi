@@ -35,7 +35,7 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_JuQi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override
@@ -56,11 +56,11 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainQi(magicNumber);
+        Utils.playerGainQi(1);
         addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
         this.addToBot(new VFXAction(new BorderFlashEffect(Color.VIOLET, true)));
         this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.VIOLET, "CARD_DRAW_8"), 1.0F));
-        addToBot(new DrawCardAction(p, 2));
+        addToBot(new DrawCardAction(p, magicNumber));
     }
 
     @Override

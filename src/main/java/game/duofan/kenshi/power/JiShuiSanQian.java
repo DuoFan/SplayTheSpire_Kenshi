@@ -155,7 +155,8 @@ public class JiShuiSanQian extends AbstractPower {
                                 if (m.lastDamageTaken > 0) {
                                     flash();
                                     monsterDieMap.put(m, m.isDeadOrEscaped() || m.currentHealth <= 0);
-                                    Utils.gainBlockTop(p, m.lastDamageTaken);
+                                    int b = Math.max(1, m.lastDamageTaken / 2);
+                                    Utils.gainBlockTop(p, b);
                                     Utils.addToTopAbstract(() -> {
                                         AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
                                     });
@@ -177,7 +178,8 @@ public class JiShuiSanQian extends AbstractPower {
                             if (m.lastDamageTaken > 0) {
                                 flash();
                                 monsterDieMap.put((AbstractMonster) m, m.isDeadOrEscaped() || m.currentHealth <= 0);
-                                Utils.gainBlockTop(p, m.lastDamageTaken);
+                                int b = Math.max(1, m.lastDamageTaken / 2);
+                                Utils.gainBlockTop(p, b);
                                 Utils.addToTopAbstract(() -> {
                                     AbstractDungeon.effectList.add(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
                                 });

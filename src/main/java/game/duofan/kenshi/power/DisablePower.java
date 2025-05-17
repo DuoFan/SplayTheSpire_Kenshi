@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.*;
 
 public class DisablePower extends AbstractPower {
-    static int index;
     static final String ORIGINAL_ID = IDManager.getInstance().getID(DisablePower.class);
     // 能力的本地化字段
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(ORIGINAL_ID);
@@ -30,7 +29,7 @@ public class DisablePower extends AbstractPower {
     public DisablePower(AbstractPower _originPower) {
         originPower = _originPower;
         this.name = originPower.name;
-        this.ID = ORIGINAL_ID + index++;
+        this.ID = _originPower.ID + "_disabled";
         this.owner = _originPower.owner;
         this.type = PowerType.BUFF;
 
@@ -72,9 +71,9 @@ public class DisablePower extends AbstractPower {
     @Override
     public void atEndOfRound() {
         int index = owner.powers.indexOf(this);
-        if(index >= 0 && originPower != null){
+        if (index >= 0 && originPower != null) {
             originPower.stackPower(amount - originPower.amount);
-            owner.powers.set(index,originPower);
+            owner.powers.set(index, originPower);
             AbstractDungeon.onModifyPower();
         }
         dispose();
@@ -98,7 +97,7 @@ public class DisablePower extends AbstractPower {
         dispose();
     }
 
-    void dispose(){
+    void dispose() {
         DisablePowerManager.getInstance().removeDisablePower(this);
     }
 }

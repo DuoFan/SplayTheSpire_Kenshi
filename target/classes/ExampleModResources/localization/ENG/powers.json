@@ -36,9 +36,9 @@
     ]
   },
   "game.duofan.kenshi:ShuangJianHeBi": {
-    "NAME": "Blades Unity",
+    "NAME": "Twin Blades Unity",
     "DESCRIPTIONS": [
-      "The next Attack card played triggers #y[NAME] against the same target."
+      "If you played #y[NAME1] and #y[NAME2] this turn, gain [E]."
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {
@@ -73,10 +73,10 @@
       "Damage can't break your #yblock at #b%d turns."
     ]
   },
-  "game.duofan.kenshi:YuGan": {
-    "NAME": "Premonition",
+  "game.duofan.kenshi:DuiSha": {
+    "NAME": "Combat Readiness",
     "DESCRIPTIONS": [
-      "At the start of your turn, if exist enemy intends to attack, gain #b%d #yBlock ."
+      "At the start of your turn, if any enemy intends to attack, draw #b%d Attack cards."
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
@@ -167,7 +167,7 @@
   "game.duofan.kenshi:JiShuiSanQian": {
     "NAME": "Strike Water Three Thousand Miles",
     "DESCRIPTIONS": [
-      "Gain #yBlock equal to unblocked damage dealt by Attack in this turn."
+      "Gain #yBlock equal to half of unblocked damage dealt by Attack in this turn."
     ]
   },
   "game.duofan.kenshi:ReturnAttackToDrawPileAfterPlayed": {

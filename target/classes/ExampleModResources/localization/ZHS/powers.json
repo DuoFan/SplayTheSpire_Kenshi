@@ -32,14 +32,14 @@
   "game.duofan.kenshi:ShuangJianHeBi": {
     "NAME": "双剑合璧",
     "DESCRIPTIONS": [
-      "下一张打出的攻击牌将对其目标打出 #y[NAME] 。"
+      "本回合打出 #y[NAME1] 和 #y[NAME2] 后获得 [E] 。"
     ]
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "试剑石",
     "DESCRIPTIONS": [
       " #y[NAME] 是一个 #y爪牙 无法造成 #y斩杀 !",
-      "使用 #y[CARDNAME] #y斩杀 #y[NAME] 以获得 #b10 金币。"
+      "使用 #y[CARDNAME] #y斩杀 #y[NAME] 以获得 #b30 金币。"
     ]
   },
   "game.duofan.kenshi:ZhanYanLuo": {
@@ -66,10 +66,10 @@
       "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
     ]
   },
-  "game.duofan.kenshi:YuGan": {
-    "NAME": "预感",
+  "game.duofan.kenshi:DuiSha": {
+    "NAME": "对杀",
     "DESCRIPTIONS": [
-      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
+      "回合开始时，若存在意图为攻击的敌人，抽取 #b%d 张攻击牌。"
     ]
   },
   "game.duofan.kenshi:FengZhiLiu": {
@@ -123,7 +123,7 @@
   "game.duofan.kenshi:Qi": {
     "NAME": "气",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL 回合结束时失去所有 #y气 。"
+      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL 回合结束时保留 #b1 层 #y气 。"
     ]
   },
   "game.duofan.kenshi:PoJia": {
@@ -160,7 +160,7 @@
   "game.duofan.kenshi:JiShuiSanQian": {
     "NAME": "击水三千",
     "DESCRIPTIONS": [
-      "本回合攻击牌造成的未被 #y格挡 的伤害将获得等量 #y格挡 。"
+      "本回合攻击牌造成的未被 #y格挡 的伤害将获得半数 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:ReturnAttackToDrawPileAfterPlayed": {

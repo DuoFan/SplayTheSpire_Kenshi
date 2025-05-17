@@ -1,11 +1,9 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.utility.NewQueueCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardQueueItem;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -14,7 +12,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import game.duofan.common.*;
 import game.duofan.kenshi.card.ShuangJianHeBi_Card;
 
@@ -30,13 +27,18 @@ public class ShuangJianHeBi extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    ShuangJianHeBi_Card selfCard;
+    AbstractCard c1;
+    AbstractCard c2;
 
-    public ShuangJianHeBi(AbstractCreature owner, ShuangJianHeBi_Card t) {
+    boolean c1Played;
+    boolean c2Played;
+
+    public ShuangJianHeBi(AbstractCreature owner, AbstractCard _c1, AbstractCard _c2) {
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
-        selfCard = t;
         this.type = PowerType.BUFF;
+        c1 = _c1;
+        c2 = _c2;
         this.owner = owner;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
@@ -51,32 +53,27 @@ public class ShuangJianHeBi extends AbstractPower {
     }
 
     public void updateDescription() {
-        this.description = DESCRIPTIONS[0].replace("[NAME]", selfCard.name);
+        this.description = DESCRIPTIONS[0].replace("[NAME1]", c1.name).replace("[NAME2]", c2.name);
     }
 
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
-        if (card.type == AbstractCard.CardType.ATTACK) {
-            AbstractMonster m = null;
-            if (action.target != null && action.target instanceof AbstractMonster) {
-                m = (AbstractMonster) action.target;
-            }
-            ShuangJianHeBi_Card tmp = (ShuangJianHeBi_Card) selfCard.makeStatEquivalentCopy();
+        if (card.equals(c1)) {
+            c1Played = true;
+        } else if (card.equals(c2)) {
+            c2Played = true;
+        }
 
-            AbstractDungeon.player.limbo.addToBottom(tmp);
-            tmp.current_x = card.current_x;
-            tmp.current_y = card.current_y;
-            tmp.target_x = (float) Settings.WIDTH / 2.0F - 300.0F * Settings.scale;
-            tmp.target_y = (float) Settings.HEIGHT / 2.0F;
-            if(m != null){
-                tmp.calculateCardDamage(m);
-            }
-
-            tmp.duplicate = true;
-            tmp.purgeOnUse = true;
-            AbstractDungeon.actionManager.addCardQueueItem(new CardQueueItem(tmp, m, card.energyOnUse, true, true), true);
+        if (c1Played && c2Played) {
+            Utils.playerGainEnergy(1);
             Utils.removePowerTop(AbstractDungeon.player, ID);
         }
+    }
+
+    @Override
+    public void atEndOfTurn(boolean isPlayer) {
+        super.atEndOfTurn(isPlayer);
+        Utils.removePowerTop(AbstractDungeon.player, ID);
     }
 }

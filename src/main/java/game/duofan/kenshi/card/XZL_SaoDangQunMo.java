@@ -34,7 +34,7 @@ public class XZL_SaoDangQunMo extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_SaoDangQunMo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 12;
+        this.damage = this.baseDamage = 24;
         magicNumber = baseMagicNumber = 1;
     }
 

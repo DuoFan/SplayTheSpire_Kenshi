@@ -37,7 +37,7 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
 
     public YanZL_HuoYuJingShi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 6;
+        block = baseBlock = 9;
         magicNumber = baseMagicNumber = 1;
     }
 

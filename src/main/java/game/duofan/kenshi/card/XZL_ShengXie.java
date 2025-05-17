@@ -65,10 +65,10 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard, ITargetM
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        /*if (!isPlayed) {
+        if (!isPlayed) {
             isPlayed = true;
             Utils.givePower(p, m, new StrengthPower(m, -2));
-        }*/
+        }
 
         DamageInfo info = new DamageInfo(p, 0, DamageInfo.DamageType.NORMAL);
         DamageAction d = new DamageAction(m, info, AbstractGameAction.AttackEffect.BLUNT_HEAVY);

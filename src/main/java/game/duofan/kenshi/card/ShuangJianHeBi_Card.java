@@ -2,15 +2,22 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.ShuangJianHeBiAction;
+import game.duofan.kenshi.power.FanShi;
+import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.ShuangJianHeBi;
+import game.duofan.kenshi.power.ZhuLiuBaiJia;
 
 public class ShuangJianHeBi_Card extends CustomCard {
 
@@ -20,16 +27,13 @@ public class ShuangJianHeBi_Card extends CustomCard {
     private static final String IMG_PATH = "img/cards/Strike.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final CardType TYPE = CardType.ATTACK;
+    private static final CardType TYPE = CardType.SKILL;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
-    private static final CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
-
-    public boolean duplicate;
+    private static final CardRarity RARITY = CardRarity.BASIC;
+    private static final CardTarget TARGET = CardTarget.NONE;
 
     public ShuangJianHeBi_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 7;
     }
 
     @Override
@@ -37,8 +41,8 @@ public class ShuangJianHeBi_Card extends CustomCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
+            upgradeBaseCost(0);
             this.initializeDescription();
-            upgradeDamage(2);
         }
     }
 
@@ -50,10 +54,37 @@ public class ShuangJianHeBi_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        addToBot(new ShuangJianHeBiAction());
+    }
 
-        if(!duplicate){
-            Utils.playerGainPower(new ShuangJianHeBi(p, this));
+    @Override
+    public void triggerOnGlowCheck() {
+        super.triggerOnGlowCheck();
+        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
+
+        if (AbstractDungeon.player == null) {
+            return;
+        }
+
+        CardGroup g = AbstractDungeon.player.drawPile;
+        if (AbstractDungeon.player.hasPower(FanShi.POWER_ID)) {
+            g = AbstractDungeon.player.discardPile;
+        }
+
+        if (g == null) {
+            return;
+        }
+
+        int count = 0;
+        for (int i = 0; i < g.size() && count < 2; i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if (c.type == CardType.ATTACK) {
+                count++;
+            }
+        }
+
+        if (count >= 2) {
+            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

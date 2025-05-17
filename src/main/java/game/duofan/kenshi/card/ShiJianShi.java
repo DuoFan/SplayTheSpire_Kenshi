@@ -55,7 +55,7 @@ public class ShiJianShi extends CustomCard {
         target = m;
         addToBot(new PickUpCardToDuanZaoAction((c) -> {
             if (c != null) {
-                Utils.givePowerTop(p, m, new game.duofan.kenshi.power.ShiJianShi(c, m, 10));
+                Utils.givePowerTop(p, m, new game.duofan.kenshi.power.ShiJianShi(c, m, 30));
                 Utils.addToTopAbstract(()->{
                     for(int i = 0; i < 20; ++i) {
                         AbstractDungeon.effectsQueue.add(new DivinityStanceChangeParticle(Color.OLIVE, m.hb.cX, m.hb.cY));

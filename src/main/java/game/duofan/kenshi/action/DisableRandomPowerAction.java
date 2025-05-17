@@ -12,10 +12,12 @@ import java.util.ArrayList;
 public class DisableRandomPowerAction extends AbstractGameAction {
 
     boolean debuff;
+    int turn;
 
-    public DisableRandomPowerAction(AbstractCreature _target, int _amount, boolean isDebuff) {
+    public DisableRandomPowerAction(AbstractCreature _target, int _amount, int _turns, boolean isDebuff) {
         this.target = _target;
         this.amount = _amount;
+        turn = _turns;
         debuff = isDebuff;
     }
 
@@ -39,8 +41,7 @@ public class DisableRandomPowerAction extends AbstractGameAction {
 
             if (debuff && p.type != AbstractPower.PowerType.DEBUFF) {
                 continue;
-            }
-            else if(!debuff && p.type == AbstractPower.PowerType.DEBUFF){
+            } else if (!debuff && p.type == AbstractPower.PowerType.DEBUFF) {
                 continue;
             }
 
@@ -51,14 +52,13 @@ public class DisableRandomPowerAction extends AbstractGameAction {
             return;
         }
 
-        int index = AbstractDungeon.cardRandomRng.random(debuffList.size() - 1);
-        AbstractPower originPower = debuffList.get(index);
-        DisablePower disablePower = new DisablePower(originPower);
-        Utils.gainPowerTop(disablePower.owner, disablePower);
-
         amount--;
         if (amount > 0) {
-            addToBot(new DisableRandomPowerAction(target, amount, debuff));
+            addToTop(new DisableRandomPowerAction(target, amount, turn, debuff));
         }
+
+        int index = AbstractDungeon.cardRandomRng.random(debuffList.size() - 1);
+        AbstractPower originPower = debuffList.get(index);
+        addToTop(new DisablePowerAction(originPower, turn));
     }
 }

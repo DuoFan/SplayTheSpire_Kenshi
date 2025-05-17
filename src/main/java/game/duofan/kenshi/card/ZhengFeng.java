@@ -30,7 +30,7 @@ public class ZhengFeng extends CustomCard {
 
     public ZhengFeng() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        damage = baseDamage = 13;
+        damage = baseDamage = 15;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class ZhengFeng extends CustomCard {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            upgradeDamage(4);
+            upgradeDamage(5);
         }
     }
 

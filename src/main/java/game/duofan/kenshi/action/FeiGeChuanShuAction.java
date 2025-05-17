@@ -43,9 +43,9 @@ public class FeiGeChuanShuAction extends AbstractGameAction {
 
                 while (var6.hasNext()) {
                     AbstractCard c = (AbstractCard) var6.next();
-                    if (c.type == AbstractCard.CardType.SKILL) {
+                    //if (c.type == AbstractCard.CardType.SKILL) {
                         temp.addToTop(c);
-                    }
+                    //}
                 }
 
                 if (temp.size() == 0) {

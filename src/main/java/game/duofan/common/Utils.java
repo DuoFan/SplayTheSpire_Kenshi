@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.combat.BlockedNumberEffect;
 import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
-import game.duofan.kenshi.card.XueLu_Card;
 import game.duofan.kenshi.power.*;
 
 import java.util.ArrayList;
@@ -715,7 +714,7 @@ public class Utils {
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
-            cards.add(new FZL_YaZhi());
+            //cards.add(new YaZhi());
             cards.add(new FZL_BaiHuaSha());
             cards.add(new FZL_QiuFengPo());
             cards.add(new FZL_WanYeBai());
@@ -734,7 +733,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             //cards.add(new XZL_QiHai());
-            cards.add(new XZL_FengMo());
+            //cards.add(new FengMo());
             cards.add(new XZL_ShuangJi());
             //cards.add(new XZL_BuPoFa());
             cards.add(new XZL_ZiDianQingShuang());
