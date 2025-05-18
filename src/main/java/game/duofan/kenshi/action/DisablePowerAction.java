@@ -1,22 +1,10 @@
 package game.duofan.kenshi.action;//
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.actions.unique.UnloadAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.card.FeiGong;
-import game.duofan.kenshi.card.FengMo;
 import game.duofan.kenshi.power.DisablePower;
-
-import java.util.ArrayList;
-import java.util.Iterator;
 
 public class DisablePowerAction extends AbstractGameAction {
 

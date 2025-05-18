@@ -43,7 +43,7 @@ public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQi
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -73,7 +73,9 @@ public class XZL_QiChongDouNiu extends CustomCard implements IXiaZhiLiuCard, IQi
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        Utils.playerGainQi(1);
+        if(Utils.getQiAmount() > 0){
+            Utils.playerGainEnergy(1);
+        }
     }
 
     @Override

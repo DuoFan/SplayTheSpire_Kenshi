@@ -81,7 +81,7 @@
   },
   "game.duofan.kenshi:ShuangJianHeBi_Card": {
     "NAME": "Twin Blades Unity",
-    "DESCRIPTION": "Draw 2 Attack cards. NL If you played them this turn, gain [E]. (No effect if fewer than 2 drawn.)",
+    "DESCRIPTION": "Draw 2 Attack cards.",
     "UPGRADE_DESCRIPTION": "Draw 2 Attack cards. NL If you played them this turn, gain [E]. (No effect if fewer than 2 drawn.)"
   },
   "game.duofan.kenshi:ShiJianShi": {
@@ -129,10 +129,10 @@
     "DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded.",
     "UPGRADE_DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded plus 1."
   },
-  "game.duofan.kenshi:YaZhi": {
+  "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
-    "DESCRIPTION": "Deal !D! damage,randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage,randomly duofan_kenshi:disable !M! Non-Debuff enemy powers this turn."
+    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn."
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "Wind Burst",
@@ -140,12 +140,12 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage, Draw 1 card. NL duofan_kenshi:leave :Gain !M! vigor."
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
-    "NAME": "Hundred Flowers Kill",
+    "NAME": "Blossom Fall",
     "DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither."
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
-    "NAME": "Thousand Leaves Wither",
+    "NAME": "Thousand Leaves",
     "DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither."
   },
@@ -174,10 +174,10 @@
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
     "NAME": "Superb Sword Moves",
-    "DESCRIPTION": "Deal !D! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage.",
+    "DESCRIPTION": "Deal !D! damage. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust",
     "EXTENDED_DESCRIPTION": [
-      "The damage of this card depends on the results of sword practice.。"
+      "The damage of this card depends on the results of sword practice. NL Exhaust"
     ]
   },
   "game.duofan.kenshi:FZL_HuiFengZhan": {
@@ -190,10 +190,10 @@
     "DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL Replay !duofan_kenshi:VNameLiuAmount! . NL duofan_kenshi:leave :Gain 1 Strength this turn.",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. Whenever you play a Style-Card with a different name this turn, replay this card without this effect (once per card). NL Replay !duofan_kenshi:VNameLiuAmount! . NL duofan_kenshi:leave :Gain 1 Strength this turn."
   },
-  "game.duofan.kenshi:FZL_FuFeng": {
-    "NAME": "Corruption",
-    "DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither.",
-    "UPGRADE_DESCRIPTION": "At the start of your turn, apply !M! duofan_kenshi:wither to All enemies. NL duofan_kenshi:leave :Next Attack this turn apply 1 duofan_kenshi:wither."
+  "game.duofan.kenshi:FZL_BaiHuaQiFang": {
+    "NAME": "Blossoming Synergy",
+    "DESCRIPTION": "Can trigger duofan_kenshi:leave in duofan_kenshi:leave. NL duofan_kenshi:leave :Draw 1 Leave-Card.",
+    "UPGRADE_DESCRIPTION": "Can trigger duofan_kenshi:leave in duofan_kenshi:leave. NL duofan_kenshi:leave :Draw 1 Leave-Card. NL Innate."
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "Murderous Intent",
@@ -220,10 +220,10 @@
     "DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave"
   },
-  "game.duofan.kenshi:FengMo": {
+  "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Demonic Seal",
-    "DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL Exhaust"
+    "DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
@@ -247,8 +247,8 @@
   },
   "game.duofan.kenshi:XZL_QiChongDouNiu": {
     "NAME": "Qi Burst",
-    "DESCRIPTION": "Deal !D! damage, each duofan_kenshi:qi increase !M! damage, total !duofan_kenshi:QiLamagePlus! damage. NL duofan_kenshi:cloud :Gain 1 duofan_kenshi:qi .",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, each duofan_kenshi:qi increase !M! damage, total !duofan_kenshi:QiLamagePlus! damage. NL duofan_kenshi:cloud :Gain 1 duofan_kenshi:qi ."
+    "DESCRIPTION": "Each duofan_kenshi:qi increase !M! damage, total !duofan_kenshi:QiLamagePlus! damage. NL duofan_kenshi:cloud :Gain 1 duofan_kenshi:qi .",
+    "UPGRADE_DESCRIPTION": "Each duofan_kenshi:qi increase !M! damage, total !duofan_kenshi:QiLamagePlus! damage. NL duofan_kenshi:cloud :Gain 1 duofan_kenshi:qi ."
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
     "NAME": "All Things",
@@ -257,8 +257,8 @@
   },
   "game.duofan.kenshi:XZL_JuQue": {
     "NAME": "Ju Que",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:armor-piercing. (Destory !duofan_kenshi:PJAmount! Block, deal !duofan_kenshi:OverPJAmount! damage) NL duofan_kenshi:cloud :Reduce enemy's Block by half at the end of it's turn.",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:armor-piercing. (Destory !duofan_kenshi:PJAmount! Block, deal !duofan_kenshi:OverPJAmount! damage) NL duofan_kenshi:cloud :Reduce enemy's Block by half at the end of it's turn."
+    "DESCRIPTION": "Deal !D! damage. NL Damage is doubled if the enemy has Block. NL duofan_kenshi:cloud :Enemy loses all Block at the end of its turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Damage is doubled if the enemy has Block. NL duofan_kenshi:cloud :Enemy loses all Block at the end of its turn."
   },
   "game.duofan.kenshi:XZL_ShengXie": {
     "NAME": "Sheng Xie",
@@ -267,8 +267,8 @@
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "Chun Jun",
-    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage. NL duofan_kenshi:sensitive ",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage. NL duofan_kenshi:sensitive "
+    "DESCRIPTION": "Deal !D! damage,if consumed duofan_kenshi:qi, Style-Effect triggers 2 additional times instead of 1. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage,if consumed duofan_kenshi:qi, Style-Effect triggers 2 additional times instead of 1. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage."
   },
   "game.duofan.kenshi:YuZL_FengYuBuDong": {
     "NAME": "Unshaken by Storm",

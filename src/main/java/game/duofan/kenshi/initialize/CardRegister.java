@@ -19,7 +19,6 @@ public class CardRegister implements EditCardsSubscriber {
 
         cards.add(new QiHai());
         cards.add(new BuPoFa_Card());
-        cards.add(new FengMo());
 
         cards.add(new YuYi());
         cards.add(new DuiSha_Card());
@@ -27,7 +26,6 @@ public class CardRegister implements EditCardsSubscriber {
 
         cards.add(new FanShi_Card());
         cards.add(new JianYu_Card());
-        cards.add(new YaZhi());
 
         cards.add(new FeiGong());
 

@@ -130,13 +130,13 @@
   "game.duofan.kenshi:Qi": {
     "NAME": "Qi",
     "DESCRIPTIONS": [
-      "Next #b%d times to trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi . NL At the end of your turn, Lose All #yqi ."
+      "Next #b%d times to trigger Style-Effect in this turn will trigger twice, then reduce #b1 #yqi . NL At the end of your turn, Lose All."
     ]
   },
   "game.duofan.kenshi:PoJia": {
     "NAME": "Armor Piercing",
     "DESCRIPTIONS": [
-      "Reduce #yBlock by half at the end of it's turn."
+      "Enemy loses all #yBlock at the end of its turn."
     ]
   },
   "game.duofan.kenshi:ZiXiaZhenQi": {

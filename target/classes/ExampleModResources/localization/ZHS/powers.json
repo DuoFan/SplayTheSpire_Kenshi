@@ -78,10 +78,10 @@
       "触发 #y枫之流 效果，离开该流派时本回合获得 #b1 点 #y力量 。"
     ]
   },
-  "game.duofan.kenshi:FuFeng": {
-    "NAME": "腐风",
+  "game.duofan.kenshi:BaiHuaQiFang": {
+    "NAME": "百花齐放",
     "DESCRIPTIONS": [
-      "回合开始时，给予所有敌人 #b%d 层 #y破败 。"
+      "在 #y枫之流 下也可触发 #y枫之流 效果。"
     ]
   },
   "game.duofan.kenshi:PoBai": {
@@ -123,13 +123,13 @@
   "game.duofan.kenshi:Qi": {
     "NAME": "气",
     "DESCRIPTIONS": [
-      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL 回合结束时保留 #b1 层 #y气 。"
+      "本回合下 #b%d 次触发的流派效果额外触发 #b1 次，而后移除1层。 NL 回合结束时全部失去。"
     ]
   },
   "game.duofan.kenshi:PoJia": {
     "NAME": "破甲",
     "DESCRIPTIONS": [
-      "回合结束时， #y格挡 减半。"
+      "回合结束时，失去所有 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:ZiXiaZhenQi": {

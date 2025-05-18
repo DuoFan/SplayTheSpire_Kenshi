@@ -52,11 +52,7 @@ public class Qi extends AbstractPower {
     @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        if (amount < 1) {
-            AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
-        } else {
-            amount = 1;
-        }
+        AbstractPlayer p = AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
     }
 }

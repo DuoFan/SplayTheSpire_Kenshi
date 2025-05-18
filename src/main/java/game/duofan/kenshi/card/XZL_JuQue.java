@@ -23,9 +23,6 @@ import game.duofan.kenshi.variable.PJAmount;
 
 public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMonsterGetter {
 
-    static PJAmount pjAmount = new PJAmount();
-    static OverPJAmount overPJAmount = new OverPJAmount();
-
     public static final String ID = IDManager.getInstance().getID(XZL_JuQue.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
@@ -58,7 +55,10 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
     @Override
     public void calculateCardDamage(AbstractMonster mo) {
         super.calculateCardDamage(mo);
-        targetMonster = mo;
+        if(mo.currentBlock > 0){
+            damage *= 2;
+        }
+        isDamageModified = damage != baseDamage;
     }
 
     /**
@@ -69,22 +69,12 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-
         targetMonster = m;
 
         if (m != null) {
             this.addToBot(new VFXAction(new VerticalImpactEffect(m.hb.cX + m.hb.width / 4.0F, m.hb.cY - m.hb.height / 4.0F)));
         }
-
-        int _damage = pjAmount.value(this);
-        if (_damage > 0) {
-            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        }
-
-        _damage = overPJAmount.value(this);
-        if (_damage > 0) {
-            Utils.giveDamage(p, m, _damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        }
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
     }
 
     @Override

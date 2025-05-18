@@ -714,14 +714,14 @@ public class Utils {
         ArrayList<AbstractCard> cards = new ArrayList<>();
 
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.FengZhiLiu)) {
-            //cards.add(new YaZhi());
+            cards.add(new FZL_YaZhi());
             cards.add(new FZL_BaiHuaSha());
             cards.add(new FZL_QiuFengPo());
             cards.add(new FZL_WanYeBai());
             cards.add(new FZL_ZhiQie());
             cards.add(new FZL_LieFengZhan());
             cards.add(new FZL_HuiFengZhan());
-            cards.add(new FZL_FuFeng());
+            cards.add(new FZL_BaiHuaQiFang());
             //cards.add(new JianYu_Card());
             cards.add(new FZL_CuiKuLaXiu());
             cards.add(new FZL_XianFaZhiRen());
@@ -733,7 +733,7 @@ public class Utils {
         if (stateMachine.hasLiuFlag(flag, Liu_StateMachine.StateEnum.XiaZhiLiu)) {
             cards.add(new XZL_JuQi());
             //cards.add(new XZL_QiHai());
-            //cards.add(new FengMo());
+            cards.add(new XZL_FengMo());
             cards.add(new XZL_ShuangJi());
             //cards.add(new XZL_BuPoFa());
             cards.add(new XZL_ZiDianQingShuang());

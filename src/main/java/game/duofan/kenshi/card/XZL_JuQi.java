@@ -60,12 +60,11 @@ public class XZL_JuQi extends CustomCard implements IXiaZhiLiuCard {
         addToBot(new SFXAction("STANCE_ENTER_DIVINITY"));
         this.addToBot(new VFXAction(new BorderFlashEffect(Color.VIOLET, true)));
         this.addToBot(new VFXAction(p, new MiracleEffect(Color.WHITE, Color.VIOLET, "CARD_DRAW_8"), 1.0F));
-        addToBot(new DrawCardAction(p, magicNumber));
     }
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        Utils.playerGainEnergy(1);
+        addToBot(new DrawCardAction(AbstractDungeon.player, magicNumber));
     }
 
     @Override

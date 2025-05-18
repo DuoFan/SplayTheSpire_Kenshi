@@ -10,6 +10,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.FeiGong;
+import game.duofan.kenshi.card.ShuangJianHeBi_Card;
 import game.duofan.kenshi.power.ShuangJianHeBi;
 
 import java.util.Iterator;
@@ -18,23 +19,26 @@ public class ShuangJianHeBiAction extends AbstractGameAction implements ICardFil
 
     AbstractCard c1;
     AbstractCard c2;
+    ShuangJianHeBi_Card self;
 
-    public ShuangJianHeBiAction() {
-
+    public ShuangJianHeBiAction(ShuangJianHeBi_Card _self) {
+        self = _self;
     }
 
     public void update() {
         isDone = true;
 
-        Utils.addToBotAbstract(() -> {
-            if (c1 == null) {
-                return;
-            }
-            if (c2 == null) {
-                return;
-            }
-            Utils.playerGainPowerTop(new ShuangJianHeBi(AbstractDungeon.player, c1, c2));
-        });
+        if(self.upgraded){
+            Utils.addToBotAbstract(() -> {
+                if (c1 == null) {
+                    return;
+                }
+                if (c2 == null) {
+                    return;
+                }
+                Utils.playerGainPowerTop(new ShuangJianHeBi(AbstractDungeon.player, c1, c2));
+            });
+        }
 
         DrawCardByFilterAction a = new DrawCardByFilterAction(2, this);
         a.setDoCard(this);
