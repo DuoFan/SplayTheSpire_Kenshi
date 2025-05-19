@@ -21,6 +21,7 @@ import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -257,7 +258,14 @@ public class Utils {
                 xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
             }
 
-            if (isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0)) {
+            AbstractPower _baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
+            BaiHuaQiFang baiHuaQiFang = null;
+            if (_baiHuaQiFang != null) {
+                baiHuaQiFang = (BaiHuaQiFang) _baiHuaQiFang;
+            }
+
+            if (!isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0)
+                    || (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null)) {
                 if (card instanceof IXiaZhiLiuCard) {
                     Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
                 } else {
@@ -266,10 +274,12 @@ public class Utils {
                 Liu_StateMachine.getInstance().setLastEffectLiuCardOnTurn(card);
                 Liu_StateMachine.getInstance().setLastEffectLiuCardOnBattle(card);
 
-
-                if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
+                if (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null) {
+                    baiHuaQiFang.flash();
+                } else if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
                     xinSuiYiDong.subTurnAmountToEffect();
                 }
+
                 if (!isLiuMatch) {
                     Liu_StateMachine.getInstance().changeLiu(liu);
                 }
@@ -289,8 +299,6 @@ public class Utils {
                     }
                     Utils.playerReduceQi(1);
                 }
-            } else {
-                Liu_StateMachine.getInstance().changeLiu(liu);
             }
         }
     }
@@ -299,6 +307,41 @@ public class Utils {
         Liu_StateMachine.getInstance().reset();
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+    }
+
+    public static boolean canInvokeLiuEffect(AbstractCard c) {
+        if(AbstractDungeon.player == null){
+            return false;
+        }
+
+        Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
+        if (liu != Liu_StateMachine.StateEnum.None) {
+            boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
+
+            if(!isLiuMatch){
+                return true;
+            }
+
+            AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
+            XinSuiYiDong xinSuiYiDong = null;
+            if (_xinSuiYiDong != null) {
+                xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
+            }
+
+            if(xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0){
+                return true;
+            }
+
+            AbstractPower _baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
+            BaiHuaQiFang baiHuaQiFang = null;
+            if (_baiHuaQiFang != null) {
+                baiHuaQiFang = (BaiHuaQiFang) _baiHuaQiFang;
+            }
+
+            return (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null);
+        } else {
+            return false;
+        }
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {
@@ -661,6 +704,90 @@ public class Utils {
         }
 
         return qi;
+    }
+
+    public static boolean needRefreshDiscardPileForDraw(ICardFilter cardFilter,int amount){
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) {
+            return false;
+        }
+
+        if(p.hasPower(FanShi.POWER_ID)){
+            return false;
+        }
+
+        CardGroup g = p.drawPile;
+        if(g == null){
+            return false;
+        }
+
+        for (int i = 0; i < g.size() && amount > 0; i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if(cardFilter == null || cardFilter.filter(c)){
+                amount--;
+            }
+        }
+
+        if(amount <= 0){
+            return false;
+        }
+
+        g = p.discardPile;
+        if(g == null){
+            return false;
+        }
+
+        for (int i = 0; i < g.size() && amount > 0; i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if(cardFilter == null || cardFilter.filter(c)){
+                amount--;
+            }
+        }
+
+        return amount <= 0;
+    }
+
+    public static int calculateRefreshDiscardPileForDraw(ICardFilter cardFilter){
+        int amount = 0;
+
+        AbstractPlayer p = AbstractDungeon.player;
+        if (p == null) {
+            return amount;
+        }
+
+        CardGroup g = p.drawPile;
+
+        if(p.hasPower(FanShi.POWER_ID)){
+            g = p.discardPile;
+        }
+        if(g == null){
+            return amount;
+        }
+
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if(cardFilter == null || cardFilter.filter(c)){
+                amount++;
+            }
+        }
+
+        if(p.hasPower(FanShi.POWER_ID)){
+            return amount;
+        }
+
+        g = p.discardPile;
+        if(g == null){
+            return amount;
+        }
+
+        for (int i = 0; i < g.size(); i++) {
+            AbstractCard c = g.getNCardFromTop(i);
+            if(cardFilter == null || cardFilter.filter(c)){
+                amount++;
+            }
+        }
+
+        return amount;
     }
 
     public static DrawCardByFilterAction playerDrawCardByFilterAction(int amount, ICardFilter filter) {

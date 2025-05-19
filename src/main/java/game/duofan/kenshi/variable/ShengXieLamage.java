@@ -54,13 +54,13 @@ public class ShengXieLamage extends DynamicVariable {
         }
 
         int strengthDiff = 0;
-        if (!c.getIsPlayed()) {
+        /*if (!c.getIsPlayed()) {
             strengthDiff += 2;
             AbstractPower power = m.getPower(ArtifactPower.POWER_ID);
             if(power != null){
                 strengthDiff = 0;
             }
-        }
+        }*/
 
         AbstractPower strength = p.getPower(StrengthPower.POWER_ID);
         if(strength != null){

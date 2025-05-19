@@ -47,7 +47,7 @@ public class LeXue extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new LeXueAction());
+        addToBot(new LeXueAction(yanXiAmount.value(this)));
     }
 
     @Override

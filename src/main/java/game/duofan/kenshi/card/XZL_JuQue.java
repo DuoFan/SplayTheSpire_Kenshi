@@ -81,8 +81,7 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

@@ -67,8 +67,7 @@ public class YanZL_LieHuoChang extends CustomCard implements IYanZhiLiuCard {
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

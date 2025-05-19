@@ -34,6 +34,7 @@ public class ShuangJianHeBi_Card extends CustomCard {
 
     public ShuangJianHeBi_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        selfRetain = true;
     }
 
     @Override
@@ -62,29 +63,12 @@ public class ShuangJianHeBi_Card extends CustomCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (AbstractDungeon.player == null) {
-            return;
-        }
-
-        CardGroup g = AbstractDungeon.player.drawPile;
-        if (AbstractDungeon.player.hasPower(FanShi.POWER_ID)) {
-            g = AbstractDungeon.player.discardPile;
-        }
-
-        if (g == null) {
-            return;
-        }
-
-        int count = 0;
-        for (int i = 0; i < g.size() && count < 2; i++) {
-            AbstractCard c = g.getNCardFromTop(i);
-            if (c.type == CardType.ATTACK) {
-                count++;
+        if(upgraded){
+            if (Utils.calculateRefreshDiscardPileForDraw((c) ->{
+                return c.type == CardType.ATTACK;
+            }) > 2) {
+                this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
             }
-        }
-
-        if (count >= 2) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }
 }

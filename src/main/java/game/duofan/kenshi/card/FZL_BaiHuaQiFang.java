@@ -17,6 +17,7 @@ import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.ICardFilter;
 import game.duofan.kenshi.power.*;
+import org.apache.logging.log4j.util.LambdaUtil;
 
 public class FZL_BaiHuaQiFang extends CustomCard implements IFengZhiLiuCard, ICardFilter {
     public static final String ID = IDManager.getInstance().getID(FZL_BaiHuaQiFang.class);
@@ -55,15 +56,14 @@ public class FZL_BaiHuaQiFang extends CustomCard implements IFengZhiLiuCard, ICa
         this.addToBot(new SFXAction("ATTACK_FIRE"));
         this.addToBot(new VFXAction(p, new VerticalAuraEffect(Color.PINK, p.hb.cX, p.hb.cY), 0.33F));
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(Color.PINK), 0.0F, true));
-        Utils.playerGainPower(new BaiHuaQiFang(p, 1));
+        Utils.playerGainPower(new BaiHuaQiFang(p));
     }
 
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

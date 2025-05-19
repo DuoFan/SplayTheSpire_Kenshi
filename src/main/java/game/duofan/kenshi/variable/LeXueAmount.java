@@ -48,16 +48,6 @@ public class LeXueAmount extends DynamicVariable {
             return 0;
         }
 
-        CardGroup drawPile = p.drawPile;
-
-        if(p.hasPower(FanShi.POWER_ID)){
-            drawPile = p.discardPile;
-        }
-
-        if (drawPile == null) {
-            return 0;
-        }
-
         CardGroup hand = p.hand;
 
         HashSet<Liu_StateMachine.StateEnum> liuSet = new HashSet<>();
@@ -72,10 +62,9 @@ public class LeXueAmount extends DynamicVariable {
 
         int count1 = liuSet.size();
 
-        for (int i = 0; i < drawPile.size(); i++) {
-            AbstractCard c = drawPile.getNCardFromTop(i);
-            liuSet.add(Utils.getLiuFromCard(c));
-        }
+        Utils.calculateRefreshDiscardPileForDraw((c) ->{
+            return liuSet.add(Utils.getLiuFromCard(c));
+        });
 
         return liuSet.size() - count1;
     }

@@ -34,8 +34,8 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_QiuYeLianJian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 9;
-        magicNumber = baseMagicNumber = 2;
+        this.damage = this.baseDamage = 7;
+        magicNumber = baseMagicNumber = 1;
         cardsToPreview = new XiaoChenJianFa();
     }
 
@@ -59,6 +59,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
         addToBot(new QiuYeLianJianAction(this, magicNumber));
+        exhaustOnUseOnce = Utils.canInvokeLiuEffect(this);
     }
 
     @Override
@@ -66,6 +67,13 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
         AbstractPlayer p = AbstractDungeon.player;
         XiaoChenJianFa xiaoChenJianFa = new XiaoChenJianFa(baseDamage);
         Utils.makeTempCardInHand(xiaoChenJianFa, 1);
+
+        if (!exhaustOnUseOnce) {
+            exhaustOnUseOnce = true;
+            addToBot(new ExhaustSpecificCardAction(this, p.hand));
+            addToBot(new ExhaustSpecificCardAction(this, p.drawPile));
+            addToBot(new ExhaustSpecificCardAction(this, p.discardPile));
+        }
     }
 
     @Override
@@ -73,8 +81,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.FengZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

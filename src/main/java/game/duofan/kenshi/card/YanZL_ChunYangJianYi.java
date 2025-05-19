@@ -77,8 +77,7 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void update() {
         super.update();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             target = CardTarget.ENEMY;
         } else {
             target = CardTarget.SELF;
@@ -90,8 +89,7 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

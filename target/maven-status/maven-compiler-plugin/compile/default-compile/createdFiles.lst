@@ -80,6 +80,7 @@ game\duofan\kenshi\card\FZL_BaiHuaQiFang.class
 game\duofan\common\Utils$3.class
 game\duofan\kenshi\card\XZL_ShengXie.class
 game\duofan\kenshi\card\YangZhiRen.class
+game\duofan\kenshi\patch\VictoryScreenPatch.class
 game\duofan\kenshi\variable\LamageScaler.class
 game\duofan\kenshi\power\ShiJianShi.class
 game\duofan\kenshi\card\FZL_QiuFengPo.class
@@ -103,6 +104,7 @@ game\duofan\kenshi\action\RepeatAction.class
 game\duofan\kenshi\card\IQiMin.class
 game\duofan\kenshi\power\PoBaiGongJi.class
 game\duofan\kenshi\action\WaitForFenChengAction.class
+game\duofan\kenshi\patch\VictoryScreenPatch$VictoryScreenSpineRenderPatch.class
 game\duofan\kenshi\power\JianYu.class
 game\duofan\kenshi\card\FZL_QiuYeLianJian.class
 game\duofan\kenshi\variable\OverPJAmount.class
@@ -164,6 +166,7 @@ game\duofan\kenshi\card\XZL_QiHuaWanQian.class
 game\duofan\kenshi\relic\JianPuTuLu.class
 game\duofan\kenshi\power\IUpdateDescription.class
 game\duofan\kenshi\action\QianBianWanHuaAction.class
+game\duofan\kenshi\patch\VictoryAnim.class
 game\duofan\kenshi\card\YuYi.class
 game\duofan\kenshi\power\ZhanYanLuo.class
 game\duofan\kenshi\action\ReturnYanGuiLaiAction.class

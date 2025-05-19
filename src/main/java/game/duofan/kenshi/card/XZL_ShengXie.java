@@ -66,8 +66,8 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard, ITargetM
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         if (!isPlayed) {
-            isPlayed = true;
-            Utils.givePower(p, m, new StrengthPower(m, -2));
+            /*isPlayed = true;
+            Utils.givePower(p, m, new StrengthPower(m, -2));*/
         }
 
         DamageInfo info = new DamageInfo(p, 0, DamageInfo.DamageType.NORMAL);
@@ -92,8 +92,7 @@ public class XZL_ShengXie extends CustomCard implements IXiaZhiLiuCard, ITargetM
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.XiaZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

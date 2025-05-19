@@ -27,6 +27,7 @@ public class XiaoChenJianFa extends CustomCard {
     public XiaoChenJianFa() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 0;
+        exhaust = true;
         rawDescription = CARD_STRINGS.EXTENDED_DESCRIPTION[0];
         initializeDescription();
     }
@@ -34,6 +35,7 @@ public class XiaoChenJianFa extends CustomCard {
     public XiaoChenJianFa(int _damage) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = _damage;
+        exhaust = true;
         rawDescription = CARD_STRINGS.DESCRIPTION;
         initializeDescription();
     }

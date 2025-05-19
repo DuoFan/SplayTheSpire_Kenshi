@@ -19,13 +19,14 @@ import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.RongRong;
 import game.duofan.kenshi.variable.LeXueAmount;
 
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 public class LeXueAction extends AbstractGameAction {
 
-    public LeXueAction() {
-
+    public LeXueAction(int amount) {
+        this.amount = amount;
     }
 
     public void update() {
@@ -33,22 +34,10 @@ public class LeXueAction extends AbstractGameAction {
 
         AbstractPlayer p = AbstractDungeon.player;
 
-        CardGroup drawPile = p.drawPile;
-        if (drawPile == null) {
-            return;
-        }
-
-        if (p.hasPower(FanShi.POWER_ID)) {
-            drawPile = p.discardPile;
-        }
-
-        if (drawPile == null) {
-            return;
-        }
-
         CardGroup hand = p.hand;
 
         HashSet<Liu_StateMachine.StateEnum> liuSet = new HashSet<>();
+        ArrayList<AbstractCard> cards = new ArrayList<>();
         liuSet.add(Liu_StateMachine.StateEnum.None);
 
         if (hand != null) {
@@ -58,13 +47,14 @@ public class LeXueAction extends AbstractGameAction {
             }
         }
 
-        for (int i = 0; i < drawPile.size(); i++) {
-            AbstractCard c = drawPile.getNCardFromTop(i);
-            if (liuSet.add(Utils.getLiuFromCard(c))) {
-                Utils.playerDrawCardByFilterActionTop(1, (x) -> {
-                    return x.equals(c);
-                });
+        addToTop(new DrawCardByFilterAction(amount, (_c) -> {
+            if (liuSet.add(Utils.getLiuFromCard(_c))) {
+                cards.add(_c);
+                return true;
             }
-        }
+            else{
+                return cards.contains(_c);
+            }
+        }));
     }
 }

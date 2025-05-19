@@ -63,18 +63,16 @@ public class ShiJun extends CustomCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        int[] damages = new int[AbstractDungeon.getMonsters().monsters.size()];
-        Arrays.fill(damages, damage);
         this.addToBot(new SFXAction("ATTACK_HEAVY"));
         this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-        addToBot(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL,
+        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL,
                 AbstractGameAction.AttackEffect.NONE));
         Utils.addToBotAbstract(() -> {
             for (int i = 0; i < monsters.size(); i++) {
                 AbstractMonster monster = monsters.get(i);
                 if (((monster).isDying || monster.currentHealth <= 0) && !monster.halfDead
                         && !monster.hasPower("Minion")) {
-                    Utils.giveDamage(p, p, magicNumber, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
+                    Utils.giveDamage(monster, p, magicNumber, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
                 }
             }
         });

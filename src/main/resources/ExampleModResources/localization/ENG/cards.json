@@ -36,13 +36,13 @@
   },
   "game.duofan.kenshi:JiYiXingTai_Card": {
     "NAME": "Extreme Form",
-    "DESCRIPTION": "Whenever you played Attack, Draw Attack and make the drawn card able to Exhaust.",
-    "UPGRADE_DESCRIPTION": "Whenever you played Attack, Draw Attack and make the drawn card able to Exhaust."
+    "DESCRIPTION": "Whenever you played Attack, Draw Attack and make the drawn card able to Exhaust. NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Whenever you played Attack, Draw Attack and make the drawn card able to Exhaust. NL Ethereal"
   },
   "game.duofan.kenshi:ZhanYanLuo_Card": {
     "NAME": "Slay The Dragon",
-    "DESCRIPTION": "Gain 1 Strength，enemy loses 1 Strength,apply !M! Vulnerable. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Gain 1 Strength，enemy loses 1 Strength,apply !M! Vulnerable. NL Exhaust"
+    "DESCRIPTION": "Gain !M! Strength，enemy loses !M! Strength,apply !M! Vulnerable. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "Gain !M! Strength，enemy loses !M! Strength,apply !M! Vulnerable. NL Exhaust"
   },
   "game.duofan.kenshi:ShiJun": {
     "NAME": "Regicide",
@@ -50,9 +50,9 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage to All enemies. NL Each Fatal give you !M! damage."
   },
   "game.duofan.kenshi:XiuLuo_Card": {
-    "NAME": "Shura",
-    "DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Whenever you played Attack, add a duplicate into your drawpile. NL Whenever you drawn Attack,gain !M! Block. NL Ethereal "
+    "NAME": "Sword Fiend",
+    "DESCRIPTION": "After play !M! Attack, gain an extra turn and double this requirement. NL Resets on stack. NL Ethereal",
+    "UPGRADE_DESCRIPTION": "After play !M! Attack, gain an extra turn and double this requirement. NL Resets on stack. NL Ethereal"
   },
   "game.duofan.kenshi:ZhengFeng": {
     "NAME": "Compulsory Strike",
@@ -81,8 +81,8 @@
   },
   "game.duofan.kenshi:ShuangJianHeBi_Card": {
     "NAME": "Twin Blades Unity",
-    "DESCRIPTION": "Draw 2 Attack cards.",
-    "UPGRADE_DESCRIPTION": "Draw 2 Attack cards. NL If you played them this turn, gain [E]. (No effect if fewer than 2 drawn.)"
+    "DESCRIPTION": "Draw 2 Attack cards. NL Retain ",
+    "UPGRADE_DESCRIPTION": "Draw 2 Attack cards. NL If you played them this turn, gain [E]. (No effect if fewer than 2 drawn) NL Retain "
   },
   "game.duofan.kenshi:ShiJianShi": {
     "NAME": "Sword Testing Stone",
@@ -111,13 +111,13 @@
   },
   "game.duofan.kenshi:BuPoFa_Card": {
     "NAME": "Unbreakable",
-    "DESCRIPTION": "Damage can't break your block at this turn.",
-    "UPGRADE_DESCRIPTION": "Damage can't break your block at this turn,gain !B! block ."
+    "DESCRIPTION": "Damage can't break your block before next turn.",
+    "UPGRADE_DESCRIPTION": "Damage can't break your block before next turn,gain !B! block ."
   },
   "game.duofan.kenshi:FanShi_Card": {
-    "NAME": "Anti Moves",
-    "DESCRIPTION": "You will always draw cards from the discard pile.",
-    "UPGRADE_DESCRIPTION": "You will always draw cards from the discard pile."
+    "NAME": "Reverse",
+    "DESCRIPTION": "Reverse draw direction, draw !M! cards. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Reverse draw direction, draw !M! cards. NL Ethereal "
   },
   "game.duofan.kenshi:DuiSha_Card": {
     "NAME": "Combat Readiness",
@@ -169,11 +169,11 @@
   },
   "game.duofan.kenshi:FZL_QiuYeLianJian": {
     "NAME": "Practise Sword",
-    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Superb *Sword *Moves into your hand."
+    "DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Exquisite *Strike into your hand.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Increase the damage of All Practice Sword Cards by !M! this combat. NL duofan_kenshi:leave :Add *Exquisite *Strike into your hand."
   },
   "game.duofan.kenshi:XiaoChenJianFa": {
-    "NAME": "Superb Sword Moves",
+    "NAME": "Exquisite Strike",
     "DESCRIPTION": "Deal !D! damage. NL Exhaust",
     "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Exhaust",
     "EXTENDED_DESCRIPTION": [
@@ -251,9 +251,9 @@
     "UPGRADE_DESCRIPTION": "Each duofan_kenshi:qi increase !M! damage, total !duofan_kenshi:QiLamagePlus! damage. NL duofan_kenshi:cloud :Gain 1 duofan_kenshi:qi ."
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
-    "NAME": "All Things",
-    "DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] and draw 1 card. (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] and draw 1 card. (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust "
+    "NAME": "Galaxy in the Palm",
+    "DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] . (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] . (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust "
   },
   "game.duofan.kenshi:XZL_JuQue": {
     "NAME": "Ju Que",
@@ -262,8 +262,8 @@
   },
   "game.duofan.kenshi:XZL_ShengXie": {
     "NAME": "Sheng Xie",
-    "DESCRIPTION": "When first played, the enemy loses 2 Strength. NL Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)(total !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength.",
-    "UPGRADE_DESCRIPTION": "When first played, the enemy loses 2 Strength. NL Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)(total !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength."
+    "DESCRIPTION": "Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)( !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength.",
+    "UPGRADE_DESCRIPTION": "Deal damage equal to !M! × (difference between your Strength and the enemy’s Strength)( !duofan_kenshi:ShengXieLamage! damage). NL duofan_kenshi:cloud :Gain 1 Strength."
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "Chun Jun",
@@ -312,8 +312,8 @@
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "Pigeon Carrier",
-    "DESCRIPTION": "Select a card from your drawpile,draw it from drawpile next turn. NL duofan_kenshi:feather :Draw it immediately.",
-    "UPGRADE_DESCRIPTION": "Select !M! cards from your drawpile,draw them from drawpile next turn. NL duofan_kenshi:feather :Draw them immediately."
+    "DESCRIPTION": "Select a card from your drawpile,draw it from drawpile next turn. NL duofan_kenshi:feather :Draw it immediately.  NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Select !M! cards from your drawpile,draw them from drawpile next turn. NL duofan_kenshi:feather :Draw them immediately. NL Exhaust "
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "Clean After Rain",

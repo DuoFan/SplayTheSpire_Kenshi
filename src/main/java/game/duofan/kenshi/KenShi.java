@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.helpers.SlimeAnimListener;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import com.megacrit.cardcrawl.screens.VictoryScreen;
 import com.sun.org.apache.bcel.internal.generic.FLOAD;
 import game.duofan.common.*;
 import game.duofan.kenshi.card.*;

@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.BetterDrawPileToHandAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -20,10 +21,10 @@ public class FanShi_Card extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(FanShi_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/fZL/fanShi_power.png";
-    private static final int COST = 2;
+    private static final String IMG_PATH = "img/cards/fZL/fanShi_skill.png";
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
-    private static final AbstractCard.CardType TYPE = CardType.POWER;
+    private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.RARE;
     private static final AbstractCard.CardTarget TARGET = AbstractCard.CardTarget.SELF;
@@ -32,13 +33,15 @@ public class FanShi_Card extends CustomCard {
 
     public FanShi_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        magicNumber = baseMagicNumber = 3;
+        isEthereal = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(1);
+            upgradeMagicNumber(1);
         }
     }
 
@@ -52,7 +55,15 @@ public class FanShi_Card extends CustomCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("ATTACK_FIRE"));
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(new Color(1, 210 / 255f, 44 / 255f, 1)), 0.0F, true));
-        Utils.playerGainPower(new FanShi(p));
+        Utils.addToBotAbstract(() ->{
+            addToTop(new DrawCardAction(magicNumber));
+            if(p.hasPower(FanShi.POWER_ID)){
+                Utils.playRemovePowerTop(FanShi.POWER_ID);
+            }
+            else{
+                Utils.playerGainPowerTop(new FanShi(p));
+            }
+        });
     }
 
    /* @Override

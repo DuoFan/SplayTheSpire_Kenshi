@@ -23,7 +23,7 @@ public class JiYiXingTai_Card extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(JiYiXingTai_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/JiYiXingTai_power.png";
     private static final int COST = 3;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final AbstractCard.CardType TYPE = CardType.POWER;
@@ -33,6 +33,7 @@ public class JiYiXingTai_Card extends CustomCard {
 
     public JiYiXingTai_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
+        isEthereal = true;
     }
 
     @Override

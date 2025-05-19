@@ -33,14 +33,14 @@ public class XiuLuo_Card extends CustomCard {
     public XiuLuo_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         isEthereal = true;
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 6;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeMagicNumber(1);
+            upgradeMagicNumber(-2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -62,6 +62,10 @@ public class XiuLuo_Card extends CustomCard {
             }
         });
         this.addToBot(new VFXAction(p, new BorderLongFlashEffect(c1), 0.0F, true));
+
+        if(p.hasPower(XiuLuo.POWER_ID)){
+            Utils.playRemovePower(XiuLuo.POWER_ID);
+        }
 
         Utils.playerGainPower(new XiuLuo(p, magicNumber));
     }

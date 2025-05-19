@@ -49,9 +49,9 @@
     ]
   },
   "game.duofan.kenshi:XiuLuo": {
-    "NAME": "修罗",
+    "NAME": "剑魔",
     "DESCRIPTIONS": [
-      "将打出攻击牌的 #b%d 张复制加入抽牌堆，抽取的每张攻击牌使你获得 #b%d 点 #y格挡 。"
+      "再打出 #b%d 张攻击牌进入额外的一回合。"
     ]
   },
   "game.duofan.kenshi:JianYu": {
@@ -63,7 +63,7 @@
   "game.duofan.kenshi:BuPoFa": {
     "NAME": "不破法",
     "DESCRIPTIONS": [
-      "回合开始时，若存在意图为攻击的敌人，获得 #b%d 点 #y格挡 。"
+      "下回合开始前伤害无法损耗你的 格挡 。"
     ]
   },
   "game.duofan.kenshi:DuiSha": {
@@ -75,7 +75,7 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      "触发 #y枫之流 效果，离开该流派时本回合获得 #b1 点 #y力量 。"
+      "离开该流派时本回合获得 #b1 点 #y力量 。"
     ]
   },
   "game.duofan.kenshi:BaiHuaQiFang": {
@@ -109,7 +109,7 @@
     ]
   },
   "game.duofan.kenshi:FanShi": {
-    "NAME": "反式",
+    "NAME": "逆练",
     "DESCRIPTIONS": [
       "你将总是从弃牌堆抽取卡牌。"
     ]
@@ -117,7 +117,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      "触发 #y霞之流 效果，离开该流派时获得 #b1 层 #y气 。"
+      "离开该流派时获得 #b1 层 #y气 。"
     ]
   },
   "game.duofan.kenshi:Qi": {
@@ -141,7 +141,7 @@
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
-      "触发 #y羽之流 效果，离开该流派时获得 #b3 点 #y格挡 。"
+      "离开该流派时获得 #b3 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -203,7 +203,7 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      "触发 #y炎之流 效果，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。"
+      "离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:RongRong": {

@@ -55,9 +55,9 @@
     ]
   },
   "game.duofan.kenshi:XiuLuo": {
-    "NAME": "Shura",
+    "NAME": "Sword Fiend",
     "DESCRIPTIONS": [
-      "Whenever you played Attack, add #b%d duplicate into your drawpile. NL Whenever you drawn Attack,gain #b%d #yBlock ."
+      "After play #b%d Attack, gain an extra turn."
     ]
   },
   "game.duofan.kenshi:JianYu": {
@@ -69,8 +69,7 @@
   "game.duofan.kenshi:BuPoFa": {
     "NAME": "Unbreakable",
     "DESCRIPTIONS": [
-      "Damage can't break your #yblock at this turn.",
-      "Damage can't break your #yblock at #b%d turns."
+      "Damage can't break your block before next turn.",
     ]
   },
   "game.duofan.kenshi:DuiSha": {
@@ -82,13 +81,13 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "Style-Leave",
     "DESCRIPTIONS": [
-      "Triggers #yleave effect. When you exit #yleave Style, gain #b1 #yStrength this turn."
+      "When you exit #yleave Style, gain #b1 #yStrength this turn."
     ]
   },
-  "game.duofan.kenshi:FuFeng": {
-    "NAME": "Corruption",
+  "game.duofan.kenshi:BaiHuaQiFang": {
+    "NAME": "Blossoming Synergy",
     "DESCRIPTIONS": [
-      "At the start of your turn, apply #b%d #ywither to ALL enemies."
+      "Can trigger #yleave effect in #yleave."
     ]
   },
   "game.duofan.kenshi:PoBai": {
@@ -116,7 +115,7 @@
     ]
   },
   "game.duofan.kenshi:FanShi": {
-    "NAME": "Anti Moves",
+    "NAME": "Reverse",
     "DESCRIPTIONS": [
       "You will always draw cards from the discard pile."
     ]
@@ -124,7 +123,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "Style-Cloud",
     "DESCRIPTIONS": [
-      "Triggers #ycloud effect. When you exit #ycloud Style, gain #b1 #yqi ."
+      "When you exit #ycloud Style, gain #b1 #yqi ."
     ]
   },
   "game.duofan.kenshi:Qi": {
@@ -148,7 +147,7 @@
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "Style-Feather",
     "DESCRIPTIONS": [
-      "Triggers #yfeather effect. When you exit #yfeather Style, gain #b3 #yBlock ."
+      "When you exit #yfeather Style, gain #b3 #yBlock ."
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -210,7 +209,7 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "Style-Flame",
     "DESCRIPTIONS": [
-      "Triggers #yflame effect. When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
+      "When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
     ]
   },
   "game.duofan.kenshi:RongRong": {

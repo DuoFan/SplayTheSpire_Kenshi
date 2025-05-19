@@ -46,7 +46,7 @@ public class BuPoFa_Card extends CustomCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainPower(new BuPoFa(p, 1));
+        Utils.playerGainPower(new BuPoFa(p));
         if (upgraded) {
             Utils.playerGainBlock(block);
         }

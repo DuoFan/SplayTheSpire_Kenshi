@@ -71,7 +71,7 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
             isUsing = false;
         });
         if (!shuffleBackIntoDrawPile) {
-            shuffleBackIntoDrawPile = Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
+            shuffleBackIntoDrawPile = !Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
         }
     }
 
@@ -93,8 +93,7 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
         super.triggerOnGlowCheck();
         this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
 
-        if (Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu)
-                || ZhuLiuBaiJia.canForceInvokeLiu()) {
+        if (Utils.canInvokeLiuEffect(this)) {
             this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
         }
     }

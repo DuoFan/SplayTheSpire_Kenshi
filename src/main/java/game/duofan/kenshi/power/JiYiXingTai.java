@@ -67,5 +67,6 @@ public class JiYiXingTai extends AbstractPower implements IDoCard {
                 card.initializeDescription();
             }
         }
+        flash();
     }
 }

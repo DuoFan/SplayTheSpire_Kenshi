@@ -29,14 +29,14 @@ public class BuPoFa extends AbstractPower {
     // 能力的描述
     private static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
 
-    public BuPoFa(AbstractCreature owner, int amount) {
+    public BuPoFa(AbstractCreature owner) {
         this.name = NAME;
         this.ID = POWER_ID;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
         // 如果需要不能叠加的能力，只需将上面的Amount参数删掉，并把下面的Amount改成-1就行
-        this.amount = amount;
+        this.amount = -1;
 
         String path128 = "ExampleModResources/img/powers/Example84.png";
         String path48 = "ExampleModResources/img/powers/Example32.png";
@@ -47,23 +47,12 @@ public class BuPoFa extends AbstractPower {
     }
 
     public void updateDescription() {
-        if(amount == 1){
-            this.description = DESCRIPTIONS[0];
-        }
-        else{
-            this.description = String.format(DESCRIPTIONS[1], amount);
-        }
+        this.description = DESCRIPTIONS[0];
     }
 
     @Override
     public void atStartOfTurn() {
         super.atStartOfTurn();
-        amount--;
-        if (amount <= 0) {
-            Utils.removePower(owner, POWER_ID);
-        }
-        else{
-            updateDescription();
-        }
+        Utils.removePower(owner, POWER_ID);
     }
 }

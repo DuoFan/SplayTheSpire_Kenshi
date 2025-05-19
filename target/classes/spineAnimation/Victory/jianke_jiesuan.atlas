@@ -1,0 +1,139 @@
+
+jianke_jiesuan.png
+size: 2048,2048
+format: RGBA8888
+filter: MipMapLinearLinear,Linear
+repeat: none
+fengjian
+  rotate: false
+  xy: 1924, 1661
+  size: 90, 371
+  orig: 90, 371
+  offset: 0, 0
+  index: -1
+huoyanjian
+  rotate: false
+  xy: 1924, 1661
+  size: 90, 371
+  orig: 90, 371
+  offset: 0, 0
+  index: -1
+yujian
+  rotate: false
+  xy: 1924, 1661
+  size: 90, 371
+  orig: 90, 371
+  offset: 0, 0
+  index: -1
+zhenqijian
+  rotate: false
+  xy: 1924, 1661
+  size: 90, 371
+  orig: 90, 371
+  offset: 0, 0
+  index: -1
+fengjian_light
+  rotate: false
+  xy: 2, 417
+  size: 134, 413
+  orig: 134, 413
+  offset: 0, 0
+  index: -1
+fengjian_tuowei
+  rotate: false
+  xy: 274, 607
+  size: 81, 223
+  orig: 81, 223
+  offset: 0, 0
+  index: -1
+fengye
+  rotate: false
+  xy: 1924, 1356
+  size: 80, 78
+  orig: 80, 78
+  offset: 0, 0
+  index: -1
+huoyanjian_light
+  rotate: false
+  xy: 2, 2
+  size: 134, 413
+  orig: 134, 413
+  offset: 0, 0
+  index: -1
+huoyanjian_tuowei
+  rotate: false
+  xy: 1924, 1436
+  size: 81, 223
+  orig: 81, 223
+  offset: 0, 0
+  index: -1
+huoyanlizi1
+  rotate: true
+  xy: 2016, 2001
+  size: 31, 30
+  orig: 31, 30
+  offset: 0, 0
+  index: -1
+huoyanlizi2
+  rotate: true
+  xy: 2016, 1968
+  size: 31, 30
+  orig: 31, 30
+  offset: 0, 0
+  index: -1
+huoyanlizi3
+  rotate: false
+  xy: 440, 798
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+jiesuan_backgrond
+  rotate: false
+  xy: 2, 832
+  size: 1920, 1200
+  orig: 1920, 1200
+  offset: 0, 0
+  index: -1
+yujian_light
+  rotate: false
+  xy: 138, 417
+  size: 134, 413
+  orig: 134, 413
+  offset: 0, 0
+  index: -1
+yujian_tuowei
+  rotate: false
+  xy: 274, 382
+  size: 81, 223
+  orig: 81, 223
+  offset: 0, 0
+  index: -1
+yumao
+  rotate: false
+  xy: 357, 544
+  size: 67, 61
+  orig: 67, 61
+  offset: 0, 0
+  index: -1
+zhenqi
+  rotate: false
+  xy: 274, 306
+  size: 61, 74
+  orig: 61, 74
+  offset: 0, 0
+  index: -1
+zhenqijian_light
+  rotate: false
+  xy: 138, 2
+  size: 134, 413
+  orig: 134, 413
+  offset: 0, 0
+  index: -1
+zhenqijian_tuowei
+  rotate: false
+  xy: 357, 607
+  size: 81, 223
+  orig: 81, 223
+  offset: 0, 0
+  index: -1

@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.FanShi;
 
 public class DrawCardByFilterAction extends AbstractGameAction {
@@ -43,6 +44,14 @@ public class DrawCardByFilterAction extends AbstractGameAction {
                 addToTop(a);
                 this.addToTop(new EmptyDeckShuffleAction());
             }
+            return;
+        }
+        else if(Utils.needRefreshDiscardPileForDraw(filter,amount)){
+            this.isDone = true;
+            DrawCardByFilterAction a = new DrawCardByFilterAction(amount, filter);
+            a.setDoCard(doCard);
+            addToTop(a);
+            this.addToTop(new EmptyDeckShuffleAction());
             return;
         }
 
