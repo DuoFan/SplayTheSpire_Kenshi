@@ -212,13 +212,13 @@
   },
   "game.duofan.kenshi:YangZhiRen": {
     "NAME": "阳之刃",
-    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 抽取1张 *阴之刃 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 "
+    "DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 ， 消耗 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点 duofan_kenshi:爆炎伤害 。 NL 能被多次升级。 NL duofan_kenshi:炎之流 ， 消耗 "
   },
   "game.duofan.kenshi:YinZhiRen": {
     "NAME": "阴之刃",
-    "DESCRIPTION": "造成 !D! 点伤害。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 抽取1张 *阳之刃 。 NL 能被多次升级。 NL duofan_kenshi:枫之流 "
+    "DESCRIPTION": "造成 !D! 点伤害。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ， 消耗 ",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL 能被多次升级。 NL duofan_kenshi:枫之流 ， 消耗 "
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "封魔",
@@ -227,8 +227,8 @@
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "彩彻区明",
-    "DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :将 *云销雨霁 加入手牌。",
-    "UPGRADE_DESCRIPTION": "获得 [E] 和 !M! 层 duofan_kenshi:气 。 NL duofan_kenshi:霞之流 :将 *云销雨霁+ 加入手牌。"
+    "DESCRIPTION": "获得 [E] ，将 *云销雨霁 加入手牌。 NL duofan_kenshi:霞之流 ， 消耗 ",
+    "UPGRADE_DESCRIPTION": "获得 [E] 和1层 duofan_kenshi:气 ，将 *云销雨霁+ 加入手牌。 NL duofan_kenshi:霞之流 ， 消耗 "
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "紫电清霜",
@@ -317,8 +317,8 @@
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "云销雨霁",
-    "DESCRIPTION": "获得 !B! 点 格挡 ，消耗1层 duofan_kenshi:气 ，额外获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :将 *彩彻区明 加入手牌。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，消耗1层 duofan_kenshi:气 ，额外获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :将 *彩彻区明+ 加入手牌。"
+    "DESCRIPTION": "获得 !B! 点 格挡 ，将 *彩彻区明 加入手牌。 NL duofan_kenshi:羽之流 ， 消耗 ",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，消耗1层 duofan_kenshi:气 ，额外获得 !M! 点 格挡 ，将 *彩彻区明+ 加入手牌。 NL duofan_kenshi:羽之流 ， 消耗 "
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "击水三千",

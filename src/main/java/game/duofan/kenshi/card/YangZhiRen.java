@@ -22,26 +22,20 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/xZL/YangZR_attack.png";
-    private static final int COST = 1;
+    private static final int COST = 0;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = CardColor.COLORLESS;
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    static int _baseDamage = 6;
+    static int _baseDamage = 4;
 
     public YangZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
         BaoYanCardManager.getInstance().addCard(this);
-        cardsToPreview = new YinZhiRen(true);
-    }
-
-    public YangZhiRen(boolean dontPreview) {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = _baseDamage;
-        BaoYanCardManager.getInstance().addCard(this);
+        exhaust = true;
     }
 
     @Override
@@ -67,7 +61,6 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
-        Utils.playerDrawCardByClass(1, YinZhiRen.class);
     }
 
     @Override

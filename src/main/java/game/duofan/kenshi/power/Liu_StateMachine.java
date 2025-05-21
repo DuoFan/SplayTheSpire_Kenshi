@@ -4,12 +4,15 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IEventListener;
 import game.duofan.common.Utils;
 
 import java.security.InvalidParameterException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Liu_StateMachine implements IEventListener {
     private static Liu_StateMachine instance;
@@ -28,8 +31,15 @@ public class Liu_StateMachine implements IEventListener {
     AbstractCard lastEffectLiuCardOnTurn;
     AbstractCard lastEffectLiuCardOnBattle;
 
+    HashMap<StateEnum, StateEnum> drivingMap;
+
     public Liu_StateMachine() {
         EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, this);
+        drivingMap = new HashMap<>();
+    }
+
+    public void clearDrivingMap(){
+        drivingMap.clear();
     }
 
     public void clearFlags() {
@@ -173,10 +183,55 @@ public class Liu_StateMachine implements IEventListener {
 
     @Override
     public void OnEvent(Object sender, Object e) {
+        Liu_StateMachine.getInstance().clearDrivingMap();
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
         Liu_StateMachine.getInstance().reset();
+    }
+
+    public ArrayList<StateEnum> getInvokeable(StateEnum liu) {
+        ArrayList<StateEnum> result = new ArrayList<>();
+
+        AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
+        XinSuiYiDong xinSuiYiDong = null;
+        if (_xinSuiYiDong != null) {
+            xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
+        }
+
+        if (liu == StateEnum.None && (xinSuiYiDong == null || xinSuiYiDong.getTurnAmount() <= 0)) {
+            return result;
+        }
+
+        result.add(StateEnum.FengZhiLiu);
+        result.add(StateEnum.XiaZhiLiu);
+        result.add(StateEnum.YanZhiLiu);
+        result.add(StateEnum.YuZhiLiu);
+
+        if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
+            return result;
+        } else {
+            result.remove(liu);
+        }
+
+        StateEnum driving = drivingMap.getOrDefault(liu, StateEnum.None);
+        result.remove(driving);
+
+        if (liu.equals(StateEnum.FengZhiLiu)) {
+            AbstractPower baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
+            if (baiHuaQiFang != null && result.indexOf(StateEnum.FengZhiLiu) < 0) {
+                result.add(StateEnum.FengZhiLiu);
+            }
+        }
+
+        return result;
+    }
+
+    public void setDriving(StateEnum from, StateEnum target) {
+        if(from == StateEnum.None){
+            return;
+        }
+        drivingMap.put(from,target);
     }
 
     public enum StateEnum {
@@ -202,9 +257,8 @@ public class Liu_StateMachine implements IEventListener {
         public void exit() {
             if (AbstractDungeon.player.hasPower(getPowerID())) {
                 AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
-            }
-            else{
-                Utils.addToBotAbstract(() ->{
+            } else {
+                Utils.addToBotAbstract(() -> {
                     if (AbstractDungeon.player.hasPower(getPowerID())) {
                         AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, getPowerID()));
                     }

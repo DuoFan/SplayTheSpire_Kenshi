@@ -35,12 +35,7 @@ public class YinZhiRen extends CustomCard implements IFengZhiLiuCard {
     public YinZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
-        cardsToPreview = new YangZhiRen(true);
-    }
-
-    public YinZhiRen(boolean dontPreview) {
-        super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = _baseDamage;
+        exhaust = true;
     }
 
     @Override
@@ -66,7 +61,6 @@ public class YinZhiRen extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        Utils.playerDrawCardByClass(1, YangZhiRen.class);
     }
 
     @Override

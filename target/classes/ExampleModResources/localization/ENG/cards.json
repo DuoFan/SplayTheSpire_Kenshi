@@ -212,13 +212,13 @@
   },
   "game.duofan.kenshi:YangZhiRen": {
     "NAME": "Yang Blade",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Draw 1 *Yin *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:flame",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Draw 1 *Yin *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:flame"
+    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , Exhaust"
   },
   "game.duofan.kenshi:YinZhiRen": {
     "NAME": "Yin Blade",
-    "DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Draw 1 *Yan *Blade . NL Can be *Upgraded any number of times. NL duofan_kenshi:leave"
+    "DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , Exhaust"
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Demonic Seal",
@@ -227,8 +227,8 @@
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
-    "DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi . NL duofan_kenshi:cloud :Add *Clean *After *Rain into your hand.",
-    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi . NL duofan_kenshi:cloud :Add *Clean *After *Rain+ into your hand."
+    "DESCRIPTION": "Gain [E] ,Add *Clean *After *Rain into your hand. NL duofan_kenshi:cloud , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean *After *Rain+ into your hand. NL duofan_kenshi:cloud , Exhaust "
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "Blade Display",
@@ -317,8 +317,8 @@
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "Clean After Rain",
-    "DESCRIPTION": "Gain !B! Block, Consume 1 duofan_kenshi:qi to gain !M! Block more. NL duofan_kenshi:feather :Add *Sunshine *After *Rain into your hand.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block, Consume 1 duofan_kenshi:qi to gain !M! Block more. NL duofan_kenshi:feather :Add *Sunshine *After *Rain+ into your hand."
+    "DESCRIPTION": "Gain !B! Block,Add *Sunshine *After *Rain into your hand. NL duofan_kenshi:feather , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine *After *Rain+ into your hand. NL duofan_kenshi:feather , Exhaust "
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "Strike Water Three\n Thousand Miles",

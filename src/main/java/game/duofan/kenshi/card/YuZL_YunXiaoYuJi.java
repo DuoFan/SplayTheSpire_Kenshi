@@ -27,24 +27,26 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
     public YuZL_YunXiaoYuJi() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = 9;
-        this.magicNumber = this.baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 0;
         this.cardsToPreview = new XZL_CaiCheQuMing(true);
+        exhaust = true;
     }
 
     public YuZL_YunXiaoYuJi(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         block = baseBlock = 9;
-        this.magicNumber = this.baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 0;
+        exhaust = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName();
-            this.upgradeBlock(3);
+            upgradeMagicNumber(3);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
-            if(cardsToPreview != null){
+            if (cardsToPreview != null) {
                 cardsToPreview.upgrade();
             }
         }
@@ -59,11 +61,16 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         int _block = baseBlock;
-        if (Utils.getQiAmount() > 0) {
-            _block += magicNumber;
-            Utils.playerReduceQiTop(1);
+        AbstractCard c = new XZL_CaiCheQuMing();
+        if (upgraded) {
+            c.upgrade();
+            if (Utils.getQiAmount() > 0) {
+                _block += magicNumber;
+                Utils.playerReduceQiTop(1);
+            }
         }
         Utils.playerGainBlock(_block);
+        Utils.makeTempCardInHand(c, 1);
     }
 
     @Override
@@ -77,11 +84,7 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        AbstractCard c = new XZL_CaiCheQuMing();
-        if(upgraded){
-            c.upgrade();
-        }
-        Utils.makeTempCardInHand(c, 1);
+
     }
 
     @Override

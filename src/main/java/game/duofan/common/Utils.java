@@ -248,9 +248,9 @@ public class Utils {
     public static void liuPowerOnUseCard(AbstractCard card) {
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(card);
 
-        if (liu != Liu_StateMachine.StateEnum.None) {
+        if (canInvokeLiuEffect(card)) {
 
-            boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
+            Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
 
             AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
             XinSuiYiDong xinSuiYiDong = null;
@@ -264,41 +264,37 @@ public class Utils {
                 baiHuaQiFang = (BaiHuaQiFang) _baiHuaQiFang;
             }
 
-            if (!isLiuMatch || (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0)
-                    || (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null)) {
+            if (card instanceof IXiaZhiLiuCard) {
+                Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
+            } else {
+                Utils.invokeLiuCardEffectWithTiming(card);
+            }
+            Liu_StateMachine.getInstance().setLastEffectLiuCardOnTurn(card);
+            Liu_StateMachine.getInstance().setLastEffectLiuCardOnBattle(card);
+
+            if (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null) {
+                baiHuaQiFang.flash();
+            } else if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
+                xinSuiYiDong.subTurnAmountToEffect();
+            }
+
+            Liu_StateMachine.getInstance().setDriving(curLiu,liu);
+            Liu_StateMachine.getInstance().changeLiu(liu);
+
+            if (Utils.getQiAmount() > 0) {
+                AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
+                if (qi != null) {
+                    qi.flash();
+                }
                 if (card instanceof IXiaZhiLiuCard) {
-                    Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, false);
+                    Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
                 } else {
                     Utils.invokeLiuCardEffectWithTiming(card);
                 }
-                Liu_StateMachine.getInstance().setLastEffectLiuCardOnTurn(card);
-                Liu_StateMachine.getInstance().setLastEffectLiuCardOnBattle(card);
-
-                if (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null) {
-                    baiHuaQiFang.flash();
-                } else if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
-                    xinSuiYiDong.subTurnAmountToEffect();
+                if (card instanceof IQiMin) {
+                    Utils.invokeLiuCardEffectWithTiming(card);
                 }
-
-                if (!isLiuMatch) {
-                    Liu_StateMachine.getInstance().changeLiu(liu);
-                }
-
-                if (Utils.getQiAmount() > 0) {
-                    AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
-                    if (qi != null) {
-                        qi.flash();
-                    }
-                    if (card instanceof IXiaZhiLiuCard) {
-                        Utils.invokeXZL_Effect((IXiaZhiLiuCard) card, true);
-                    } else {
-                        Utils.invokeLiuCardEffectWithTiming(card);
-                    }
-                    if (card instanceof IQiMin) {
-                        Utils.invokeLiuCardEffectWithTiming(card);
-                    }
-                    Utils.playerReduceQi(1);
-                }
+                Utils.playerReduceQi(1);
             }
         }
     }
@@ -315,33 +311,8 @@ public class Utils {
         }
 
         Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
-        if (liu != Liu_StateMachine.StateEnum.None) {
-            boolean isLiuMatch = Liu_StateMachine.getInstance().isStateMatch(liu);
-
-            if(!isLiuMatch){
-                return true;
-            }
-
-            AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
-            XinSuiYiDong xinSuiYiDong = null;
-            if (_xinSuiYiDong != null) {
-                xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
-            }
-
-            if(xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0){
-                return true;
-            }
-
-            AbstractPower _baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
-            BaiHuaQiFang baiHuaQiFang = null;
-            if (_baiHuaQiFang != null) {
-                baiHuaQiFang = (BaiHuaQiFang) _baiHuaQiFang;
-            }
-
-            return (liu == Liu_StateMachine.StateEnum.FengZhiLiu && baiHuaQiFang != null);
-        } else {
-            return false;
-        }
+        ArrayList<Liu_StateMachine.StateEnum> invokeable = Liu_StateMachine.getInstance().getInvokeable(liu);
+        return invokeable.indexOf(liu) >= 0;
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {
