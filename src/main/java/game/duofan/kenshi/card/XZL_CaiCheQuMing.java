@@ -35,12 +35,14 @@ public class XZL_CaiCheQuMing extends CustomCard implements IXiaZhiLiuCard {
         magicNumber = baseMagicNumber = 0;
         this.cardsToPreview = new YuZL_YunXiaoYuJi(true);
         exhaust = true;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     public XZL_CaiCheQuMing(boolean dontPreview) {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         magicNumber = baseMagicNumber = 0;
         exhaust = true;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     @Override

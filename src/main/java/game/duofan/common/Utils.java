@@ -278,10 +278,10 @@ public class Utils {
                 xinSuiYiDong.subTurnAmountToEffect();
             }
 
-            Liu_StateMachine.getInstance().setDriving(curLiu,liu);
+            Liu_StateMachine.getInstance().setDriving(curLiu, liu);
             Liu_StateMachine.getInstance().changeLiu(liu);
 
-            if (Utils.getQiAmount() > 0) {
+            if (Utils.getQiAmount() > 0 && !InvalidLiuCardManager.getInstance().isTagCard(card)) {
                 AbstractPower qi = AbstractDungeon.player.getPower(Qi.POWER_ID);
                 if (qi != null) {
                     qi.flash();
@@ -306,13 +306,15 @@ public class Utils {
     }
 
     public static boolean canInvokeLiuEffect(AbstractCard c) {
-        if(AbstractDungeon.player == null){
+        if (AbstractDungeon.player == null) {
             return false;
         }
 
-        Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
+        return Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None;
+
+        /*Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
         ArrayList<Liu_StateMachine.StateEnum> invokeable = Liu_StateMachine.getInstance().getInvokeable(liu);
-        return invokeable.indexOf(liu) >= 0;
+        return invokeable.indexOf(liu) >= 0;*/
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {
@@ -677,40 +679,66 @@ public class Utils {
         return qi;
     }
 
-    public static boolean needRefreshDiscardPileForDraw(ICardFilter cardFilter,int amount){
+    public static void playerGainYi(int amount) {
+        AbstractDungeon.actionManager.addToBottom(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Yi(AbstractDungeon.player, amount))
+        );
+    }
+
+    public static void playerGainYiTop(int amount) {
+        AbstractDungeon.actionManager.addToTop(
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Yi(AbstractDungeon.player, amount))
+        );
+    }
+
+    public static void playerReduceYi(int amount) {
+        AbstractPower p = AbstractDungeon.player.getPower(Yi.POWER_ID);
+        if (p != null && p.amount > 0) {
+            playReducePower(Yi.POWER_ID, amount);
+        }
+    }
+
+    public static void playerReduceYiTop(int amount) {
+        AbstractPower p = AbstractDungeon.player.getPower(Yi.POWER_ID);
+        if (p != null && p.amount > 0) {
+            playReducePowerTop(Yi.POWER_ID, amount);
+        }
+    }
+
+    public static boolean needRefreshDiscardPileForDraw(ICardFilter cardFilter, int amount) {
         AbstractPlayer p = AbstractDungeon.player;
         if (p == null) {
             return false;
         }
 
-        if(p.hasPower(FanShi.POWER_ID)){
+        if (p.hasPower(FanShi.POWER_ID)) {
             return false;
         }
 
         CardGroup g = p.drawPile;
-        if(g == null){
+        if (g == null) {
             return false;
         }
 
         for (int i = 0; i < g.size() && amount > 0; i++) {
             AbstractCard c = g.getNCardFromTop(i);
-            if(cardFilter == null || cardFilter.filter(c)){
+            if (cardFilter == null || cardFilter.filter(c)) {
                 amount--;
             }
         }
 
-        if(amount <= 0){
+        if (amount <= 0) {
             return false;
         }
 
         g = p.discardPile;
-        if(g == null){
+        if (g == null) {
             return false;
         }
 
         for (int i = 0; i < g.size() && amount > 0; i++) {
             AbstractCard c = g.getNCardFromTop(i);
-            if(cardFilter == null || cardFilter.filter(c)){
+            if (cardFilter == null || cardFilter.filter(c)) {
                 amount--;
             }
         }
@@ -718,7 +746,7 @@ public class Utils {
         return amount <= 0;
     }
 
-    public static int calculateRefreshDiscardPileForDraw(ICardFilter cardFilter){
+    public static int calculateRefreshDiscardPileForDraw(ICardFilter cardFilter) {
         int amount = 0;
 
         AbstractPlayer p = AbstractDungeon.player;
@@ -728,32 +756,32 @@ public class Utils {
 
         CardGroup g = p.drawPile;
 
-        if(p.hasPower(FanShi.POWER_ID)){
+        if (p.hasPower(FanShi.POWER_ID)) {
             g = p.discardPile;
         }
-        if(g == null){
+        if (g == null) {
             return amount;
         }
 
         for (int i = 0; i < g.size(); i++) {
             AbstractCard c = g.getNCardFromTop(i);
-            if(cardFilter == null || cardFilter.filter(c)){
+            if (cardFilter == null || cardFilter.filter(c)) {
                 amount++;
             }
         }
 
-        if(p.hasPower(FanShi.POWER_ID)){
+        if (p.hasPower(FanShi.POWER_ID)) {
             return amount;
         }
 
         g = p.discardPile;
-        if(g == null){
+        if (g == null) {
             return amount;
         }
 
         for (int i = 0; i < g.size(); i++) {
             AbstractCard c = g.getNCardFromTop(i);
-            if(cardFilter == null || cardFilter.filter(c)){
+            if (cardFilter == null || cardFilter.filter(c)) {
                 amount++;
             }
         }

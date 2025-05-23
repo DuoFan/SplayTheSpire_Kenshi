@@ -129,6 +129,11 @@
     "DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded.",
     "UPGRADE_DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded plus 1."
   },
+  "game.duofan.kenshi:XueLu_Card": {
+    "NAME": "Blood Road",
+    "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal "
+  },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
     "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
@@ -222,8 +227,8 @@
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Demonic Seal",
-    "DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust",
-    "UPGRADE_DESCRIPTION": "Disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust"
+    "DESCRIPTION": "duofan_kenshi:disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust",
+    "UPGRADE_DESCRIPTION": "duofan_kenshi:disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
@@ -252,8 +257,8 @@
   },
   "game.duofan.kenshi:XZL_QiHuaWanQian": {
     "NAME": "Galaxy in the Palm",
-    "DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] . (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] . (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust "
+    "DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] and draw 1 card. (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Consume All duofan_kenshi:qi, each consumed gain [E] and draw 1 card. (Currently has !duofan_kenshi:QiAmount! duofan_kenshi:qi) NL duofan_kenshi:cloud :Gain !M! duofan_kenshi:qi before. NL Exhaust "
   },
   "game.duofan.kenshi:XZL_JuQue": {
     "NAME": "Ju Que",
@@ -299,11 +304,6 @@
     "NAME": "Flying Shadow",
     "DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style.",
     "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style."
-  },
-  "game.duofan.kenshi:XueLu_Card": {
-    "NAME": "Blood Road",
-    "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal "
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "Hobo Wing",

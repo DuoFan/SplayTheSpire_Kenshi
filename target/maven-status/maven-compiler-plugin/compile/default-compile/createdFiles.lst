@@ -26,6 +26,7 @@ game\duofan\kenshi\card\XiaoChenJianFa.class
 game\duofan\kenshi\patch\YuYiPatch2.class
 game\duofan\kenshi\power\Liu_StateMachine$XiaZhiLiu_State.class
 game\duofan\kenshi\variable\PJAmount.class
+game\duofan\kenshi\power\YiFlagCardManager.class
 game\duofan\kenshi\action\YanLangAction.class
 game\duofan\kenshi\effect\ColorThirdEyeEffect.class
 game\duofan\kenshi\power\XiuLuo.class
@@ -80,6 +81,7 @@ game\duofan\kenshi\card\FZL_BaiHuaQiFang.class
 game\duofan\common\Utils$3.class
 game\duofan\kenshi\card\XZL_ShengXie.class
 game\duofan\kenshi\card\YangZhiRen.class
+game\duofan\kenshi\power\InvalidLiuCardManager.class
 game\duofan\kenshi\patch\VictoryScreenPatch.class
 game\duofan\kenshi\variable\LamageScaler.class
 game\duofan\kenshi\power\ShiJianShi.class
@@ -140,6 +142,7 @@ game\duofan\kenshi\KenShi$3.class
 game\duofan\kenshi\power\ReturnAttackToDrawPileAfterPlayed.class
 game\duofan\kenshi\card\DuiSha_Card.class
 game\duofan\kenshi\action\ReturnToDrawPileAction.class
+game\duofan\kenshi\power\Yi.class
 game\duofan\kenshi\variable\ITargetMonsterGetter.class
 game\duofan\kenshi\card\LeXue.class
 game\duofan\kenshi\power\Qi.class
@@ -152,6 +155,7 @@ game\duofan\kenshi\card\ICardContainer.class
 game\duofan\common\Utils$1.class
 game\duofan\kenshi\action\IDoCard.class
 game\duofan\kenshi\card\XZL_CaiCheQuMing.class
+game\duofan\kenshi\patch\YiPatch.class
 game\duofan\kenshi\power\LianHuan.class
 game\duofan\kenshi\card\JianYu_Card.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class

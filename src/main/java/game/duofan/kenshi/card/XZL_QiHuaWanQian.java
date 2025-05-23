@@ -65,6 +65,7 @@ public class XZL_QiHuaWanQian extends CustomCard implements IXiaZhiLiuCard {
 
                 Utils.playerReduceQiTop(qiAmount);
                 Utils.playerGainEnergy(qiAmount);
+                addToBot(new DrawCardAction(qiAmount));
             }
         });
     }

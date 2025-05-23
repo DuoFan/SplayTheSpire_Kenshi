@@ -34,15 +34,15 @@ public class YuZL_BaiLuYou extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_BaiLuYou() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 8;
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 4;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBlock(3);
+            upgradeMagicNumber(2);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -56,12 +56,12 @@ public class YuZL_BaiLuYou extends CustomCard implements IYuZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.playerGainBlock(block);
+        Utils.playerGainYi(magicNumber);
     }
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainPower(new DexterityPower(AbstractDungeon.player, magicNumber));
+
     }
 
     @Override

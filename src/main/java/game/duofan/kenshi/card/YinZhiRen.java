@@ -36,6 +36,7 @@ public class YinZhiRen extends CustomCard implements IFengZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
         exhaust = true;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     @Override

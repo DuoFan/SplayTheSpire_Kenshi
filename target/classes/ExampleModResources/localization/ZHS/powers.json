@@ -147,6 +147,12 @@
       "驱动其他流派效果，但无法驱动 #y[NAME] ，离开该流派时获得 #b3 点 #y格挡 。"
     ]
   },
+  "game.duofan.kenshi:Yi": {
+    "NAME": "翼",
+    "DESCRIPTIONS": [
+      "从卡牌中获得的 #y格挡 增加 #b%d 点。 NL 在回合结束时获得 #b%d 点 #y格挡 ，受到攻击伤害而失去生命时， #y翼 的层数将减少 #b1 。 NL #y格挡 不会在你的下一个回合开始时消失。 NL 每次生效时移除 #b1 层，在回合结束时最多保留 #b5 层。"
+    ]
+  },
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "轻身坠",
     "DESCRIPTIONS": [

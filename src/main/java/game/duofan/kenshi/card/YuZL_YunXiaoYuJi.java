@@ -30,6 +30,7 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
         magicNumber = baseMagicNumber = 0;
         this.cardsToPreview = new XZL_CaiCheQuMing(true);
         exhaust = true;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     public YuZL_YunXiaoYuJi(boolean dontPreview) {
@@ -37,6 +38,7 @@ public class YuZL_YunXiaoYuJi extends CustomCard implements IYuZhiLiuCard {
         block = baseBlock = 9;
         magicNumber = baseMagicNumber = 0;
         exhaust = true;
+        InvalidLiuCardManager.getInstance().addCard(this);
     }
 
     @Override

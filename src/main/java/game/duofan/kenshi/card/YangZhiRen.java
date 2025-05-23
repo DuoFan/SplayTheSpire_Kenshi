@@ -35,6 +35,7 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = _baseDamage;
         BaoYanCardManager.getInstance().addCard(this);
+        InvalidLiuCardManager.getInstance().addCard(this);
         exhaust = true;
     }
 

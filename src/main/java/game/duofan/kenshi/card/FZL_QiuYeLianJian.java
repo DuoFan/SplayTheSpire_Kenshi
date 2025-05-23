@@ -59,7 +59,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
         addToBot(new QiuYeLianJianAction(this, magicNumber));
-        exhaustOnUseOnce = Utils.canInvokeLiuEffect(this);
+        //exhaustOnUseOnce = Utils.canInvokeLiuEffect(this);
     }
 
     @Override
@@ -68,12 +68,12 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
         XiaoChenJianFa xiaoChenJianFa = new XiaoChenJianFa(baseDamage);
         Utils.makeTempCardInHand(xiaoChenJianFa, 1);
 
-        if (!exhaustOnUseOnce) {
+        /*if (!exhaustOnUseOnce) {
             exhaustOnUseOnce = true;
             addToBot(new ExhaustSpecificCardAction(this, p.hand));
             addToBot(new ExhaustSpecificCardAction(this, p.drawPile));
             addToBot(new ExhaustSpecificCardAction(this, p.discardPile));
-        }
+        }*/
     }
 
     @Override
