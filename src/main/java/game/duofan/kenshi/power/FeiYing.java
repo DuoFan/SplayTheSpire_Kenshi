@@ -62,6 +62,6 @@ public class FeiYing extends AbstractPower implements IEventListener {
             return;
         }
         flash();
-        Utils.playerGainBlock(amount);
+        Utils.playerGainPower(new FuYao(AbstractDungeon.player, amount));
     }
 }

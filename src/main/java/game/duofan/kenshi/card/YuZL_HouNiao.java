@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import game.duofan.common.*;
@@ -49,10 +50,11 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
         effect();
     }
 
-    void effect(){
+    void effect() {
         Liu_StateMachine.getInstance().changeLiu(Liu_StateMachine.StateEnum.YuZhiLiu);
         Utils.invokeLiuCardEffect(this);
     }
+
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m) {
         return false;
@@ -71,7 +73,7 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        Utils.playerGainBlock(magicNumber);
+        Utils.playerGainPower(new FuYao(AbstractDungeon.player, magicNumber));
     }
 
     @Override

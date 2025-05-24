@@ -34,7 +34,7 @@ public class YuZL_BaiLuYou extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_BaiLuYou() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 4;
+        magicNumber = baseMagicNumber = 6;
         InvalidLiuCardManager.getInstance().addCard(this);
     }
 

@@ -37,15 +37,21 @@
   },
   {
     "NAMES": [
-      "sensitive"
+      "qi-block"
     ],
-    "DESCRIPTION": "If the card consumed #yqi, its Style-Effect triggers #b2 additional times instead of 1."
+    "DESCRIPTION": "This card cannot trigger by #yqi."
   },
   {
     "NAMES": [
       "armor-piercing"
     ],
     "DESCRIPTION": "If the enemy has #yBlock, then each point destroys #b3 #yBlock."
+  },
+  {
+    "NAMES": [
+      "fuyao"
+    ],
+    "DESCRIPTION": "Functions as #yPlated #yArmor. NL Lose #b2 layers when effected. NL Retain up to #b10 layers at the end of your turn."
   },
   {
     "NAMES": [

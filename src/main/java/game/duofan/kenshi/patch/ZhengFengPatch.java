@@ -17,11 +17,7 @@ public class ZhengFengPatch {
     @SpireInsertPatch(rloc = 0)
     public static SpireReturn Insert(AbstractPlayer __instance) throws NoSuchFieldException, IllegalAccessException {
 
-        System.out.println("----------Insert");
-
         boolean check = zhengFengCheck(__instance, __instance.hoveredCard);
-
-        System.out.println("----------Insert" + check);
 
         if (check) {
             return SpireReturn.Continue();

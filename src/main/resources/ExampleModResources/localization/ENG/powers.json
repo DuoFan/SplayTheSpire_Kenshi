@@ -157,6 +157,12 @@
       "Damage #b%d received delayed until the this turn end or play Non-Skill."
     ]
   },
+  "game.duofan.kenshi:FuYao": {
+    "NAME": "FuYao",
+    "DESCRIPTIONS": [
+      "Gain #b%d #yBlock at the end of your turn. NL Whenever you lose HP to an attack, lose #b1 layer. NL Lose #b2 layers when effected. NL Retain up to #b10 layers at end of turn."
+    ]
+  },
   "game.duofan.kenshi:XieLiZhunBei": {
     "NAME": "Unloading Preparation",
     "DESCRIPTIONS": [
@@ -185,7 +191,7 @@
   "game.duofan.kenshi:FeiYing": {
     "NAME": "Flying Shadow",
     "DESCRIPTIONS": [
-      "Whenever you enter a Style，gain #b%d #yblock ."
+      "Whenever you enter a Style,gain #b%d #yFuYao . NL #yFuYao can functions as #yArtifact ,lose #b2 layers when effected."
     ]
   },
   "game.duofan.kenshi:XueLu": {
@@ -245,7 +251,7 @@
   "game.duofan.kenshi:LieHuoChang": {
     "NAME": "Fire Hunting Ground",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal #b%d #yflame-damage to All enemies."
+      "At the end of your turn,apply #b%d #ymelting and deal 1 #yflame-damage to All enemies."
     ]
   }
 }

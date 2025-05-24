@@ -46,7 +46,7 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
-            upgradeMagicNumber(3);
+            upgradeMagicNumber(5);
             this.initializeDescription();
         }
     }

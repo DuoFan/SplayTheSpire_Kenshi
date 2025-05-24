@@ -127,7 +127,7 @@
   "game.duofan.kenshi:FeiGong": {
     "NAME": "Peaceful Dismissal",
     "DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded.",
-    "UPGRADE_DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded plus 1."
+    "UPGRADE_DESCRIPTION": "Discard all Attack cards. NL Draw cards equal to the number discarded + 1."
   },
   "game.duofan.kenshi:XueLu_Card": {
     "NAME": "Blood Road",
@@ -217,13 +217,13 @@
   },
   "game.duofan.kenshi:YangZhiRen": {
     "NAME": "Yang Blade",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , Exhaust",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , Exhaust"
+    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , duofan_kenshi:qi-block , Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:flame , duofan_kenshi:qi-block , Exhaust"
   },
   "game.duofan.kenshi:YinZhiRen": {
     "NAME": "Yin Blade",
-    "DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , Exhaust",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , Exhaust"
+    "DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , duofan_kenshi:qi-block , Exhaust",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Can be *Upgraded any number of times. NL duofan_kenshi:leave , duofan_kenshi:qi-block , Exhaust"
   },
   "game.duofan.kenshi:XZL_FengMo": {
     "NAME": "Demonic Seal",
@@ -232,8 +232,8 @@
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine After Rain",
-    "DESCRIPTION": "Gain [E] ,Add *Clean *After *Rain into your hand. NL duofan_kenshi:cloud , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean *After *Rain+ into your hand. NL duofan_kenshi:cloud , Exhaust "
+    "DESCRIPTION": "Gain [E] ,Add *Clean *After *Rain into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean *After *Rain+ into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust "
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "Blade Display",
@@ -297,18 +297,18 @@
   },
   "game.duofan.kenshi:YuZL_BaiLuYou": {
     "NAME": "Egret Fly",
-    "DESCRIPTION": "Gain !B! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather :Gain !M! Dexterity.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather :Gain !M! Dexterity."
+    "DESCRIPTION": "Gain !M! duofan_kenshi:fuyao. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block ",
+    "UPGRADE_DESCRIPTION": "Gain !M! duofan_kenshi:fuyao. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block "
   },
   "game.duofan.kenshi:YuZL_FeiYing": {
     "NAME": "Flying Shadow",
-    "DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style.",
-    "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! block. NL duofan_kenshi:feather :Enter another random Style."
+    "DESCRIPTION": "Whenever you enter a Style,gain !M! duofan_kenshi:fuyao, duofan_kenshi:fuyao can functions as Artifact ,lose 2 layers when effected. NL duofan_kenshi:feather :Enter another random Style.",
+    "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! duofan_kenshi:fuyao, duofan_kenshi:fuyao can functions as Artifact ,lose 2 layers when effected. NL duofan_kenshi:feather :Enter another random Style."
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "Hobo Wing",
-    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block."
+    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao."
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "Pigeon Carrier",
@@ -317,8 +317,8 @@
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "Clean After Rain",
-    "DESCRIPTION": "Gain !B! Block,Add *Sunshine *After *Rain into your hand. NL duofan_kenshi:feather , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine *After *Rain+ into your hand. NL duofan_kenshi:feather , Exhaust "
+    "DESCRIPTION": "Gain !B! Block,Add *Sunshine *After *Rain into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine *After *Rain+ into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust "
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "Strike Water Three\n Thousand Miles",
@@ -397,7 +397,7 @@
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "Fire Hunting\n Ground",
-    "DESCRIPTION": "At the end of your turn, deal !M! duofan_kenshi:flame-damage to All enemies. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage to All enemies.",
-    "UPGRADE_DESCRIPTION": "At the end of your turn, deal !M! duofan_kenshi:flame-damage to All enemies. NL duofan_kenshi:flame :Deal !M! duofan_kenshi:flame-damage to All enemies."
+    "DESCRIPTION": "At the end of your turn,apply !M! duofan_kenshi:melting and deal 1 duofan_kenshi:flame-damage to All enemies. NL duofan_kenshi:flame :Deal 1 duofan_kenshi:flame-damage to All enemies.",
+    "UPGRADE_DESCRIPTION": "At the end of your turn,apply !M! duofan_kenshi:melting and deal 1 duofan_kenshi:flame-damage to All enemies. NL duofan_kenshi:flame :Deal 1 duofan_kenshi:flame-damage to All enemies."
   }
 }

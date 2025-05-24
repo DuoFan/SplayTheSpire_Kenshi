@@ -21,7 +21,6 @@ import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
 
-import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -681,27 +680,27 @@ public class Utils {
 
     public static void playerGainYi(int amount) {
         AbstractDungeon.actionManager.addToBottom(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Yi(AbstractDungeon.player, amount))
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuYao(AbstractDungeon.player, amount))
         );
     }
 
     public static void playerGainYiTop(int amount) {
         AbstractDungeon.actionManager.addToTop(
-                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new Yi(AbstractDungeon.player, amount))
+                new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new FuYao(AbstractDungeon.player, amount))
         );
     }
 
     public static void playerReduceYi(int amount) {
-        AbstractPower p = AbstractDungeon.player.getPower(Yi.POWER_ID);
+        AbstractPower p = AbstractDungeon.player.getPower(FuYao.POWER_ID);
         if (p != null && p.amount > 0) {
-            playReducePower(Yi.POWER_ID, amount);
+            playReducePower(FuYao.POWER_ID, amount);
         }
     }
 
     public static void playerReduceYiTop(int amount) {
-        AbstractPower p = AbstractDungeon.player.getPower(Yi.POWER_ID);
+        AbstractPower p = AbstractDungeon.player.getPower(FuYao.POWER_ID);
         if (p != null && p.amount > 0) {
-            playReducePowerTop(Yi.POWER_ID, amount);
+            playReducePowerTop(FuYao.POWER_ID, amount);
         }
     }
 

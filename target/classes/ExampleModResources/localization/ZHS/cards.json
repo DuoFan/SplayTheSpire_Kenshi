@@ -297,18 +297,18 @@
   },
   "game.duofan.kenshi:YuZL_BaiLuYou": {
     "NAME": "白鹭游",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:翼 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:翼 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 "
+    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:扶摇 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:扶摇 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 "
   },
   "game.duofan.kenshi:YuZL_FeiYing": {
     "NAME": "飞影",
-    "DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
-    "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
+    "DESCRIPTION": "每次进入流派，使你获得 !M! 层 duofan_kenshi:扶摇 ， duofan_kenshi:扶摇 可抵消负面效果，每次生效时移除2层。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
+    "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 层 duofan_kenshi:扶摇 ， duofan_kenshi:扶摇 可抵消负面效果，每次生效时移除2层。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "乘风起势",
-    "DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 点 格挡 。"
+    "DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。"
   },
   "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
     "NAME": "飞鸽传书",
@@ -397,7 +397,7 @@
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "猎火场",
-    "DESCRIPTION": "回合结束时，对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。",
-    "UPGRADE_DESCRIPTION": "回合结束时，对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成 !M! 点 duofan_kenshi:爆炎伤害 。"
+    "DESCRIPTION": "回合结束时，给予所有敌人 !M! 层 duofan_kenshi:熔融 并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。",
+    "UPGRADE_DESCRIPTION": "回合结束时，给予所有敌人 !M! 层 duofan_kenshi:熔融 并造成1点 duofan_kenshi:爆炎伤害 。 NL duofan_kenshi:炎之流 :对所有敌人造成1点 duofan_kenshi:爆炎伤害 。"
   }
 }
