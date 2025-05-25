@@ -295,6 +295,8 @@ public class Utils {
                 }
                 Utils.playerReduceQi(1);
             }
+        } else if (liu != Liu_StateMachine.StateEnum.None) {
+            Liu_StateMachine.getInstance().changeLiu(liu);
         }
     }
 
@@ -309,11 +311,14 @@ public class Utils {
             return false;
         }
 
-        return Utils.getLiuFromCard(c) != Liu_StateMachine.StateEnum.None;
+        Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
+        if (liu == Liu_StateMachine.StateEnum.None) {
+            return false;
+        }
 
-        /*Liu_StateMachine.StateEnum liu = Utils.getLiuFromCard(c);
-        ArrayList<Liu_StateMachine.StateEnum> invokeable = Liu_StateMachine.getInstance().getInvokeable(liu);
-        return invokeable.indexOf(liu) >= 0;*/
+        Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
+        ArrayList<Liu_StateMachine.StateEnum> invokeable = Liu_StateMachine.getInstance().getInvokeable(curLiu);
+        return invokeable.indexOf(liu) >= 0;
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {

@@ -336,13 +336,10 @@ public class KenShi extends CustomPlayer {
 
     @Override
     public void applyStartOfCombatLogic() {
-        super.applyStartOfCombatLogic();
-
-        EventManager.getInstance().removeAll_NotPersist_Event();
-
         EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, new LiuAnimListener());
         EventManager.getInstance().registerToEvent(EventKey.ON_LIU_EXITED, new LiuExitListener());
-        EventManager.getInstance().notifyEvent(EventKey.ON_BATTLE_START, this, null);
+
+        super.applyStartOfCombatLogic();
     }
 
     class LiuAnimListener implements IEventListener {

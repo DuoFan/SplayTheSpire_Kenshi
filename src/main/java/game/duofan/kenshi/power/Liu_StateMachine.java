@@ -1,20 +1,26 @@
 package game.duofan.kenshi.power;
 
+import basemod.BaseMod;
+import basemod.interfaces.PostDeathSubscriber;
+import basemod.interfaces.PostDungeonInitializeSubscriber;
+import basemod.interfaces.PostUpdateSubscriber;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IEventListener;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.liuMachineRenderer.LiuMachineRenderer;
 
 import java.security.InvalidParameterException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.*;
 
-public class Liu_StateMachine implements IEventListener {
+public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, PostUpdateSubscriber, PostDungeonInitializeSubscriber {
     private static Liu_StateMachine instance;
 
     public static Liu_StateMachine getInstance() {
@@ -24,21 +30,34 @@ public class Liu_StateMachine implements IEventListener {
         return instance;
     }
 
+    public static boolean existInstance() {
+        return instance != null;
+    }
+
     State state;
 
     int firstFlag;
+    boolean needRender;
 
     AbstractCard lastEffectLiuCardOnTurn;
     AbstractCard lastEffectLiuCardOnBattle;
 
     HashMap<StateEnum, StateEnum> drivingMap;
 
+    LiuMachineRenderer machineRenderer;
+
+    List<StateEnum> drivers;
+
     public Liu_StateMachine() {
         EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, this);
+        BaseMod.subscribe(this);
         drivingMap = new HashMap<>();
+        drivers = new ArrayList<StateEnum>();
+        machineRenderer = new LiuMachineRenderer();
+        machineRenderer.init();
     }
 
-    public void clearDrivingMap(){
+    public void clearDrivingMap() {
         drivingMap.clear();
     }
 
@@ -78,10 +97,16 @@ public class Liu_StateMachine implements IEventListener {
         }
     }
 
+    public void render(SpriteBatch sb) {
+        machineRenderer.render(sb);
+    }
+
     public void changeLiu(StateEnum stateEnum) {
         if (isStateMatch(stateEnum)) {
             return;
         }
+
+        needRender = true;
 
         changeStateTo(stateEnum);
 
@@ -92,7 +117,6 @@ public class Liu_StateMachine implements IEventListener {
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.XiaZhiLiu, EventKey.FIRST_XZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YuZhiLiu, EventKey.FIRST_YuZL_ON_TURN)
                 || CheckNotify_FirstLiu_OnTurn(StateEnum.YanZhiLiu, EventKey.FIRST_YanZL_ON_TURN)) {
-
         }
     }
 
@@ -182,12 +206,42 @@ public class Liu_StateMachine implements IEventListener {
     }
 
     @Override
+    public void receivePostDeath() {
+        System.out.println("-------------------死亡时处理流派状态");
+        clearAll();
+    }
+
+    @Override
+    public void receivePostUpdate() {
+        if (!CardCrawlGame.isInARun() && getInstance().getLiu() != StateEnum.None) {
+            System.out.println("-------------------退出游戏时处理流派状态");
+            clearAll();
+        }
+    }
+
+    @Override
+    public void receivePostDungeonInitialize() {
+        System.out.println("-------------------地牢初始化时处理流派状态");
+        clearAll();
+    }
+
+    void clearAll() {
+        Liu_StateMachine.getInstance().clearDrivingMap();
+        Liu_StateMachine.getInstance().clearFlags();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
+        state = null;
+        needRender = false;
+    }
+
+    @Override
     public void OnEvent(Object sender, Object e) {
         Liu_StateMachine.getInstance().clearDrivingMap();
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
         Liu_StateMachine.getInstance().reset();
+        needRender = false;
     }
 
     public ArrayList<StateEnum> getInvokeable(StateEnum liu) {
@@ -214,8 +268,8 @@ public class Liu_StateMachine implements IEventListener {
             result.remove(liu);
         }
 
-        StateEnum driving = drivingMap.getOrDefault(liu, StateEnum.None);
-        result.remove(driving);
+        getDrivers(liu);
+        result.removeAll(drivers);
 
         if (liu.equals(StateEnum.FengZhiLiu)) {
             AbstractPower baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
@@ -224,14 +278,55 @@ public class Liu_StateMachine implements IEventListener {
             }
         }
 
+        String s = "---------------------";
+        for (int i = 0; i < result.size(); i++) {
+            s += result.get(i);
+            s += ",";
+        }
+        System.out.println(s);
+
         return result;
     }
 
     public void setDriving(StateEnum from, StateEnum target) {
-        if(from == StateEnum.None){
+        if (from == StateEnum.None) {
             return;
         }
-        drivingMap.put(from,target);
+        drivingMap.put(from, target);
+    }
+
+    public List<StateEnum> getDrivers(StateEnum liu) {
+        drivers.clear();
+        Iterator<Map.Entry<StateEnum, StateEnum>> iterator = drivingMap.entrySet().iterator();
+        while (iterator.hasNext()) {
+            Map.Entry<StateEnum, StateEnum> e = iterator.next();
+            if(e.getValue() == liu){
+                drivers.add(e.getKey());
+            }
+        }
+        return drivers;
+    }
+
+    public StateEnum getDriving(StateEnum liu) {
+        if (liu == StateEnum.None) {
+            return StateEnum.None;
+        }
+        return drivingMap.getOrDefault(liu, StateEnum.None);
+    }
+
+    public boolean isDriving(StateEnum liu) {
+        Iterator<StateEnum> i = drivingMap.values().iterator();
+        while (i.hasNext()) {
+            StateEnum _liu = i.next();
+            if (liu == _liu) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean needRender() {
+        return needRender;
     }
 
     public enum StateEnum {
