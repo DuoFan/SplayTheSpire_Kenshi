@@ -141,8 +141,8 @@
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "Wind Burst",
-    "DESCRIPTION": "Deal !D! damage, Draw 1 card. NL duofan_kenshi:leave :Gain !M! vigor.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, Draw 1 card. NL duofan_kenshi:leave :Gain !M! vigor."
+    "DESCRIPTION": "Deal !D! damage,force others drive duofan_kenshi:leave. NL duofan_kenshi:leave :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage,force others drive duofan_kenshi:leave. NL duofan_kenshi:leave :Return to the last exited Style."
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "Blossom Fall",
@@ -231,9 +231,9 @@
     "UPGRADE_DESCRIPTION": "duofan_kenshi:disable all remaining Non-Debuff enemy powers. NL For each disabled power, deal !M! damage. NL duofan_kenshi:cloud :Gain [E] numbers equal to enemy disabled power. NL Exhaust"
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
-    "NAME": "Sunshine After Rain",
-    "DESCRIPTION": "Gain [E] ,Add *Clean *After *Rain into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean *After *Rain+ into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust "
+    "NAME": "Sunshine",
+    "DESCRIPTION": "Gain [E] ,Add *Clean into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean+ into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust "
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "Blade Display",
@@ -310,15 +310,15 @@
     "DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao.",
     "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao."
   },
-  "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
-    "NAME": "Pigeon Carrier",
-    "DESCRIPTION": "Select a card from your drawpile,draw it from drawpile next turn. NL duofan_kenshi:feather :Draw it immediately.  NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Select !M! cards from your drawpile,draw them from drawpile next turn. NL duofan_kenshi:feather :Draw them immediately. NL Exhaust "
+  "game.duofan.kenshi:YuZL_YuChan": {
+    "NAME": "Serene Feather",
+    "DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style."
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
-    "NAME": "Clean After Rain",
-    "DESCRIPTION": "Gain !B! Block,Add *Sunshine *After *Rain into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine *After *Rain+ into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust "
+    "NAME": "Clean",
+    "DESCRIPTION": "Gain !B! Block,Add *Sunshine into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust ",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine+ into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust "
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "Strike Water Three\n Thousand Miles",

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.powers.watcher.VigorPower;
 import game.duofan.common.Const;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
+import game.duofan.kenshi.action.OthersDriveLiuAction;
 import game.duofan.kenshi.power.IFengZhiLiuCard;
 import game.duofan.kenshi.power.Liu_StateMachine;
 import game.duofan.kenshi.power.ZhuLiuBaiJia;
@@ -35,7 +36,6 @@ public class FZL_QiuFengPo extends CustomCard implements IFengZhiLiuCard {
     public FZL_QiuFengPo() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 9;
-        magicNumber = baseMagicNumber = 3;
     }
 
     @Override
@@ -57,12 +57,16 @@ public class FZL_QiuFengPo extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addToBot(new DrawCardAction(1));
+        addToBot(new OthersDriveLiuAction(Liu_StateMachine.StateEnum.FengZhiLiu));
     }
     @Override
     public void fengZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
-        Utils.gainPower(p, new VigorPower(p, magicNumber));
+        Liu_StateMachine.StateEnum liu = Liu_StateMachine.getInstance().lastLiu();
+        if(liu != Liu_StateMachine.StateEnum.None){
+            Utils.addToBotAbstract(() ->{
+                Liu_StateMachine.getInstance().changeLiu(liu);
+            });
+        }
     }
 
     @Override

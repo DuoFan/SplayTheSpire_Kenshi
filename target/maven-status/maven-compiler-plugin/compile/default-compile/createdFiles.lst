@@ -40,7 +40,6 @@ game\duofan\kenshi\action\JianSheAction.class
 game\duofan\kenshi\card\YuZL_YunXiaoYuJi.class
 game\duofan\kenshi\initialize\AudioRegister.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterSelectScreenPatch_portraitSkeleton.class
-game\duofan\kenshi\card\YuZL_FeiGeChuanShu.class
 game\duofan\kenshi\card\YanZL_YanLiuJiXing.class
 game\duofan\kenshi\action\ICardFilter.class
 game\duofan\kenshi\patch\YuYiPatch.class
@@ -90,6 +89,7 @@ game\duofan\kenshi\patch\VictoryScreenPatch.class
 game\duofan\kenshi\variable\LamageScaler.class
 game\duofan\kenshi\power\ShiJianShi.class
 game\duofan\kenshi\card\FZL_QiuFengPo.class
+game\duofan\kenshi\action\OthersDriveLiuAction.class
 game\duofan\kenshi\power\JiShuiSanQian.class
 game\duofan\kenshi\card\FZL_YaZhi.class
 game\duofan\kenshi\initialize\VariableRegister.class
@@ -228,6 +228,7 @@ game\duofan\kenshi\patch\UseCardActionPatch.class
 game\duofan\kenshi\power\DisablePower.class
 game\duofan\kenshi\action\DisablePowerAction.class
 game\duofan\kenshi\card\XZL_SaoDangQunMo.class
+game\duofan\kenshi\card\YuZL_YuChan.class
 game\duofan\kenshi\power\Liu_StateMachine$1.class
 game\duofan\kenshi\action\TuoTaiHuanGuAction.class
 game\duofan\kenshi\power\FanShi.class

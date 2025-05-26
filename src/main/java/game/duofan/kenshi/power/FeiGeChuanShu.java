@@ -1,27 +1,17 @@
 package game.duofan.kenshi.power;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 import game.duofan.common.Utils;
-import game.duofan.kenshi.action.BaiHongGuanRiAction;
-import game.duofan.kenshi.action.YanJieAction;
-import game.duofan.kenshi.card.YanZL_FenCheng;
-import game.duofan.kenshi.card.YanZL_YanJie;
-
-import java.util.ArrayList;
 
 public class FeiGeChuanShu extends AbstractPower {
     static int idIndex;
@@ -37,7 +27,7 @@ public class FeiGeChuanShu extends AbstractPower {
     AbstractCard card1;
     AbstractCard card2;
 
-    public FeiGeChuanShu(AbstractCreature owner, AbstractCard card1,AbstractCard card2) {
+    public FeiGeChuanShu(AbstractCreature owner, AbstractCard card1, AbstractCard card2) {
         this.name = NAME;
         this.ID = ORIGIN_POWER_ID + idIndex++;
         this.owner = owner;

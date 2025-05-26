@@ -34,7 +34,7 @@ public class FZL_QiuYeLianJian extends CustomCard implements IFengZhiLiuCard {
 
     public FZL_QiuYeLianJian() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 7;
+        this.damage = this.baseDamage = 3;
         magicNumber = baseMagicNumber = 1;
         cardsToPreview = new XiaoChenJianFa();
     }

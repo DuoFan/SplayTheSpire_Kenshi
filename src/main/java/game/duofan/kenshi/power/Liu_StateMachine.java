@@ -1,16 +1,22 @@
 package game.duofan.kenshi.power;
 
 import basemod.BaseMod;
+import basemod.abstracts.CustomMultiPageFtue;
+import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostDeathSubscriber;
 import basemod.interfaces.PostDungeonInitializeSubscriber;
 import basemod.interfaces.PostUpdateSubscriber;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
+import com.megacrit.cardcrawl.localization.TutorialStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import game.duofan.common.EventKey;
 import game.duofan.common.EventManager;
 import game.duofan.common.IEventListener;
@@ -20,7 +26,7 @@ import game.duofan.kenshi.liuMachineRenderer.LiuMachineRenderer;
 import java.security.InvalidParameterException;
 import java.util.*;
 
-public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, PostUpdateSubscriber, PostDungeonInitializeSubscriber {
+public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, PostDeathSubscriber, PostUpdateSubscriber, PostDungeonInitializeSubscriber {
     private static Liu_StateMachine instance;
 
     public static Liu_StateMachine getInstance() {
@@ -47,6 +53,8 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
     LiuMachineRenderer machineRenderer;
 
     List<StateEnum> drivers;
+
+    StateEnum lastLiu;
 
     public Liu_StateMachine() {
         EventManager.getInstance().registerToPersistEvent(EventKey.ON_BATTLE_START, this);
@@ -163,7 +171,12 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
         return StateEnum.None;
     }
 
+    public StateEnum lastLiu() {
+        return lastLiu;
+    }
+
     private void changeStateTo(StateEnum stateEnum) {
+        lastLiu = getLiu();
         reset();
         switch (stateEnum) {
             case FengZhiLiu:
@@ -182,6 +195,9 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
                 throw new InvalidParameterException("无法找到匹配项" + stateEnum);
         }
         state.enter();
+
+        Liu_Tutorial tutorial = new Liu_Tutorial();
+        tutorial.showTutorialPanel();
     }
 
     public boolean isStateMatch(StateEnum stateEnum) {
@@ -206,6 +222,12 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
     }
 
     @Override
+    public void receivePostBattle(AbstractRoom abstractRoom) {
+        System.out.println("-------------------战斗结束时处理流派状态");
+        clearAll();
+    }
+
+    @Override
     public void receivePostDeath() {
         System.out.println("-------------------死亡时处理流派状态");
         clearAll();
@@ -213,7 +235,7 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
 
     @Override
     public void receivePostUpdate() {
-        if (!CardCrawlGame.isInARun() && getInstance().getLiu() != StateEnum.None) {
+        if (!CardCrawlGame.isInARun() && getLiu() != StateEnum.None) {
             System.out.println("-------------------退出游戏时处理流派状态");
             clearAll();
         }
@@ -226,22 +248,24 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
     }
 
     void clearAll() {
-        Liu_StateMachine.getInstance().clearDrivingMap();
-        Liu_StateMachine.getInstance().clearFlags();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
+        clearDrivingMap();
+        clearFlags();
+        clearLastEffectLiuCardOnTurn();
+        clearLastEffectLiuCardOnBattle();
         state = null;
         needRender = false;
+        lastLiu = StateEnum.None;
     }
 
     @Override
     public void OnEvent(Object sender, Object e) {
-        Liu_StateMachine.getInstance().clearDrivingMap();
-        Liu_StateMachine.getInstance().clearFlags();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
-        Liu_StateMachine.getInstance().clearLastEffectLiuCardOnBattle();
-        Liu_StateMachine.getInstance().reset();
+        clearDrivingMap();
+        clearFlags();
+        clearLastEffectLiuCardOnTurn();
+        clearLastEffectLiuCardOnBattle();
+        reset();
         needRender = false;
+        lastLiu = StateEnum.None;
     }
 
     public ArrayList<StateEnum> getInvokeable(StateEnum liu) {
@@ -265,7 +289,7 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
         if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
             return result;
         } else {
-            result.remove(liu);
+            //result.remove(liu);
         }
 
         getDrivers(liu);
@@ -277,13 +301,6 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
                 result.add(StateEnum.FengZhiLiu);
             }
         }
-
-        String s = "---------------------";
-        for (int i = 0; i < result.size(); i++) {
-            s += result.get(i);
-            s += ",";
-        }
-        System.out.println(s);
 
         return result;
     }
@@ -300,7 +317,7 @@ public class Liu_StateMachine implements IEventListener, PostDeathSubscriber, Po
         Iterator<Map.Entry<StateEnum, StateEnum>> iterator = drivingMap.entrySet().iterator();
         while (iterator.hasNext()) {
             Map.Entry<StateEnum, StateEnum> e = iterator.next();
-            if(e.getValue() == liu){
+            if (e.getValue() == liu) {
                 drivers.add(e.getKey());
             }
         }

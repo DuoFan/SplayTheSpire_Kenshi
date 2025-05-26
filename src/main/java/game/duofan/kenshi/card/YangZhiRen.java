@@ -29,7 +29,7 @@ public class YangZhiRen extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    static int _baseDamage = 4;
+    static int _baseDamage = 6;
 
     public YangZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

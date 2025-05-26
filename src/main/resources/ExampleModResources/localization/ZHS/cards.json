@@ -26,8 +26,8 @@
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "心随意动",
-    "DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件触发流派效果。",
-    "UPGRADE_DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件触发流派效果。"
+    "DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件驱动流派。",
+    "UPGRADE_DESCRIPTION": "每回合打出的前 !M! 张流派卡无条件驱动流派。"
   },
   "game.duofan.kenshi:QianBianWanHua": {
     "NAME": "千变万化",
@@ -140,9 +140,9 @@
     "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:枫之流 :随机 duofan_kenshi:封印 敌人的 !M! 个非负面能力。"
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
-    "NAME": "秋风破",
-    "DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，抽取1张卡牌。 NL duofan_kenshi:枫之流 : 获得 !M! 点 活力 。"
+    "NAME": "风破",
+    "DESCRIPTION": "造成 !D! 点伤害，使其他流派驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，使其他流派驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。"
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "花落斩",
@@ -197,8 +197,8 @@
   },
   "game.duofan.kenshi:FZL_BaiHuaQiFang": {
     "NAME": "百花齐放",
-    "DESCRIPTION": "在 duofan_kenshi:枫之流 下也可触发 duofan_kenshi:枫之流 效果。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。",
-    "UPGRADE_DESCRIPTION": "在 duofan_kenshi:枫之流 下也可触发 duofan_kenshi:枫之流 效果。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。 NL 固有 "
+    "DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。",
+    "UPGRADE_DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。 NL 固有 "
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "杀心骤起",
@@ -310,10 +310,10 @@
     "DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。",
     "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。"
   },
-  "game.duofan.kenshi:YuZL_FeiGeChuanShu": {
-    "NAME": "飞鸽传书",
-    "DESCRIPTION": "从抽牌堆选择 !M! 张牌，下回合开始时将它从抽牌堆抽取。 NL duofan_kenshi:羽之流 :改为立刻抽取。 NL 消耗 ",
-    "UPGRADE_DESCRIPTION": "从抽牌堆选择 !M! 张牌，下回合开始时将它们从抽牌堆抽取。 NL duofan_kenshi:羽之流 :改为立刻抽取。 NL 消耗 "
+  "game.duofan.kenshi:YuZL_YuChan": {
+    "NAME": "羽禅",
+    "DESCRIPTION": "获得 !B! 点 格挡 ，使其他流派驱动 duofan_kenshi:羽之流 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，使其他流派驱动 duofan_kenshi:羽之流 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。"
   },
   "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
     "NAME": "云销雨霁",

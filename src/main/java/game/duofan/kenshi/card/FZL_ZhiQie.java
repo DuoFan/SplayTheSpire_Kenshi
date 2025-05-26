@@ -74,7 +74,7 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void fengZhiLiuEffect() {
         if (targetMonster != null) {
-            this.addToBot(new ApplyPowerAction(targetMonster, AbstractDungeon.player, new VulnerablePower(targetMonster, this.magicNumber, false)));
+            this.addToBot(new ApplyPowerAction(targetMonster, AbstractDungeon.player, new VulnerablePower(targetMonster, 1, false)));
         }
     }
 

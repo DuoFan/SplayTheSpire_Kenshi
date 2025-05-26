@@ -30,7 +30,7 @@ public class YinZhiRen extends CustomCard implements IFengZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.SPECIAL;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    static int _baseDamage = 4;
+    static int _baseDamage = 6;
 
     public YinZhiRen() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);

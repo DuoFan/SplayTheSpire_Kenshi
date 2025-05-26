@@ -75,14 +75,13 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      "驱动其他流派效果，离开该流派时本回合获得 #b1 点 #y力量 。",
-      "驱动其他流派效果，但无法驱动 #y[NAME] ，离开该流派时本回合获得 #b1 点 #y力量 。"
+      "驱动所有流派，离开该流派时本回合获得 #b1 点 #y力量 。"
     ]
   },
   "game.duofan.kenshi:BaiHuaQiFang": {
     "NAME": "百花齐放",
     "DESCRIPTIONS": [
-      "在 #y枫之流 下也可触发 #y枫之流 效果。"
+      "在 #y枫之流 下总是能驱动 #y枫之流 。"
     ]
   },
   "game.duofan.kenshi:PoBai": {
@@ -118,8 +117,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      "驱动其他流派效果，离开该流派时获得 #b1 层 #y气 。",
-      "驱动其他流派效果，但无法驱动 #y[NAME] ，离开该流派时获得 #b1 层 #y气 。"
+      "驱动所有流派，离开该流派时获得 #b1 层 #y气 。"
     ]
   },
   "game.duofan.kenshi:Qi": {
@@ -143,8 +141,7 @@
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
-      "驱动其他流派效果，离开该流派时获得 #b3 点 #y格挡 。",
-      "驱动其他流派效果，但无法驱动 #y[NAME] ，离开该流派时获得 #b3 点 #y格挡 。"
+      "驱动所有流派，离开该流派时获得 #b3 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:FuYao": {
@@ -212,8 +209,7 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      "驱动其他流派效果，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。",
-      "驱动其他流派效果，但无法驱动 #y[NAME] ，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。",
+      "驱动所有流派，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。",
     ]
   },
   "game.duofan.kenshi:RongRong": {

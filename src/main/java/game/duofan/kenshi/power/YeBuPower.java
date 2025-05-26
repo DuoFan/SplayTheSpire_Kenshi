@@ -15,10 +15,11 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import game.duofan.common.IDManager;
 
 public class YeBuPower extends AbstractPower {
+    static int index;
     // 能力的ID
-    public static final String POWER_ID = IDManager.getInstance().getID(YeBuPower.class);
+    public static final String Origin_ID = IDManager.getInstance().getID(YeBuPower.class);
     // 能力的本地化字段
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
+    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(Origin_ID);
     // 能力的名称
     private static final String NAME = powerStrings.NAME;
     // 能力的描述
@@ -28,7 +29,7 @@ public class YeBuPower extends AbstractPower {
 
     public YeBuPower(AbstractCreature owner) {
         this.name = NAME;
-        this.ID = POWER_ID;
+        this.ID = Origin_ID + index++;
         this.owner = owner;
         this.type = PowerType.BUFF;
 
@@ -56,13 +57,13 @@ public class YeBuPower extends AbstractPower {
     public float atDamageGive(float damage, DamageInfo.DamageType type) {
         return type == DamageInfo.DamageType.NORMAL ? damage * calculateBuff() : damage;
     }
-    
+
     @Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
         super.onUseCard(card, action);
         if (card.type == AbstractCard.CardType.ATTACK) {
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, ID));
         }
     }
 
@@ -70,6 +71,6 @@ public class YeBuPower extends AbstractPower {
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
         AbstractPlayer p = AbstractDungeon.player;
-        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, POWER_ID));
+        AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(p, p, ID));
     }
 }

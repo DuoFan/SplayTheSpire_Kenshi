@@ -886,7 +886,7 @@ public class Utils {
             cards.add(new YuZL_FeiYing());
             cards.add(new YuZL_JiShuiSanQianCard());
             //cards.add(new YuZL_YuYi());
-            cards.add(new YuZL_FeiGeChuanShu());
+            cards.add(new YuZL_YuChan());
             cards.add(new YuZL_YunXiaoYuJi());
             //cards.add(new YuGan_Card());
             //cards.add(new XueLu_Card());
