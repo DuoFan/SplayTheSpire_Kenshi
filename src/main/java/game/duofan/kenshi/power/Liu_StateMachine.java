@@ -1,20 +1,16 @@
 package game.duofan.kenshi.power;
 
 import basemod.BaseMod;
-import basemod.abstracts.CustomMultiPageFtue;
 import basemod.interfaces.PostBattleSubscriber;
 import basemod.interfaces.PostDeathSubscriber;
 import basemod.interfaces.PostDungeonInitializeSubscriber;
 import basemod.interfaces.PostUpdateSubscriber;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.TutorialStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import game.duofan.common.EventKey;
@@ -52,7 +48,8 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
 
     LiuMachineRenderer machineRenderer;
 
-    List<StateEnum> drivers;
+    ArrayList<StateEnum> drivers;
+    ArrayList<StateEnum> invokables;
 
     StateEnum lastLiu;
 
@@ -61,6 +58,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         BaseMod.subscribe(this);
         drivingMap = new HashMap<>();
         drivers = new ArrayList<StateEnum>();
+        invokables = new ArrayList<StateEnum>();
         machineRenderer = new LiuMachineRenderer();
         machineRenderer.init();
     }
@@ -269,7 +267,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
     }
 
     public ArrayList<StateEnum> getInvokeable(StateEnum liu) {
-        ArrayList<StateEnum> result = new ArrayList<>();
+        invokables.clear();
 
         AbstractPower _xinSuiYiDong = AbstractDungeon.player.getPower(XinSuiYiDong.POWER_ID);
         XinSuiYiDong xinSuiYiDong = null;
@@ -278,31 +276,31 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         }
 
         if (liu == StateEnum.None && (xinSuiYiDong == null || xinSuiYiDong.getTurnAmount() <= 0)) {
-            return result;
+            return invokables;
         }
 
-        result.add(StateEnum.FengZhiLiu);
-        result.add(StateEnum.XiaZhiLiu);
-        result.add(StateEnum.YanZhiLiu);
-        result.add(StateEnum.YuZhiLiu);
+        invokables.add(StateEnum.FengZhiLiu);
+        invokables.add(StateEnum.XiaZhiLiu);
+        invokables.add(StateEnum.YanZhiLiu);
+        invokables.add(StateEnum.YuZhiLiu);
 
         if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
-            return result;
+            return invokables;
         } else {
             //result.remove(liu);
         }
 
         getDrivers(liu);
-        result.removeAll(drivers);
+        invokables.removeAll(drivers);
 
         if (liu.equals(StateEnum.FengZhiLiu)) {
             AbstractPower baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
-            if (baiHuaQiFang != null && result.indexOf(StateEnum.FengZhiLiu) < 0) {
-                result.add(StateEnum.FengZhiLiu);
+            if (baiHuaQiFang != null && invokables.indexOf(StateEnum.FengZhiLiu) < 0) {
+                invokables.add(StateEnum.FengZhiLiu);
             }
         }
 
-        return result;
+        return invokables;
     }
 
     public void setDriving(StateEnum from, StateEnum target) {

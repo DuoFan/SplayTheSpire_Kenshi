@@ -146,18 +146,18 @@
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "Blossom Fall",
-    "DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage twice. NL duofan_kenshi:leave :Each unblocked damage dealt apply 1 duofan_kenshi:wither."
+    "DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage,apply 1 duofan_kenshi:wither.",
+    "UPGRADE_DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage,apply 1 duofan_kenshi:wither."
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
     "NAME": "Thousand Leaves",
-    "DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times, Each unblocked damage dealt apply 1 duofan_kenshi:wither. NL duofan_kenshi:leave :Deal damage equal to the number of duofan_kenshi:wither."
+    "DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage !M! times.",
+    "UPGRADE_DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage !M! times."
   },
   "game.duofan.kenshi:FZL_ZhiQie": {
     "NAME": "Branch Cutting",
-    "DESCRIPTION": "Deal !D! damage, Apply !M! Vulnerable. NL duofan_kenshi:leave :Apply 1 Vulnerable.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage, Apply !M! Vulnerable. NL duofan_kenshi:leave :Apply 1 Vulnerable."
+    "DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage, Apply !M! Vulnerable.",
+    "UPGRADE_DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage, Apply !M! Vulnerable."
   },
   "game.duofan.kenshi:FZL_CuiKuLaXiu": {
     "NAME": "Overwhelming Destroy",
@@ -272,8 +272,8 @@
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "Chun Jun",
-    "DESCRIPTION": "Deal !D! damage,if consumed duofan_kenshi:qi, Style-Effect triggers 2 additional times instead of 1. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage,if consumed duofan_kenshi:qi, Style-Effect triggers 2 additional times instead of 1. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage."
+    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:cloud :Deal !duofan_kenshi:LamageScaler! damage."
   },
   "game.duofan.kenshi:YuZL_FengYuBuDong": {
     "NAME": "Unshaken by Storm",

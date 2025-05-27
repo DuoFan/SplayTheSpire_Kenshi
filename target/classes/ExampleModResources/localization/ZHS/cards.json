@@ -146,18 +146,18 @@
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "花落斩",
-    "DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害2次 。 NL duofan_kenshi:枫之流 :每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。"
+    "DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害, 给予 !M! 层 duofan_kenshi:破败 。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害, 给予 !M! 层 duofan_kenshi:破败 。"
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
     "NAME": "万叶斩",
-    "DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 !M! 次，每次未被 格挡 的伤害给予1层 duofan_kenshi:破败 。 NL duofan_kenshi:枫之流 :使其受到 duofan_kenshi:破败 层数的伤害 。"
+    "DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害 !M! 次。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害 !M! 次。"
   },
   "game.duofan.kenshi:FZL_ZhiQie": {
     "NAME": "枝切",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，给予 !M! 层 易伤 。 NL duofan_kenshi:枫之流 :额外给予1层 易伤 。"
+    "DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害，给予 !M! 层 易伤 。",
+    "UPGRADE_DESCRIPTION": " duofan_kenshi:枫之流 :造成 !D! 点伤害，给予 !M! 层 易伤 。"
   },
   "game.duofan.kenshi:FZL_CuiKuLaXiu": {
     "NAME": "摧枯拉朽",
@@ -232,7 +232,7 @@
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "彩彻区明",
-    "DESCRIPTION": "获得 [E] ，将 *云销雨霁 加入手牌。 NL duofan_kenshi:霞之流 ， duofan_kenshi:气钝 ， 消耗 ",
+    "DESCRIPTION": " duofan_kenshi:霞之流 :将一张随机流派的 * 加入手牌。",
     "UPGRADE_DESCRIPTION": "获得 [E] 和1层 duofan_kenshi:气 ，将 *云销雨霁+ 加入手牌。 NL duofan_kenshi:霞之流 ， duofan_kenshi:气钝 ， 消耗 "
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
@@ -272,8 +272,8 @@
   },
   "game.duofan.kenshi:XZL_ChunJun": {
     "NAME": "纯钧",
-    "DESCRIPTION": "造成 !D! 点伤害，如果消耗了 duofan_kenshi:气 ，则流派效果 额外触发2次，而非1次。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，如果消耗了 duofan_kenshi:气 ，则流派效果 额外触发2次，而非1次。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害。 NL duofan_kenshi:霞之流 :额外造成 !duofan_kenshi:LamageScaler! 点伤害。"
   },
   "game.duofan.kenshi:YuZL_FengYuBuDong": {
     "NAME": "风雨不动",

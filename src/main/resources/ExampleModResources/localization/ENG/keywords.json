@@ -51,7 +51,7 @@
     "NAMES": [
       "fuyao"
     ],
-    "DESCRIPTION": "Functions as #yPlated #yArmor. NL Lose #b2 layers when effected. NL Retain up to #b10 layers at the end of your turn."
+    "DESCRIPTION": "At the end of your turn, gain #b1 #yBlock. NL When you lose HP from attack, remove #b1 stack. NL At the end of your turn, halve its stacks."
   },
   {
     "NAMES": [

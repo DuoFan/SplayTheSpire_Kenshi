@@ -33,12 +33,10 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
 
     AbstractMonster targetMonster;
 
-    int d1;
-    int d2;
-
     public FZL_BaiHuaSha() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 5;
+        this.damage = this.baseDamage = 8;
+        magicNumber = baseMagicNumber = 1;
     }
 
 
@@ -61,22 +59,12 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
-        Utils.addToBotAbstract(() ->{
-            d1 = m.lastDamageTaken;
-        });
-        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
-        Utils.addToBotAbstract(() ->{
-            d2 = m.lastDamageTaken;
-        });
     }
 
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
         targetMonster = null;
-        d1 = 0;
-        d2 = 0;
     }
 
     @Override
@@ -92,13 +80,9 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     public void fengZhiLiuEffect() {
         if (targetMonster != null) {
             AbstractMonster m = targetMonster;
-            if (d1 > 0) {
-                Utils.givePowerTop(AbstractDungeon.player, m, new PoBai(m, 1));
-            }
-
-            if(d2 > 0){
-                Utils.givePowerTop(AbstractDungeon.player, m, new PoBai(m, 1));
-            }
+            AbstractPlayer p = AbstractDungeon.player;
+            Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
+            Utils.givePower(AbstractDungeon.player, m, new PoBai(m, 1));
         }
     }
 

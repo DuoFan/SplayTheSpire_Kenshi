@@ -25,7 +25,7 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_HouNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 1;
+        magicNumber = baseMagicNumber = 2;
     }
 
     @Override

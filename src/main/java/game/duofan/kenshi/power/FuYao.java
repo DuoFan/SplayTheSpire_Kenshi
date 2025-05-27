@@ -57,19 +57,20 @@ public class FuYao extends AbstractPower {
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
         this.flash();
         this.addToBot(new GainBlockAction(this.owner, this.owner, this.amount));
-        if (amount <= 10) {
-            subAmount(2);
+
+        if (amount < 1) {
+            Utils.playRemovePowerTop(POWER_ID);
         } else {
-            subAmount(amount - 10);
+            subAmount((int) Math.ceil(amount / 2f));
         }
     }
 
     public void subAmount(int _amount) {
-        flash();
         if (amount > _amount) {
+            flash();
             Utils.playReducePowerTop(POWER_ID, _amount);
         } else {
-            Utils.playRemovePower(POWER_ID);
+            Utils.playRemovePowerTop(POWER_ID);
         }
         updateDescription();
     }

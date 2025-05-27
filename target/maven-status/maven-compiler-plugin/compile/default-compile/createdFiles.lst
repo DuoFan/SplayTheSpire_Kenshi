@@ -36,6 +36,7 @@ game\duofan\kenshi\card\FZL_LieFengZhan.class
 game\duofan\kenshi\power\TagCardManager.class
 game\duofan\kenshi\patch\DisablePowerPatch1.class
 game\duofan\kenshi\patch\GongFaShanZhuanPatch.class
+game\duofan\kenshi\patch\DisablePowerPatch4$Looter_Pathc.class
 game\duofan\kenshi\action\JianSheAction.class
 game\duofan\kenshi\card\YuZL_YunXiaoYuJi.class
 game\duofan\kenshi\initialize\AudioRegister.class
@@ -52,6 +53,7 @@ game\duofan\kenshi\card\XZL_JuQue.class
 game\duofan\kenshi\card\YanZL_HuiJinJianQi.class
 game\duofan\kenshi\patch\QiHaiPatch.class
 game\duofan\kenshi\initialize\CharacterRegister.class
+game\duofan\kenshi\power\Liu_Tutorial.class
 game\duofan\kenshi\card\JiYiXingTai_Card.class
 game\duofan\kenshi\card\YuZL_QingShenZhui.class
 game\duofan\kenshi\patch\ZhengFengPatch.class
@@ -120,6 +122,7 @@ game\duofan\kenshi\card\GongFaShanZhuan_Card.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class
 game\duofan\kenshi\card\ShuangJianHeBi_Card.class
 game\duofan\kenshi\variable\LeXueAmount.class
+game\duofan\kenshi\patch\DisablePowerPatch4$AcidSlime_L_Pathc.class
 game\duofan\kenshi\effect\ColorThirdEyeEffect$ThirdEyeParticleEffect.class
 game\duofan\kenshi\KenShi$1.class
 game\duofan\kenshi\card\ShiJianShi.class
@@ -176,11 +179,13 @@ game\duofan\kenshi\card\XZL_QiHuaWanQian.class
 game\duofan\kenshi\relic\JianPuTuLu.class
 game\duofan\kenshi\power\IUpdateDescription.class
 game\duofan\kenshi\action\QianBianWanHuaAction.class
+game\duofan\kenshi\patch\DisablePowerPatch4$AwakenedOne_Pathc.class
 game\duofan\kenshi\patch\VictoryAnim.class
 game\duofan\kenshi\card\YuYi.class
 game\duofan\kenshi\power\ZhanYanLuo.class
 game\duofan\kenshi\action\ReturnYanGuiLaiAction.class
 game\duofan\kenshi\card\YanZL_HuoYuJianQi.class
+game\duofan\kenshi\patch\DisablePowerPatch4$Darkling_Pathc.class
 game\duofan\kenshi\KenShi.class
 game\duofan\common\EventKey.class
 game\duofan\kenshi\KenShi$LiuExitListener.class
@@ -243,6 +248,7 @@ game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterOptionPatch_reloa
 game\duofan\kenshi\card\YuZL_BuSiNiao.class
 game\duofan\kenshi\action\JiShuiSanQianAction.class
 game\duofan\kenshi\power\XueLu.class
+game\duofan\kenshi\patch\DisablePowerPatch4.class
 game\duofan\kenshi\patch\XueMuPatch.class
 game\duofan\kenshi\action\YanJieAction.class
 game\duofan\kenshi\power\QingShenZhui.class
@@ -257,11 +263,13 @@ game\duofan\kenshi\action\PickUpCardToDuanZaoAction.class
 game\duofan\kenshi\card\YuZL_YanGuiLai.class
 game\duofan\kenshi\patch\LiuMachineRenderPatch.class
 game\duofan\kenshi\patch\FeiYingPatch.class
+game\duofan\kenshi\patch\DisablePowerPatch4$SpikeSlime_L_Pathc.class
 game\duofan\kenshi\power\BuSiNiao.class
 game\duofan\kenshi\action\DuanZaoAction.class
 game\duofan\kenshi\power\YeBuPower.class
 game\duofan\kenshi\action\QiuYeLianJianAction.class
 game\duofan\kenshi\power\IYuZhiLiuCard.class
+game\duofan\kenshi\patch\DisablePowerPatch4$SlimeBossPathc.class
 game\duofan\kenshi\card\YanZL_LieHuoChang.class
 game\duofan\kenshi\card\ZhengFeng.class
 game\duofan\kenshi\action\JuGouAction.class

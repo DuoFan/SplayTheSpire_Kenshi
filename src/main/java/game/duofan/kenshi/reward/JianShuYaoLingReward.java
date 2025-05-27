@@ -65,13 +65,14 @@ public class JianShuYaoLingReward extends CustomReward {
             --numCards;
         }
 
+        ArrayList<AbstractCard> cards = Utils.getCardsFromLiu(Liu_StateMachine.StateEnum.All.getValue());
+
         while (rewardCards.size() < numCards) {
             AbstractCard.CardRarity rarity = AbstractCard.CardRarity.UNCOMMON;
 
-            card = AbstractDungeon.getCard(AbstractCard.CardRarity.UNCOMMON);
-            while (Utils.getLiuFromCard(card) == Liu_StateMachine.StateEnum.None
-                    || rewardCards.stream().anyMatch(x -> x.cardID.equals(card.cardID))) {
-                card = AbstractDungeon.getCard(rarity);
+            card = Utils.getRandomCardsFromList(cards, true);
+            while (card.rarity != rarity) {
+                card = Utils.getRandomCardsFromList(cards, true);
             }
 
             rewardCards.add(card.makeCopy());

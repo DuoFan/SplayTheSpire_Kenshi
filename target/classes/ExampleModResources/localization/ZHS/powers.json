@@ -147,7 +147,7 @@
   "game.duofan.kenshi:FuYao": {
     "NAME": "扶摇",
     "DESCRIPTIONS": [
-      "在回合结束时获得 #b%d 点 #y格挡 ，受到攻击伤害而失去生命时移除 #b1 层 。 NL 每次生效时移除 #b2 层，在回合结束时最多保留 #b10 层。"
+      "在回合结束时获得 #b%d 点 #y格挡 ，受到攻击伤害而失去生命时移除 #b1 层 。 NL 在回合结束时层数减半。"
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {

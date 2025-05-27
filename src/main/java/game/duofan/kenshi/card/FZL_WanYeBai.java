@@ -46,6 +46,7 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
         if (!this.upgraded) {
             this.upgradeName();
             this.upgradeMagicNumber(1);
+            upgradeDamage(1);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -60,24 +61,6 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-        int c = magicNumber;
-
-        if (Settings.FAST_MODE) {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
-        } else {
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED), 0.4F));
-        }
-
-        while (c > 0) {
-            Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-            Utils.addToBotAbstract(() -> {
-                if (m.lastDamageTaken > 0) {
-                    Utils.givePowerTop(p, m, new PoBai(m, 1));
-                }
-            });
-            this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-            c--;
-        }
     }
 
     @Override
@@ -98,15 +81,19 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void fengZhiLiuEffect() {
         if (targetMonster != null) {
-            Utils.addToBotAbstract(() -> {
-                if (targetMonster != null) {
-                    if (targetMonster.hasPower(PoBai.POWER_ID)) {
-                        AbstractPlayer p = AbstractDungeon.player;
-                        int damage = targetMonster.getPower(PoBai.POWER_ID).amount;
-                        Utils.giveDamageTop(p, targetMonster, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-                    }
-                }
-            });
+
+            AbstractMonster m = targetMonster;
+            AbstractPlayer p = AbstractDungeon.player;
+
+            int c = magicNumber;
+
+            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
+
+            while (c > 0) {
+                Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+                c--;
+            }
         }
     }
 

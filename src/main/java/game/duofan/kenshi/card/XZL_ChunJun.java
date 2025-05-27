@@ -21,7 +21,7 @@ import game.duofan.kenshi.power.*;
 import game.duofan.kenshi.variable.ILamageScale;
 import game.duofan.kenshi.variable.LamageScaler;
 
-public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, IQiMin, ILamageScale {
+public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, ILamageScale {
 
     static LamageScaler lamageScaler = new LamageScaler();
 
@@ -104,6 +104,6 @@ public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, IQiMin, I
 
     @Override
     public float getScale() {
-        return 1.5f;
+        return 1.2f;
     }
 }

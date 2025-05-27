@@ -24,8 +24,10 @@ public class QianBianWanHuaAction extends AbstractGameAction {
             Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
             while (amount > 0) {
                 AbstractCard c = Utils.getRandomCardsFromList(cards, false);
+                if (c.cost == -2) {
+                    continue;
+                }
                 Liu_StateMachine.StateEnum cardLiu = Utils.getLiuFromCard(c);
-                System.out.println(curLiu + "->" + cardLiu + ":" + c.name);
                 if (curLiu == Liu_StateMachine.StateEnum.None || curLiu != cardLiu) {
                     curLiu = cardLiu;
                     amount--;

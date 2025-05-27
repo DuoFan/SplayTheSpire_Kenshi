@@ -160,7 +160,7 @@
   "game.duofan.kenshi:FuYao": {
     "NAME": "FuYao",
     "DESCRIPTIONS": [
-      "Gain #b%d #yBlock at the end of your turn. NL Whenever you lose HP to an attack, lose #b1 layer. NL Lose #b2 layers when effected. NL Retain up to #b10 layers at end of turn."
+      "At the end of your turn, gain #b%d #yBlock. NL When you lose HP from attack, remove #b1 stack. NL At the end of your turn, halve its stacks."
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {
