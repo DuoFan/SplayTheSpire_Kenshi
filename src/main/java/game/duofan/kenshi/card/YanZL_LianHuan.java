@@ -78,9 +78,14 @@ public class YanZL_LianHuan extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.giveBaoYanDamage(AbstractDungeon.player, targetMonster, Utils.modifyDamageByRongRong(magicNumber, targetMonster), DamageInfo.DamageType.NORMAL);
+        AbstractMonster m = targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        Utils.giveBaoYanDamage(AbstractDungeon.player, m, Utils.modifyDamageByRongRong(magicNumber, m), DamageInfo.DamageType.NORMAL);
     }
 
     @Override

@@ -65,6 +65,13 @@ public class YanZL_YanJie extends CustomCard implements IYanZhiLiuCard {
     public void yanZhiLiuEffect() {
         if (action != null) {
             action.extraEffect++;
+        } else {
+            AbstractMonster m = Utils.getRandomAliveMonster();
+            if (m == null) {
+                return;
+            }
+            AbstractPlayer p = AbstractDungeon.player;
+            Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         }
     }
 

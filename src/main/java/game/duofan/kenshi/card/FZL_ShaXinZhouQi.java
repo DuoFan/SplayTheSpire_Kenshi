@@ -85,9 +85,16 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new VulnerablePower(targetMonster, 1, false));
+        AbstractMonster m = targetMonster;
+        if(m == null){
+            m = Utils.getRandomAliveMonster();
         }
+
+        if(m == null){
+            return;
+        }
+
+        Utils.givePower(AbstractDungeon.player, m, new VulnerablePower(m, 1, false));
     }
 
     @Override

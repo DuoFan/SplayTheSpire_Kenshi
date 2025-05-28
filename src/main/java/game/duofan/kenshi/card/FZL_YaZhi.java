@@ -68,9 +68,14 @@ public class FZL_YaZhi extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        if (targetMonster != null) {
-            addToBot(new DisableRandomPowerAction(targetMonster,magicNumber,1,false));
+        AbstractMonster m = targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        addToBot(new DisableRandomPowerAction(m, magicNumber, 1, false));
     }
 
     @Override

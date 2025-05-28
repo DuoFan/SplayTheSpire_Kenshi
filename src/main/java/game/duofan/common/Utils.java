@@ -241,6 +241,15 @@ public class Utils {
         }
     }
 
+    public static void returnLastLiuAction() {
+        Liu_StateMachine.StateEnum liu = Liu_StateMachine.getInstance().lastLiu();
+        if (liu != Liu_StateMachine.StateEnum.None) {
+            Utils.addToBotAbstract(() -> {
+                Liu_StateMachine.getInstance().changeLiu(liu);
+            });
+        }
+    }
+
     public interface Lambda extends Runnable {
     }
 
@@ -304,6 +313,7 @@ public class Utils {
         Liu_StateMachine.getInstance().reset();
         Liu_StateMachine.getInstance().clearFlags();
         Liu_StateMachine.getInstance().clearLastEffectLiuCardOnTurn();
+        Liu_StateMachine.getInstance().clearEnterLiuAmountOnTurn();
     }
 
     public static boolean canInvokeLiuEffect(AbstractCard c) {
@@ -887,7 +897,7 @@ public class Utils {
             cards.add(new YuZL_JiShuiSanQianCard());
             //cards.add(new YuZL_YuYi());
             cards.add(new YuZL_YuChan());
-            cards.add(new YuZL_YunXiaoYuJi());
+            //cards.add(new GuoYanYunYan());
             //cards.add(new YuGan_Card());
             //cards.add(new XueLu_Card());
             cards.add(new YuZL_HouNiao());
@@ -972,6 +982,18 @@ public class Utils {
         }
 
         return ((ILiuCard) card).getLiu();
+    }
+
+    public static AbstractMonster getRandomAliveMonster() {
+        ArrayList<AbstractMonster> monsters = getAllAliveMonsters();
+
+        AbstractMonster result = null;
+
+        if (monsters.size() > 0) {
+            result = Utils.getRandomElementFromList(monsters, false);
+        }
+
+        return result;
     }
 
     public static ArrayList<AbstractMonster> getAllAliveMonsters() {

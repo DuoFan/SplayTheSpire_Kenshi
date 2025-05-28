@@ -38,7 +38,6 @@ game\duofan\kenshi\patch\DisablePowerPatch1.class
 game\duofan\kenshi\patch\GongFaShanZhuanPatch.class
 game\duofan\kenshi\patch\DisablePowerPatch4$Looter_Pathc.class
 game\duofan\kenshi\action\JianSheAction.class
-game\duofan\kenshi\card\YuZL_YunXiaoYuJi.class
 game\duofan\kenshi\initialize\AudioRegister.class
 game\duofan\kenshi\patch\CharacterSelectScreenPatches$CharacterSelectScreenPatch_portraitSkeleton.class
 game\duofan\kenshi\card\YanZL_YanLiuJiXing.class
@@ -166,10 +165,12 @@ game\duofan\common\Utils$1.class
 game\duofan\kenshi\action\IDoCard.class
 game\duofan\kenshi\card\XZL_CaiCheQuMing.class
 game\duofan\kenshi\power\LianHuan.class
+game\duofan\kenshi\power\HuiJin.class
 game\duofan\kenshi\card\JianYu_Card.class
 game\duofan\kenshi\power\Liu_StateMachine$State.class
 game\duofan\kenshi\card\Defend.class
 game\duofan\kenshi\action\BaiHongGuanRiAction.class
+game\duofan\kenshi\action\GuoYanYunYanAction.class
 game\duofan\kenshi\power\JiYiXingTai.class
 game\duofan\kenshi\initialize\CardRegister.class
 game\duofan\kenshi\variable\FengYuAmount.class
@@ -197,6 +198,7 @@ game\duofan\kenshi\action\DisableRandomPowerAction.class
 game\duofan\kenshi\card\FZL_BaiHuaSha.class
 game\duofan\kenshi\power\JiShuiSanQian$JiShuiSanQianExecutor.class
 game\duofan\kenshi\power\RongRong.class
+game\duofan\kenshi\card\GuoYanYunYan.class
 game\duofan\kenshi\card\TaYin.class
 game\duofan\kenshi\power\BaiHuaQiFang.class
 game\duofan\kenshi\variable\ShengXieLamage.class

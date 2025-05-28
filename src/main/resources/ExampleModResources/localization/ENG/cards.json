@@ -66,7 +66,7 @@
   },
   "game.duofan.kenshi:NiTai": {
     "NAME": "Mimicry",
-    "DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times.",
+    "DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect.",
     "UPGRADE_DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times."
   },
   "game.duofan.kenshi:TaYin": {
@@ -134,6 +134,11 @@
     "DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal ",
     "UPGRADE_DESCRIPTION": "Whenever an enemy dies, heal 3 HP. NL Cost equal to the number of enemies minus !M! . NL Ethereal "
   },
+  "game.duofan.kenshi:GuoYanYunYan": {
+    "NAME": "Gone",
+    "DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect. NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect !M! times. NL Ethereal"
+  },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
     "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Randomly duofan_kenshi:disable a Non-Debuff enemy power this turn.",
@@ -145,9 +150,9 @@
     "UPGRADE_DESCRIPTION": "Deal !D! damage,force others drive duofan_kenshi:leave. NL duofan_kenshi:leave :Return to the last exited Style."
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
-    "NAME": "Blossom Fall",
-    "DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage,apply 1 duofan_kenshi:wither.",
-    "UPGRADE_DESCRIPTION": "duofan_kenshi:leave :Deal !D! damage,apply 1 duofan_kenshi:wither."
+    "NAME": "Blossom Snow",
+    "DESCRIPTION": "Each time you enter a Style this turn, gives this card !M! damage. NL duofan_kenshi:leave :Deal !D! damage.",
+    "UPGRADE_DESCRIPTION": "Each time you enter a Style this turn, gives this card !M! damage. NL duofan_kenshi:leave :Deal !D! damage."
   },
   "game.duofan.kenshi:FZL_WanYeBai": {
     "NAME": "Thousand Leaves",
@@ -232,8 +237,8 @@
   },
   "game.duofan.kenshi:XZL_CaiCheQuMing": {
     "NAME": "Sunshine",
-    "DESCRIPTION": "Gain [E] ,Add *Clean into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain [E] and !M! duofan_kenshi:qi ,Add *Clean+ into your hand. NL duofan_kenshi:cloud , duofan_kenshi:qi-block , Exhaust "
+    "DESCRIPTION": "Draw a card with current Style. NL duofan_kenshi:cloud :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Draw a card with current Style. NL Gain 1 duofan_kenshi:qi. NL duofan_kenshi:cloud :Return to the last exited Style."
   },
   "game.duofan.kenshi:XZL_ZiDianQingShuang": {
     "NAME": "Blade Display",
@@ -315,11 +320,6 @@
     "DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style.",
     "UPGRADE_DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style."
   },
-  "game.duofan.kenshi:YuZL_YunXiaoYuJi": {
-    "NAME": "Clean",
-    "DESCRIPTION": "Gain !B! Block,Add *Sunshine into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust ",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block,Consume 1 duofan_kenshi:qi to gain !M! Block more,Add *Sunshine+ into your hand. NL duofan_kenshi:feather , duofan_kenshi:qi-block , Exhaust "
-  },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "Strike Water Three\n Thousand Miles",
     "DESCRIPTION": "Gain Block equal to half of unblocked damage dealt by Attack in this turn. NL duofan_kenshi:feather :Shuffle Attack into your drawpile this turn after played.",
@@ -347,13 +347,13 @@
   },
   "game.duofan.kenshi:YanZL_YanLiuJiXing": {
     "NAME": "Flame Strike Star",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to left and right. NL duofan_kenshi:flame :Shuffle this card into your drawpile.",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to left and right. NL duofan_kenshi:flame :Shuffle this card into your drawpile."
+    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to left and right. NL duofan_kenshi:flame :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, deal !M! duofan_kenshi:flame-damage to left and right. NL duofan_kenshi:flame :Return to the last exited Style."
   },
   "game.duofan.kenshi:YanZL_HuiJinJianQi": {
     "NAME": "Ash Slash",
-    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Deal same effect to another enemy at random.",
-    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Deal same effect to another enemy at random."
+    "DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :When the enemy gains duofan_kenshi:melting next time, deal 1 duofan_kenshi:flame-damage.",
+    "UPGRADE_DESCRIPTION": "Deal !D! duofan_kenshi:flame-damage, apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :When the enemy gains duofan_kenshi:melting next time, deal 1 duofan_kenshi:flame-damage."
   },
   "game.duofan.kenshi:YanZL_LiaoYuanJianQi": {
     "NAME": "Blazing Slash",

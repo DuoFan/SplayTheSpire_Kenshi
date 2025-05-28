@@ -39,6 +39,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
     State state;
 
     int firstFlag;
+    int enterLiuAmountInTurn;
     boolean needRender;
 
     AbstractCard lastEffectLiuCardOnTurn;
@@ -79,6 +80,14 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         lastEffectLiuCardOnBattle = null;
     }
 
+    public void clearEnterLiuAmountOnTurn() {
+        enterLiuAmountInTurn = 0;
+    }
+
+    public int getEnterLiuAmountInTurn(){
+        return enterLiuAmountInTurn;
+    }
+
     public void setLastEffectLiuCardOnTurn(AbstractCard card) {
         lastEffectLiuCardOnTurn = card;
     }
@@ -111,6 +120,8 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         if (isStateMatch(stateEnum)) {
             return;
         }
+
+        enterLiuAmountInTurn++;
 
         needRender = true;
 
@@ -250,6 +261,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         clearFlags();
         clearLastEffectLiuCardOnTurn();
         clearLastEffectLiuCardOnBattle();
+        clearEnterLiuAmountOnTurn();
         state = null;
         needRender = false;
         lastLiu = StateEnum.None;
@@ -261,6 +273,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         clearFlags();
         clearLastEffectLiuCardOnTurn();
         clearLastEffectLiuCardOnBattle();
+        clearEnterLiuAmountOnTurn();
         reset();
         needRender = false;
         lastLiu = StateEnum.None;

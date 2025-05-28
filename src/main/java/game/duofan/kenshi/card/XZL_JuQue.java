@@ -88,9 +88,14 @@ public class XZL_JuQue extends CustomCard implements IXiaZhiLiuCard, ITargetMons
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new PoJia(targetMonster, 1));
+        AbstractMonster m = targetMonster;
+        if(m == null){
+            m = Utils.getRandomAliveMonster();
         }
+        if(m == null){
+            return;
+        }
+        Utils.givePower(AbstractDungeon.player, m, new PoJia(m, 1));
     }
 
     @Override

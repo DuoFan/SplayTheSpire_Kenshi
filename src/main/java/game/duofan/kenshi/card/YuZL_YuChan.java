@@ -55,12 +55,7 @@ public class YuZL_YuChan extends CustomCard implements IYuZhiLiuCard {
 
     @Override
     public void yuZhiLiuEffect() {
-        Liu_StateMachine.StateEnum liu = Liu_StateMachine.getInstance().lastLiu();
-        if (liu != Liu_StateMachine.StateEnum.None) {
-            Utils.addToBotAbstract(() -> {
-                Liu_StateMachine.getInstance().changeLiu(liu);
-            });
-        }
+        Utils.returnLastLiuAction();
     }
 
     @Override

@@ -68,9 +68,14 @@ public class YanZL_FenCheng extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new RongRong(targetMonster, magicNumber));
+        AbstractMonster m = targetMonster;
+        if(m == null){
+            m = Utils.getRandomAliveMonster();
         }
+        if(m == null){
+            return;
+        }
+        Utils.givePower(AbstractDungeon.player, m, new RongRong(m, magicNumber));
     }
 
     @Override

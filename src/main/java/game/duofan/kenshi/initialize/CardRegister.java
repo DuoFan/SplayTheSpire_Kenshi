@@ -23,6 +23,7 @@ public class CardRegister implements EditCardsSubscriber {
         cards.add(new YuYi());
         cards.add(new DuiSha_Card());
         cards.add(new XueLu_Card());
+        cards.add(new GuoYanYunYan());
 
         cards.add(new FanShi_Card());
         cards.add(new JianYu_Card());

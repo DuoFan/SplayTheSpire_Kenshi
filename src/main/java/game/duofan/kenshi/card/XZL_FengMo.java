@@ -84,21 +84,28 @@ public class XZL_FengMo extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (targetMonster != null) {
-            Utils.addToBotAbstract(() -> {
-                int e = 0;
-                ArrayList<AbstractPower> p = targetMonster.powers;
-                for (int i = 0; i < p.size(); i++) {
-                    AbstractPower _p = p.get(i);
-                    if(_p instanceof DisablePower){
-                        e++;
-                    }
-                }
-                if(e > 0){
-                    Utils.playerGainEnergy(e);
-                }
-            });
+
+        AbstractMonster m = this.targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        final AbstractMonster targetMonster = m;
+        Utils.addToBotAbstract(() -> {
+            int e = 0;
+            ArrayList<AbstractPower> p = targetMonster.powers;
+            for (int i = 0; i < p.size(); i++) {
+                AbstractPower _p = p.get(i);
+                if (_p instanceof DisablePower) {
+                    e++;
+                }
+            }
+            if (e > 0) {
+                Utils.playerGainEnergy(e);
+            }
+        });
     }
 
     @Override

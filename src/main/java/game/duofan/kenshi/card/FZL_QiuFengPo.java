@@ -61,12 +61,7 @@ public class FZL_QiuFengPo extends CustomCard implements IFengZhiLiuCard {
     }
     @Override
     public void fengZhiLiuEffect() {
-        Liu_StateMachine.StateEnum liu = Liu_StateMachine.getInstance().lastLiu();
-        if(liu != Liu_StateMachine.StateEnum.None){
-            Utils.addToBotAbstract(() ->{
-                Liu_StateMachine.getInstance().changeLiu(liu);
-            });
-        }
+        Utils.returnLastLiuAction();
     }
 
     @Override

@@ -48,16 +48,16 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
         updateDamage();
     }
 
-    void updateDamage(){
+    void updateDamage() {
         // Should generally just be the above.
         AbstractPlayer p = AbstractDungeon.player;
         int d = 0;
-        if(p != null && p.hand != null){
+        if (p != null && p.hand != null) {
             CardGroup hand = p.hand;
             int attackCount = 0;
             for (int i = 0; i < hand.size(); i++) {
                 AbstractCard c = hand.group.get(i);
-                if(c.type == AbstractCard.CardType.ATTACK){
+                if (c.type == AbstractCard.CardType.ATTACK) {
                     attackCount++;
                 }
             }
@@ -130,9 +130,14 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster,
-                    new VulnerablePower(targetMonster, 1, false));
+        AbstractMonster m = targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        Utils.givePower(AbstractDungeon.player, m,
+                new VulnerablePower(m, 1, false));
     }
 }

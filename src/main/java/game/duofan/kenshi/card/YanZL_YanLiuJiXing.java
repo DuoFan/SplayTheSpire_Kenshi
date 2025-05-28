@@ -36,8 +36,6 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
     private static final CardRarity RARITY = CardRarity.COMMON;
     private static final CardTarget TARGET = CardTarget.ENEMY;
 
-    boolean isUsing;
-
     public YanZL_YanLiuJiXing() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         damage = baseDamage = 7;
@@ -66,20 +64,11 @@ public class YanZL_YanLiuJiXing extends CustomCard implements IYanZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         Utils.giveBaoYanDamage(p, m, damage, DamageInfo.DamageType.NORMAL);
         Utils.effectJianShe(p, m, magicNumber);
-        isUsing = true;
-        Utils.addToBotAbstract(() -> {
-            isUsing = false;
-        });
-        if (!shuffleBackIntoDrawPile) {
-            shuffleBackIntoDrawPile = !Liu_StateMachine.getInstance().isStateMatch(Liu_StateMachine.StateEnum.YanZhiLiu);
-        }
     }
 
     @Override
     public void yanZhiLiuEffect() {
-        if (!isUsing) {
-            addToTop(new ReturnToDrawPileAction(this));
-        }
+        Utils.returnLastLiuAction();
     }
 
     @Override

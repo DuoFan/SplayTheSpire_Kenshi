@@ -56,8 +56,7 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
         super.update();
         if (Utils.canInvokeLiuEffect(this)) {
             target = CardTarget.ENEMY;
-        }
-        else{
+        } else {
             target = CardTarget.NONE;
         }
     }
@@ -82,9 +81,14 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new WeakPower(targetMonster, 1, false));
+        AbstractMonster m = targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        Utils.givePower(AbstractDungeon.player, m, new WeakPower(m, 1, false));
     }
 
     @Override

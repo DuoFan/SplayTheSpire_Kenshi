@@ -62,15 +62,21 @@ public class YanZL_LiaoYuanJianQi extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.addToBotAbstract(() -> {
-                AbstractPower rongrong = targetMonster.getPower(RongRong.POWER_ID);
-                if(rongrong != null){
-                    AbstractPlayer p = AbstractDungeon.player;
-                    Utils.givePowerTop(p, targetMonster, new RongRong(targetMonster, rongrong.amount));
-                }
-            });
+        AbstractMonster m = this.targetMonster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+        if (m == null) {
+            return;
+        }
+        final AbstractMonster targetMonster = m;
+        Utils.addToBotAbstract(() -> {
+            AbstractPower rongrong = targetMonster.getPower(RongRong.POWER_ID);
+            if (rongrong != null) {
+                AbstractPlayer p = AbstractDungeon.player;
+                Utils.givePowerTop(p, targetMonster, new RongRong(targetMonster, rongrong.amount));
+            }
+        });
     }
 
     @Override

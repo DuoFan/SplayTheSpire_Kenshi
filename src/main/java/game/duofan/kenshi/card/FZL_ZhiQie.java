@@ -71,12 +71,19 @@ public class FZL_ZhiQie extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        if (targetMonster != null) {
-            AbstractMonster m = targetMonster;
-            AbstractPlayer p = AbstractDungeon.player;
-            Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-            this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false)));
+        AbstractMonster m = targetMonster;
+
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+
+        if (m == null) {
+            return;
+        }
+
+        AbstractPlayer p = AbstractDungeon.player;
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        this.addToBot(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false)));
     }
 
     @Override

@@ -39,8 +39,14 @@ public class RongRong extends AbstractPower {
     }
 
     @Override
+    public void onInitialApplication() {
+        super.onInitialApplication();
+        checkHuiJin();
+    }
+
+    @Override
     public float atDamageFinalReceive(float damage, DamageInfo.DamageType type, AbstractCard card) {
-        if (BaoYanCardManager.getInstance().isTagCard(card)){
+        if (BaoYanCardManager.getInstance().isTagCard(card)) {
             damage += amount;
         }
         return damage;
@@ -52,9 +58,23 @@ public class RongRong extends AbstractPower {
     }
 
     @Override
+    public void stackPower(int stackAmount) {
+        super.stackPower(stackAmount);
+        checkHuiJin();
+    }
+
+    void checkHuiJin(){
+        AbstractPower p = owner.getPower(HuiJin.POWER_ID);
+        if (p != null) {
+            HuiJin huiJin = (HuiJin) p;
+            huiJin.effect();
+        }
+    }
+
+    @Override
     public void atEndOfTurn(boolean isPlayer) {
         super.atEndOfTurn(isPlayer);
-        if(amount > 10){
+        if (amount > 10) {
             amount = 10;
         }
         updateDescription();

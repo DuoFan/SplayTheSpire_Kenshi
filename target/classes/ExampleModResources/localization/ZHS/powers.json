@@ -209,13 +209,19 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      "驱动所有流派，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。",
+      "驱动所有流派，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:RongRong": {
     "NAME": "熔融",
     "DESCRIPTIONS": [
       "受到的 #y爆炎伤害 增加 #b%d 点，在回合结束时最多保留 #b10 点。"
+    ]
+  },
+  "game.duofan.kenshi:HuiJin": {
+    "NAME": "灰烬",
+    "DESCRIPTIONS": [
+      "下 #b%d 次获得 #y熔融 时，立刻受到 #b1 点 #y爆炎伤害 。"
     ]
   },
   "game.duofan.kenshi:ChunYangJianYi": {

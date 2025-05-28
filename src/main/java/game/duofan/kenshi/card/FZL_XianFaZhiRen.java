@@ -54,7 +54,7 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void triggerOnCardPlayed(AbstractCard cardPlayed) {
         super.triggerOnCardPlayed(cardPlayed);
-        if(cardPlayed == this){
+        if (cardPlayed == this) {
             return;
         }
         init();
@@ -66,8 +66,8 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
         init();
     }
 
-    void init(){
-        if(!isInit){
+    void init() {
+        if (!isInit) {
             modifyCostForCombat(-cost);
             isInit = true;
         }
@@ -82,9 +82,9 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
         targetMonster = m;
-        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
-        if(!isPlayed){
-            if(cost == 0){
+        Utils.giveDamage(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        if (!isPlayed) {
+            if (cost == 0) {
                 modifyCostForCombat(1);
             }
             isPlayed = true;
@@ -97,11 +97,18 @@ public class FZL_XianFaZhiRen extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        AbstractPlayer p = AbstractDungeon.player;
+        AbstractMonster m = targetMonster;
 
-        if(targetMonster != null){
-            Utils.givePower(p, targetMonster, new VulnerablePower(targetMonster, magicNumber, false));
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+
+        if (m == null) {
+            return;
+        }
+
+        AbstractPlayer p = AbstractDungeon.player;
+        Utils.givePower(p, m, new VulnerablePower(m, magicNumber, false));
 
         /*if (!exhaustOnUseOnce) {
             exhaustOnUseOnce = true;

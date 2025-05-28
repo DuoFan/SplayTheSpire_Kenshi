@@ -80,20 +80,27 @@ public class FZL_WanYeBai extends CustomCard implements IFengZhiLiuCard {
 
     @Override
     public void fengZhiLiuEffect() {
-        if (targetMonster != null) {
 
-            AbstractMonster m = targetMonster;
-            AbstractPlayer p = AbstractDungeon.player;
+        AbstractMonster m = targetMonster;
 
-            int c = magicNumber;
+        if(m == null){
+            m = Utils.getRandomAliveMonster();
+        }
 
-            this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
+        if(m == null){
+            return;
+        }
 
-            while (c > 0) {
-                Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-                this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
-                c--;
-            }
+        AbstractPlayer p = AbstractDungeon.player;
+
+        int c = magicNumber;
+
+        this.addToBot(new VFXAction(new ViolentAttackEffect(m.hb.cX, m.hb.cY, Color.RED)));
+
+        while (c > 0) {
+            Utils.giveDamageFast(p, m, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
+            this.addToBot(new VFXAction(new StarBounceEffect(m.hb.cX, m.hb.cY)));
+            c--;
         }
     }
 

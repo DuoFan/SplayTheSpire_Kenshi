@@ -81,15 +81,23 @@ public class XZL_ChunJun extends CustomCard implements IXiaZhiLiuCard, ILamageSc
 
     @Override
     public void xiaZhiLiuEffect(boolean isByQi) {
-        if (monster != null) {
-            AbstractPlayer p = AbstractDungeon.player;
-            int d = lamageScaler.value(this);
-            Utils.giveDamage(p, monster, d, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
-            Utils.addToBotAbstract(() -> {
-                AbstractDungeon.effectList.add(new FlashAtkImgEffect(monster.hb.cX, monster.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
-            });
-            this.addToBot(new VFXAction(new WallopEffect(d, monster.hb.cX, monster.hb.cY)));
+        AbstractMonster m = this.monster;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
+
+        if (m == null) {
+            return;
+        }
+
+        final AbstractMonster monster = m;
+        AbstractPlayer p = AbstractDungeon.player;
+        int d = lamageScaler.value(this);
+        Utils.giveDamage(p, monster, d, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE);
+        Utils.addToBotAbstract(() -> {
+            AbstractDungeon.effectList.add(new FlashAtkImgEffect(monster.hb.cX, monster.hb.cY, AbstractGameAction.AttackEffect.BLUNT_HEAVY, false));
+        });
+        this.addToBot(new VFXAction(new WallopEffect(d, monster.hb.cX, monster.hb.cY)));
     }
 
     @Override

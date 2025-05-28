@@ -69,9 +69,14 @@ public class YanZL_ChunYangJianYi extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        if (targetMonster != null) {
-            Utils.givePower(AbstractDungeon.player, targetMonster, new RongRong(targetMonster, 1));
+        AbstractMonster m = targetMonster;
+        if(m == null){
+            m = Utils.getRandomAliveMonster();
         }
+        if(m == null){
+            return;
+        }
+        Utils.givePower(AbstractDungeon.player, m, new RongRong(m, 1));
     }
 
     @Override

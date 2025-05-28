@@ -61,15 +61,14 @@ public class YanZL_HuiJinJianQi extends CustomCard implements IYanZhiLiuCard {
 
     @Override
     public void yanZhiLiuEffect() {
-        ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
-        if (target != null) {
-            monsters.remove(target);
+        AbstractMonster m = target;
+        if (m == null) {
+            m = Utils.getRandomAliveMonster();
         }
-        if (monsters.size() > 0) {
-            int index = AbstractDungeon.cardRandomRng.random(monsters.size() - 1);
-            AbstractMonster m = monsters.get(index);
-            effect(m);
+        if (m == null) {
+            return;
         }
+        Utils.givePower(AbstractDungeon.player, m, new HuiJin(m, 1));
     }
 
     @Override
