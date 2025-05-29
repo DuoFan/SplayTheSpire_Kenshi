@@ -15,7 +15,7 @@ public class BuPoFa_Card extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(BuPoFa_Card.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/buPoFa_skill.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;

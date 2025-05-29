@@ -82,6 +82,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_ShengXie.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YanZL_LiaoYuanJianQi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ILiuCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\patch\KenshiPortraitAnim.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\action\GuoYanYunYanAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\variable\IQiLamagePlus.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\IDoCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\LieFengZhanAction.java
@@ -126,8 +127,10 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\IQiMin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\JianQiaoAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\QianBianWanHuaAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_BaiHuaSha.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\patch\DisablePowerPatch4.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_CaiCheQuMing.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\YeBuPower.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\card\GuoYanYunYan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\patch\PlayerDrawPatch.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\JiShuiSanQianAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\GongFaShanZhuan_Card.java
@@ -137,6 +140,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\IXiaZhiLiuCard.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\XiaZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\GiveAllEnemiesRongAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\patch\DisablePowerPatch3.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\Liu_Tutorial.java
 D:\Kenshi\src\main\java\game\duofan\common\DF_Sprite.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YanZL_LieHuoChang.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\HuoZhiYuAction.java
@@ -148,6 +152,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\action\DisableRandomPowerAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\BuPoFa.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\ZhanYanLuo_Card.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\FeiGeChuanShu.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\power\HuiJin.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\JiShuiSanQian.java
 D:\Kenshi\src\main\java\game\duofan\common\Utils.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\JianSheAction.java
@@ -162,6 +167,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\KenShi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ReturnAttackToDrawPileAfterPlayed.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YanZL_YanJie.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_XianFaZhiRen.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_YuChan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\variable\VNameLiuAmount.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\ChiBiFreeCardAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\TuoTaiHuanGu.java
@@ -194,6 +200,7 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\HuoYuJingShi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\FZL_HuiFengZhan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\patch\QiHaiPatch.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\ShiJianShi.java
+D:\Kenshi\src\main\java\game\duofan\kenshi\action\OthersDriveLiuAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_BuSiNiao.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\YanZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\initialize\ModInitializer.java
@@ -206,7 +213,6 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_FeiYing.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\initialize\RewardRegister.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\Liu_StateMachine.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_BaiLuYou.java
-D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_FeiGeChuanShu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\NiTai.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\YuZhiLiu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\variable\ILamageScale.java
@@ -233,7 +239,6 @@ D:\Kenshi\src\main\java\game\duofan\kenshi\power\GongFaShanZhuan.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\power\XueLu.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\EnterRandomLiuAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\XZL_ShuangJi.java
-D:\Kenshi\src\main\java\game\duofan\kenshi\card\YuZL_YunXiaoYuJi.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\action\TuoTaiHuanGuAction.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\card\YanZL_YanLiuJiXing.java
 D:\Kenshi\src\main\java\game\duofan\kenshi\relic\JianShuYaoLing.java

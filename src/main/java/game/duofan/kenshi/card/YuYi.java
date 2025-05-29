@@ -13,7 +13,7 @@ public class YuYi extends CustomCard {
     public static final String ID = IDManager.getInstance().getID(YuYi.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/yuYi_power.png";
     public static final int COST = 9;
     public static final int UPGRADED_COST = 12;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述

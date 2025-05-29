@@ -66,8 +66,8 @@
   },
   "game.duofan.kenshi:NiTai": {
     "NAME": "Mimicry",
-    "DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect.",
-    "UPGRADE_DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times."
+    "DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect (if no target is specified, choose a random enemy).",
+    "UPGRADE_DESCRIPTION": "Select a Style-Card to trigger it's Style-Effect !M! times (if no target is specified, choose a random enemy)."
   },
   "game.duofan.kenshi:TaYin": {
     "NAME": "Imprint",
@@ -136,8 +136,8 @@
   },
   "game.duofan.kenshi:GuoYanYunYan": {
     "NAME": "Gone",
-    "DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect. NL Ethereal",
-    "UPGRADE_DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect !M! times. NL Ethereal"
+    "DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect (if no target is specified, choose a random enemy). NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect !M! times (if no target is specified, choose a random enemy). NL Ethereal"
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",

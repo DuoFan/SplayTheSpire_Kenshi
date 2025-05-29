@@ -44,8 +44,10 @@ public class LiuArrow {
         }
 
         if (machine.getDriving(from) == to) {
+            driving.color.a = 1f;
             driving.render(sb);
         } else if (machine.getLiu() == from && AbstractDungeon.player.hoveredCard != null && machine.getInvokeable(from).indexOf(to) >= 0) {
+            driving.color.a = 0.8f;
             driving.render(sb);
         } else {
             normal.render(sb);
