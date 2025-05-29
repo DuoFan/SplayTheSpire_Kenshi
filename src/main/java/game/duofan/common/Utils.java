@@ -2,6 +2,7 @@ package game.duofan.common;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -21,6 +22,7 @@ import game.duofan.kenshi.action.*;
 import game.duofan.kenshi.card.*;
 import game.duofan.kenshi.power.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -30,6 +32,15 @@ import java.util.stream.Collectors;
 public class Utils {
     public static String generateID(String id) {
         return Const.PACKAGE_NAME + ":" + id;
+    }
+
+    static SpireConfig commonConfig;
+
+    public static SpireConfig getCommonConfig() throws IOException {
+        if (commonConfig == null) {
+            commonConfig = new SpireConfig("JianKe", "commonConfig");
+        }
+        return commonConfig;
     }
 
     public static void showToast(String s) {

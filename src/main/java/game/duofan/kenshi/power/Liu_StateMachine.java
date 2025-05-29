@@ -19,6 +19,7 @@ import game.duofan.common.IEventListener;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.liuMachineRenderer.LiuMachineRenderer;
 
+import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.*;
 
@@ -206,7 +207,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         state.enter();
 
         Liu_Tutorial tutorial = new Liu_Tutorial();
-        tutorial.showTutorialPanel();
+        tutorial.tryShowTutorial1();
     }
 
     public boolean isStateMatch(StateEnum stateEnum) {
@@ -321,6 +322,8 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
             return;
         }
         drivingMap.put(from, target);
+        Liu_Tutorial tutorial = new Liu_Tutorial();
+        tutorial.showTutorial2();
     }
 
     public List<StateEnum> getDrivers(StateEnum liu) {

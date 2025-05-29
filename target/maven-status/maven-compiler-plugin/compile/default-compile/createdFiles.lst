@@ -274,6 +274,7 @@ game\duofan\kenshi\power\IYuZhiLiuCard.class
 game\duofan\kenshi\patch\DisablePowerPatch4$SlimeBossPathc.class
 game\duofan\kenshi\card\YanZL_LieHuoChang.class
 game\duofan\kenshi\card\ZhengFeng.class
+SpireConfig.class
 game\duofan\kenshi\action\JuGouAction.class
 game\duofan\common\AudioKey.class
 game\duofan\kenshi\power\JingYeSi.class

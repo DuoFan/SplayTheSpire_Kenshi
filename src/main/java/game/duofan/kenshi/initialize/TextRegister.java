@@ -20,7 +20,7 @@ public class TextRegister implements EditStringsSubscriber {
         BaseMod.loadCustomStringsFile(RelicStrings.class, "ExampleModResources/localization/" + lang + "/relics.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "ExampleModResources/localization/" + lang + "/powers.json");
         BaseMod.loadCustomStringsFile(UIStrings.class, "ExampleModResources/localization/" + lang + "/ui.json");
-
+        BaseMod.loadCustomStringsFile(TutorialStrings.class, "ExampleModResources/localization/" + lang + "/tutorials.json");
 
     }
 }
