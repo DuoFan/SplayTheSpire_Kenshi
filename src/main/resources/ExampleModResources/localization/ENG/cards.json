@@ -312,8 +312,8 @@
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "Hobo Wing",
-    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand or discard pile, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao."
+    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao."
   },
   "game.duofan.kenshi:YuZL_YuChan": {
     "NAME": "Serene Feather",

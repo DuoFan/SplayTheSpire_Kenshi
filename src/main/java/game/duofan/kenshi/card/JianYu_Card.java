@@ -25,7 +25,7 @@ public class JianYu_Card extends CustomCard {
 
     public JianYu_Card() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 9;
+        magicNumber = baseMagicNumber = 6;
     }
 
     @Override

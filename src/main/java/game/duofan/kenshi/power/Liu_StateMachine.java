@@ -52,6 +52,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
 
     ArrayList<StateEnum> drivers;
     ArrayList<StateEnum> invokables;
+    ArrayList<StateEnum> exchangables;
 
     StateEnum lastLiu;
 
@@ -61,12 +62,21 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         drivingMap = new HashMap<>();
         drivers = new ArrayList<StateEnum>();
         invokables = new ArrayList<StateEnum>();
+        exchangables = new ArrayList<StateEnum>();
         machineRenderer = new LiuMachineRenderer();
         machineRenderer.init();
     }
 
     public void clearDrivingMap() {
         drivingMap.clear();
+    }
+
+    public void clearLiuDriving(StateEnum liu) {
+        drivingMap.remove(liu);
+        drivers = getDrivers(liu);
+        for (int i = 0; i < drivers.size(); i++) {
+            drivingMap.remove(drivers.get(i));
+        }
     }
 
     public void clearFlags() {
@@ -85,7 +95,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         enterLiuAmountInTurn = 0;
     }
 
-    public int getEnterLiuAmountInTurn(){
+    public int getEnterLiuAmountInTurn() {
         return enterLiuAmountInTurn;
     }
 
@@ -326,7 +336,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         tutorial.showTutorial2();
     }
 
-    public List<StateEnum> getDrivers(StateEnum liu) {
+    public ArrayList<StateEnum> getDrivers(StateEnum liu) {
         drivers.clear();
         Iterator<Map.Entry<StateEnum, StateEnum>> iterator = drivingMap.entrySet().iterator();
         while (iterator.hasNext()) {
@@ -354,6 +364,25 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
             }
         }
         return false;
+    }
+
+    public ArrayList<StateEnum> getExchangable(StateEnum liu) {
+        exchangables.clear();
+
+        if (liu == StateEnum.None) {
+            return exchangables;
+        }
+
+        exchangables.add(StateEnum.FengZhiLiu);
+        exchangables.add(StateEnum.XiaZhiLiu);
+        exchangables.add(StateEnum.YuZhiLiu);
+        exchangables.add(StateEnum.YanZhiLiu);
+
+        getInvokeable(liu);
+
+        exchangables.removeAll(invokables);
+
+        return exchangables;
     }
 
     public boolean needRender() {

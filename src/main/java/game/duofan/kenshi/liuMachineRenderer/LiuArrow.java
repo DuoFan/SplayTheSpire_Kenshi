@@ -44,11 +44,31 @@ public class LiuArrow {
         }
 
         if (machine.getDriving(from) == to) {
-            driving.color.a = 1f;
-            driving.render(sb);
-        } else if (machine.getLiu() == from && AbstractDungeon.player.hoveredCard != null && machine.getInvokeable(from).indexOf(to) >= 0) {
-            driving.color.a = 0.8f;
-            driving.render(sb);
+            if (machine.getExchangable(from).indexOf(to) >= 0) {
+                driving.color.r = 0;
+                driving.color.g = 0;
+                driving.color.b = 1;
+                driving.color.a = 1;
+                driving.render(sb);
+            } else {
+                driving.color.r = driving.color.g = driving.color.b = driving.color.a = 1;
+                driving.render(sb);
+            }
+        } else if (machine.getLiu() == from) {
+            if (machine.getExchangable(from).indexOf(to) >= 0) {
+                driving.color.r = 0;
+                driving.color.g = 0;
+                driving.color.b = 1;
+                driving.color.a = 1;
+                driving.render(sb);
+            } else if (AbstractDungeon.player.hoveredCard != null && machine.getInvokeable(from).indexOf(to) >= 0) {
+                driving.color.r = driving.color.g = driving.color.b = 1;
+                driving.color.a = 0.8f;
+                driving.render(sb);
+            }
+            else {
+                normal.render(sb);
+            }
         } else {
             normal.render(sb);
         }

@@ -79,6 +79,7 @@ public class Liu_Tutorial {
                 ImageMaster.loadImage("img/tutorial/" + lang + "/t2_0.png"),
                 ImageMaster.loadImage("img/tutorial/" + lang + "/t2_1.png"),
                 ImageMaster.loadImage("img/tutorial/" + lang + "/t2_2.png"),
+                ImageMaster.loadImage("img/tutorial/" + lang + "/t2_3.png"),
         },
                 CardCrawlGame.languagePack.getTutorialString(tutorialID).TEXT
         );

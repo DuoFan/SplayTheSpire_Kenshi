@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.monsters.exordium.*;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.vfx.combat.*;
+import game.duofan.common.Utils;
 import game.duofan.kenshi.power.DisablePowerManager;
 
 import java.lang.reflect.Field;
@@ -107,7 +108,9 @@ public class DisablePowerPatch4 {
                 boolean oriState = AbstractDungeon.getCurrRoom().cannotLose;
                 AbstractDungeon.getCurrRoom().cannotLose = false;
                 __instance.die();
-                __instance.halfDead = true;
+                Utils.addToTopAbstract(() ->{
+                    AbstractDungeon.getMonsters().monsters.remove(__instance);
+                });
                 AbstractDungeon.getCurrRoom().cannotLose = oriState;
                 return SpireReturn.Return();
             } else {

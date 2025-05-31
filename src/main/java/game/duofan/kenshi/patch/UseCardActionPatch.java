@@ -22,7 +22,7 @@ import java.lang.reflect.Method;
 
 @SpirePatch2(clz = UseCardAction.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCreature.class})
 public class UseCardActionPatch {
-    @SpireInsertPatch(rloc = 40 - 29)
+    @SpireInsertPatch(rloc = 0)
     public static void UseCardAction(AbstractCard card, AbstractCreature target) {
         Utils.liuPowerOnUseCard(card);
     }

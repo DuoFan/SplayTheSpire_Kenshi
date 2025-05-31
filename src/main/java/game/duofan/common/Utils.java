@@ -1,6 +1,7 @@
 package game.duofan.common;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -316,6 +317,14 @@ public class Utils {
                 Utils.playerReduceQi(1);
             }
         } else if (liu != Liu_StateMachine.StateEnum.None) {
+            if (canExchangeLiuCard(card)) {
+                card.exhaustOnUseOnce = true;
+                Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
+                Liu_StateMachine.getInstance().clearLiuDriving(curLiu);
+                Liu_StateMachine.getInstance().clearLiuDriving(liu);
+                AbstractDungeon.actionManager.addToBottom(new AddRandomLiuCardToHandAction(curLiu));
+            }
+
             Liu_StateMachine.getInstance().changeLiu(liu);
         }
     }
@@ -340,6 +349,27 @@ public class Utils {
         Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
         ArrayList<Liu_StateMachine.StateEnum> invokeable = Liu_StateMachine.getInstance().getInvokeable(curLiu);
         return invokeable.indexOf(liu) >= 0;
+    }
+
+    public static boolean canExchangeLiuCard(AbstractCard c) {
+        Liu_StateMachine.StateEnum cardLiu = Utils.getLiuFromCard(c);
+        if (cardLiu == Liu_StateMachine.StateEnum.None) {
+            return false;
+        }
+        Liu_StateMachine.StateEnum curLiu = Liu_StateMachine.getInstance().getLiu();
+        return Liu_StateMachine.getInstance().getExchangable(curLiu).indexOf(cardLiu) >= 0;
+    }
+
+    static Color BLUE_BORDER_GLOW_COLOR = new Color(0.2F, 0.9F, 1.0F, 0.25F);
+
+    public static void determinLiuCardGlowColor(AbstractCard c) {
+        if (canInvokeLiuEffect(c)) {
+            c.glowColor = Color.GOLD.cpy();
+        } else if (canExchangeLiuCard(c)) {
+            c.glowColor = Color.BLUE.cpy();
+        } else {
+            c.glowColor = BLUE_BORDER_GLOW_COLOR.cpy();
+        }
     }
 
     public static void invokeLiuCardEffectWithTiming(AbstractCard card) {

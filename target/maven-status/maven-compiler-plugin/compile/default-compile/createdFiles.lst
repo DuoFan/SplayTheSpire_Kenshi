@@ -119,6 +119,7 @@ game\duofan\kenshi\variable\OverPJAmount.class
 game\duofan\kenshi\power\FeiYing.class
 game\duofan\kenshi\card\GongFaShanZhuan_Card.class
 game\duofan\kenshi\card\FZL_HuiFengZhan.class
+game\duofan\kenshi\action\AddRandomLiuCardToHandAction.class
 game\duofan\kenshi\card\ShuangJianHeBi_Card.class
 game\duofan\kenshi\variable\LeXueAmount.class
 game\duofan\kenshi\patch\DisablePowerPatch4$AcidSlime_L_Pathc.class

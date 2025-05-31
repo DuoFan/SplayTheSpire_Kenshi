@@ -25,7 +25,7 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_HouNiao() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 2;
+        magicNumber = baseMagicNumber = 3;
     }
 
     @Override
@@ -41,12 +41,6 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void triggerWhenDrawn() {
         super.triggerWhenDrawn();
-        effect();
-    }
-
-    @Override
-    public void onMoveToDiscard() {
-        super.onMoveToDiscard();
         effect();
     }
 
@@ -79,10 +73,7 @@ public class YuZL_HouNiao extends CustomCard implements IYuZhiLiuCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Utils.canInvokeLiuEffect(this)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
+        Utils.determinLiuCardGlowColor(this);
     }
 
     @Override

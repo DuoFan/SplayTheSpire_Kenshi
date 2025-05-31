@@ -122,10 +122,7 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
     @Override
     public void triggerOnGlowCheck() {
         super.triggerOnGlowCheck();
-        this.glowColor = AbstractCard.BLUE_BORDER_GLOW_COLOR.cpy();
-        if (Utils.canInvokeLiuEffect(this)) {
-            this.glowColor = AbstractCard.GOLD_BORDER_GLOW_COLOR.cpy();
-        }
+        Utils.determinLiuCardGlowColor(this);
     }
 
     @Override

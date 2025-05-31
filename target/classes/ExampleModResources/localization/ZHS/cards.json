@@ -312,8 +312,8 @@
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "乘风起势",
-    "DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取和进入弃牌堆时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。"
+    "DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。"
   },
   "game.duofan.kenshi:YuZL_YuChan": {
     "NAME": "羽禅",
