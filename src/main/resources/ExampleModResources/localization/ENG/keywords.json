@@ -69,24 +69,24 @@
     "NAMES": [
       "leave"
     ],
-    "DESCRIPTION": "Drive all Styles. NL Style driven by #yleave Style can't drive it. NL When you exit #yleave Style, gain #b1 #yStrength this turn."
+    "DESCRIPTION": "If not in #yleave Style, enter it and trigger #yleave effect. When you exit #yleave Style, gain #b1 #yStrength this turn."
   },
   {
     "NAMES": [
       "cloud"
     ],
-    "DESCRIPTION": "Drive all Styles. NL Style driven by #ycloud Style can't drive it. NL When you exit #ycloud Style, gain #b1 #yqi ."
+    "DESCRIPTION": "If not in #ycloud Style, enter it and trigger #ycloud effect. When you exit #ycloud Style, gain #b1 #yqi ."
   },
   {
     "NAMES": [
       "feather"
     ],
-    "DESCRIPTION": "Drive all Styles. NL Style driven by #yfeather Style can't drive it. NL When you exit #yfeather Style, gain #b3 #yBlock ."
+    "DESCRIPTION": "If not in #yfeather Style, enter it and trigger #yfeather effect. When you exit #yfeather Style, gain #b3 #yBlock ."
   },
   {
     "NAMES": [
       "flame"
     ],
-    "DESCRIPTION": "Drive all Styles. NL Style driven by #yflame Style can't drive it. NL When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
+    "DESCRIPTION": "If not in #yflame Style, enter it and trigger #yflame effect. When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
   }
 ]
