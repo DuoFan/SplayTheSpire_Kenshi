@@ -198,14 +198,14 @@ public class KenShi extends CustomPlayer {
     // 初始卡组的ID，可直接写或引用变量
     public ArrayList<String> getStartingDeck() {
         ArrayList<String> retVal = new ArrayList<>();
-        for (int x = 0; x < 5; x++) {
+        for (int x = 0; x < 4; x++) {
             retVal.add(Strike.ID);
         }
         for (int x = 0; x < 4; x++) {
             retVal.add(Defend.ID);
         }
-        retVal.add(ShuangJianHeBi_Card.ID);
-
+        retVal.add(XZL_ZiDianQingShuang.ID);
+        retVal.add(FZL_BaiHuaSha.ID);
         return retVal;
     }
 

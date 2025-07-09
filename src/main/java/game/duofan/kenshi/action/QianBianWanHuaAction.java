@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.action.IDoCard;
+import game.duofan.kenshi.card.YanZL_YanJie;
+import game.duofan.kenshi.card.YanZL_YanLang;
 import game.duofan.kenshi.power.Liu_StateMachine;
 
 import java.util.AbstractList;

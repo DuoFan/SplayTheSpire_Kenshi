@@ -146,8 +146,8 @@
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "Wind Burst",
-    "DESCRIPTION": "Deal !D! damage,force others drive duofan_kenshi:leave. NL duofan_kenshi:leave :Return to the last exited Style.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage,force others drive duofan_kenshi:leave. NL duofan_kenshi:leave :Return to the last exited Style."
+    "DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL duofan_kenshi:leave :Return to the last exited Style."
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "Blossom Snow",
@@ -302,23 +302,23 @@
   },
   "game.duofan.kenshi:YuZL_BaiLuYou": {
     "NAME": "Egret Fly",
-    "DESCRIPTION": "Gain !M! duofan_kenshi:fuyao. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block ",
-    "UPGRADE_DESCRIPTION": "Gain !M! duofan_kenshi:fuyao. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block "
+    "DESCRIPTION": "Gain !M! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block ",
+    "UPGRADE_DESCRIPTION": "Gain !M! Block. NL After playing a Skill, play this card from the drawpile. NL duofan_kenshi:feather , duofan_kenshi:qi-block "
   },
   "game.duofan.kenshi:YuZL_FeiYing": {
     "NAME": "Flying Shadow",
-    "DESCRIPTION": "Whenever you enter a Style,gain !M! duofan_kenshi:fuyao, duofan_kenshi:fuyao can functions as Artifact ,lose 2 layers when effected. NL duofan_kenshi:feather :Enter another random Style.",
-    "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! duofan_kenshi:fuyao, duofan_kenshi:fuyao can functions as Artifact ,lose 2 layers when effected. NL duofan_kenshi:feather :Enter another random Style."
+    "DESCRIPTION": "Whenever you enter a Style,gain !M! Block. NL duofan_kenshi:feather :Enter another random Style.",
+    "UPGRADE_DESCRIPTION": "Whenever you enter a Style,gain !M! Block. NL duofan_kenshi:feather :Enter another random Style."
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "Hobo Wing",
-    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao.",
-    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! duofan_kenshi:fuyao."
+    "DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block.",
+    "UPGRADE_DESCRIPTION": "Unplayable. NL Whenever this enters your hand, enter duofan_kenshi:feather and trigger its effect. NL duofan_kenshi:feather: Gain !M! Block."
   },
   "game.duofan.kenshi:YuZL_YuChan": {
     "NAME": "Serene Feather",
-    "DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block,force others drive duofan_kenshi:feather. NL duofan_kenshi:feather :Return to the last exited Style."
+    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :Return to the last exited Style.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:feather :Return to the last exited Style."
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "Strike Water Three\n Thousand Miles",

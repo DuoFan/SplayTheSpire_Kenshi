@@ -35,8 +35,10 @@ import java.util.Iterator;
 @SpirePatch2(clz = ApplyPowerAction.class, method = "update")
 public class FeiYingPatch {
     @SpireInsertPatch(rloc = 173 - 122)
-    public static SpireReturn Patch(ApplyPowerAction __instance,AbstractPower ___powerToApply) throws IllegalAccessException, NoSuchFieldException {
-        if (___powerToApply.type != AbstractPower.PowerType.DEBUFF) {
+    public static SpireReturn Patch(ApplyPowerAction __instance, AbstractPower ___powerToApply) throws IllegalAccessException, NoSuchFieldException {
+        return SpireReturn.Continue();
+
+        /*if (___powerToApply.type != AbstractPower.PowerType.DEBUFF) {
             return SpireReturn.Continue();
         }
 
@@ -65,6 +67,6 @@ public class FeiYingPatch {
         CardCrawlGame.sound.play("NULLIFY_SFX");
         fuyao.subAmount(2);
 
-        return SpireReturn.Return();
+        return SpireReturn.Return();*/
     }
 }

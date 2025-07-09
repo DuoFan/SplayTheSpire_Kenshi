@@ -75,13 +75,13 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "枫之流",
     "DESCRIPTIONS": [
-      "驱动所有流派，离开该流派时本回合获得 #b1 点 #y力量 。 NL 回合结束时离开该流派。"
+      "离开该流派时本回合获得 #b1 点 #y力量 。 NL 回合结束时离开该流派。"
     ]
   },
   "game.duofan.kenshi:BaiHuaQiFang": {
     "NAME": "百花齐放",
     "DESCRIPTIONS": [
-      "在 #y枫之流 下总是能驱动 #y枫之流 。"
+      "在 #y枫之流 下总是能触发 #y枫之流 效果。"
     ]
   },
   "game.duofan.kenshi:PoBai": {
@@ -117,7 +117,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "霞之流",
     "DESCRIPTIONS": [
-      "驱动所有流派，离开该流派时获得 #b1 层 #y气 。 NL 回合结束时离开该流派。"
+      "离开该流派时获得 #b1 层 #y气 。 NL 回合结束时离开该流派。"
     ]
   },
   "game.duofan.kenshi:Qi": {
@@ -141,7 +141,7 @@
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "羽之流",
     "DESCRIPTIONS": [
-      "驱动所有流派，离开该流派时获得 #b3 点 #y格挡 。 NL 回合结束时离开该流派。"
+      "离开该流派时获得 #b3 点 #y格挡 。 NL 回合结束时离开该流派。"
     ]
   },
   "game.duofan.kenshi:FuYao": {
@@ -185,7 +185,7 @@
   "game.duofan.kenshi:FeiYing": {
     "NAME": "飞影",
     "DESCRIPTIONS": [
-      "每次进入流派，使你获得 #b%d 层 #y扶摇 。 NL #y扶摇 可抵消负面效果，每次生效时移除2层。"
+      "每次进入流派，使你获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:XueLu": {
@@ -209,7 +209,7 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "炎之流",
     "DESCRIPTIONS": [
-      "驱动所有流派，离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。 NL 回合结束时离开该流派。"
+      "离开该流派时对所有敌人造成 #b1 点 #y爆炎伤害 。 NL 回合结束时离开该流派。"
     ]
   },
   "game.duofan.kenshi:RongRong": {

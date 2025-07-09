@@ -28,6 +28,7 @@ public class BuPoFaPatch {
         if (__instance.hasPower(BuPoFa.POWER_ID)) {
             if(__instance.currentBlock > 0){
                 CardCrawlGame.sound.play("BLOCK_ATTACK");
+                __instance.getPower(BuPoFa.POWER_ID).flash();
             }
 
             if (damageAmount > __instance.currentBlock) {

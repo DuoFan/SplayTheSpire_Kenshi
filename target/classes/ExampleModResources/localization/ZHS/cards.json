@@ -146,8 +146,8 @@
   },
   "game.duofan.kenshi:FZL_QiuFengPo": {
     "NAME": "风破",
-    "DESCRIPTION": "造成 !D! 点伤害，使其他流派驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。",
-    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害，使其他流派驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。"
+    "DESCRIPTION": "造成 !D! 点伤害 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。",
+    "UPGRADE_DESCRIPTION": "造成 !D! 点伤害 。 NL duofan_kenshi:枫之流 :回到最后离开的流派。"
   },
   "game.duofan.kenshi:FZL_BaiHuaSha": {
     "NAME": "流风回雪",
@@ -202,8 +202,8 @@
   },
   "game.duofan.kenshi:FZL_BaiHuaQiFang": {
     "NAME": "百花齐放",
-    "DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。",
-    "UPGRADE_DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能驱动 duofan_kenshi:枫之流 。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。 NL 固有 "
+    "DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能触发 duofan_kenshi:枫之流 效果。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。",
+    "UPGRADE_DESCRIPTION": "在 duofan_kenshi:枫之流 下总是能触发 duofan_kenshi:枫之流 效果。 NL duofan_kenshi:枫之流 :抽取 1 张 duofan_kenshi:枫之流 卡牌。 NL 固有 "
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "杀心骤起",
@@ -302,23 +302,23 @@
   },
   "game.duofan.kenshi:YuZL_BaiLuYou": {
     "NAME": "白鹭游",
-    "DESCRIPTION": "获得 !M! 层 duofan_kenshi:扶摇 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 ",
-    "UPGRADE_DESCRIPTION": "获得 !M! 层 duofan_kenshi:扶摇 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 "
+    "DESCRIPTION": "获得 !M! 点 格挡 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 ",
+    "UPGRADE_DESCRIPTION": "获得 !M! 点 格挡 。 NL 打出技能牌后，将该牌从抽牌堆打出。 NL duofan_kenshi:羽之流 ， duofan_kenshi:气钝 "
   },
   "game.duofan.kenshi:YuZL_FeiYing": {
     "NAME": "飞影",
-    "DESCRIPTION": "每次进入流派，使你获得 !M! 层 duofan_kenshi:扶摇 ， duofan_kenshi:扶摇 可抵消负面效果，每次生效时移除2层。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
-    "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 层 duofan_kenshi:扶摇 ， duofan_kenshi:扶摇 可抵消负面效果，每次生效时移除2层。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
+    "DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。",
+    "UPGRADE_DESCRIPTION": "每次进入流派，使你获得 !M! 点 格挡 。 NL duofan_kenshi:羽之流 :进入另一个随机流派。"
   },
   "game.duofan.kenshi:YuZL_HouNiao": {
     "NAME": "乘风起势",
-    "DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。",
-    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 duofan_kenshi:扶摇 。"
+    "DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 点格挡 。",
+    "UPGRADE_DESCRIPTION": " 不能被打出 。 NL 被抽取时，进入 duofan_kenshi:羽之流 并触发流派效果。 NL duofan_kenshi:羽之流 :获得 !M! 层 点格挡 。"
   },
   "game.duofan.kenshi:YuZL_YuChan": {
     "NAME": "羽禅",
-    "DESCRIPTION": "获得 !B! 点 格挡 ，使其他流派驱动 duofan_kenshi:羽之流 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。",
-    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 ，使其他流派驱动 duofan_kenshi:羽之流 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。"
+    "DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。",
+    "UPGRADE_DESCRIPTION": "获得 !B! 点 格挡 。 NL duofan_kenshi:羽之流 :回到最后离开的流派。"
   },
   "game.duofan.kenshi:YuZL_JiShuiSanQianCard": {
     "NAME": "击水三千",

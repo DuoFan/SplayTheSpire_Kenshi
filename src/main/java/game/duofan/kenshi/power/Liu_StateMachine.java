@@ -124,7 +124,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
     }
 
     public void render(SpriteBatch sb) {
-        machineRenderer.render(sb);
+        //machineRenderer.render(sb);
     }
 
     public void changeLiu(StateEnum stateEnum) {
@@ -216,8 +216,8 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         }
         state.enter();
 
-        Liu_Tutorial tutorial = new Liu_Tutorial();
-        tutorial.tryShowTutorial1();
+        /*Liu_Tutorial tutorial = new Liu_Tutorial();
+        tutorial.tryShowTutorial1();*/
     }
 
     public boolean isStateMatch(StateEnum stateEnum) {
@@ -311,11 +311,11 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
         if (xinSuiYiDong != null && xinSuiYiDong.getTurnAmount() > 0) {
             return invokables;
         } else {
-            //result.remove(liu);
+            invokables.remove(liu);
         }
 
-        getDrivers(liu);
-        invokables.removeAll(drivers);
+        /*getDrivers(liu);
+        invokables.removeAll(drivers);*/
 
         if (liu.equals(StateEnum.FengZhiLiu)) {
             AbstractPower baiHuaQiFang = AbstractDungeon.player.getPower(BaiHuaQiFang.POWER_ID);
@@ -332,8 +332,8 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
             return;
         }
         drivingMap.put(from, target);
-        Liu_Tutorial tutorial = new Liu_Tutorial();
-        tutorial.showTutorial2();
+        /*Liu_Tutorial tutorial = new Liu_Tutorial();
+        tutorial.showTutorial2();*/
     }
 
     public ArrayList<StateEnum> getDrivers(StateEnum liu) {
@@ -367,7 +367,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
     }
 
     public ArrayList<StateEnum> getExchangable(StateEnum liu) {
-        exchangables.clear();
+        /*exchangables.clear();
 
         if (liu == StateEnum.None) {
             return exchangables;
@@ -380,7 +380,7 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
 
         getInvokeable(liu);
 
-        exchangables.removeAll(invokables);
+        exchangables.removeAll(invokables);*/
 
         return exchangables;
     }

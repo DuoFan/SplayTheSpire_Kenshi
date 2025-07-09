@@ -57,7 +57,7 @@ public class YanZL_YanJie extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        action = new YanJieAction(damage, energyOnUse, upgraded, m);
+        action = new YanJieAction(damage, energyOnUse, upgraded, freeToPlayOnce, m);
         addToBot(action);
     }
 

@@ -19,7 +19,7 @@ public class YuZL_FengYuBuDong extends CustomCard implements IYuZhiLiuCard {
     public static final String ID = IDManager.getInstance().getID(YuZL_FengYuBuDong.class);
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
-    private static final String IMG_PATH = "img/cards/Strike.png";
+    private static final String IMG_PATH = "img/cards/yuZL/FengYuBuDong_skill.png";
     private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.SKILL;
@@ -29,7 +29,7 @@ public class YuZL_FengYuBuDong extends CustomCard implements IYuZhiLiuCard {
 
     public YuZL_FengYuBuDong() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        block = baseBlock = 2;
+        block = baseBlock = 1;
     }
 
     @Override

@@ -41,8 +41,8 @@ public class BuSiNiao extends AbstractPower {
         this.amount = amount;
         validCount = amount;
 
-        String path128 = "ExampleModResources/img/powers/Example84.png";
-        String path48 = "ExampleModResources/img/powers/Example32.png";
+        String path128 = "img/powers/yuZL/BuSiNiaoPower84.png";
+        String path48 = "img/powers/yuZL/BuSiNiaoPower32.png";
         this.region128 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path128), 0, 0, 84, 84);
         this.region48 = new TextureAtlas.AtlasRegion(ImageMaster.loadImage(path48), 0, 0, 32, 32);
 

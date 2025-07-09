@@ -81,7 +81,7 @@
   "game.duofan.kenshi:FengZhiLiu": {
     "NAME": "Style-Leave",
     "DESCRIPTIONS": [
-      "Drive all Styles, when you exit #yleave Style, gain #b1 #yStrength this turn."
+      "When you exit #yleave Style, gain #b1 #yStrength this turn."
     ]
   },
   "game.duofan.kenshi:BaiHuaQiFang": {
@@ -123,7 +123,7 @@
   "game.duofan.kenshi:XiaZhiLiu": {
     "NAME": "Style-Cloud",
     "DESCRIPTIONS": [
-      "Drive all Styles, when you exit #ycloud Style, gain #b1 #yqi ."
+      "When you exit #ycloud Style, gain #b1 #yqi ."
     ]
   },
   "game.duofan.kenshi:Qi": {
@@ -147,7 +147,7 @@
   "game.duofan.kenshi:YuZhiLiu": {
     "NAME": "Style-Feather",
     "DESCRIPTIONS": [
-      "Drive all Styles, when you exit #yfeather Style, gain #b3 #yBlock ."
+      "When you exit #yfeather Style, gain #b3 #yBlock ."
     ]
   },
   "game.duofan.kenshi:QingShenZhui": {
@@ -191,7 +191,7 @@
   "game.duofan.kenshi:FeiYing": {
     "NAME": "Flying Shadow",
     "DESCRIPTIONS": [
-      "Whenever you enter a Style,gain #b%d #yFuYao . NL #yFuYao can functions as #yArtifact ,lose #b2 layers when effected."
+      "Whenever you enter a Style,gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:XueLu": {
@@ -215,7 +215,7 @@
   "game.duofan.kenshi:YanZhiLiu": {
     "NAME": "Style-Flame",
     "DESCRIPTIONS": [
-      "Drive all Styles, when you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
+      "When you exit #yflame Style, deal #b1 #yflame-damage to All enemies."
     ]
   },
   "game.duofan.kenshi:RongRong": {

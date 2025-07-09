@@ -3,7 +3,7 @@
     "NAME": "Sword Manual",
     "FLAVOR": "这个人很懒，什么都没写",
     "DESCRIPTIONS": [
-      "At the start of your turn, enter a #yRandom-Style ."
+      "At the start of combat, enter a #yRandom-Style ."
     ]
   },
   "game.duofan.kenshi:JianShuYaoLing": {

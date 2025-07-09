@@ -58,7 +58,7 @@ public class YanZL_YanLang extends CustomCard implements IYanZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        addToBot(new YanLangAction(magicNumber, energyOnUse));
+        addToBot(new YanLangAction(magicNumber, energyOnUse, freeToPlayOnce));
     }
 
     @Override

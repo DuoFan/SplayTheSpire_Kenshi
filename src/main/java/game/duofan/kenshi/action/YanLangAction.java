@@ -20,10 +20,12 @@ import java.util.Stack;
 public class YanLangAction extends AbstractGameAction {
 
     int energyOnUse;
+    Boolean freeToPlayOnce;
 
-    public YanLangAction(int _amount, int _energyOnUse) {
+    public YanLangAction(int _amount, int _energyOnUse, boolean _freeToPlayOnce) {
         amount = _amount;
         energyOnUse = _energyOnUse;
+        freeToPlayOnce = _freeToPlayOnce;
     }
 
     public void update() {
@@ -54,7 +56,7 @@ public class YanLangAction extends AbstractGameAction {
                 }
                 effect--;
             }
-            if (energyOnUse > 0) {
+            if (!freeToPlayOnce && energyOnUse > 0) {
                 p.energy.use(EnergyPanel.totalCount);
             }
         }

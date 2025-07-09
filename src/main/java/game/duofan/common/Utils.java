@@ -298,7 +298,7 @@ public class Utils {
                 xinSuiYiDong.subTurnAmountToEffect();
             }
 
-            Liu_StateMachine.getInstance().setDriving(curLiu, liu);
+            //Liu_StateMachine.getInstance().setDriving(curLiu, liu);
             Liu_StateMachine.getInstance().changeLiu(liu);
 
             if (Utils.getQiAmount() > 0 && !InvalidLiuCardManager.getInstance().isTagCard(card)) {

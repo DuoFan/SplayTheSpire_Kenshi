@@ -191,7 +191,7 @@
   "game.duofan.kenshi:FeiYing": {
     "NAME": "Flying Shadow",
     "DESCRIPTIONS": [
-      "Whenever you enter a Style,gain #b%d #yFuYao . NL #yFuYao can functions as #yArtifact ,lose #b2 layers when effected."
+      "Whenever you enter a Style,gain #b%d #yBlock ."
     ]
   },
   "game.duofan.kenshi:XueLu": {

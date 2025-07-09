@@ -56,8 +56,8 @@ public class FZL_QiuFengPo extends CustomCard implements IFengZhiLiuCard {
      */
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) {
-        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.BLUNT_HEAVY);
-        addToBot(new OthersDriveLiuAction(Liu_StateMachine.StateEnum.FengZhiLiu));
+        Utils.giveDamage(p,m,damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.SLASH_HEAVY);
+        //addToBot(new OthersDriveLiuAction(Liu_StateMachine.StateEnum.FengZhiLiu));
     }
     @Override
     public void fengZhiLiuEffect() {

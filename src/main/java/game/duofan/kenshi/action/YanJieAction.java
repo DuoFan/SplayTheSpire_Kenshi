@@ -20,12 +20,14 @@ public class YanJieAction extends AbstractGameAction {
     int energyOnUse;
     boolean isUpgraded;
     public int extraEffect;
+    Boolean freeToPlayOnce;
 
-    public YanJieAction(int _amount, int _energyOnUse, boolean _isUpgraded, AbstractMonster _targetMonster) {
+    public YanJieAction(int _amount, int _energyOnUse, boolean _isUpgraded, Boolean _freeToPlayOnce, AbstractMonster _targetMonster) {
         amount = _amount;
         isUpgraded = _isUpgraded;
         energyOnUse = _energyOnUse;
         target = _targetMonster;
+        freeToPlayOnce = _freeToPlayOnce;
     }
 
     public void update() {
@@ -54,7 +56,7 @@ public class YanJieAction extends AbstractGameAction {
                 Utils.giveBaoYanDamage(p, target, amount, DamageInfo.DamageType.NORMAL);
                 effect--;
             }
-            if (energyOnUse > 0) {
+            if (!freeToPlayOnce && energyOnUse > 0) {
                 p.energy.use(EnergyPanel.totalCount);
             }
         }
