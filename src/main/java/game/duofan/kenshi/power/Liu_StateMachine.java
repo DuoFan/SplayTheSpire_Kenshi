@@ -299,9 +299,9 @@ public class Liu_StateMachine implements IEventListener, PostBattleSubscriber, P
             xinSuiYiDong = (XinSuiYiDong) _xinSuiYiDong;
         }
 
-        if (liu == StateEnum.None && (xinSuiYiDong == null || xinSuiYiDong.getTurnAmount() <= 0)) {
+        /*if (liu == StateEnum.None && (xinSuiYiDong == null || xinSuiYiDong.getTurnAmount() <= 0)) {
             return invokables;
-        }
+        }*/
 
         invokables.add(StateEnum.FengZhiLiu);
         invokables.add(StateEnum.XiaZhiLiu);

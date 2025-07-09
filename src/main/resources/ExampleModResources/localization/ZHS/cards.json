@@ -377,8 +377,8 @@
   },
   "game.duofan.kenshi:YanZL_FenCheng": {
     "NAME": "焚城",
-    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到不存在敌人拥有 duofan_kenshi:熔融 或所有敌人 *坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
-    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去2层 duofan_kenshi:熔融 ，直到不存在敌人拥有 duofan_kenshi:熔融 或所有敌人 *坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
+    "DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去5层 duofan_kenshi:熔融 ，直到不存在敌人拥有 duofan_kenshi:熔融 或所有敌人 *坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成1点 duofan_kenshi:爆炎伤害 并使其失去5层 duofan_kenshi:熔融 ，直到不存在敌人拥有 duofan_kenshi:熔融 或所有敌人 *坚不可摧 。 NL duofan_kenshi:炎之流 :先给予1个敌人 !M! 层 duofan_kenshi:熔融 。"
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "纯阳剑意",

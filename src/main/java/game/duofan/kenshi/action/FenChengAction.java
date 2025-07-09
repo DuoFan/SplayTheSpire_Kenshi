@@ -24,6 +24,8 @@ import java.util.Iterator;
 
 public class FenChengAction extends AbstractGameAction {
 
+    static int loseAmount = 5;
+
     public FenChengAction() {
         this.actionType = ActionType.DAMAGE;
     }
@@ -38,10 +40,10 @@ public class FenChengAction extends AbstractGameAction {
             AbstractMonster m = monsters.get(i);
             AbstractPower rongRong = m.getPower(RongRong.POWER_ID);
             if (rongRong != null && rongRong.amount > 0) {
-                if (rongRong.amount <= 2) {
+                if (rongRong.amount <= loseAmount) {
                     Utils.removePower(m, RongRong.POWER_ID);
                 } else {
-                    Utils.gainPower(m, new RongRong(m, -2));
+                    Utils.gainPower(m, new RongRong(m, -loseAmount));
                     stop = false;
                 }
             }

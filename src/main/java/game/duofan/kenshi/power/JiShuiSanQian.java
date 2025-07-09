@@ -122,7 +122,8 @@ public class JiShuiSanQian extends AbstractPower {
                 upper = null;
             }
             isCheckEveryTime = targetCard instanceof YanZL_FenCheng;
-            isCheckOnceMore = targetCard instanceof YanZL_YanJie || targetCard instanceof XZL_ChunJun;
+            isCheckOnceMore = true;
+            //isCheckOnceMore = targetCard instanceof YanZL_YanJie || targetCard instanceof XZL_ChunJun;
         }
 
         void ExecuteBlockAction() {

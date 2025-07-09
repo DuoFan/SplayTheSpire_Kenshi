@@ -377,8 +377,8 @@
   },
   "game.duofan.kenshi:YanZL_FenCheng": {
     "NAME": "Burning City",
-    "DESCRIPTION": "Deal 1 duofan_kenshi:flame-damage and lose 2 duofan_kenshi:melting to All enemies, until no enemy have duofan_kenshi:melting or All enemies invincible. NL duofan_kenshi:flame :Apply !M! duofan_kenshi:melting before.",
-    "UPGRADE_DESCRIPTION": "Deal 1 duofan_kenshi:flame-damage and lose 2 duofan_kenshi:melting to All enemies, until no enemy have duofan_kenshi:melting or All enemies invincible. NL duofan_kenshi:flame :Apply !M! duofan_kenshi:melting before."
+    "DESCRIPTION": "Deal 1 duofan_kenshi:flame-damage and lose 5 duofan_kenshi:melting to All enemies, until no enemy have duofan_kenshi:melting or All enemies invincible. NL duofan_kenshi:flame :Apply !M! duofan_kenshi:melting before.",
+    "UPGRADE_DESCRIPTION": "Deal 1 duofan_kenshi:flame-damage and lose 5 duofan_kenshi:melting to All enemies, until no enemy have duofan_kenshi:melting or All enemies invincible. NL duofan_kenshi:flame :Apply !M! duofan_kenshi:melting before."
   },
   "game.duofan.kenshi:YanZL_ChunYangJianYi": {
     "NAME": "Pure Yang\n Sword Intent",
