@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import game.duofan.common.Utils;
 import game.duofan.kenshi.card.LeXue;
 import game.duofan.kenshi.power.FanShi;
@@ -62,11 +63,13 @@ public class LeXueAmount extends DynamicVariable {
 
         int count1 = liuSet.size();
 
-        Utils.calculateRefreshDiscardPileForDraw((c) ->{
+        return 5 - count1;
+
+        /*Utils.calculateRefreshDiscardPileForDraw((c) ->{
             return liuSet.add(Utils.getLiuFromCard(c));
         });
 
-        return liuSet.size() - count1;
+        return liuSet.size() - count1;*/
     }
 
     @Override

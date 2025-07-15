@@ -25,19 +25,20 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     private static final CardStrings CARD_STRINGS = CardCrawlGame.languagePack.getCardStrings(ID); // 从游戏系统读取本地化资源
     private static final String NAME = CARD_STRINGS.NAME; // 读取本地化的名字
     private static final String IMG_PATH = "img/cards/fZL/baiHuaSha_attack.png";
-    private static final int COST = 0;
+    private static final int COST = 1;
     private static final String DESCRIPTION = CARD_STRINGS.DESCRIPTION; // 读取本地化的描述
     private static final CardType TYPE = CardType.ATTACK;
     private static final CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final CardRarity RARITY = CardRarity.BASIC;
     private static final CardTarget TARGET = CardTarget.ENEMY;
+    static final int BASE_DANAGE = 6;
 
     AbstractMonster targetMonster;
 
     public FZL_BaiHuaSha() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        this.damage = this.baseDamage = 0;
-        magicNumber = baseMagicNumber = 2;
+        this.damage = this.baseDamage = BASE_DANAGE;
+        magicNumber = baseMagicNumber = 1;
     }
 
 
@@ -48,7 +49,7 @@ public class FZL_BaiHuaSha extends CustomCard implements IFengZhiLiuCard {
     }
 
     void updateDamage(){
-        baseDamage = magicNumber * Liu_StateMachine.getInstance().getEnterLiuAmountInTurn();
+        baseDamage = BASE_DANAGE + magicNumber * Liu_StateMachine.getInstance().getEnterLiuAmountInTurn();
     }
 
     @Override

@@ -76,13 +76,13 @@ public class QingShenZhui extends AbstractPower {
         updateDescription();
     }
 
-    @Override
+    /*@Override
     public void onAfterUseCard(AbstractCard card, UseCardAction action) {
         super.onAfterUseCard(card, action);
         if(card.type != AbstractCard.CardType.SKILL && isNextTurn){
             dispose();
         }
-    }
+    }*/
 
     @Override
     public void atEndOfTurn(boolean isPlayer) {

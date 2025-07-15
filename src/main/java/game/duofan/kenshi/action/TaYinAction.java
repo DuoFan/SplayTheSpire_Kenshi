@@ -70,7 +70,7 @@ public class TaYinAction extends AbstractGameAction {
             int index = AbstractDungeon.cardRandomRng.random(0, list.size() - 1);
             liuCards = Utils.getCardsFromLiu(list.get(index).getValue());
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, true);
-            while (c.rarity == AbstractCard.CardRarity.RARE) {
+            while (c.rarity == AbstractCard.CardRarity.RARE && AbstractDungeon.cardRandomRng.random(9) < 5) {
                 c = Utils.getRandomCardsFromList(liuCards, true);
             }
             derp.add(c);

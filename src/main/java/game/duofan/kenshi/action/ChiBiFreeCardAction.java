@@ -56,7 +56,7 @@ public class ChiBiFreeCardAction extends AbstractGameAction {
 
         while (derp.size() != 3) {
             AbstractCard c = Utils.getRandomCardsFromList(liuCards, true);
-            if(c.cardID.equals(YanZL_ChiBi.ID)){
+            if (c.cardID.equals(YanZL_ChiBi.ID) && AbstractDungeon.cardRandomRng.random(9) < 7) {
                 continue;
             }
             derp.add(c);

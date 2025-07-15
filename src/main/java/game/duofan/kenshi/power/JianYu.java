@@ -71,7 +71,12 @@ public class JianYu extends AbstractPower {
             flash();
             this.addToBot(new SFXAction("ATTACK_HEAVY"));
             this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-            addToBot(new DamageAllEnemiesAction(p, amount, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+
+            int[] damages = new int[AbstractDungeon.getMonsters().monsters.size()];
+            for (int i = 0; i < damages.length; i++) {
+                damages[i] = amount;
+            }
+            addToBot(new DamageAllEnemiesAction(p, damages, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
         }
     }
 }

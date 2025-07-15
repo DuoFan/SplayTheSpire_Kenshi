@@ -38,7 +38,7 @@ public class XZL_ZiDianQingShuang extends CustomCard implements IXiaZhiLiuCard {
 
     public XZL_ZiDianQingShuang() {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
-        magicNumber = baseMagicNumber = 3;
+        magicNumber = baseMagicNumber = 2;
         updateDamage();
     }
 

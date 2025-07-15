@@ -8,7 +8,7 @@
   "game.duofan.kenshi:GongFaShanZhuan": {
     "NAME": "闪转偏折",
     "DESCRIPTIONS": [
-      "每当即将受到非律动伤害时，获得 #b%d 点 #y格挡 。"
+      "每当即将受到伤害时，获得 #b%d 点 #y格挡 。"
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
@@ -153,8 +153,8 @@
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "轻身坠",
     "DESCRIPTIONS": [
-      "受到的 #b%d 点伤害延迟到下回合结束或打出非技能牌结算。",
-      "受到的 #b%d 点伤害延迟到本回合结束或打出非技能牌结算。"
+      "受到的 #b%d 点伤害延迟到下回合结束结算。",
+      "受到的 #b%d 点伤害延迟到本回合结束结算。"
     ]
   },
   "game.duofan.kenshi:XieLiZhunBei": {

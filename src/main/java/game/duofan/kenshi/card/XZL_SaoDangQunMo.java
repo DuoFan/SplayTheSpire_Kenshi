@@ -36,13 +36,14 @@ public class XZL_SaoDangQunMo extends CustomCard implements IXiaZhiLiuCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 24;
         magicNumber = baseMagicNumber = 1;
+        isMultiDamage = true;
     }
 
     @Override
     public void upgrade() { // 升级调用的方法
         if (!this.upgraded) {
             this.upgradeName(); // 卡牌名字变为绿色并添加“+”，且标为升级过的卡牌，之后不能再升级。
-            upgradeBaseCost(2);
+            upgradeDamage(8);
             this.rawDescription = CARD_STRINGS.UPGRADE_DESCRIPTION;
             this.initializeDescription();
         }
@@ -58,10 +59,10 @@ public class XZL_SaoDangQunMo extends CustomCard implements IXiaZhiLiuCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         this.addToBot(new SFXAction("ATTACK_HEAVY"));
         this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.NONE));
     }
 
-    @Override
+    /*@Override
     public void update() {
         super.update();
         if(!isUsed){
@@ -69,7 +70,7 @@ public class XZL_SaoDangQunMo extends CustomCard implements IXiaZhiLiuCard {
             int result = cost - qiAmount;
             this.setCostForTurn(result);
         }
-    }
+    }*/
 
     @Override
     public void triggerOnGlowCheck() {

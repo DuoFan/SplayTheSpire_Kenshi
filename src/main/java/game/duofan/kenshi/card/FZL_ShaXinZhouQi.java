@@ -2,6 +2,7 @@ package game.duofan.kenshi.card;
 
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -26,7 +27,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
     private static final AbstractCard.CardType TYPE = CardType.SKILL;
     private static final AbstractCard.CardColor COLOR = Const.KENSHI_CARD_COLOR;
     private static final AbstractCard.CardRarity RARITY = CardRarity.UNCOMMON;
-    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF_AND_ENEMY;
+    private static final AbstractCard.CardTarget TARGET = CardTarget.SELF;
 
     AbstractMonster targetMonster;
 
@@ -48,7 +49,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
         }
     }
 
-    @Override
+    /*@Override
     public void update() {
         super.update();
         if (Utils.canInvokeLiuEffect(this)) {
@@ -56,7 +57,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
         } else {
             target = CardTarget.SELF;
         }
-    }
+    }*/
 
     /**
      * 当卡牌被使用时，调用这个方法。
@@ -71,7 +72,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
         AbstractDungeon.effectsQueue.add(new BorderFlashEffect(Color.SCARLET, true));
         AbstractDungeon.effectsQueue.add(new StanceChangeParticleGenerator(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, "Wrath"));
         Utils.playerGainEnergy(energyGive);
-        Utils.playerGainPower(new ShaXinZhouQi(p, magicNumber));
+        //Utils.playerGainPower(new ShaXinZhouQi(p, magicNumber));
     }
 
     @Override
@@ -80,7 +81,7 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
         Utils.determinLiuCardGlowColor(this);
     }
 
-    @Override
+    /*@Override
     public void fengZhiLiuEffect() {
         AbstractMonster m = targetMonster;
         if(m == null){
@@ -92,6 +93,11 @@ public class FZL_ShaXinZhouQi extends CustomCard implements IFengZhiLiuCard {
         }
 
         Utils.givePower(AbstractDungeon.player, m, new VulnerablePower(m, 1, false));
+    }*/
+
+    @Override
+    public void fengZhiLiuEffect() {
+        addToBot(new DrawCardAction(1));
     }
 
     @Override

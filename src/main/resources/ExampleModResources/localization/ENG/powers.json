@@ -14,7 +14,7 @@
   "game.duofan.kenshi:GongFaShanZhuan": {
     "NAME": "Deflection",
     "DESCRIPTIONS": [
-      "Gain #b%d #yBlock When you will be Non-BeatOfDeath damage."
+      "Gain #b%d #yBlock When you will be damage."
     ]
   },
   "game.duofan.kenshi:XinSuiYiDong": {
@@ -153,8 +153,8 @@
   "game.duofan.kenshi:QingShenZhui": {
     "NAME": "Falling Lightly",
     "DESCRIPTIONS": [
-      "Damage #b%d received delayed until the next turn end or play Non-Skill.",
-      "Damage #b%d received delayed until the this turn end or play Non-Skill."
+      "Damage #b%d received delayed until the next turn end.",
+      "Damage #b%d received delayed until the this turn end."
     ]
   },
   "game.duofan.kenshi:FuYao": {

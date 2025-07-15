@@ -29,8 +29,8 @@ public class GuoYanYunYanAction extends AbstractGameAction {
                         Utils.invokeLiuCardEffect(c);
                     });
                 }
+                addToTop(new ExhaustSpecificCardAction(c, hand));
             }
-            addToTop(new ExhaustSpecificCardAction(c, hand));
         }
     }
 }

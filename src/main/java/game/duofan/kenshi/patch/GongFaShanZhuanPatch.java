@@ -50,13 +50,13 @@ public class GongFaShanZhuanPatch {
             return SpireReturn.Continue();
         }
 
-        AbstractPower bodP = __instance.source.getPower(BeatOfDeathPower.POWER_ID);
+        /*AbstractPower bodP = __instance.source.getPower(BeatOfDeathPower.POWER_ID);
 
         if(bodP != null && bodP.amount >= 1 && ___info.output == bodP.amount){
             if(((GongFaShanZhuan)power).isPlayerTurn){
                 return SpireReturn.Continue();
             }
-        }
+        }*/
 
         _lastInstance = __instance;
 

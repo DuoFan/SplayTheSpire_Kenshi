@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.ActionType;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -32,7 +33,8 @@ public class LeXueAction extends AbstractGameAction {
     public void update() {
         isDone = true;
 
-        AbstractPlayer p = AbstractDungeon.player;
+        addToTop(new DrawCardAction(amount));
+        /*AbstractPlayer p = AbstractDungeon.player;
 
         CardGroup hand = p.hand;
 
@@ -55,6 +57,6 @@ public class LeXueAction extends AbstractGameAction {
             else{
                 return cards.contains(_c);
             }
-        }));
+        }));*/
     }
 }

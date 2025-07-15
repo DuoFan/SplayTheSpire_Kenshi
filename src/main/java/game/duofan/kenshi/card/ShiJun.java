@@ -41,6 +41,7 @@ public class ShiJun extends CustomCard {
         super(ID, NAME, IMG_PATH, COST, DESCRIPTION, TYPE, COLOR, RARITY, TARGET);
         this.damage = this.baseDamage = 21;
         magicNumber = baseMagicNumber = 2;
+        isMultiDamage = true;
     }
 
 
@@ -65,7 +66,7 @@ public class ShiJun extends CustomCard {
         ArrayList<AbstractMonster> monsters = Utils.getAllAliveMonsters();
         this.addToBot(new SFXAction("ATTACK_HEAVY"));
         this.addToBot(new VFXAction(p, new CleaveEffect(), 0.1F));
-        addToBot(new DamageAllEnemiesAction(p, damage, DamageInfo.DamageType.NORMAL,
+        addToBot(new DamageAllEnemiesAction(p, multiDamage, DamageInfo.DamageType.NORMAL,
                 AbstractGameAction.AttackEffect.NONE));
         Utils.addToBotAbstract(() -> {
             for (int i = 0; i < monsters.size(); i++) {

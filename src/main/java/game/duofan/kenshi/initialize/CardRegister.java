@@ -59,7 +59,7 @@ public class CardRegister implements EditCardsSubscriber {
 
         for (int i = 0; i < cards.size(); i++) {
             BaseMod.addCard(cards.get(i));
-            UnlockTracker.unlockCard(cards.get(i).cardID);
+            //UnlockTracker.unlockCard(cards.get(i).cardID);
         }
     }
 }

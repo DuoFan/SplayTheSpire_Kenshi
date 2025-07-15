@@ -11,8 +11,8 @@
   },
   "game.duofan.kenshi:LeXue": {
     "NAME": "Eclectic Study",
-    "DESCRIPTION": "For each Style not in your hand, draw 1 card of that Style. NL Draws: !duofan_kenshi:LeXueAmount!",
-    "UPGRADE_DESCRIPTION": "For each Style not in your hand, draw 1 card of that Style. NL Draws: !duofan_kenshi:LeXueAmount!"
+    "DESCRIPTION": "Each Style not in your hand let you draw 1 card. NL Draws: !duofan_kenshi:LeXueAmount!",
+    "UPGRADE_DESCRIPTION": "Each Style not in your hand let you draw 1 card. NL Draws: !duofan_kenshi:LeXueAmount!"
   },
   "game.duofan.kenshi:JianQiao": {
     "NAME": "Sword Sheath",
@@ -21,8 +21,8 @@
   },
   "game.duofan.kenshi:GongFaShanZhuan_Card": {
     "NAME": "Deflection",
-    "DESCRIPTION": "Gain !M! Block When you will be Non-BeatOfDeath damage.",
-    "UPGRADE_DESCRIPTION": "Gain !M! Block When you will be Non-BeatOfDeath damage."
+    "DESCRIPTION": "Gain !M! Block When you will be damage.",
+    "UPGRADE_DESCRIPTION": "Gain !M! Block When you will be damage. NL Innate."
   },
   "game.duofan.kenshi:XinSuiYiDong_Card": {
     "NAME": "Mind Follows Will",
@@ -71,8 +71,8 @@
   },
   "game.duofan.kenshi:TaYin": {
     "NAME": "Imprint",
-    "DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand, excluding Rare Cards. NL It costs 0 this turn. NL Exhaust "
+    "DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Choose 1 of 3 Style-Card to add into your hand. NL It costs 0 this turn. NL Exhaust "
   },
   "game.duofan.kenshi:BaoFu": {
     "NAME": "Package",
@@ -136,8 +136,8 @@
   },
   "game.duofan.kenshi:GuoYanYunYan": {
     "NAME": "Gone",
-    "DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect (if no target is specified, choose a random enemy). NL Ethereal",
-    "UPGRADE_DESCRIPTION": "Exhaust All cards in your hand and trigger their Style-Effect !M! times (if no target is specified, choose a random enemy). NL Ethereal"
+    "DESCRIPTION": "Exhaust All Style-Card in your hand and trigger their Style-Effect (if no target is specified, choose a random enemy). NL Ethereal",
+    "UPGRADE_DESCRIPTION": "Exhaust All Style-Card in your hand and trigger their Style-Effect !M! times (if no target is specified, choose a random enemy). NL Ethereal"
   },
   "game.duofan.kenshi:FZL_YaZhi": {
     "NAME": "Suppression",
@@ -207,8 +207,8 @@
   },
   "game.duofan.kenshi:FZL_ShaXinZhouQi": {
     "NAME": "Murderous Intent",
-    "DESCRIPTION": "Gain [E] [E] [E] . NL Non-Attack card played this turn cause you lose !M! HP. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal ",
-    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] . NL Non-Attack card played this turn cause you lose !M! HP. NL duofan_kenshi:leave :Apply 1 Vulnerable. NL Ethereal "
+    "DESCRIPTION": "Gain [E] [E] [E] . NL duofan_kenshi:leave :Draw 1 card. NL Ethereal ",
+    "UPGRADE_DESCRIPTION": "Gain [E] [E] [E] . NL duofan_kenshi:leave :Draw 1 card. NL Ethereal "
   },
   "game.duofan.kenshi:XZL_JuQi": {
     "NAME": "Gathering Qi",
@@ -247,8 +247,8 @@
   },
   "game.duofan.kenshi:XZL_SaoDangQunMo": {
     "NAME": "Sweep Demons",
-    "DESCRIPTION": "Deal !D! damage to All enemies. NL Each duofan_kenshi:qi reduce 1 cost for this card. NL duofan_kenshi:cloud :Each enemy that survives you gain 1 Strength.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage to All enemies. NL Each duofan_kenshi:qi reduce 1 cost for this card. NL duofan_kenshi:cloud :Each enemy that survives you gain 1 Strength."
+    "DESCRIPTION": "Deal !D! damage to All enemies. NL duofan_kenshi:cloud :Each enemy that survives you gain 1 Strength.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to All enemies. NL duofan_kenshi:cloud :Each enemy that survives you gain 1 Strength."
   },
   "game.duofan.kenshi:XZL_ZiXiaZhenQi": {
     "NAME": "Purple Realm",
@@ -292,8 +292,8 @@
   },
   "game.duofan.kenshi:YuZL_QingShenZhui": {
     "NAME": "Falling Lightly",
-    "DESCRIPTION": "Damage received delayed until the next turn end or play Non-Skill. NL duofan_kenshi:feather :Next turn, gain !B! Block. NL Exhaust ",
-    "UPGRADE_DESCRIPTION": "Damage received delayed until the next turn end or play Non-Skill. NL duofan_kenshi:feather :Next turn, gain !B! Block. NL Exhaust "
+    "DESCRIPTION": "Damage received delayed until the next turn end. NL duofan_kenshi:feather :Next turn, gain !B! Block. NL Exhaust ",
+    "UPGRADE_DESCRIPTION": "Damage received delayed until the next turn end. NL duofan_kenshi:feather :Next turn, gain !B! Block. NL Exhaust "
   },
   "game.duofan.kenshi:YuZL_YanGuiLai": {
     "NAME": "Swallow Return",
@@ -367,8 +367,8 @@
   },
   "game.duofan.kenshi:YanZL_HuoYuJingShi": {
     "NAME": "Fire Realm\n Warning",
-    "DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked in this turn, apply !M! duofan_kenshi:melting back. NL duofan_kenshi:flame :Apply 1 Weak.",
-    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL Whenever you are attacked in this turn, apply !M! duofan_kenshi:melting back. NL duofan_kenshi:flame :Apply 1 Weak."
+    "DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:flame :Draw 1 card.",
+    "UPGRADE_DESCRIPTION": "Gain !B! Block. NL duofan_kenshi:flame :Draw 1 card."
   },
   "game.duofan.kenshi:YanZL_HuoYuJianQi": {
     "NAME": "Fire Rain Slash",
@@ -392,8 +392,8 @@
   },
   "game.duofan.kenshi:YanZL_ChiBi": {
     "NAME": "Red Cliff",
-    "DESCRIPTION": "duofan_kenshi:flame-damage apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Choose 1 of 3 Flame-Card(Excluding *Red *Cliff ) to add into your hand, it costs 0 this turn.",
-    "UPGRADE_DESCRIPTION": "duofan_kenshi:flame-damage apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Choose 1 of 3 Flame-Card(Excluding *Red *Cliff ) to add into your hand, it costs 0 this turn."
+    "DESCRIPTION": "duofan_kenshi:flame-damage apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Choose 1 of 3 Flame-Card to add into your hand, it costs 0 this turn.",
+    "UPGRADE_DESCRIPTION": "duofan_kenshi:flame-damage apply !M! duofan_kenshi:melting. NL duofan_kenshi:flame :Choose 1 of 3 Flame-Card to add into your hand, it costs 0 this turn."
   },
   "game.duofan.kenshi:YanZL_LieHuoChang": {
     "NAME": "Fire Hunting\n Ground",

@@ -334,12 +334,12 @@ public class KenShi extends CustomPlayer {
         return new AbstractGameAction.AttackEffect[]{AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL, AbstractGameAction.AttackEffect.SLASH_HEAVY, AbstractGameAction.AttackEffect.FIRE, AbstractGameAction.AttackEffect.SLASH_DIAGONAL};
     }
 
-    @Override
-    public void applyStartOfCombatLogic() {
-        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, new LiuAnimListener());
-        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_EXITED, new LiuExitListener());
+    public void RegistAnimListener(){
+        LiuAnimListener animListener = new LiuAnimListener();
+        LiuExitListener exitListener = new LiuExitListener();
 
-        super.applyStartOfCombatLogic();
+        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_CHANGED, animListener);
+        EventManager.getInstance().registerToEvent(EventKey.ON_LIU_EXITED, exitListener);
     }
 
     class LiuAnimListener implements IEventListener {

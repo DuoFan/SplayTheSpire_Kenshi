@@ -2,8 +2,8 @@
   "modid": "game.duofan.kenshi",
   "name": "JianKe",
   "author_list": ["多烦"],
-  "description": "",
-  "version": "0.0.1",
+  "description": "运用多种流派技巧展开战斗的剑客，通过不同流派的切换来取得胜利。",
+  "version": "1.0.0",
   "sts_version": "06-10-2024",
   "mts_version": "3.23.2",
   "dependencies": ["basemod"]

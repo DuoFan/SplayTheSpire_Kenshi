@@ -4,6 +4,7 @@ import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -51,7 +52,7 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
         }
     }
 
-    @Override
+    /*@Override
     public void update() {
         super.update();
         if (Utils.canInvokeLiuEffect(this)) {
@@ -59,7 +60,7 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
         } else {
             target = CardTarget.NONE;
         }
-    }
+    }*/
 
     /**
      * 当卡牌被使用时，调用这个方法。
@@ -76,10 +77,10 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
             this.addToBot(new VFXAction(p, new FlameBarrierEffect(p.hb.cX, p.hb.cY), 0.5F));
         }
         Utils.playerGainBlock(block);
-        Utils.playerGainPower(new HuoYuJingShi(p, magicNumber));
+        //Utils.playerGainPower(new HuoYuJingShi(p, magicNumber));
     }
 
-    @Override
+    /*@Override
     public void yanZhiLiuEffect() {
         AbstractMonster m = targetMonster;
         if (m == null) {
@@ -89,6 +90,11 @@ public class YanZL_HuoYuJingShi extends CustomCard implements IYanZhiLiuCard {
             return;
         }
         Utils.givePower(AbstractDungeon.player, m, new WeakPower(m, 1, false));
+    }*/
+
+    @Override
+    public void yanZhiLiuEffect() {
+        addToBot(new DrawCardAction(1));
     }
 
     @Override
